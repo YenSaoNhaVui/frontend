@@ -1,2 +1,2 @@
-export * from "./useAsync";
-export * from "./useClient";
+export * from "./use-async";
+export * from "./use-client";
