@@ -1,6 +1,6 @@
 "use client";
 import { ReactNode } from "react";
-import HeaderHome from "./header-home";
+import Header from "./header";
 // import TopNavigation from "./top-navigation";
 // import { SidebarProvider } from "@/context/SidebarContext";
 // import SideBar from "./side-bar";
@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className="bg-base-shade-00-dp h-full w-full">
-        <HeaderHome />
+        <Header />
         <main className="text-white">
           {/* max-w-[1536px] 2xl:mx-auto lg:mx-8 md:mx-6 mx-4 bg */}
           {children}
