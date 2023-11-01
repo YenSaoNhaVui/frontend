@@ -42,6 +42,10 @@ const config: Config = {
         header: ["Poppins", "sans-serif"],
         default: ["Inter"],
       },
+      backgroundImage: {
+        "home-section-1":
+          "url('https://ucarecdn.com/135d2183-9ab1-4ebf-a3a2-cb5f85134190/-/preview/3000x3000/-/quality/smart/-/format/auto/')",
+      },
     },
   },
   plugins: [],
