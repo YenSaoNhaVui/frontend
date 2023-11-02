@@ -1,18 +1,23 @@
-import { ArrowDownIcon, CartIcon } from "@/components/icons";
+import { ArrowDownIcon } from "@/components/icons";
 import Icon from "@/components/ui/icon";
 import { cn } from "@/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Cart from "./cart";
+import DropDown from "@/components/ui/drop-down";
+import { useState } from "react";
+import { useClickOutSide } from "@/hooks/use-click-outside";
 
 export default function Header() {
   const url = usePathname();
-  console.log(url);
+  const [openProduct, setOpenProduct] = useState<boolean>(false);
+  useClickOutSide(openProduct, setOpenProduct, ".dropdown");
   return (
     <header
       className={cn(
-        "fixed bg-transparent top-0 left-0 right-0 w-full text-white",
+        "fixed bg-transparent top-0 left-0 right-0 w-full text-neutral-1",
         {
-          "bg-primary": url != "/",
+          "bg-primary-1-7": url != "/",
         }
       )}
     >
@@ -39,24 +44,39 @@ export default function Header() {
           {HEADERS?.map((header) => (
             <Link href="/">
               <div
+                onClick={() => setOpenProduct(!openProduct)}
                 key={header}
-                className="flex items-center gap-4 px-4 py-[11px]"
+                className="flex items-center gap-4 px-4 py-[11px] hover:text-secondary-6 [&_path]:hover:!fill-secondary-6 relative"
               >
-                <p className="text-body-14 font-medium">{header}</p>
+                <p className="text-body-sm-medium font-medium">{header}</p>
                 {header == "Sản phẩm" && (
-                  <Icon size="md">
-                    <ArrowDownIcon />
-                  </Icon>
+                  <>
+                    <Icon size="md">
+                      <ArrowDownIcon />
+                    </Icon>
+                    {openProduct && (
+                      <DropDown className="dropdown absolute bg-white top-[52px] left-20  [&_ul]:mx-0 [&_ul]:px-0 rounded-md border border-solid border-neutral-4 [&_li]:p-2.5">
+                        <li className="border-b border-solid border-neutral-4 whitespace-nowrap !text-primary-1-7">
+                          Yến tinh chế
+                        </li>
+                        <li className="border-b border-solid border-neutral-4 whitespace-nowrap !text-primary-1-7">
+                          Yến rút lông
+                        </li>
+                        <li className="border-b border-solid border-neutral-4 whitespace-nowrap !text-primary-1-7">
+                          Tổ yến cao cấp
+                        </li>
+                        <li className="whitespace-nowrap !text-primary-1-7">
+                          Quà tặng cao cấp
+                        </li>
+                      </DropDown>
+                    )}
+                  </>
                 )}
               </div>
             </Link>
           ))}
         </div>
-        <div className="absolute top-2 right-0">
-          <Icon className="!w-[34px] !h-[34px]">
-            <CartIcon />
-          </Icon>
-        </div>
+        <Cart />
       </div>
     </header>
   );

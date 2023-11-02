@@ -25,7 +25,7 @@ export const colors = {
   "secondary-3": "#9EFEE0",
   "secondary-4": "#78F3CC",
   "secondary-5": "#59E2B7",
-  "secondary-6": "#FF0000",
+  "secondary-6": "#59E2B7",
   "secondary-7": "#257D61",
   "secondary-8": "#177255",
   "secondary-9": "#095E43",
