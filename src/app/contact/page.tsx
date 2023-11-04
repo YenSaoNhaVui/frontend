@@ -1,6 +1,6 @@
 "use client";
 import Address from "./address";
-import FromContact from "./from-contact";
+import FormContact from "./form-contact";
 
 export default function ContactPage() {
   return (
@@ -12,7 +12,7 @@ export default function ContactPage() {
     >
       <div className="xl:max-w-[1280px] xl:mx-auto sm:mx-8 mx-4">
         <Address />
-        <FromContact />
+        <FormContact />
       </div>
     </section>
   );
