@@ -153,3 +153,83 @@ export function MailIcon() {
     </svg>
   );
 }
+export function SideBarIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M21 14.7V9.3C21 4.8 19.2 3 14.7 3H9.3C4.8 3 3 4.8 3 9.3V14.7C3 19.2 4.8 21 9.3 21H14.7C19.2 21 21 19.2 21 14.7Z"
+        stroke="#454545"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8.68457 2.99976V20.9998"
+        stroke="#454545"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14 10L12 12L14 14"
+        stroke="#454545"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+export function BreadCrumbsIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <line
+        x1="9.46967"
+        y1="18.0814"
+        x2="12.7049"
+        y2="6.00737"
+        stroke="#BFBFBF"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+export function SearchIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.58268 17.5001C13.9549 17.5001 17.4993 13.9557 17.4993 9.58341C17.4993 5.21116 13.9549 1.66675 9.58268 1.66675C5.21043 1.66675 1.66602 5.21116 1.66602 9.58341C1.66602 13.9557 5.21043 17.5001 9.58268 17.5001Z"
+        stroke="white"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M18.3327 18.3334L16.666 16.6667"
+        stroke="white"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

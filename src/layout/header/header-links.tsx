@@ -69,7 +69,7 @@ const HEADERS: {
   },
   {
     title: "Blog",
-    link: "/",
+    link: "/blogs",
   },
   {
     title: "Đối tác - Liên kết",

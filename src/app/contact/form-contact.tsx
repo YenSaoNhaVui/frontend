@@ -1,4 +1,3 @@
-import Editor from "@/components/editor";
 import { Button } from "@/components/ui/button";
 import { ContactValidate } from "@/validate-yub";
 import { Form, Formik } from "formik";
