@@ -9,15 +9,13 @@ import Footer from "./footer";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className="bg-base-shade-00-dp h-full w-full">
-        <Header />
-        <main className="text-white">
-          {/* max-w-[1536px] 2xl:mx-auto lg:mx-8 md:mx-6 mx-4 bg */}
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
+    <>
+      <Header />
+      <main className="text-white">
+        {/* max-w-[1536px] 2xl:mx-auto lg:mx-8 md:mx-6 mx-4 bg */}
+        {children}
+      </main>
+      <Footer />
+    </>
   );
 }
