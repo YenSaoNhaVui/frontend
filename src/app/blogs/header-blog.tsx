@@ -48,7 +48,7 @@ export default function HeaderBlog() {
         </Icon>
         <p className="text-body-sm-medium text-neutral-8">Blogs</p>
       </div>
-      <div className="mt-3 flex items-center justify-between">
+      <div className="mt-3 flex items-center justify-between flex-wrap gap-y-[30px]">
         <h5 className="text-primary-1-7">Blogs</h5>
         <div className="flex items-center gap-2.5">
           <Input

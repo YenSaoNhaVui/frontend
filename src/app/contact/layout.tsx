@@ -10,5 +10,5 @@ export default function ContactLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <Layout>{children}</Layout>;
+  return <>{children}</>;
 }

@@ -26,7 +26,7 @@ export default function FormikInput({
   };
   return (
     <div className="flex flex-col">
-      <label className="text-body-lg-semibold mb-1">
+      <label className="lg:text-body-lg-semibold text-body-md-semibold mb-1">
         {label}
         <span className="text-warning-5 ml-1">*</span>
       </label>
@@ -34,8 +34,8 @@ export default function FormikInput({
         <Editor
           className={
             error?.error
-              ? "[&_.ql-toolbar]:!border-danger-5 [&_.ql-container]:!border-danger-5"
-              : ""
+              ? "[&_.ql-toolbar]:!border-danger-5 [&_.ql-container]:!border-danger-5 [&>.ql-toolbar.ql-snow]:!px-3"
+              : "[&>.ql-toolbar.ql-snow]:!px-3 [&_.ql-clean]:!hidden"
           }
           value={field?.value}
           onValueChange={onChangeEditor}

@@ -10,5 +10,5 @@ export default function BlogsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <Layout>{children}</Layout>;
+  return <>{children}</>;
 }
