@@ -6,11 +6,11 @@ const IconVariants = cva(
   {
     variants: {
       size: {
-        xs: "w-3 h-3",
-        sm: "w-4 h-4",
-        md: "w-5 h-5",
-        lg: "w-6 h-6",
-        xl: "w-7 h-7",
+        xs: "w-3 h-3 min-h-[12px] min-w-[12px]",
+        sm: "w-4 h-4 min-h-[16px] min-w-[16px]",
+        md: "lg:w-5 lg:h-5 lg:min-h-[20px] lg:min-w-[20px] w-3 h-3 min-h-[12px] min-w-[12px]",
+        lg: "lg:w-6 lg:h-6 lg:min-h-[24px] lg:min-w-[24px] w-4 h-4 min-h-[16px] min-w-[16px]",
+        xl: "lg:w-7 lg:h-7 lg:min-h-[28px] lg:min-w-[28px] w-5 h-5 min-h-[20px] min-w-[20px]",
       },
       variant: {
         default: "",

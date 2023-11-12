@@ -17,39 +17,35 @@ a {
 
 h1,
 h2 {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 h1 {
-  font-size: 64px;
-  line-height: 80px;
+  font-size: 64px !important;
+  line-height: 80px !important;
 }
 h2 {
-  font-size: 48px;
-  line-height: 72px;
-}
-h2 {
-  font-size: 48px;
-  line-height: 72px;
+  font-size: 48px !important;
+  line-height: 72px !important;
 }
 h3 {
-  font-size: 40px;
-  line-height: 60px;
+  font-size: 40px !important;
+  line-height: 60px !important;
 }
 h4 {
-  font-size: 32px;
-  line-height: 40px;
+  font-size: 32px !important;
+  line-height: 40px !important;
 }
 h5 {
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 24px !important;
+  line-height: 30px !important;
 }
 h6 {
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 20px !important;
+  line-height: 26px !important;
 }
