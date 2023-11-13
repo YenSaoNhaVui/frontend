@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
-      <main className="text-white">
+      <main className="">
         {/* max-w-[1536px] 2xl:mx-auto lg:mx-8 md:mx-6 mx-4 bg */}
         {children}
       </main>

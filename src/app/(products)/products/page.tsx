@@ -7,7 +7,7 @@ import { Pagination } from "antd";
 
 export default function ProductsPage() {
   return (
-    <section className="bg-cover bg-no-repeat pt-[89px] pb-7 text-black">
+    <section className="bg-cover bg-no-repeat mt-8 pb-7 text-black">
       <div className="xl:max-w-[1280px] xl:mx-auto sm:mx-8 mx-4 flex gap-[30px]">
         <Categories />
         <div className="flex-1">

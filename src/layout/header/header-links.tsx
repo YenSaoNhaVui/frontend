@@ -5,7 +5,6 @@ import { useClickOutSide } from "@/hooks/use-click-outside";
 import { configSlugify } from "@/utils/config-slugify";
 import Link from "next/link";
 import { useState } from "react";
-import slugify from "slugify";
 
 function ItemLink({
   header,

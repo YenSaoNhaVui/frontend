@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className="bg-base-shade-00-dp h-full w-full">
+      <body className="h-full w-full bg-neutral-2">
         <Layout>{children}</Layout>
       </body>
     </html>
