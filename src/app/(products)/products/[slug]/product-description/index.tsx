@@ -113,7 +113,7 @@ export default function ProductDescription() {
           </div>
           <Button
             variant="ghost"
-            className="shadow-[0px_3px_4px_0px_rgba(0,0,0,0.15)]"
+            className="shadow-[0px_3px_4px_0px_rgba(0,0,0,0.15)] "
           >
             <Icon>
               <ArrowRightIcon />
