@@ -1,10 +1,16 @@
+import Link from "next/link";
 import { PlusIcon } from "../icons";
 import { Button } from "../ui/button";
 import Icon from "../ui/icon";
+import { cn } from "@/utils";
 
-export default function ProductCard() {
+interface Props {
+  className?: string;
+}
+
+export default function ProductCard({ className }: Props) {
   return (
-    <div className="w-full">
+    <div className={cn("w-full", className)}>
       <figure className="pt-[100%] relative bg-[#F2D65C] rounded-t-xl">
         <img
           className="w-[calc(100%-24px)] h-[calc(100%-32px)] absolute top-0 left-0 right-0 mx-auto bottom-0 my-auto object-cover rounded-lg"
@@ -19,7 +25,9 @@ export default function ProductCard() {
             <p className="text-body-xs-medium text-success-9">SALE</p>
           </div>
         </div>
-        <h6 className="text-primary-2-5 mb-[30px]">Yến Nhà Vui - 01</h6>
+        <Link href="/products/123">
+          <h6 className="text-primary-2-5 mb-[30px]">Yến Nhà Vui - 01</h6>
+        </Link>
         <div className="flex items-center justify-between">
           <p className="text-body-lg-semibold text-primary-2-5 flex-1">
             6.050.000

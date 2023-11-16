@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Products",
+  title: "Products Details",
   description: "Blogs",
 };
 export default function ProductsLayout({

@@ -24,7 +24,7 @@ const buttonVariants = cva(
         0: "p-0",
       },
       rounded: {
-        none: "rounded-none	",
+        none: "rounded-none",
         sm: "rounded-sm",
         default: "rounded-[50px]",
         md: "rounded-md",

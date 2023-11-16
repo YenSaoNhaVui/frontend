@@ -407,3 +407,59 @@ export function MessengerIcon() {
     </svg>
   );
 }
+export function ArrowLeftIcon() {
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.1208 6.06091L4.05078 12.1309L10.1208 18.2009"
+        stroke="black"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M21.0507 12.1309H4.2207"
+        stroke="black"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+export function ArrowRightIcon() {
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M14.8789 6.06091L20.9489 12.1309L14.8789 18.2009"
+        stroke="black"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3.94922 12.1309H20.7792"
+        stroke="black"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

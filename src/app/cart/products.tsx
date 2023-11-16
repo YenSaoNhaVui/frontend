@@ -1,6 +1,5 @@
-import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from "@/components/icons";
+import ProductQuantity from "@/components/product-quantity";
 import { Button } from "@/components/ui/button";
-import Icon from "@/components/ui/icon";
 import { cn } from "@/utils";
 
 export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
@@ -42,25 +41,12 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
               Xóa
             </Button>
           </div>
-          <div className="flex items-center col-span-2 gap-4 [&_path]:!stroke-primary-1-5">
-            {isCheckout && (
-              <Button variant="ghost" className="!p-0 !w-6">
-                <Icon size="lg">
-                  <ArrowCircleLeftIcon />
-                </Icon>
-              </Button>
-            )}
-            <p className="px-[1px] py-2 rounded-md bg-white text-body-sm-normal text-primary-1-5 min-w-[38px] text-center">
-              {product?.quantity}
-            </p>
-            {isCheckout && (
-              <Button variant="ghost" className="!p-0 !w-6">
-                <Icon size="lg">
-                  <ArrowCircleRightIcon />
-                </Icon>
-              </Button>
-            )}
-          </div>
+          <ProductQuantity
+            product={{
+              quantity: 1,
+            }}
+            isCheckout={isCheckout}
+          />
           <p className="text-body-lg-semibold text-primary-1-7 flex items-center">
             {new Intl.NumberFormat("vi-VN").format(90000000)}
           </p>

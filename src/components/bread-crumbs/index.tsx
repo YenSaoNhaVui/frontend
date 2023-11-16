@@ -2,20 +2,25 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import Icon from "../ui/icon";
 import { BreadCrumbsIcon, SideBarIcon } from "../icons";
+import { HTMLAttributes } from "react";
+import { cn } from "@/utils";
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   linkBack: string;
   titlePrev: string;
   titleCurrent: string;
+  className?: string;
 }
 
 export default function BreadCrumbs({
   linkBack,
   titlePrev,
   titleCurrent,
+  className,
+  ...props
 }: Props) {
   return (
-    <div className="flex items-center">
+    <div className={cn("flex items-center", className)} {...props}>
       <Link href={linkBack}>
         <Button variant="ghost" className="w-auto !p-1" rounded="md">
           <Icon size="lg">
