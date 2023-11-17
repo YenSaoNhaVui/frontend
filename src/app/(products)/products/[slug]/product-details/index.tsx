@@ -3,7 +3,7 @@ import ProductInfo from "./product-info";
 
 export default function ProductDetails() {
   return (
-    <div className="flex gap-10 mb-[42px]">
+    <div className="flex lg:flex-row flex-col lg:gap-10 gap-[30px] lg:mb-[42px] mb-[30px]">
       <ProductImages />
       <ProductInfo />
     </div>

@@ -8,14 +8,10 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   name: string;
   isEditor?: boolean;
+  className?: string;
 }
 
-export default function FormikInput({
-  label,
-  name,
-  isEditor = false,
-  ...props
-}: Props) {
+export default function FormikInput({ label, name, isEditor = false, className, ...props }: Props) {
   const [field, error, header] = useField(name);
   const onChangeEditor = (message: any) => {
     if (message == "<p><br></p>") {
@@ -32,11 +28,10 @@ export default function FormikInput({
       </label>
       {isEditor ? (
         <Editor
-          className={
-            error?.error
-              ? "[&_.ql-toolbar]:!border-danger-5 [&_.ql-container]:!border-danger-5 [&>.ql-toolbar.ql-snow]:!px-3"
-              : "[&>.ql-toolbar.ql-snow]:!px-3 [&_.ql-clean]:!hidden"
-          }
+          className={cn("[&>.ql-toolbar.ql-snow]:!px-3 [&_.ql-clean]:!hidden", className, {
+            "[&_.ql-toolbar]:!border-danger-5 [&_.ql-container]:!border-danger-5 [&>.ql-toolbar.ql-snow]:!px-3":
+              error?.error,
+          })}
           value={field?.value}
           onValueChange={onChangeEditor}
         />
@@ -46,8 +41,9 @@ export default function FormikInput({
           name={name}
           className={cn(
             "text-body-lg-normal px-3 py-2 bg-transparent outline-none max-w-[300px] border-[2px] border-solid border-white rounded-lg",
+            className,
             {
-              "border-danger-5": error?.error,
+              "!border-danger-5": error?.error && error?.touched,
             }
           )}
           {...props}

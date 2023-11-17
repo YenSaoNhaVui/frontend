@@ -5,6 +5,8 @@ import { Tabs, TabsProps } from "antd";
 import { cn } from "@/utils";
 import { useState } from "react";
 import ProductDescription from "./product-description";
+import MoreProducts from "./more-products";
+import ProductReview from "./product-review";
 
 export default function ProductDetailsPage() {
   const [keyTab, setKeyTab] = useState<string>("1");
@@ -19,8 +21,8 @@ export default function ProductDetailsPage() {
     },
     {
       key: "2",
-      label: "Đánh giá và bình luận",
-      children: <div>456</div>,
+      label: "Đánh giá và bình luận (2)",
+      children: <ProductReview />,
     },
   ];
   return (
@@ -40,6 +42,7 @@ export default function ProductDetailsPage() {
         })}
         onChange={onChange}
       />
+      <MoreProducts />
     </section>
   );
 }

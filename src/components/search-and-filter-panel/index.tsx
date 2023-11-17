@@ -4,7 +4,7 @@ import Icon from "../ui/icon";
 import { ArrowDownIcon, SearchIcon } from "../icons";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { configSlugify } from "@/utils/config-slugify";
 interface Props {
@@ -17,16 +17,15 @@ interface Props {
 
 export default function SearchAndFilterPanel({ filterItems, queries }: Props) {
   const [text, setText] = useState<string>("");
+  const [sort, setSort] = useState<string>("");
   const pathName = usePathname();
   const router = useRouter();
   const params = useSearchParams();
   const handleMenuClick = (info: { key: string }) => {
     const key = parseInt(info?.key || "0") - 1;
+    setSort(filterItems[key]?.label);
     const url =
-      pathName +
-      `?${getCategory(params, queries)}filter=${configSlugify(
-        filterItems[key]?.label
-      )}`;
+      pathName + `?${getCategory(params, queries)}filter=${configSlugify(filterItems[key]?.label)}`;
     router.push(url);
   };
 
@@ -36,11 +35,15 @@ export default function SearchAndFilterPanel({ filterItems, queries }: Props) {
   };
 
   const search = (e?: any) => {
-    const url =
-      pathName + `?${getCategory(params, queries)}q=${configSlugify(text)}`;
-    if (e) e.keyCode == 13 && text != "" && (router.push(url), setText(""));
-    else router.push(url), setText("");
+    const url = pathName + `?${getCategory(params, queries)}q=${configSlugify(text)}`;
+    if (e) e.keyCode == 13 && text != "" && (router.push(url), setText(""), setSort(""));
+    else router.push(url), setText(""), setSort("");
   };
+
+  useEffect(() => {
+    if (params?.get("filter") == "moi-nhat") setSort("Mới nhất");
+    else if (params?.get("filter") == "cu-nhat") setSort("Củ nhất");
+  }, [params]);
 
   return (
     <div className="flex items-center gap-2.5">
@@ -69,7 +72,7 @@ export default function SearchAndFilterPanel({ filterItems, queries }: Props) {
           rounded="md"
           className="max-w-[109px] !py-2 !gap-1 !text-[14px] !leading-[22px] !font-normal"
         >
-          Sort by
+          <p className="whitespace-nowrap">{sort == "" ? "Sort by" : sort}</p>
           <Icon size="lg">
             <ArrowDownIcon />
           </Icon>
@@ -83,7 +86,6 @@ function getCategory(params: any, queries?: string[]) {
   let queriesTmp = "";
   if (queries && queries?.length > 0)
     queries?.map((query) => {
-      console.log(params?.get(query));
       queriesTmp += `${query}=${params?.get(query)}&`;
     });
   return queriesTmp;
