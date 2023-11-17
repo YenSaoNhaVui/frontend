@@ -1,6 +1,6 @@
 "use client";
 import useAsync from "@/hooks/use-async";
-import { Question } from "@/service/interfaces";
+import { Question } from "@/interfaces";
 import { getQuestions } from "@/service/questions";
 import { Layout, List } from "antd";
 

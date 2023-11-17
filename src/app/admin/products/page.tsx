@@ -1,7 +1,7 @@
 "use client";
 import useAsync from "@/hooks/use-async";
 import { getProducts } from "@/service";
-import { Product } from "@/service/interfaces";
+import { Product } from "@/interfaces";
 import { deleteProduct } from "@/service/products/delete-product";
 import { buildQueryString, formatPrice } from "@/utils";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
@@ -40,7 +40,7 @@ export default function AdminProductsPage() {
             key="title"
             render={(_: any, product: Product) => (
               <Space>
-                <Image width={40} src={product.images?.[0]} />
+                <Image width={40} src={product.images?.[0] as string} />
                 {product.title}
               </Space>
             )}

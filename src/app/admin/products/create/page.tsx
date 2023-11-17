@@ -2,7 +2,7 @@
 import { FormInputPrice } from "@/components/form/form-input-price";
 import FormUploadImages from "@/components/form/form-upload-images";
 import { useSearchParamsData } from "@/hooks";
-import { type Product } from "@/service/interfaces";
+import { type Product } from "@/interfaces";
 import { createProduct, updateProduct } from "@/service/products";
 import { preprocessImages, uploadImages } from "@/utils";
 import { ArrowLeftOutlined } from "@ant-design/icons";

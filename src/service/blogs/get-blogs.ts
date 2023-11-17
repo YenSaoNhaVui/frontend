@@ -1,4 +1,4 @@
-import { Blog, Query } from "../interfaces";
+import { Query, Blog } from "@/interfaces";
 import { BLOGS_CONTROLLER, axiosInstance } from "..";
 
 export async function getBlogs(query?: Query): Promise<Blog[]> {
