@@ -1,5 +1,31 @@
+import {
+  BackgroundPattern,
+  Banner,
+  Blur,
+  Commitment,
+  CustomerFeedback,
+  HighLightProducts,
+  Introduction,
+  ProduceProcess,
+} from "@/components/home-component";
+
+import classes from "./page.module.css";
+
 export default function HomePage() {
   return (
-    <div className="bg-home-section-1 bg-no-repeat bg-cover bg-center h-[1000px]"></div>
+    <main className="overflow-hidden">
+      <Banner />
+      <Blur />
+      <HighLightProducts />
+      <div className={`${classes.homePattern} relative`}>
+        <BackgroundPattern />
+        <div className={`w-full relative z-10 `}>
+          <Commitment />
+          <Introduction />
+          <ProduceProcess />
+          <CustomerFeedback />
+        </div>
+      </div>
+    </main>
   );
 }

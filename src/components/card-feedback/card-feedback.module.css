@@ -1,0 +1,42 @@
+.card {
+  padding: 18px;
+  border-radius: 18px;
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: flex-end;
+  background-image: url("https://ucarecdn.com/71685303-92a3-43ca-8187-9e9b023b1c9f/-/preview/500x500/-/quality/best/-/format/auto/");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+.cardBody {
+  position: relative;
+  background-color: white;
+  padding: 32px 32px 8px 32px;
+  text-align: center;
+  border-radius: 18px;
+}
+
+.cardThumb {
+  position: absolute;
+  background: radial-gradient(circle at top right, transparent 50%, white 51%)
+      100% 36px/17px 10px no-repeat,
+    radial-gradient(circle at top left, transparent 50%, white 51%) 0 36px/17px
+      10px no-repeat,
+    radial-gradient(circle at center, white 55%, transparent 56%);
+  width: 90px;
+  height: 90px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardImage {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+}
