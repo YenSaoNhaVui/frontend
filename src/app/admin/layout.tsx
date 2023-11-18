@@ -1,4 +1,6 @@
 "use client";
+import "styles/globals.css";
+import "styles/quill.snow.css";
 import { UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Layout, Menu } from "antd";
@@ -28,18 +30,24 @@ export default function AdminLayout({ children }: Props) {
     },
   ];
   return (
-    <Layout className="mt-20">
-      <Sider width={250}>
-        <Menu
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          className="h-full"
-          items={ITEMS}
-        />
-      </Sider>
-      {children}
-      {/* <Layout></Layout> */}
-      {/* <Content className="p-8 h-screen overflow-auto"></Content> */}
-    </Layout>
+    <html lang="en">
+      <head />
+      <body className="h-full w-full">
+        <Layout className="h-full">
+          <Layout.Header></Layout.Header>
+          <Layout>
+            <Sider width={250}>
+              <Menu
+                mode="inline"
+                defaultSelectedKeys={["1"]}
+                className="h-full"
+                items={ITEMS}
+              />
+            </Sider>
+            {children}
+          </Layout>
+        </Layout>
+      </body>
+    </html>
   );
 }

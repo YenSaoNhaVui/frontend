@@ -1,7 +1,6 @@
 import Layout from "@/layout";
-import "../../styles/globals.css";
-import "../../styles/quill.snow.css";
-import type { Metadata } from "next";
+import "styles/globals.css";
+import "styles/quill.snow.css";
 import { siteConfig } from "@/config/site";
 
 // mỗi page là có một file page và một file layout (file layout dùng để seo và file page là file cho phần client)
