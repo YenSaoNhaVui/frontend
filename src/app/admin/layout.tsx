@@ -5,7 +5,8 @@ import { UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Layout, Menu } from "antd";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
+import { axiosInstance } from "@/service";
 
 const { Sider } = Layout;
 
@@ -13,6 +14,9 @@ type Props = {
   children: React.ReactNode;
 };
 export default function AdminLayout({ children }: Props) {
+  useEffect(() => {
+    axiosInstance();
+  }, []);
   const router = useRouter();
 
   const ITEMS: MenuProps["items"] = [

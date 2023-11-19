@@ -6,16 +6,8 @@ import { type Product } from "@/interfaces";
 import { createProduct, updateProduct } from "@/service/products";
 import { preprocessImages, uploadImages } from "@/utils";
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import {
-  App,
-  Button,
-  Flex,
-  Form,
-  Input,
-  InputNumber,
-  Layout,
-  UploadFile,
-} from "antd";
+// prettier-ignore
+import { App, Button, Flex, Form, Input, InputNumber, Layout, UploadFile } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const { Content, Header } = Layout;
@@ -26,7 +18,8 @@ export default function Create() {
 
   const initialProduct = useSearchParamsData<Product>();
   useEffect(() => {
-    initialProduct!.images = preprocessImages(initialProduct?.images);
+    if (initialProduct)
+      initialProduct.images = preprocessImages(initialProduct?.images);
     form.setFieldsValue(initialProduct);
   }, [initialProduct]);
 

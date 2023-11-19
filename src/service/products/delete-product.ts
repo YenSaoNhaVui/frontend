@@ -1,5 +1,6 @@
-import { PRODUCT_CONTROLLER, axiosInstance } from "..";
+import axios from "axios";
+import { PRODUCT_CONTROLLER } from "..";
 
 export async function deleteProduct(id: number): Promise<void> {
-  await axiosInstance().delete(PRODUCT_CONTROLLER + "/" + id);
+  await axios.delete(PRODUCT_CONTROLLER + "/" + id);
 }

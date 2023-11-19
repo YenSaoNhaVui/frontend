@@ -1,8 +1,9 @@
-import { PRODUCT_CONTROLLER, axiosInstance } from "..";
-import { Product as Product, Query } from "../../interfaces";
+import axios from "axios";
+import { PRODUCT_CONTROLLER } from "..";
+import { Query, Product } from "@/interfaces";
 
 export async function getProducts(query?: Query): Promise<Product[]> {
-  const { data } = await axiosInstance().get(PRODUCT_CONTROLLER, {
+  const { data } = await axios.get(PRODUCT_CONTROLLER, {
     params: query,
   });
   return data?.map((item: Product) => ({ ...item, key: item.id }));
