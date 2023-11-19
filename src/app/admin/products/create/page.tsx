@@ -11,6 +11,7 @@ import { App, Button, Flex, Form, Input, InputNumber, Layout, UploadFile } from 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const { Content, Header } = Layout;
+import FormCategories from "./form-categories";
 
 export default function Create() {
   const router = useRouter();
@@ -18,16 +19,18 @@ export default function Create() {
 
   const initialProduct = useSearchParamsData<Product>();
   useEffect(() => {
-    if (initialProduct)
-      initialProduct.images = preprocessImages(initialProduct?.images);
-    form.setFieldsValue(initialProduct);
+    form.setFieldsValue({
+      ...initialProduct,
+      images: preprocessImages(initialProduct?.images),
+      categories: initialProduct?.categories.map((item: any) => item.id),
+    });
   }, [initialProduct]);
 
   const { message } = App.useApp();
   const onSubmit = async (product: Product) => {
     setIsSubmited(true);
-    product.images = await uploadImages(product.images as UploadFile[]);
     try {
+      product.images = await uploadImages(product.images as UploadFile[]);
       if (initialProduct) {
         await updateProduct(initialProduct.id, product);
       } else {
@@ -42,13 +45,13 @@ export default function Create() {
   const [isSubmitted, setIsSubmited] = useState<boolean>(false);
 
   return (
-    <Layout className="p-8">
-      <Header className="flex bg-transparent">
+    <Layout>
+      <Header className="bg-transparent">
         <Button onClick={() => router.back()}>
           <ArrowLeftOutlined />
         </Button>
       </Header>
-      <Content>
+      <Content className="overflow-auto pr-8">
         <Form
           validateMessages={{ required: "Vui lòng nhập!" }}
           name="basic"
@@ -58,6 +61,7 @@ export default function Create() {
           labelCol={{ span: 4 }}
           wrapperCol={{ span: 10 }}
         >
+          <FormCategories />
           <Form.Item<Product>
             label="Tên"
             name="title"
@@ -108,16 +112,18 @@ export default function Create() {
             label="Chọn ảnh"
             rules={[{ required: true }]}
           />
-          <Form.Item>
-            <Flex gap="middle" justify="end">
-              <Button onClick={() => form.resetFields()}>Làm mới</Button>
-              <Button type="primary" htmlType="submit" loading={isSubmitted}>
-                OK
-              </Button>
-            </Flex>
-          </Form.Item>
         </Form>
       </Content>
+      <Layout.Footer>
+        <Flex gap="middle" justify="end">
+          {!initialProduct && (
+            <Button onClick={() => form.resetFields()}>Làm mới</Button>
+          )}
+          <Button type="primary" htmlType="submit" loading={isSubmitted}>
+            OK
+          </Button>
+        </Flex>
+      </Layout.Footer>
     </Layout>
   );
 }

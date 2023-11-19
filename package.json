@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@types/quill": "^2.0.13",
-    "@uploadcare/upload-client": "^6.10.0",
     "antd": "^5.10.3",
     "axios": "^1.6.2",
     "class-variance-authority": "^0.7.0",

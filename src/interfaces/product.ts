@@ -13,6 +13,6 @@ export interface Product {
   listPrice: number;
   details: object;
 
-  categories: Category[];
+  categories: Category[] | number[];
   // comments   Comment[]
 }
