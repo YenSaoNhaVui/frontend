@@ -54,11 +54,11 @@ export default function HeaderLinks() {
     <>
       {HEADERS?.map((header) =>
         header?.link ? (
-          <Link href={header?.link}>
+          <Link key={header?.title} href={header?.link}>
             <ItemLink header={header} />
           </Link>
         ) : (
-          <ItemLink header={header} />
+          <ItemLink key={header?.title} header={header} />
         )
       )}
     </>

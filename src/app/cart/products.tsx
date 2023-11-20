@@ -8,6 +8,7 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
       <div className="grid grid-cols-8 pb-2.5 border-b border-solid border-black">
         {["", "Sản phẩm", "Số lượng", "Giá tiền"]?.map((title, i) => (
           <p
+            key={i}
             className={cn("text-body-lg-semibold text-primary-1-7", {
               "col-span-4": i == 1,
               "col-span-2": i == 2,
@@ -18,10 +19,7 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
         ))}
       </div>
       {products?.map((product, i) => (
-        <div
-          key={i}
-          className="grid grid-cols-8 py-2.5 border-b border-solid border-black"
-        >
+        <div key={i} className="grid grid-cols-8 py-2.5 border-b border-solid border-black">
           <figure className="relative min-w-[120px] max-w-[120px] min-h-[120px] max-h-[120px] rounded-lg overflow-hidden">
             <img
               src={product?.image}
@@ -55,9 +53,7 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
       <div className="grid grid-cols-8 py-12 border-b border-solid border-black">
         <span />
         <span className="col-span-4" />
-        <p className="text-body-lg-semibold text-primary-1-7 col-span-2">
-          Tổng cộng
-        </p>
+        <p className="text-body-lg-semibold text-primary-1-7 col-span-2">Tổng cộng</p>
         <p className="text-body-lg-semibold text-primary-1-7 flex items-center">
           {new Intl.NumberFormat("vi-VN").format(90000000 * 3)}
         </p>
@@ -71,23 +67,20 @@ const products = [
     weight: "100 gram",
     quantity: 1,
     price: 6500000,
-    image:
-      "https://gamek.mediacdn.vn/133514250583805952/2020/2/12/photo-1-1581478237720967319117.jpg",
+    image: "https://gamek.mediacdn.vn/133514250583805952/2020/2/12/photo-1-1581478237720967319117.jpg",
   },
   {
     title: "Yến Nhà Vui - 01",
     weight: "100 gram",
     quantity: 1,
     price: 6500000,
-    image:
-      "https://gamek.mediacdn.vn/133514250583805952/2020/2/12/photo-1-1581478237720967319117.jpg",
+    image: "https://gamek.mediacdn.vn/133514250583805952/2020/2/12/photo-1-1581478237720967319117.jpg",
   },
   {
     title: "Yến Nhà Vui - 01",
     weight: "100 gram",
     quantity: 1,
     price: 6500000,
-    image:
-      "https://gamek.mediacdn.vn/133514250583805952/2020/2/12/photo-1-1581478237720967319117.jpg",
+    image: "https://gamek.mediacdn.vn/133514250583805952/2020/2/12/photo-1-1581478237720967319117.jpg",
   },
 ];
