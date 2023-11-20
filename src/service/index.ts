@@ -1,2 +1,5 @@
-// them folder moi theo controller cua swagger
-export * from "./product";
+export * from "./blogs";
+export * from "./products";
+export * from "./categories";
+export * from "./questions";
+export * from "./auth";

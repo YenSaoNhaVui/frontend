@@ -8,10 +8,10 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed bg-transparent top-0 left-0 right-0 w-full text-neutral-1 z-30",
+        "sticky bg-transparent top-0 left-0 right-0 w-full text-neutral-1 z-30",
         {
           "bg-primary-1-7": url != "/",
-        }
+        },
       )}
     >
       <div className="w-full flex items-center justify-center relative py-2 mx-auto max-w-[1280px]">
@@ -38,7 +38,7 @@ export default function Header() {
             "py-2.5 gap-9 w-full flex items-center justify-center",
             {
               "py-0 -mt-[1px]": url != "/",
-            }
+            },
           )}
         >
           <HeaderLinks />

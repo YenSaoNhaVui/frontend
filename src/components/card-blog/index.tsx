@@ -20,12 +20,11 @@ export default function CardBlog() {
           </Icon>
           <p className="text-body-sm-medium text-secondary-5">31/10/2003</p>
         </div>
-        <p className="mt-1 text-body-xs-normal">
-          This sunny and spacious room is for those traveling light and looking
-          for a comfy and cosy place to lay their head for a night or two. This
-          beach house sits in a vibrant neighborhood littered with cafes, pubs,
-          restaurants and supermarkets and is close to all the major attractions
-          such as Edinburgh Castle and Arthur's Seat.
+        <p className="mt-1 text-body-xs-normal text-white">
+          This sunny and spacious room is for those traveling light and looking for a comfy and cosy
+          place to lay their head for a night or two. This beach house sits in a vibrant neighborhood
+          littered with cafes, pubs, restaurants and supermarkets and is close to all the major
+          attractions such as Edinburgh Castle and Arthur's Seat.
         </p>
       </div>
     </main>

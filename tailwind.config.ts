@@ -3,6 +3,9 @@ import { colors } from "./system/color";
 import { fontSize } from "./system/text";
 
 const config: Config = {
+  corePlugins: {
+    preflight: true,
+  },
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
