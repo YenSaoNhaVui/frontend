@@ -1,12 +1,12 @@
 "use client";
-import "styles/globals.css";
-import "styles/quill.snow.css";
+import { isLoggedIn } from "@/utils";
 import { UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Layout, Menu } from "antd";
-import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
-import { axiosInstance } from "@/service";
+import { App, Layout, Menu } from "antd";
+import { redirect, usePathname, useRouter } from "next/navigation";
+import React from "react";
+import "styles/globals.css";
+import "styles/quill.snow.css";
 
 const { Sider } = Layout;
 
@@ -14,9 +14,6 @@ type Props = {
   children: React.ReactNode;
 };
 export default function AdminLayout({ children }: Props) {
-  useEffect(() => {
-    axiosInstance();
-  }, []);
   const router = useRouter();
 
   const ITEMS: MenuProps["items"] = [
@@ -33,24 +30,32 @@ export default function AdminLayout({ children }: Props) {
       onClick: (e) => router.push(e.key),
     },
   ];
+  const pathname = usePathname();
+  if (!isLoggedIn() && pathname != "/admin") redirect("/admin");
   return (
     <html lang="en">
       <head />
       <body className="h-full w-full">
-        <Layout className="h-full">
-          <Layout.Header></Layout.Header>
-          <Layout>
-            <Sider width={250}>
-              <Menu
-                mode="inline"
-                defaultSelectedKeys={["1"]}
-                className="h-full"
-                items={ITEMS}
-              />
-            </Sider>
-            {children}
-          </Layout>
-        </Layout>
+        <App className="h-full w-full">
+          {!isLoggedIn() ? (
+            children
+          ) : (
+            <Layout className="h-full">
+              <Layout.Header></Layout.Header>
+              <Layout>
+                <Sider width={250}>
+                  <Menu
+                    mode="inline"
+                    defaultSelectedKeys={["1"]}
+                    className="h-full"
+                    items={ITEMS}
+                  />
+                </Sider>
+                {children}
+              </Layout>
+            </Layout>
+          )}
+        </App>
       </body>
     </html>
   );

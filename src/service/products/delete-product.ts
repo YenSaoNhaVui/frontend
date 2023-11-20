@@ -1,6 +1,6 @@
-import axios from "axios";
 import { PRODUCT_CONTROLLER } from "..";
+import axiosInstance from "../axios-instance";
 
 export async function deleteProduct(id: number): Promise<void> {
-  await axios.delete(PRODUCT_CONTROLLER + "/" + id);
+  await axiosInstance.delete(PRODUCT_CONTROLLER + "/" + id);
 }

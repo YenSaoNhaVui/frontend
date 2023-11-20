@@ -1,8 +1,8 @@
 import { Category } from "@/interfaces";
-import axios from "axios";
 import { CATEGORY_CONTROLLER } from ".";
+import axiosInstance from "../axios-instance";
 
 export async function createCategory(category: Pick<Category, "title">) {
-  const { status } = await axios.post(CATEGORY_CONTROLLER, category);
+  const { status } = await axiosInstance.post(CATEGORY_CONTROLLER, category);
   return status;
 }

@@ -1,6 +1,6 @@
-import axios from "axios";
 import { CATEGORY_CONTROLLER } from ".";
+import axiosInstance from "../axios-instance";
 
 export async function deleteCategory(id: number): Promise<void> {
-  await axios.delete(CATEGORY_CONTROLLER + "/" + id);
+  await axiosInstance.delete(CATEGORY_CONTROLLER + "/" + id);
 }
