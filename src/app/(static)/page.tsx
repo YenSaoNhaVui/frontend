@@ -9,11 +9,11 @@ import {
   ProduceProcess,
 } from "@/components/home-component";
 
-import classes from "./page.module.css";
+import classes from "../page.module.css";
 
 export default function HomePage() {
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden -mt-[78px]">
       <Banner />
       <Blur />
       <HighLightProducts />

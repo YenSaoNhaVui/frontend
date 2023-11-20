@@ -7,12 +7,9 @@ export default function Header() {
   const url = usePathname();
   return (
     <header
-      className={cn(
-        "sticky bg-transparent top-0 left-0 right-0 w-full text-neutral-1 z-30",
-        {
-          "bg-primary-1-7": url != "/",
-        },
-      )}
+      className={cn("sticky bg-transparent top-0 left-0 right-0 w-full text-neutral-1 z-30", {
+        "bg-primary-1-7": url != "/",
+      })}
     >
       <div className="w-full flex items-center justify-center relative py-2 mx-auto max-w-[1280px]">
         {(url == "/" || url == "/contact") && (
@@ -34,12 +31,9 @@ export default function Header() {
           />
         )}
         <div
-          className={cn(
-            "py-2.5 gap-9 w-full flex items-center justify-center",
-            {
-              "py-0 -mt-[1px]": url != "/",
-            },
-          )}
+          className={cn("py-2.5 gap-9 w-full flex items-center justify-center", {
+            "py-0 -mt-[1px]": url != "/",
+          })}
         >
           <HeaderLinks />
         </div>

@@ -18,9 +18,7 @@ function ItemLink({
   useClickOutSide(openProduct, setOpenProduct, ".dropdown");
   return (
     <div
-      onClick={() =>
-        header?.title == "Sản phẩm" ? setOpenProduct(!openProduct) : null
-      }
+      onClick={() => (header?.title == "Sản phẩm" ? setOpenProduct(!openProduct) : null)}
       key={header?.title}
       className="flex items-center gap-4 px-4 py-[10px] hover:text-secondary-6 [&_path]:hover:!fill-secondary-6 relative cursor-pointer"
     >
@@ -32,12 +30,7 @@ function ItemLink({
           </Icon>
           {openProduct && (
             <DropDown className="dropdown absolute bg-white top-[52px] left-20  [&_ul]:mx-0 [&_ul]:px-0 rounded-md border border-solid border-neutral-4 [&_li]:p-2.5">
-              {[
-                "Yến tinh chế",
-                "Yến rút lông",
-                "Tổ yến cao cấp",
-                "Quà tặng cao cấp",
-              ]?.map((_) => (
+              {["Yến tinh chế", "Yến rút lông", "Tổ yến cao cấp", "Quà tặng cao cấp"]?.map((_) => (
                 <Link href={`/products?category=${configSlugify(_)}`}>
                   <li
                     key={_}
@@ -56,6 +49,7 @@ function ItemLink({
 }
 
 export default function HeaderLinks() {
+  console.log(HEADERS);
   return (
     <>
       {HEADERS?.map((header) =>
