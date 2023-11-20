@@ -1,18 +1,12 @@
 "use client";
 import BreadCrumbs from "@/components/bread-crumbs";
-import {
-  ArrowCircleLeftIcon,
-  ArrowCircleRightIcon,
-  MessengerIcon,
-  ZaloIcon,
-} from "@/components/icons";
+import { MessengerIcon, ZaloIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { useClient } from "@/hooks";
-import { cn } from "@/utils";
-import CartProducts from "./products";
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
+import CartProducts from "./products";
 
 export default function CartPage() {
   const { isClient } = useClient();
@@ -20,11 +14,7 @@ export default function CartPage() {
   if (!isClient) return <div>123</div>;
   return (
     <section className="mt-8 xl:max-w-[1280px] xl:mx-auto sm:mx-8 mx-4 mb-[70px]">
-      <BreadCrumbs
-        linkBack="/products"
-        titleCurrent="Giỏ hàng"
-        titlePrev="Sản phẩm"
-      />
+      <BreadCrumbs linkBack="/products" titleCurrent="Giỏ hàng" titlePrev="Sản phẩm" />
       <h5 className="mt-3 text-primary-1-7">Giỏ hàng</h5>
       <CartProducts isCheckout={isCheckout} />
       {isCheckout ? (

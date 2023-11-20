@@ -10,22 +10,22 @@ export default function ProductDescription() {
         <div className="grid grid-cols-2 border-b border-primary-1-7">
           <div className="flex flex-col justify-center p-5 border-r border-primary-1-7">Combo gồm</div>
           <div className="flex flex-col justify-center p-5">
-            Tổ yến tinh chế nguyên chất – cao cấp 30g (3 miếng) 01 hũ thuỷ tinh kỷ tử 01 hũ thuỷ tinh táo
-            đỏ 01 hũ thuỷ tinh đông trùng hạ thảo 01 hộp đường phèn
+            Tổ yến tinh chế nguyên chất {"-"} cao cấp 30g (3 miếng) 01 hũ thuỷ tinh kỷ tử 01 hũ thuỷ tinh
+            táo đỏ 01 hũ thuỷ tinh đông trùng hạ thảo 01 hộp đường phèn
           </div>
         </div>
         <div className="grid grid-cols-2 border-b border-primary-1-7">
           <div className="flex flex-col justify-center p-5 border-r border-primary-1-7">Combo gồm</div>
           <div className="flex flex-col justify-center p-5">
-            Tổ yến tinh chế nguyên chất – cao cấp 30g (3 miếng) 01 hũ thuỷ tinh kỷ tử 01 hũ thuỷ tinh táo
-            đỏ 01 hũ thuỷ tinh đông trùng hạ thảo 01 hộp đường phèn
+            Tổ yến tinh chế nguyên chất {"-"} cao cấp 30g (3 miếng) 01 hũ thuỷ tinh kỷ tử 01 hũ thuỷ tinh
+            táo đỏ 01 hũ thuỷ tinh đông trùng hạ thảo 01 hộp đường phèn
           </div>
         </div>
         <div className="grid grid-cols-2">
           <div className="flex flex-col justify-center p-5 border-r border-primary-1-7">Combo gồm</div>
           <div className="flex flex-col justify-center p-5">
-            Tổ yến tinh chế nguyên chất – cao cấp 30g (3 miếng) 01 hũ thuỷ tinh kỷ tử 01 hũ thuỷ tinh táo
-            đỏ 01 hũ thuỷ tinh đông trùng hạ thảo 01 hộp đường phèn
+            Tổ yến tinh chế nguyên chất {"-"} cao cấp 30g (3 miếng) 01 hũ thuỷ tinh kỷ tử 01 hũ thuỷ tinh
+            táo đỏ 01 hũ thuỷ tinh đông trùng hạ thảo 01 hộp đường phèn
           </div>
         </div>
       </div>

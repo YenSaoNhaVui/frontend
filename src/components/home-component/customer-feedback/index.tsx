@@ -1,6 +1,5 @@
 import { colors } from "../../../../system/color";
 import Carousel from "./carousel/carousel";
-import classes from "./customer-feedback.module.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const CustomerFeedback = () => {
