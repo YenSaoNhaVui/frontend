@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import classes from "./introduction.module.css";
+import classes from "./Introduction.module.css";
 import { colors } from "../../../../system/color";
 const Introduction = () => {
   return (
@@ -48,11 +48,10 @@ const Introduction = () => {
           <h5>Giới thiệu</h5>
           <h1>Yến Nhà Vui</h1>
           <p style={{ color: colors["secondary-3"] }}>
-            Thương hiệu "Yến Sào Nhà Vui" đã ghi dấu ấn mạnh mẽ trong lĩnh vực
-            Yến sào trong suốt 10 năm qua. Chúng tôi tự hào cung cấp các sản
-            phẩm Yến sào tự nhiên, không qua bất kỳ quá trình chế biến hay xử lý
-            hóa học nào, để đảm bảo giữ nguyên toàn bộ giá trị dinh dưỡng và
-            hương vị đặc biệt của loại thực phẩm này.
+            Thương hiệu "Yến Sào Nhà Vui" đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt 10 năm
+            qua. Chúng tôi tự hào cung cấp các sản phẩm Yến sào tự nhiên, không qua bất kỳ quá trình chế
+            biến hay xử lý hóa học nào, để đảm bảo giữ nguyên toàn bộ giá trị dinh dưỡng và hương vị đặc
+            biệt của loại thực phẩm này.
           </p>
           <Link href={"/"} style={{ color: colors["primary-2-6"] }}>
             Xem thêm

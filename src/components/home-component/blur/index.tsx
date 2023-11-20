@@ -1,4 +1,4 @@
-import classes from "./blur.module.css";
+import classes from "./Blur.module.css";
 const Blur = () => {
   return <div className={classes.blur}></div>;
 };

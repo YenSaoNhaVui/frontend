@@ -1,4 +1,4 @@
-import BackgroundImage from "../background-image/background-image";
+import BackgroundImage from "../background-image";
 const HighLightProducts = () => {
   return (
     <section className="w-100">
