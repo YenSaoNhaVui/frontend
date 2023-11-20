@@ -31,7 +31,7 @@ function ItemLink({
           {openProduct && (
             <DropDown className="dropdown absolute bg-white top-[52px] left-20  [&_ul]:mx-0 [&_ul]:px-0 rounded-md border border-solid border-neutral-4 [&_li]:p-2.5">
               {["Yến tinh chế", "Yến rút lông", "Tổ yến cao cấp", "Quà tặng cao cấp"]?.map((_) => (
-                <Link href={`/products?category=${configSlugify(_)}`}>
+                <Link key={_} href={`/products?category=${configSlugify(_)}`}>
                   <li
                     key={_}
                     className="border-b border-solid border-neutral-4 whitespace-nowrap !text-primary-1-7"
@@ -49,7 +49,6 @@ function ItemLink({
 }
 
 export default function HeaderLinks() {
-  console.log(HEADERS);
   return (
     <>
       {HEADERS?.map((header) =>
