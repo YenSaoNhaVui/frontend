@@ -8,7 +8,7 @@ const Introduction = () => {
       className={`relative min-h-screen gap-12 flex flex-col md:flex-row justify-center items-center pt-24 md:pt-0 ${classes.container}`}
     >
       <div
-        className={`relative md:absolute w-full md:w-5/12 h-full z-10 top-0 left-0 flex flex md:flex-row items-center`}
+        className={`relative md:absolute w-full md:w-5/12 h-full z-10 top-0 left-0 flex md:flex-row items-center`}
       >
         <div className="relative w-full flex items-center">
           <Image
@@ -48,10 +48,10 @@ const Introduction = () => {
           <h5>Giới thiệu</h5>
           <h1>Yến Nhà Vui</h1>
           <p style={{ color: colors["secondary-3"] }}>
-            Thương hiệu "Yến Sào Nhà Vui" đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt 10 năm
-            qua. Chúng tôi tự hào cung cấp các sản phẩm Yến sào tự nhiên, không qua bất kỳ quá trình chế
-            biến hay xử lý hóa học nào, để đảm bảo giữ nguyên toàn bộ giá trị dinh dưỡng và hương vị đặc
-            biệt của loại thực phẩm này.
+            Thương hiệu {`"Yến Sào Nhà Vui"`} đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt 10
+            năm qua. Chúng tôi tự hào cung cấp các sản phẩm Yến sào tự nhiên, không qua bất kỳ quá trình
+            chế biến hay xử lý hóa học nào, để đảm bảo giữ nguyên toàn bộ giá trị dinh dưỡng và hương vị
+            đặc biệt của loại thực phẩm này.
           </p>
           <Link href={"/"} style={{ color: colors["primary-2-6"] }}>
             Xem thêm
