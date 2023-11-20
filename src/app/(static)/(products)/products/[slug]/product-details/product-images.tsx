@@ -22,6 +22,7 @@ export default function ProductImages() {
           "https://img.wallscloud.net/uploads/thumb/1977700299/1049306-1024x576-MM-80.webp",
         ]?.map((img) => (
           <figure
+            key={img}
             onClick={() => setMainImg(img)}
             className="w-full lg:min-w-[160px] lg:max-w-[160px] lg:min-h-[160px] min-w-[88px] max-w-[88px] min-h-[88px] flex-1 lg:rounded-2xl rounded-lg overflow-hidden relative mb-[5px] cursor-pointer"
           >
