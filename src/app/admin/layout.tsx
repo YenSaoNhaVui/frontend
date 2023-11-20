@@ -1,8 +1,14 @@
 "use client";
-import { isLoggedIn } from "@/utils";
-import { UserOutlined } from "@ant-design/icons";
+import { isLoggedIn, logOut } from "@/service";
+import {
+  LogoutOutlined,
+  UserOutlined,
+  YuqueOutlined,
+  FileTextOutlined,
+  YuqueFilled,
+} from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { App, Layout, Menu } from "antd";
+import { App, Button, Layout, Menu } from "antd";
 import { redirect, usePathname, useRouter } from "next/navigation";
 import React from "react";
 import "styles/globals.css";
@@ -19,8 +25,14 @@ export default function AdminLayout({ children }: Props) {
   const ITEMS: MenuProps["items"] = [
     {
       key: "/admin/products",
-      icon: <UserOutlined />,
+      icon: <YuqueOutlined />,
       label: "Quản lý yến sào",
+      onClick: (e) => router.push(e.key),
+    },
+    {
+      key: "/admin/blogs",
+      icon: <FileTextOutlined />,
+      label: "Quản lý bài viết",
       onClick: (e) => router.push(e.key),
     },
     {
@@ -41,7 +53,19 @@ export default function AdminLayout({ children }: Props) {
             children
           ) : (
             <Layout className="h-full">
-              <Layout.Header></Layout.Header>
+              <Layout.Header className="bg-white items-center flex justify-between">
+                <div className="flex gap-2">
+                  <YuqueFilled className="text-xl" />
+                  <h5 className="h-6">Admin Yến Sào Nhà Vui</h5>
+                </div>
+                <Button
+                  type="text"
+                  onClick={() => logOut()}
+                  icon={<LogoutOutlined />}
+                >
+                  Đăng xuất
+                </Button>
+              </Layout.Header>
               <Layout>
                 <Sider width={250}>
                   <Menu

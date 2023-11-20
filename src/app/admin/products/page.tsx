@@ -34,7 +34,7 @@ export default function AdminProductsPage() {
       </Header>
       <Content>
         <Table dataSource={data ?? []} loading={loading} pagination={false}>
-          <Column title="STT" dataIndex="id" key="id" />
+          <Column title="STT" key="id" render={(_, __, i) => i + 1} />
           <Column
             title="Tiêu đề"
             key="title"
@@ -57,7 +57,6 @@ export default function AdminProductsPage() {
           />
 
           <Column
-            title="Action"
             key="action"
             render={(_: any, product: Product) => (
               <Space>

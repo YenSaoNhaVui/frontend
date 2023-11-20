@@ -1,6 +1,6 @@
 export interface Question {
   id: number;
-  createdAt: Date;
+  createdAt: Date | string;
   name: string;
   identity: string;
   details: string;

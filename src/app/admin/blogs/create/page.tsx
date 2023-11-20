@@ -1,40 +1,32 @@
 "use client";
-import { FormInputPrice } from "@/components/form/form-input-price";
-import FormUploadImages from "@/components/form/form-upload-images";
 import { useSearchParamsData } from "@/hooks";
-import { type Product } from "@/interfaces";
-import { createProduct, updateProduct } from "@/service/products";
-import { preprocessImages, uploadImages } from "@/utils";
+import { type Blog } from "@/interfaces";
+import { createBlog, updateBlog } from "@/service";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 // prettier-ignore
-import { App, Button, Flex, Form, Input, InputNumber, Layout, UploadFile } from "antd";
+import { App, Button, Flex, Form, Input, Layout } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const { Content, Header } = Layout;
-import FormCategories from "./form-categories";
 
 export default function Create() {
   const router = useRouter();
   const [form] = Form.useForm();
 
-  const initialProduct = useSearchParamsData<Product>();
+  const initialBlog = useSearchParamsData<Blog>();
   useEffect(() => {
-    form.setFieldsValue({
-      ...initialProduct,
-      images: preprocessImages(initialProduct?.images),
-      categories: initialProduct?.categories.map((item: any) => item.id),
-    });
-  }, [initialProduct]);
+    form.setFieldsValue(initialBlog);
+  }, [initialBlog]);
 
   const { message } = App.useApp();
-  const onSubmit = async (product: Product) => {
+  const onSubmit = async (blog: Blog) => {
     setIsSubmited(true);
+    console.log("hello");
     try {
-      product.images = await uploadImages(product.images as UploadFile[]);
-      if (initialProduct) {
-        await updateProduct(initialProduct.id, product);
+      if (initialBlog) {
+        await updateBlog(initialBlog.id, blog);
       } else {
-        await createProduct(product);
+        await createBlog(blog);
       }
       router.back();
     } catch {
@@ -62,61 +54,32 @@ export default function Create() {
           </Button>
         </Header>
         <Content className="overflow-auto pr-8">
-          <FormCategories />
-          <Form.Item<Product>
-            label="Tên"
+          <Form.Item<Blog>
+            label="Tiêu đề"
             name="title"
             rules={[{ required: true }]}
           >
             <Input />
           </Form.Item>
 
-          <Form.Item<Product>
-            label="Giá"
-            name="price"
-            rules={[{ required: true }]}
-          >
-            <FormInputPrice />
-          </Form.Item>
-
-          <Form.Item<Product>
-            label="Giá niêm yết"
-            name="listPrice"
-            rules={[{ required: true }]}
-          >
-            <FormInputPrice />
-          </Form.Item>
-
-          <Form.Item<Product>
-            label="Trọng lượng"
-            name="weights"
-            rules={[{ required: true }]}
-          >
-            <InputNumber suffix="kg" />
-          </Form.Item>
-          <Form.Item<Product>
+          <Form.Item<Blog>
             label="Mô tả"
             name="description"
             rules={[{ required: true }]}
           >
             <Input />
           </Form.Item>
-          <Form.Item<Product>
+          <Form.Item<Blog>
             label="Chi tiết"
             name="details"
             rules={[{ required: true }]}
           >
             <Input />
           </Form.Item>
-          <FormUploadImages<Product>
-            name="images"
-            label="Chọn ảnh"
-            rules={[{ required: true }]}
-          />
         </Content>
         <Layout.Footer>
           <Flex gap="middle" justify="end">
-            {!initialProduct && (
+            {!initialBlog && (
               <Button onClick={() => form.resetFields()}>Làm mới</Button>
             )}
             <Button type="primary" htmlType="submit" loading={isSubmitted}>
