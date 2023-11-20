@@ -1,4 +1,4 @@
-import FormikInput from "@/app/contact/formik-input";
+import FormikInput from "@/app/(static)/contact/formik-input";
 import { Button } from "@/components/ui/button";
 import { ContactValidate } from "@/validate-yub";
 import { Form, Formik } from "formik";

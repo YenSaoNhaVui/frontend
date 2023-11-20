@@ -1,11 +1,11 @@
-import BackgroundPattern from "./background-pattern/background-pattern";
-import Banner from "./banner/banner";
-import Blur from "./blur/blur";
-import Commitment from "./commitment/commitment";
-import CustomerFeedback from "./customer-feedback/customer-feedback";
-import HighLightProducts from "./highlight-products/highlight-products";
-import Introduction from "./introduction/introduction";
-import ProduceProcess from "./produce-process/produce-process";
+import BackgroundPattern from "./background-pattern";
+import Banner from "./banner";
+import Blur from "./blur";
+import Commitment from "./commitment";
+import CustomerFeedback from "./customer-feedback";
+import HighLightProducts from "./highlight-products";
+import Introduction from "./introduction";
+import ProduceProcess from "./produce-process";
 
 export {
   BackgroundPattern,
