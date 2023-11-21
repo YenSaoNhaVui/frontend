@@ -18,7 +18,7 @@ export default function Categories({ refetch, categories }: Props) {
       await deleteCategory(id);
       refetch();
     } catch (error) {
-      console.log(error);
+      console.error(error);
       message.error("Không thể xóa!");
     }
   };
@@ -46,10 +46,7 @@ export default function Categories({ refetch, categories }: Props) {
       ))}
 
       <div className="flex justify-between gap-4">
-        <Input
-          value={categoryName}
-          onChange={(e) => setCategoryName(e.target.value)}
-        />
+        <Input value={categoryName} onChange={(e) => setCategoryName(e.target.value)} />
         <Button
           type="primary"
           shape="circle"

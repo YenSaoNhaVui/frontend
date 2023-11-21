@@ -21,7 +21,6 @@ export default function Create() {
   const { message } = App.useApp();
   const onSubmit = async (blog: Blog) => {
     setIsSubmited(true);
-    console.log("hello");
     try {
       if (initialBlog) {
         await updateBlog(initialBlog.id, blog);

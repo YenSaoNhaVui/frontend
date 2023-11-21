@@ -10,11 +10,7 @@ interface Props<T> extends FormItemProps {
 }
 
 // NOTE copy from Antd docs
-export default function FormUploadImages<T>({
-  name,
-  label,
-  ...props
-}: Props<T>) {
+export default function FormUploadImages<T>({ name, label, ...props }: Props<T>) {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
   const [previewTitle, setPreviewTitle] = useState("");
@@ -28,9 +24,7 @@ export default function FormUploadImages<T>({
 
     setPreviewImage(file.url || (file.preview as string));
     setPreviewOpen(true);
-    setPreviewTitle(
-      file.name || file.url!.substring(file.url!.lastIndexOf("/") + 1),
-    );
+    setPreviewTitle(file.name || file.url!.substring(file.url!.lastIndexOf("/") + 1));
   };
 
   return (
@@ -54,12 +48,7 @@ export default function FormUploadImages<T>({
           </div>
         </Upload>
       </Form.Item>
-      <Modal
-        open={previewOpen}
-        title={previewTitle}
-        footer={null}
-        onCancel={handleCancel}
-      >
+      <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>
         <img alt="example" style={{ width: "100%" }} src={previewImage} />
       </Modal>
     </>
@@ -67,7 +56,6 @@ export default function FormUploadImages<T>({
 }
 
 const normFile = (e: any) => {
-  console.log("hello:", e);
   if (Array.isArray(e)) {
     return e;
   }

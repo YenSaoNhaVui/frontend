@@ -33,7 +33,6 @@ export default function Create() {
     try {
       product.images = await uploadImages(product.images as UploadFile[]);
       product.categories = product.categories.map((category) => ({ id: category }) as Category);
-      console.log(product);
       if (initialProduct) {
         await updateProduct(initialProduct.id, product);
       } else {
