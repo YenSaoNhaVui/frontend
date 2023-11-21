@@ -4,7 +4,7 @@ import { type Blog } from "@/interfaces";
 import { createBlog, updateBlog } from "@/service";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 // prettier-ignore
-import { App, Button, Flex, Form, Input, Layout } from "antd";
+import { App, Button, Form, Input, Layout } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const { Content, Header } = Layout;
@@ -43,14 +43,24 @@ export default function Create() {
       onFinish={onSubmit}
       autoComplete="off"
       form={form}
-      labelCol={{ span: 4 }}
-      wrapperCol={{ span: 10 }}
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 14 }}
     >
       <Layout className="h-full">
         <Header className="bg-transparent">
-          <Button onClick={() => router.back()}>
-            <ArrowLeftOutlined />
-          </Button>
+          <div className="flex h-full items-center w-full justify-between">
+            <Button onClick={() => router.back()} icon={<ArrowLeftOutlined />} shape="circle" />
+            <div className="flex gap-2">
+              {!initialBlog && (
+                <Button className="w-36" onClick={() => form.resetFields()}>
+                  Làm mới
+                </Button>
+              )}
+              <Button className="w-36" type="primary" htmlType="submit" loading={isSubmitted}>
+                OK
+              </Button>
+            </div>
+          </div>
         </Header>
         <Content className="overflow-auto pr-8">
           <Form.Item<Blog> label="Tiêu đề" name="title" rules={[{ required: true }]}>
@@ -64,14 +74,6 @@ export default function Create() {
             <Input />
           </Form.Item>
         </Content>
-        <Layout.Footer>
-          <Flex gap="middle" justify="end">
-            {!initialBlog && <Button onClick={() => form.resetFields()}>Làm mới</Button>}
-            <Button type="primary" htmlType="submit" loading={isSubmitted}>
-              OK
-            </Button>
-          </Flex>
-        </Layout.Footer>
       </Layout>
     </Form>
   );

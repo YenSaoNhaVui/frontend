@@ -11,7 +11,7 @@ export interface Product {
   weights: object;
   price: number;
   listPrice: number;
-  details: object;
+  details: [{ title: string; value: object }];
 
   categories: Category[] | number[];
   // comments   Comment[]

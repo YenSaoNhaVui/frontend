@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const { Content, Header } = Layout;
 import FormCategories from "./form-categories";
-import FormReactQuill from "@/components/form/form-react-quill";
+import FormDetails from "./form-details";
 
 export default function Create() {
   const router = useRouter();
@@ -54,14 +54,24 @@ export default function Create() {
       onFinish={onSubmit}
       autoComplete="off"
       form={form}
-      labelCol={{ span: 4 }}
-      wrapperCol={{ span: 10 }}
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 14 }}
     >
       <Layout className="h-full">
         <Header className="bg-transparent">
-          <Button onClick={() => router.back()}>
-            <ArrowLeftOutlined />
-          </Button>
+          <div className="flex h-full items-center w-full justify-between">
+            <Button onClick={() => router.back()} icon={<ArrowLeftOutlined />} shape="circle" />
+            <div className="flex gap-2">
+              {!initialProduct && (
+                <Button className="w-36" onClick={() => form.resetFields()}>
+                  Làm mới
+                </Button>
+              )}
+              <Button className="w-36" type="primary" htmlType="submit" loading={isSubmitted}>
+                OK
+              </Button>
+            </div>
+          </div>
         </Header>
         <Content className="overflow-auto pr-8">
           <FormCategories />
@@ -83,19 +93,9 @@ export default function Create() {
           <Form.Item<Product> label="Mô tả" name="description" rules={[{ required: true }]}>
             <Input.TextArea rows={5} />
           </Form.Item>
-          <Form.Item<Product> label="Chi tiết" name="details" rules={[{ required: true }]}>
-            <FormReactQuill />
-          </Form.Item>
+          <FormDetails />
           <FormUploadImages<Product> name="images" label="Chọn ảnh" rules={[{ required: true }]} />
         </Content>
-        <Layout.Footer>
-          <Flex gap="middle" justify="end">
-            {!initialProduct && <Button onClick={() => form.resetFields()}>Làm mới</Button>}
-            <Button type="primary" htmlType="submit" loading={isSubmitted}>
-              OK
-            </Button>
-          </Flex>
-        </Layout.Footer>
       </Layout>
     </Form>
   );

@@ -21,5 +21,12 @@ export default function FormReactQuill({ value: defaultValue, onChange }: Props)
     setValue(v);
     onChange?.(v);
   }
-  return <ReactQuill value={defaultValue || value} onChange={handleChange} theme="snow" />;
+  return (
+    <ReactQuill
+      value={defaultValue || value}
+      onChange={handleChange}
+      theme="snow"
+      className="!bg-white"
+    />
+  );
 }
