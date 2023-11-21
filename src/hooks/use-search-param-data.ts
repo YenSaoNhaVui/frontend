@@ -2,12 +2,13 @@ import { useSearchParams } from "next/navigation";
 
 export function useSearchParamsData<T>(): T | null {
   const params = useSearchParams();
-
   try {
     const data = params.get("data");
+    console.log(params.toString());
     if (data) return JSON.parse(data);
     return null;
-  } catch {
+  } catch (error) {
+    console.error("Parse params failed!");
     return null;
   }
 }

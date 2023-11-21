@@ -54,34 +54,20 @@ export default function Create() {
           </Button>
         </Header>
         <Content className="overflow-auto pr-8">
-          <Form.Item<Blog>
-            label="Tiêu đề"
-            name="title"
-            rules={[{ required: true }]}
-          >
+          <Form.Item<Blog> label="Tiêu đề" name="title" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
 
-          <Form.Item<Blog>
-            label="Mô tả"
-            name="description"
-            rules={[{ required: true }]}
-          >
-            <Input />
+          <Form.Item<Blog> label="Mô tả" name="description" rules={[{ required: true }]}>
+            <Input.TextArea rows={5} />
           </Form.Item>
-          <Form.Item<Blog>
-            label="Chi tiết"
-            name="details"
-            rules={[{ required: true }]}
-          >
+          <Form.Item<Blog> label="Chi tiết" name="details" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
         </Content>
         <Layout.Footer>
           <Flex gap="middle" justify="end">
-            {!initialBlog && (
-              <Button onClick={() => form.resetFields()}>Làm mới</Button>
-            )}
+            {!initialBlog && <Button onClick={() => form.resetFields()}>Làm mới</Button>}
             <Button type="primary" htmlType="submit" loading={isSubmitted}>
               OK
             </Button>
