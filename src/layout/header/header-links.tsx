@@ -53,7 +53,7 @@ export default function HeaderLinks() {
     <>
       {HEADERS?.map((header) =>
         header?.link ? (
-          <Link key={header?.title} href={header?.link}>
+          <Link key={header?.title} href={header?.link} className="text-neutral-1">
             <ItemLink header={header} />
           </Link>
         ) : (

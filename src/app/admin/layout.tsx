@@ -1,4 +1,5 @@
 "use client";
+import { useClient } from "@/hooks";
 import { isLoggedIn, logOut } from "@/service";
 import {
   LogoutOutlined,
@@ -10,7 +11,7 @@ import {
 import type { MenuProps } from "antd";
 import { App, Button, Layout, Menu } from "antd";
 import { redirect, usePathname, useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "styles/globals.css";
 import "styles/quill.snow.css";
 
@@ -43,43 +44,41 @@ export default function AdminLayout({ children }: Props) {
     },
   ];
   const pathname = usePathname();
-  if (!isLoggedIn() && pathname != "/admin") redirect("/admin");
+  const { isClient } = useClient(() => {
+    if (!isLoggedIn() && pathname != "/admin") redirect("/admin");
+    else if (pathname == "/admin" && isLoggedIn()) redirect("/admin/products");
+  });
   return (
     <html lang="en">
       <head />
       <body className="h-full w-full">
-        <App className="h-full w-full">
-          {!isLoggedIn() ? (
-            children
-          ) : (
-            <Layout className="h-full">
-              <Layout.Header className="bg-white items-center flex justify-between">
-                <div className="flex gap-2">
-                  <YuqueFilled className="text-xl" />
-                  <h5 className="h-6">Admin Yến Sào Nhà Vui</h5>
-                </div>
-                <Button
-                  type="text"
-                  onClick={() => logOut()}
-                  icon={<LogoutOutlined />}
-                >
-                  Đăng xuất
-                </Button>
-              </Layout.Header>
-              <Layout>
-                <Sider width={250}>
-                  <Menu
-                    mode="inline"
-                    defaultSelectedKeys={["1"]}
-                    className="h-full"
-                    items={ITEMS}
-                  />
-                </Sider>
-                {children}
+        {isClient ? (
+          <App className="h-full w-full">
+            {!isLoggedIn() ? (
+              children
+            ) : (
+              <Layout className="h-full">
+                <Layout.Header className="bg-white items-center flex justify-between">
+                  <div className="flex gap-2">
+                    <YuqueFilled className="text-xl" />
+                    <h5 className="h-6">Admin Yến Sào Nhà Vui</h5>
+                  </div>
+                  <Button type="text" onClick={() => logOut()} icon={<LogoutOutlined />}>
+                    Đăng xuất
+                  </Button>
+                </Layout.Header>
+                <Layout>
+                  <Sider width={250}>
+                    <Menu mode="inline" defaultSelectedKeys={["1"]} className="h-full" items={ITEMS} />
+                  </Sider>
+                  {children}
+                </Layout>
               </Layout>
-            </Layout>
-          )}
-        </App>
+            )}
+          </App>
+        ) : (
+          <></>
+        )}
       </body>
     </html>
   );
