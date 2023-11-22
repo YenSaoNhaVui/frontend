@@ -1,5 +1,4 @@
 @import "antd/dist/reset.css";
-
 /* fix Tailwind CSS border styles,form Tailwind CSS's preflight */
 *,
 ::before,
@@ -20,27 +19,68 @@
 @tailwind base;
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+@font-face {
+  font-family: poppinsBold;
+  src: url("../src/assets/fonts/SVN-Poppins-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: poppinsNormal;
+  src: url("../src/assets/fonts/SVN-Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: poppinsMedium;
+  src: url("../src/assets/fonts/SVN-Poppins-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: poppinsSemibold;
+  src: url("../src/assets/fonts/SVN-Poppins-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: streetSignSans;
+  src: url("../src/assets/fonts/StreetSignSans.otf") format("truetype");
+}
+
+.font-poppins-normal {
+  font-family: poppinsNormal, sans-serif !important;
+}
+
+.font-poppins-medium {
+  font-family: poppinsMedium, sans-serif !important;
+}
+
+.font-poppins-semibold {
+  font-family: poppinsSemibold, sans-serif !important;
+}
+
+.font-poppins-bold {
+  font-family: poppinsBold, sans-serif !important;
+}
+
+.font-street-sign-sans {
+  font-family: streetSignSans, sans-serif !important;
+}
+
 p,
 span,
 a {
-  font-family: "SVN-Poppins", sans-serif;
+  font-family: poppinsNormal, sans-serif;
 }
 
 h1,
 h2 {
   font-weight: 700 !important;
+  font-family: poppinsBold, sans-serif;
 }
 h3,
 h4,
 h5,
 h6 {
   font-weight: 600 !important;
+  font-family: poppinsSemibold, sans-serif;
 }
 h1 {
   font-size: 64px !important;

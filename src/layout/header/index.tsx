@@ -5,14 +5,15 @@ import HeaderLinks from "./header-links";
 
 export default function Header() {
   const url = usePathname();
+  const logoHome = ["/", "/about"];
   return (
     <header
       className={cn("sticky bg-transparent top-0 left-0 right-0 w-full text-neutral-1 z-30", {
-        "bg-primary-1-7": url != "/",
+        "bg-primary-1-7": url != "/" && url != "/about",
       })}
     >
       <div className="w-full flex items-center justify-center relative py-2 mx-auto max-w-[1280px]">
-        {(url == "/" || url == "/contact") && (
+        {(logoHome.indexOf(url) != -1 || url == "/contact") && (
           <img
             src="https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/preview/-/quality/smart/-/format/auto/"
             className={cn("absolute left-0 top-[13px]", {
@@ -21,7 +22,7 @@ export default function Header() {
             alt="logo"
           />
         )}
-        {url != "/" && (
+        {logoHome.indexOf(url) == -1 && (
           <img
             src="https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/preview/-/quality/smart/-/format/auto/"
             alt="logo Yến sào vui"
