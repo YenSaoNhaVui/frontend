@@ -99,9 +99,9 @@ export default function AboutPage() {
             </p>
             <p className="text-body-lg-regular">
               Chúng tôi hiểu rằng Yến sào thô là một nguồn thực phẩm quý báu với nhiều giá trị dinh dưỡng
-              và sức khỏe. "Yến Sào Nhà Vui" cam kết đem đến cho khách hàng sự tin tưởng và hài lòng bằng
-              việc cung cấp các sản phẩm Yến sào thô chất lượng và an toàn, giữ nguyên nguồn gốc tự nhiên
-              của sản phẩm.
+              và sức khỏe. {`"Yến Sào Nhà Vui"`} cam kết đem đến cho khách hàng sự tin tưởng và hài lòng
+              bằng việc cung cấp các sản phẩm Yến sào thô chất lượng và an toàn, giữ nguyên nguồn gốc tự
+              nhiên của sản phẩm.
             </p>
           </div>
         </div>
