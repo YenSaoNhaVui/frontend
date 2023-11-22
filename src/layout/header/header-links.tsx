@@ -74,7 +74,7 @@ const HEADERS: {
   },
   {
     title: "Giới thiệu",
-    link: "/",
+    link: "/about",
   },
   {
     title: "Sản phẩm",
