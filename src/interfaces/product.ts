@@ -8,11 +8,13 @@ export interface Product {
   title: string;
   description: string;
   images: string[] | UploadFile[];
-  weights: object;
+
+  weights: number[];
+
   price: number;
   listPrice: number;
   details: [{ title: string; value: object }];
 
   categories: Category[] | number[];
-  // comments   Comment[]
+  comments: Comment[];
 }

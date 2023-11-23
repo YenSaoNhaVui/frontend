@@ -2,16 +2,17 @@
 import { useClient } from "@/hooks";
 import { isLoggedIn, logOut } from "@/service";
 import {
-  LogoutOutlined,
-  UserOutlined,
-  YuqueOutlined,
   FileTextOutlined,
+  LogoutOutlined,
+  ShoppingCartOutlined,
+  UserOutlined,
   YuqueFilled,
+  YuqueOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { App, Button, Layout, Menu } from "antd";
 import { redirect, usePathname, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "styles/globals.css";
 import "styles/quill.snow.css";
 
@@ -25,11 +26,18 @@ export default function AdminLayout({ children }: Props) {
 
   const ITEMS: MenuProps["items"] = [
     {
+      key: "/admin/orders",
+      icon: <ShoppingCartOutlined />,
+      label: "Đặt hàng",
+      onClick: (e) => router.push(e.key),
+    },
+    {
       key: "/admin/products",
       icon: <YuqueOutlined />,
       label: "Quản lý yến sào",
       onClick: (e) => router.push(e.key),
     },
+
     {
       key: "/admin/blogs",
       icon: <FileTextOutlined />,

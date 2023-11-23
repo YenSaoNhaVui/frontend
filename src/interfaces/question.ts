@@ -4,4 +4,5 @@ export interface Question {
   name: string;
   identity: string;
   details: string;
+  viewed: boolean;
 }

@@ -1,7 +1,7 @@
 import { Category } from "@/interfaces";
 import { createCategory, deleteCategory } from "@/service/categories";
 import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
-import { App, Button, Input } from "antd";
+import { App, Button, Input, Popconfirm } from "antd";
 import { useState } from "react";
 
 type Props = {
@@ -35,13 +35,12 @@ export default function Categories({ refetch, categories }: Props) {
       {categories.map((category, i) => (
         <div className="flex  justify-between items-center" key={i}>
           <p className="leading-5 h-full align-middle">{category.title}</p>
-          <Button
-            shape="circle"
-            icon={<DeleteOutlined />}
-            type="text"
-            danger
-            onClick={() => handleDeleteCategory(category.id)}
-          />
+          <Popconfirm
+            title="Lưu ý không thể khôi phục sau khi xóa"
+            onConfirm={() => handleDeleteCategory(category.id)}
+          >
+            <Button shape="circle" icon={<DeleteOutlined />} type="text" danger />
+          </Popconfirm>
         </div>
       ))}
 

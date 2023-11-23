@@ -34,7 +34,14 @@ export default function AdminblogsPage() {
       <Content>
         <Table dataSource={data ?? []} loading={loading} pagination={false}>
           <Column title="STT" key="id" render={(_, __, i) => i + 1} />
-          <Column<Blog> title="Tiêu đề" key="title" dataIndex="title" />
+          <Column<Blog>
+            title="Tiêu đề"
+            key="title"
+            dataIndex="title"
+            filterSearch={true}
+            onFilter={(value, { id }) => value == id}
+            filters={data?.map(({ id, title }) => ({ text: title, value: id }))}
+          />
           <Column title="Mô tả" key="description" dataIndex="description" />
           <Column
             title="Ngày"
@@ -58,9 +65,7 @@ export default function AdminblogsPage() {
                 <Button
                   shape="circle"
                   icon={<EditOutlined />}
-                  onClick={() =>
-                    router.push(buildQueryString("/admin/blogs/create", blog))
-                  }
+                  onClick={() => router.push(buildQueryString("/admin/blogs/create", blog))}
                 ></Button>
               </Space>
             )}

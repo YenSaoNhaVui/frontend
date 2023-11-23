@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 const { Content, Header } = Layout;
 import FormCategories from "./form-categories";
 import FormDetails from "./form-details";
+import FormWeights from "./form-weights";
 
 export default function Create() {
   const router = useRouter();
@@ -87,8 +88,8 @@ export default function Create() {
             <FormInputPrice />
           </Form.Item>
 
-          <Form.Item<Product> label="Trọng lượng" name="weights" rules={[{ required: true }]}>
-            <InputNumber suffix="kg" />
+          <Form.Item<Product> label="Trọng lượng">
+            <FormWeights />
           </Form.Item>
           <Form.Item<Product> label="Mô tả" name="description" rules={[{ required: true }]}>
             <Input.TextArea rows={5} />
