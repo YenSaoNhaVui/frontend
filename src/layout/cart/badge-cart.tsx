@@ -7,18 +7,13 @@ interface Props {
   children: React.ReactElement;
 }
 
-export default function Badge({
-  className,
-  content,
-  children,
-  ...props
-}: Props) {
+export default function Badge({ className, content, children, ...props }: Props) {
   return (
     <div className="relative">
       {children}
       <p
         className={cn(
-          "absolute top-1 -right-[3px] flex items-center justify-center z-30 rounded-full text-center text-body-md-semibold w-5 bg-[#3ABF9C] text-white",
+          "absolute top-1 lg:-right-[3px] right-0 flex items-center justify-center z-30 rounded-full text-center lg:text-body-md-semibold lg:w-5 w-2.5 h-[13px] bg-[#3ABF9C] text-white text-body-xs-semibold",
           className
         )}
       >

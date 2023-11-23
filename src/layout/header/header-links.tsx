@@ -64,7 +64,7 @@ export default function HeaderLinks() {
   );
 }
 
-const HEADERS: {
+export const HEADERS: {
   title: string;
   link?: string;
 }[] = [
@@ -85,7 +85,7 @@ const HEADERS: {
   },
   {
     title: "Đối tác - Liên kết",
-    link: "/",
+    link: "/jj",
   },
   {
     title: "Liên hệ",
