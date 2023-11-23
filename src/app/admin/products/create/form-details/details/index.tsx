@@ -13,32 +13,39 @@ export function Details({ name, remove }: Props) {
   const [isTable, setIsTable] = useState<boolean>(false);
   return (
     <div className="relative">
-      <Radio.Group
-        onChange={(e) => setIsTable(e.target.value)}
-        value={isTable}
-        optionType="button"
-        buttonStyle="solid"
-        className="mb-2"
+      <Form.Item
+        name={[name, "isTable"]}
+        getValueProps={(value) => {
+          if (value == undefined) value = false;
+          setIsTable(value);
+          return value;
+        }}
       >
-        <Radio value={false}>Nội dung</Radio>
-        <Radio value={true}>Bảng</Radio>
-      </Radio.Group>
+        <Radio.Group
+          onChange={(e) => setIsTable(e.target.value)}
+          value={isTable}
+          optionType="button"
+          buttonStyle="solid"
+          className="mb-2"
+        >
+          <Radio value={false}>Nội dung</Radio>
+          <Radio value={true}>Bảng</Radio>
+        </Radio.Group>
+      </Form.Item>
+
       <Form.Item name={[name, "title"]} rules={[{ required: true }]} label="Tên mục">
         <Input />
       </Form.Item>
 
-      <Form.Item
-        name={[name, "last"]}
-        rules={[{ required: true }]}
-        label={isTable ? "Bảng" : "Nội dung"}
-      >
-        {isTable ? (
-          //<FormTable />
-          <div>Chưa làm</div>
-        ) : (
+      {isTable ? (
+        <Form.Item label="Bảng">
+          <FormTable name={[name, "table"]} />
+        </Form.Item>
+      ) : (
+        <Form.Item name={[name, "quill"]} rules={[{ required: true }]} label={"Nội dung"}>
           <FormReactQuill />
-        )}
-      </Form.Item>
+        </Form.Item>
+      )}
       <Button
         danger
         type="text"

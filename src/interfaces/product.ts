@@ -13,7 +13,14 @@ export interface Product {
 
   price: number;
   listPrice: number;
-  details: [{ title: string; value: object }];
+  details: [
+    {
+      isTable: boolean;
+      title: string;
+      quill: { title: string; content: string };
+      details: string;
+    },
+  ];
 
   categories: Category[] | number[];
   comments: Comment[];

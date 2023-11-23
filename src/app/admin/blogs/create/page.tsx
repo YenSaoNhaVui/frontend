@@ -1,4 +1,5 @@
 "use client";
+import FormReactQuill from "@/components/form/form-react-quill";
 import { useSearchParamsData } from "@/hooks";
 import { type Blog } from "@/interfaces";
 import { createBlog, updateBlog } from "@/service";
@@ -71,7 +72,7 @@ export default function Create() {
             <Input.TextArea rows={5} />
           </Form.Item>
           <Form.Item<Blog> label="Chi tiết" name="details" rules={[{ required: true }]}>
-            <Input />
+            <FormReactQuill />
           </Form.Item>
         </Content>
       </Layout>
