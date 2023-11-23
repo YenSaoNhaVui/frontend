@@ -10,13 +10,13 @@ export default function Cart() {
 
   return (
     <div
-      className={cn("absolute top-2 right-0", {
-        "top-3": url != "/",
+      className={cn("lg:absolute relative lg:top-2 right-0", {
+        "lg:top-3": url != "/",
       })}
     >
       <Link href="/cart">
         <Badge content={0}>
-          <Icon className="!w-[34px] !h-[34px]">
+          <Icon className="lg:!w-[34px] lg:!h-[34px] !h-[18px] !w-[18px]">
             <CartIcon />
           </Icon>
         </Badge>

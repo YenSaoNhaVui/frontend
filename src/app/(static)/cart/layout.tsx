@@ -4,10 +4,6 @@ export const metadata: Metadata = {
   description: "Cart",
 };
 
-export default function CartLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function CartLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

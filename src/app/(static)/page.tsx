@@ -13,7 +13,7 @@ import classes from "../page.module.css";
 
 export default function HomePage() {
   return (
-    <main className="overflow-hidden -mt-[78px]">
+    <main className="overflow-hidden lg:-mt-[78px] -mt-[90px]">
       <Banner />
       <Blur />
       <HighLightProducts />
