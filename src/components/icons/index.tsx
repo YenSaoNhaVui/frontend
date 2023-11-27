@@ -396,3 +396,30 @@ export function MenuIcon() {
     </svg>
   );
 }
+export function FilterIcon() {
+  return (
+    <svg width="100%" height="100%" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M10.8411 2.43335L15.7578 4.61668C17.1744 5.24168 17.1744 6.27502 15.7578 6.90002L10.8411 9.08335C10.2828 9.33335 9.36611 9.33335 8.80778 9.08335L3.89111 6.90002C2.47445 6.27502 2.47445 5.24168 3.89111 4.61668L8.80778 2.43335C9.36611 2.18335 10.2828 2.18335 10.8411 2.43335Z"
+        stroke="white"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M2.5 9.16669C2.5 9.86669 3.025 10.675 3.66667 10.9584L9.325 13.475C9.75833 13.6667 10.25 13.6667 10.675 13.475L16.3333 10.9584C16.975 10.675 17.5 9.86669 17.5 9.16669"
+        stroke="white"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M2.5 13.3333C2.5 14.1083 2.95833 14.8083 3.66667 15.125L9.325 17.6416C9.75833 17.8333 10.25 17.8333 10.675 17.6416L16.3333 15.125C17.0417 14.8083 17.5 14.1083 17.5 13.3333"
+        stroke="white"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

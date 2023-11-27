@@ -48,7 +48,7 @@ export default function SearchAndFilterPanel({ filterItems, queries }: Props) {
   return (
     <div className="flex items-center gap-2.5">
       <Input
-        className="!max-w-[295px] !px-3 [&>.ant-input-prefix]:!mr-3 [&>input]:placeholder:!text-primary-1-5 !border-primary-1-5"
+        className="!max-w-[295px] !px-3 [&>.ant-input-prefix]:!mr-3 [&>input]:placeholder:!text-primary-1-5 !border-primary-1-5 !border-[1.3px]"
         size="large"
         placeholder="Search..."
         onChange={(e) => setText(e?.target?.value)}
