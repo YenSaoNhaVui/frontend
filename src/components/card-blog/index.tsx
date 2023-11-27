@@ -9,7 +9,7 @@ export default function CardBlog() {
         <div className="max-w-4xl mx-auto">
           <div className="relative pt-[71%] overflow-hidden">
             <img
-              src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/400617142_1787861898345629_9189397841609497536_n.jpg?stp=dst-jpg_p526x296&_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rXL3XiF-2rAAX8AkaEf&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfCFv97fEXaROOOWt8u0Z18GY176q7pQFy_Wod5KCAA1Gw&oe=65528BCD"
+              src="https://a-static.besthdwallpaper.com/spirit-blossom-akali-league-of-legends-lol-wallpaper-2048x1536-103581_26.jpg"
               alt=""
               className="w-full h-full top-0 left-0 absolute object-cover rounded-lg"
               loading="lazy"
