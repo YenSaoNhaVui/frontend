@@ -11,7 +11,7 @@ export default function AboutPage() {
       <section className="lg:-mt-[78px] -mt-[90px] relative">
         <div className="lg:h-[1084px] lg:pt-0 pt-[100%] relative bg-home-section-1 bg-cover bg-center bg-no-repeat">
           <div
-            className="absolute top-1 left-0 w-full lg:h-full h-[calc(100%-80px)] z-30"
+            className="absolute top-1 left-0 w-full lg:h-full h-[calc(100%-80px)] z-[20]"
             style={{
               background: "linear-gradient(180deg, rgba(32, 80, 80, 0.00) 73.44%, #204F4F 100%)",
             }}
