@@ -88,7 +88,7 @@ export default function Create() {
             <FormInputPrice />
           </Form.Item>
 
-          <Form.Item<Product> label="Trọng lượng">
+          <Form.Item<Product> label="Trọng lượng" name="weights" rules={[{ required: true }]}>
             <FormWeights />
           </Form.Item>
           <Form.Item<Product> label="Mô tả" name="description" rules={[{ required: true }]}>

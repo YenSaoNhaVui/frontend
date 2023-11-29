@@ -7,10 +7,11 @@ import { useState } from "react";
 interface Props<T> extends FormItemProps {
   name: NamePath<T>;
   label: string;
+  singleOnly?: boolean;
 }
 
 // NOTE copy from Antd docs
-export default function FormUploadImages<T>({ name, label, ...props }: Props<T>) {
+export default function FormUploadImages<T>({ name, label, singleOnly = false, ...props }: Props<T>) {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
   const [previewTitle, setPreviewTitle] = useState("");
@@ -37,6 +38,7 @@ export default function FormUploadImages<T>({ name, label, ...props }: Props<T>)
         {...props}
       >
         <Upload
+          maxCount={singleOnly ? 1 : 0}
           accept="image/*"
           action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
           listType="picture-card"

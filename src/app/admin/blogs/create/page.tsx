@@ -1,11 +1,13 @@
 "use client";
 import FormReactQuill from "@/components/form/form-react-quill";
+import FormUploadImages from "@/components/form/form-upload-images";
 import { useSearchParamsData } from "@/hooks";
 import { type Blog } from "@/interfaces";
 import { createBlog, updateBlog } from "@/service";
+import { preprocessImages, uploadImages } from "@/utils";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 // prettier-ignore
-import { App, Button, Form, Input, Layout } from "antd";
+import { App, Button, Form, Input, Layout, UploadFile } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const { Content, Header } = Layout;
@@ -16,12 +18,17 @@ export default function Create() {
 
   const initialBlog = useSearchParamsData<Blog>();
   useEffect(() => {
-    form.setFieldsValue(initialBlog);
+    form.setFieldsValue({
+      ...initialBlog,
+      thumbnail: preprocessImages([initialBlog?.thumbnail] as string[]),
+    });
   }, [initialBlog]);
 
   const { message } = App.useApp();
   const onSubmit = async (blog: Blog) => {
     setIsSubmited(true);
+
+    blog.thumbnail = (await uploadImages(blog.thumbnail as UploadFile[]))[0];
     try {
       if (initialBlog) {
         await updateBlog(initialBlog.id, blog);
@@ -71,6 +78,7 @@ export default function Create() {
           <Form.Item<Blog> label="Mô tả" name="description" rules={[{ required: true }]}>
             <Input.TextArea rows={5} />
           </Form.Item>
+          <FormUploadImages singleOnly label="Ảnh" name="thumbnail" rules={[{ required: true }]} />
           <Form.Item<Blog> label="Chi tiết" name="details" rules={[{ required: true }]}>
             <FormReactQuill />
           </Form.Item>
