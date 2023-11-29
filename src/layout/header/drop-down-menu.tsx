@@ -44,4 +44,4 @@ const classBorder = "[&_.ant-dropdown-menu]:!border-[0.5px] [&_.ant-dropdown-men
 const classLi =
   "[&_.ant-dropdown-menu_li]:!text-center [&_.ant-dropdown-menu_li]:!text-body-sm-normal font-poppins-normal";
 const classMain =
-  classBorder + " [&_.ant-dropdown-menu]:bg-primary-1-7 [&_.ant-dropdown-menu]:p-0 " + classLi;
+  classBorder + " [&_.ant-dropdown-menu]:bg-primary-1-5 [&_.ant-dropdown-menu]:p-0 " + classLi;

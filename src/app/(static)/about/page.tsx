@@ -17,7 +17,7 @@ export default function AboutPage() {
           }}
         >
           <div
-            className="absolute top-1 left-0 w-full lg:h-full h-[calc(100%-80px)] z-30"
+            className="absolute top-1 left-0 w-full lg:h-full h-[calc(100%-80px)] z-[20]"
             style={{
               background: "linear-gradient(180deg, rgba(32, 80, 80, 0.00) 73.44%, #204F4F 100%)",
             }}
