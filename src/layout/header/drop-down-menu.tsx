@@ -24,7 +24,13 @@ export default function DropDownMenu() {
     ),
   }));
   return (
-    <Dropdown trigger={["click"]} menu={{ items }} placement="bottomLeft" rootClassName={classMain}>
+    <Dropdown
+      trigger={["click"]}
+      menu={{ items }}
+      placement="bottomLeft"
+      rootClassName={classMain}
+      className="lg:hidden block"
+    >
       <Button variant="ghost" size="0" className="[&_path]:fill-white hover:!bg-transparent">
         <Icon size="lg">
           <MenuIcon />

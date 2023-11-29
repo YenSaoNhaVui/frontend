@@ -10,7 +10,7 @@ export default function Header() {
   const logoHome = ["/", "/about"];
   return (
     <header
-      className={cn("sticky bg-transparent top-0 left-0 right-0 w-full text-neutral-1 z-30", {
+      className={cn("sticky bg-transparent top-0 left-0 right-0 w-full text-neutral-1 z-[50]", {
         "bg-primary-1-7": url != "/" && url != "/about",
       })}
     >

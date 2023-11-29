@@ -17,8 +17,6 @@ const config: Config = {
       colors,
       fontSize: fontSize as any,
       backgroundImage: {
-        "home-section-1":
-          "url('https://ucarecdn.com/b3788d6b-1576-43a5-a3ac-d77a1879489e/-/preview/-/quality/smart_retina/-/format/auto/')",
         "home-section-2":
           "url('https://ucarecdn.com/aa2422ef-e21b-467d-8b7d-090474b590d9/-/preview/-/quality/smart_retina/-/format/auto/')",
         "home-section-3":

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Blogs detail",
+  title: "Blogs",
   description: "Blogs",
 };
 
