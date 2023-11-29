@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useReducer } from "react";
 
 type State<T> = {
@@ -6,12 +7,9 @@ type State<T> = {
   data: T | null;
 };
 
-type Action<T> =
-  | { type: "start" }
-  | { type: "finish"; value: T }
-  | { type: "error"; error: any };
+type Action<T> = { type: "start" } | { type: "finish"; value: T } | { type: "error"; error: any };
 
-const initialState: State<any> = { loading: false, error: null, data: null };
+const initialState: State<any> = { loading: true, error: null, data: null };
 
 const stateReducer = <T>(_: State<T>, action: Action<T>): State<T> => {
   switch (action.type) {

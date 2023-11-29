@@ -6,14 +6,12 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   async (config) => {
-    config.headers.Authorization = `Bearer ${localStorage.getItem(
-      "accessToken",
-    )}`;
+    config.headers.Authorization = `Bearer ${localStorage && localStorage.getItem("accessToken")}`;
     return config;
   },
   (error) => {
     Promise.reject(error);
-  },
+  }
 );
 
 export default axiosInstance;

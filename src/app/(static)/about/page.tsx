@@ -9,7 +9,13 @@ export default function AboutPage() {
   return (
     <>
       <section className="lg:-mt-[78px] -mt-[90px] relative">
-        <div className="lg:h-[1084px] lg:pt-0 pt-[100%] relative bg-home-section-1 bg-cover bg-center bg-no-repeat">
+        <div
+          className="lg:h-[1084px] lg:pt-0 pt-[100%] relative bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              'url("https://ucarecdn.com/b3788d6b-1576-43a5-a3ac-d77a1879489e/-/preview/-/quality/smart_retina/-/format/auto/")',
+          }}
+        >
           <div
             className="absolute top-1 left-0 w-full lg:h-full h-[calc(100%-80px)] z-[20]"
             style={{

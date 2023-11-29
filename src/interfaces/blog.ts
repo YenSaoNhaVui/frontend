@@ -4,5 +4,5 @@ export interface Blog {
   createdAt: Date;
   title: string;
   description: string;
-  details: object;
+  details: string;
 }

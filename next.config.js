@@ -15,9 +15,9 @@ const nextConfig = {
   },
   output: "standalone",
   swcMinify: true,
-  compiler: {
-    removeConsole: process.env.NEXT_PUBLIC_IS_PRODUCT != "devnet",
-  },
+  // compiler: {
+  //   removeConsole: process.env.NEXT_PUBLIC_IS_PRODUCT != "devnet",
+  // },
   experimental: {
     esmExternals: false,
   },
