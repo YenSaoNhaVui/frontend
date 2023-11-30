@@ -4,7 +4,7 @@ import { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import { UploadFile } from "antd";
 
-import ImageUploader from "quill-image-uploader";
+// import ImageUploader from "quill-image-uploader";
 import { Quill } from "react-quill";
 import { uploadImages } from "@/utils";
 
@@ -14,7 +14,7 @@ const ReactQuill = dynamic(() => import("react-quill"), {
     <SkeletonButton className="!w-full !h-full [&_span]:!w-full [&_span]:!h-full [&_span]:!rounded-none [&_span]:!bg-black/20" />
   ),
 });
-Quill.register("modules/imageUploader", ImageUploader);
+// Quill.register("modules/imageUploader", ImageUploader);
 const modules = {
   toolbar: [
     [{ header: [1, 2, false] }],
