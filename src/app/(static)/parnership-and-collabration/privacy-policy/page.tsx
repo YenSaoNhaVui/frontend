@@ -68,7 +68,7 @@ const PrivacyPolicyPage = () => {
         tin của mình.
       </p>
       {ITEMS.map((item) => (
-        <div className="mb-10">
+        <div key={item?.h3} className="mb-10">
           <h4 className="mb-5">{item.h3}</h4>
           {item.h4 && <p className={cn("text-xl", item.items ? "mb-0" : "mb-10")}>{item.h4}</p>}
           {item.items?.map((i) => (

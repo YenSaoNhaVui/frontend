@@ -32,7 +32,7 @@ export default function ParnerShipAndCollabration({}: Props) {
       <h3 className="mb-5 mt-6">Đối tác - Liên kết</h3>
       <div className="grid lg:grid-cols-3 gap-5">
         {ITEMS.map((item) => (
-          <Card title={item.title} description={item.description} link={item.link} />
+          <Card key={item?.title} title={item.title} description={item.description} link={item.link} />
         ))}
       </div>
     </div>
