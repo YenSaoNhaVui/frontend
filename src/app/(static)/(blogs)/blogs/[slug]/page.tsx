@@ -14,37 +14,6 @@ export default async function BlogDetailsPage({ params }: DocPageProps) {
   return <BlogDetailsClient slug={params?.slug} />;
 }
 
-export async function getStaticPaths(): Promise<{
-  paths: {
-    params: DocPageProps["params"];
-  }[];
-  fallback: boolean;
-}> {
-  try {
-    const response = await getBlogs({ take: 99999999 });
-    const paths = response?.map((blog: Blog) => ({
-      params: {
-        slug: blog?.id?.toString(),
-      },
-    }));
-    return {
-      paths: paths,
-      fallback: true,
-    };
-  } catch (err) {
-    return {
-      paths: [
-        {
-          params: {
-            slug: "1",
-          },
-        },
-      ],
-      fallback: true,
-    };
-  }
-}
-
 export async function generateStaticParams(): Promise<DocPageProps["params"][]> {
   try {
     const response = await getBlogs({ take: 99999999 });

@@ -22,7 +22,7 @@ function ItemLink({
       key={header?.title}
       className="flex items-center gap-4 px-4 py-[10px] hover:text-secondary-6 [&_path]:hover:!fill-secondary-6 relative cursor-pointer"
     >
-      <p className="text-body-sm-medium font-medium">{header?.title}</p>
+      <p className="text-body-sm-medium font-medium !m-0">{header?.title}</p>
       {header?.title == "Sản phẩm" && (
         <>
           <Icon size="md">

@@ -72,7 +72,7 @@ export default function SearchAndFilterPanel({ filterItems, queries }: Props) {
           rounded="md"
           className="max-w-[109px] !py-2 !gap-1 !text-[14px] !leading-[22px] !font-normal"
         >
-          <p className="whitespace-nowrap">{sort == "" ? "Sort by" : sort}</p>
+          <p className="whitespace-nowrap !m-0">{sort == "" ? "Sort by" : sort}</p>
           <Icon size="lg">
             <ArrowDownIcon />
           </Icon>
