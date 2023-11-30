@@ -1,19 +1,21 @@
 "use client";
 import { FormInputPrice } from "@/components/form/form-input-price";
-import FormUploadImages from "@/components/form/form-upload-images";
 import { useSearchParamsData } from "@/hooks";
 import { Category, type Product } from "@/interfaces";
 import { createProduct, updateProduct } from "@/service/products";
 import { preprocessImages, uploadImages } from "@/utils";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 // prettier-ignore
-import { App, Button, Flex, Form, Input, InputNumber, Layout, UploadFile } from "antd";
+import { App, Button, Form, Input, Layout, UploadFile } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-const { Content, Header } = Layout;
 import FormCategories from "./form-categories";
-import FormDetails from "./form-details";
+import dynamic from "next/dynamic";
+const FormDetails = dynamic(() => import("./form-details"), {
+  ssr: false,
+});
 import FormWeights from "./form-weights";
+const { Content, Header } = Layout;
 
 export default function Create() {
   const router = useRouter();
@@ -33,7 +35,7 @@ export default function Create() {
     setIsSubmited(true);
     try {
       product.images = await uploadImages(product.images as UploadFile[]);
-      product.categories = product.categories.map((category) => ({ id: category } as Category));
+      product.categories = product.categories.map((category: any) => ({ id: category }) as Category);
       if (initialProduct) {
         await updateProduct(initialProduct.id, product);
       } else {
@@ -46,7 +48,7 @@ export default function Create() {
     setIsSubmited(false);
   };
   const [isSubmitted, setIsSubmited] = useState<boolean>(false);
-
+  if (typeof window === "undefined") return <></>;
   return (
     <Form
       className="h-full w-full"
