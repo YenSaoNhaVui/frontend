@@ -20,9 +20,9 @@ export default function Footer() {
                 className="w-[98px] h-9"
               />
               <p className="text-body-lg-normal max-w-[303px] mt-[18px]">
-                Thương hiệu "Yến Sào Nhà Vui" đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt 10
-                năm qua. Chúng tôi tự hào cung cấp các sản phẩm Yến sào tự nhiên được đảm bảo giữ nguyên
-                toàn bộ giá trị dinh dưỡng và hương vị đặc biệt của loại thực phẩm này.
+                Thương hiệu {"Yến Sào Nhà Vui"} đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt
+                10 năm qua. Chúng tôi tự hào cung cấp các sản phẩm Yến sào tự nhiên được đảm bảo giữ
+                nguyên toàn bộ giá trị dinh dưỡng và hương vị đặc biệt của loại thực phẩm này.
               </p>
             </div>
           </div>
