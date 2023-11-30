@@ -1,8 +1,6 @@
 "use client";
-import { streetSignSans } from "@/assets";
-import ImageOptimize from "@/components/image";
-import Image from "next/image";
 import classes from "@/components/home-component/produce-process/produce-process.module.css";
+import ImageOptimize from "@/components/image";
 import { cn } from "@/utils";
 
 export default function AboutPage() {

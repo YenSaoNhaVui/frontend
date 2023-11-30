@@ -1,5 +1,6 @@
 import { FBIcon, InstagramIcon } from "@/components/icons";
 import Icon from "@/components/ui/icon";
+import Link from "antd/es/typography/Link";
 
 export default function Footer() {
   return (
@@ -19,8 +20,9 @@ export default function Footer() {
                 className="w-[98px] h-9"
               />
               <p className="text-body-lg-normal max-w-[303px] mt-[18px]">
-                Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                eu turpis molestie, dictum est a, mattis tellus.
+                Thương hiệu "Yến Sào Nhà Vui" đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt 10
+                năm qua. Chúng tôi tự hào cung cấp các sản phẩm Yến sào tự nhiên được đảm bảo giữ nguyên
+                toàn bộ giá trị dinh dưỡng và hương vị đặc biệt của loại thực phẩm này.
               </p>
             </div>
           </div>
@@ -53,9 +55,13 @@ export default function Footer() {
         <div className="flex items-center lg:justify-between justify-center mt-[56px] text-body-lg-normal flex-wrap lg:pt-0 lg:mx-0 mx-6 pt-6 lg:border-t-0 border-t border-solid border-black">
           <p>Copyright © 2023</p>
           <div className="flex items-center">
-            <p className="lg:mr-8">Terms & Conditions</p>
+            <Link href="/parnership-and-collabration/terms-conditions" className="!text-black">
+              <p className="lg:mr-8">Terms & Conditions</p>
+            </Link>
             <p className="mx-1 lg:hidden block">|</p>
-            <p>Privacy Policy</p>
+            <Link href="/parnership-and-collabration/privacy-policy" className="!text-black">
+              <p>Privacy Policy</p>
+            </Link>
           </div>
         </div>
       </div>
