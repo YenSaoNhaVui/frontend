@@ -95,7 +95,7 @@ export default function Create() {
             <Input.TextArea rows={5} />
           </Form.Item>
           <FormDetails />
-          <FormUploadImages<Product> />
+          {/* <FormUploadImages<Product> /> */}
         </Content>
       </Layout>
     </Form>
