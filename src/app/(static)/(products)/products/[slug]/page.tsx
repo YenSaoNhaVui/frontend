@@ -1,50 +1,69 @@
-"use client";
-import BreadCrumbs from "@/components/bread-crumbs";
-import ProductDetails from "./product-details";
-import { Tabs, TabsProps } from "antd";
-import { cn } from "@/utils";
-import { useState } from "react";
-import ProductDescription from "./product-description";
-import MoreProducts from "./more-products";
-import ProductReview from "./product-review";
+import { Blog, Product } from "@/interfaces";
+import { getProducts } from "@/service";
+import axios from "axios";
+import { Metadata } from "next";
+import ProductDetailsClient from "./product-details-client";
 
-export default function ProductDetailsPage() {
-  const [keyTab, setKeyTab] = useState<string>("1");
-  const onChange = (key: string) => {
-    setKeyTab(key);
+interface DocPageProps {
+  params: {
+    slug: string;
   };
-  const items: TabsProps["items"] = [
-    {
-      key: "1",
-      label: "Mô tả chi tiết về sản phẩm",
-      children: <ProductDescription />,
-    },
-    {
-      key: "2",
-      label: "Đánh giá và bình luận (2)",
-      children: <ProductReview />,
-    },
-  ];
-  return (
-    <section className="xl:max-w-[1280px] xl:mx-auto sm:mx-8 mx-4 text-black">
-      <BreadCrumbs
-        linkBack="/products"
-        titleCurrent="Yến Nhà Vui - 01"
-        titlePrev="Sản phẩm"
-        className="my-[34px]"
-      />
-      <ProductDetails />
-      <Tabs
-        defaultActiveKey="1"
-        items={items}
-        className={cn(classNameTab, {
-          "[&_.ant-tabs-ink-bar]:!w-[67px]": keyTab == "2",
-        })}
-        onChange={onChange}
-      />
-      <MoreProducts />
-    </section>
-  );
 }
-const classNameTab =
-  "[&_.ant-tabs-nav:before]:!border-b [&_.ant-tabs-nav:before]:!border-neutral-5 [&_.ant-tabs-tab-btn]:!text-body-sm-semibold [&_.ant-tabs-tab-btn]:!text-neutral-5 [&_.ant-tabs-tab-active>.ant-tabs-tab-btn]:!text-primary-1-5 [&_.ant-tabs-ink-bar]:!w-[81px] [&_.ant-tabs-ink-bar]:!bg-primary-1-5";
+
+export default async function BlogDetailsPage({ params }: DocPageProps) {
+  return <ProductDetailsClient slug={params?.slug} />;
+}
+
+export async function generateStaticParams(): Promise<DocPageProps["params"][]> {
+  try {
+    const response = await getProducts({ take: 99999999 });
+    const paths = response?.map((product: Product) => ({
+      slug: product?.id?.toString(),
+    }));
+    return paths;
+  } catch (err) {
+    return [
+      {
+        slug: "1",
+      },
+    ];
+  }
+}
+
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}products/${params?.slug}`
+    );
+    const product: Product = response?.data;
+
+    return {
+      title: product.title,
+      description: product.description,
+      openGraph: {
+        title: product.title,
+        description: product.description,
+        type: "article",
+        url: `${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}/products/${params?.slug}`,
+        images: [
+          {
+            url: product?.images[0] as string,
+            width: 1200,
+            height: 630,
+            alt: product.title,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: product.title,
+        description: product.description,
+        images: [product?.images[0] as string],
+      },
+    };
+  } catch (err) {
+    return {
+      title: "Not Found",
+    };
+  }
+}

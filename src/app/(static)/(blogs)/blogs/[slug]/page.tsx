@@ -32,34 +32,33 @@ export async function generateStaticParams(): Promise<DocPageProps["params"][]> 
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   try {
-    const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}/blogs/${params?.slug}`
-    );
-    const posts: Blog = response?.data;
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}blogs/${params?.slug}`);
+    const blogs: Blog = response?.data;
 
     return {
-      title: posts.title,
-      description: posts.description,
+      title: blogs.title,
+      description: blogs.description,
       openGraph: {
-        title: posts.title,
-        description: posts.description,
+        title: blogs.title,
+        description: blogs.description,
         type: "article",
         url: `${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}/blogs/${params?.slug}`,
         images: [
           {
-            url: "https://a-static.besthdwallpaper.com/spirit-blossom-akali-league-of-legends-lol-wallpaper-2048x1536-103581_26.jpg",
+            url:
+              typeof blogs?.thumbnail == "string" ? blogs?.thumbnail : (blogs?.thumbnail[0] as string),
             width: 1200,
             height: 630,
-            alt: posts.title,
+            alt: blogs.title,
           },
         ],
       },
       twitter: {
         card: "summary_large_image",
-        title: posts.title,
-        description: posts.description,
+        title: blogs.title,
+        description: blogs.description,
         images: [
-          "https://a-static.besthdwallpaper.com/spirit-blossom-akali-league-of-legends-lol-wallpaper-2048x1536-103581_26.jpg",
+          typeof blogs?.thumbnail == "string" ? blogs?.thumbnail : (blogs?.thumbnail[0] as string),
         ],
       },
     };

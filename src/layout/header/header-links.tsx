@@ -29,7 +29,7 @@ function ItemLink({
             <ArrowDownIcon />
           </Icon>
           {openProduct && (
-            <DropDown className="dropdown absolute bg-white top-[52px] left-20  [&_ul]:mx-0 [&_ul]:px-0 rounded-md border border-solid border-neutral-4 [&_li]:p-2.5">
+            <DropDown className="dropdown absolute bg-white top-[52px] left-20  [&_ul]:mx-0 [&_ul]:px-0 rounded-md border border-solid border-neutral-4 [&_li]:p-2.5 [&_ul]:!list-none [&_ul]:!m-0">
               {["Yến tinh chế", "Yến rút lông", "Tổ yến cao cấp", "Quà tặng cao cấp"]?.map((_) => (
                 <Link key={_} href={`/products?category=${configSlugify(_)}`}>
                   <li

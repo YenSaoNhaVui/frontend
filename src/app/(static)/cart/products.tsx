@@ -4,7 +4,7 @@ import { cn } from "@/utils";
 
 export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
   return (
-    <div className="mt-7 mb-8">
+    <div className="mt-7 mb-8 [&_p]:mb-0">
       <div className="grid grid-cols-8 pb-2.5 border-b border-solid border-black">
         {["", "Sản phẩm", "Số lượng", "Giá tiền"]?.map((title, i) => (
           <p
@@ -20,7 +20,7 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
       </div>
       {products?.map((product, i) => (
         <div key={i} className="grid grid-cols-8 py-2.5 border-b border-solid border-black">
-          <figure className="relative min-w-[120px] max-w-[120px] min-h-[120px] max-h-[120px] rounded-lg overflow-hidden">
+          <figure className="relative min-w-[120px] max-w-[120px] min-h-[120px] max-h-[120px] rounded-lg overflow-hidden m-0">
             <img
               src={product?.image}
               alt={product?.title}
@@ -29,7 +29,7 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
           </figure>
           <div className="mt-5 col-span-4 flex flex-col justify-between">
             <div>
-              <h5 className="text-primary-1-7">{product?.title}</h5>
+              <h5 className="text-primary-1-7 mb-0">{product?.title}</h5>
               <p className="text-primary-1-7 text-body-lg-normal">50 gram</p>
             </div>
             <Button

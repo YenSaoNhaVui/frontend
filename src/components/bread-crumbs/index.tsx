@@ -12,13 +12,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
-export default function BreadCrumbs({
-  linkBack,
-  titlePrev,
-  titleCurrent,
-  className,
-  ...props
-}: Props) {
+export default function BreadCrumbs({ linkBack, titlePrev, titleCurrent, className, ...props }: Props) {
   return (
     <div className={cn("flex items-center", className)} {...props}>
       <Link href={linkBack}>
@@ -29,12 +23,12 @@ export default function BreadCrumbs({
         </Button>
       </Link>
       <Link href={linkBack}>
-        <p className="ml-7 text-body-sm-medium text-neutral-5">{titlePrev}</p>
+        <p className="ml-7 text-body-sm-medium text-neutral-5 m-0">{titlePrev}</p>
       </Link>
       <Icon size="lg" className="mx-2">
         <BreadCrumbsIcon />
       </Icon>
-      <p className="text-body-sm-medium text-neutral-8">{titleCurrent}</p>
+      <p className="text-body-sm-medium text-neutral-8 m-0">{titleCurrent}</p>
     </div>
   );
 }

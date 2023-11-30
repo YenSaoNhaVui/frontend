@@ -7,5 +7,5 @@ export interface Blog {
   title: string;
   description: string;
   thumbnail: string | string[] | UploadFile[];
-  details: object;
+  details: object | string;
 }

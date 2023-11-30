@@ -7,7 +7,9 @@ import Icon from "@/components/ui/icon";
 import useAsync from "@/hooks/use-async";
 import { Blog } from "@/interfaces";
 import { getBlogs, getBlogsById } from "@/service";
+import axios from "axios";
 import dateformat from "dateformat";
+import { useEffect } from "react";
 
 export default function BlogDetailsClient({ slug }: { slug: string }) {
   const { data, loading } = useAsync<Blog>(() => getBlogsById(slug));
@@ -16,6 +18,7 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
       take: 3,
     })
   );
+
   if (loading)
     return (
       <div className="h-[300px]">
@@ -28,7 +31,6 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
         <h1 className="text-center">Not found</h1>
       </div>
     );
-  console.log(data);
   return (
     <section className="xl:max-w-[1280px] xl:mx-auto sm:mx-8 mx-4 text-black">
       <BreadCrumbs
@@ -51,13 +53,16 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
         <figure className="max-h-[500px] relative w-full rounded-lg mb-4">
           <div className="pt-[100%] overflow-hidden">
             <img
-              alt="123"
-              src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSHdEgfNwXdaRTy76pJSC5pP7e-JSbAAn62JYnUEIhv23GDGF_8uO1JeTr9EaXQ3n-FkCJ15nlj8BJgojLZmke9GUL8QCCuDtJRoO3noLmxapWqfj2AbBUO&usqp=CAE"
+              alt={data?.title}
+              src={typeof data?.thumbnail == "string" ? data?.thumbnail : (data?.thumbnail[0] as string)}
               className="absolute top-0 left-0 w-full h-full rounded-lg object-contain"
             />
           </div>
         </figure>
-        {/* <p className="font-normal text-[20px] leading-[30px] mb-4">{data?.details}</p> */}
+        <div
+          className="[&_p]:font-normal [&_p]:text-[20px] [&_p]:leading-[30px] [&_p]:mb-4"
+          dangerouslySetInnerHTML={{ __html: data?.details as string }}
+        ></div>
       </div>
       <div className="mb-[77px]">
         <h3 className="text-center text-primary-1-7 mb-8">BÀI VIẾT LIÊN QUAN</h3>

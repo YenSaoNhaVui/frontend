@@ -11,8 +11,8 @@ export default function CardBlog({ blog }: { blog?: Blog }) {
         <div className="max-w-4xl mx-auto">
           <div className="relative pt-[71%] overflow-hidden">
             <img
-              src="https://a-static.besthdwallpaper.com/spirit-blossom-akali-league-of-legends-lol-wallpaper-2048x1536-103581_26.jpg"
-              alt=""
+              src={typeof blog?.thumbnail == "string" ? blog?.thumbnail : (blog?.thumbnail[0] as string)}
+              alt={blog?.title}
               className="w-full h-full top-0 left-0 absolute object-cover rounded-lg"
               loading="lazy"
             />
