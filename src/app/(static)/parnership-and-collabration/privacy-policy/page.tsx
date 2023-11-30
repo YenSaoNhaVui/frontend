@@ -72,7 +72,7 @@ const PrivacyPolicyPage = () => {
           <h4 className="mb-5">{item.h3}</h4>
           {item.h4 && <p className={cn("text-xl", item.items ? "mb-0" : "mb-10")}>{item.h4}</p>}
           {item.items?.map((i) => (
-            <div className="flex">
+            <div key={i} className="flex">
               <p className="text-xl mb-0 mx-1">•</p>
               <p className="text-xl mb-0">{i}</p>
             </div>

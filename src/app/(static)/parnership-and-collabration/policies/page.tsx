@@ -23,8 +23,8 @@ const ITEMS = [
         Hỗ trợ phát triển thị trường cho các Đại lý và CTV bằng các chiến dịch marketing xuyên suốt và
         phủ sóng đẩy mạnh thương hiệu, chiến lược kinh doanh, ưu đãi.
         <br />
-        Bên A: CÔNG TY CỔ PHẦN XNK ™ DV YẾN NHÀ VUI. MST 0317830320 . Thương hiệu YẾN NHÀ VUI, gọi tắt
-        là "Yến NHÀ VUI".
+        Bên A: CÔNG TY CỔ PHẦN XNK ™ DV YẾN NHÀ VUI. MST 0317830320 . Thương hiệu YẾN NHÀ VUI, gọi tắt là{" "}
+        {`"Yến NHÀ VUI"`}.
         <br />
         Bên B: Nhà phân phối, cộng tác viên, nhân viên kinh doanh tự do, người tham gia bán hàng trên hệ
         thống Yến sào NHÀ VUI với đăng ký thông qua đường liên kết giới thiệu của tuyến trên. Gọi chung
