@@ -57,7 +57,7 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
             />
           </div>
         </figure>
-        <p className="font-normal text-[20px] leading-[30px] mb-4">{data?.details}</p>
+        {/* <p className="font-normal text-[20px] leading-[30px] mb-4">{data?.details}</p> */}
       </div>
       <div className="mb-[77px]">
         <h3 className="text-center text-primary-1-7 mb-8">BÀI VIẾT LIÊN QUAN</h3>

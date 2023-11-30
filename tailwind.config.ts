@@ -4,7 +4,7 @@ import { fontSize } from "./system/text";
 
 const config: Config = {
   corePlugins: {
-    preflight: true,
+    preflight: false,
   },
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",

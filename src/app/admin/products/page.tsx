@@ -35,9 +35,12 @@ export default function AdminProductsPage() {
       <Content>
         <Table dataSource={data ?? []} loading={loading} pagination={false}>
           <Column title="STT" key="id" render={(_, __, i) => i + 1} />
-          <Column
+          <Column<Product>
             title="Tiêu đề"
             key="title"
+            filterSearch={true}
+            onFilter={(value, { id }) => value == id}
+            filters={data?.map(({ id, title }) => ({ text: title, value: id }))}
             render={(_: any, product: Product) => (
               <Space>
                 <Image width={40} src={product.images?.[0] as string} />
@@ -45,11 +48,7 @@ export default function AdminProductsPage() {
               </Space>
             )}
           />
-          <Column
-            title="Giá"
-            key="price"
-            render={(_, product: Product) => formatPrice(product.price)}
-          />
+          <Column title="Giá" key="price" render={(_, product: Product) => formatPrice(product.price)} />
           <Column
             title="Giá niêm yết"
             key="listPrice"
@@ -70,11 +69,7 @@ export default function AdminProductsPage() {
                 <Button
                   shape="circle"
                   icon={<EditOutlined />}
-                  onClick={() =>
-                    router.push(
-                      buildQueryString("/admin/products/create", product),
-                    )
-                  }
+                  onClick={() => router.push(buildQueryString("/admin/products/create", product))}
                 ></Button>
               </Space>
             )}

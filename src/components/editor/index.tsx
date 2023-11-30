@@ -15,12 +15,7 @@ const modules = {
   toolbar: [
     [{ header: [1, 2, false] }],
     ["bold", "italic", "underline", "strike", "blockquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
+    [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
     ["link"],
     ["clean"],
   ],
@@ -38,17 +33,12 @@ const formats = [
   "link",
 ];
 interface Props {
-  value: any;
+  value?: any;
   onValueChange?: any;
   isReadOnly?: boolean;
   className?: string;
 }
-export default function Editor({
-  value,
-  onValueChange,
-  isReadOnly,
-  className,
-}: Props) {
+export default function Editor({ value, onValueChange, isReadOnly, className }: Props) {
   const [currentValue, setCurrentValue] = useState(value);
   useEffect(() => {
     if (onValueChange) onValueChange(currentValue);

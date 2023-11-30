@@ -1,18 +1,19 @@
 "use client";
 import useAsync from "@/hooks/use-async";
-import { Question } from "@/interfaces";
-import { deleteQuestion, getQuestions, viewedQuestion } from "@/service/questions";
+import { Order } from "@/interfaces";
+import { deleteOrder, getOrders, viewedOrder } from "@/service";
 import { formatDate } from "@/utils";
 import { DeleteOutlined, EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 import { App, Button, Popconfirm, Space, Table, Tooltip } from "antd";
 import Column from "antd/es/table/Column";
+import RowDetails from "./row-details";
 
-export default function AdminQuestionsPage() {
-  const { data, loading, refetch } = useAsync<Question[]>(() => getQuestions());
+export default function AdminOrdersPage() {
+  const { data, loading, refetch } = useAsync<Order[]>(() => getOrders());
   const { message } = App.useApp();
-  const handleDeleteQuestion = async (id: number) => {
+  const handleDeleteOrder = async (id: number) => {
     try {
-      await deleteQuestion(id);
+      await deleteOrder(id);
       refetch();
     } catch {
       message.error("Lỗi xảy ra");
@@ -21,7 +22,7 @@ export default function AdminQuestionsPage() {
 
   async function handleViewed(id: number, viewed: boolean): Promise<void> {
     try {
-      await viewedQuestion(id, viewed);
+      await viewedOrder(id, viewed);
       refetch();
     } catch {
       message.error("Lỗi xảy ra");
@@ -29,34 +30,37 @@ export default function AdminQuestionsPage() {
   }
 
   return (
-    <Table<Question>
+    <Table<Order>
       rowClassName={({ viewed }) => (viewed ? "bg-gray-200" : "")}
       dataSource={data?.sort((a, b) => (a.viewed === b.viewed ? 0 : a.viewed ? 1 : -1)) ?? []}
       loading={loading}
       pagination={false}
       className="w-full h-full overflow-auto "
+      expandable={{
+        expandedRowRender: (record) => <RowDetails ordersProducts={record.products} />,
+      }}
     >
       <Column title="STT" key="id" render={(_, __, i) => i + 1} align="center" />
-      <Column<Question>
-        title="Tên"
+      <Column<Order>
+        title="Khách hàng"
         key="name"
         render={(_, { name, identity }) => name + " - " + identity}
       />
-      <Column title="Nhận xét" key="details" dataIndex="details" />
+      <Column<Order> title="Giá tiền" key="totalPrice" dataIndex="totalPrice" />
       <Column title="Ngày" key="date" dataIndex="createdAt" render={(value) => formatDate(value)} />
       <Column
         key="action"
-        render={(_: any, question: Question) => (
+        render={(_: any, order: Order) => (
           <Space>
-            <Tooltip title={question.viewed ? "Đánh dấu chưa xem" : "Đánh dấu đã xem"}>
+            <Tooltip title={order.viewed ? "Đánh dấu chưa xem" : "Đánh dấu đã xem"}>
               <Button
                 shape="circle"
-                icon={question.viewed ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+                icon={order.viewed ? <EyeInvisibleOutlined /> : <EyeOutlined />}
                 type="text"
-                onClick={() => handleViewed(question.id, !question.viewed)}
+                onClick={() => handleViewed(order.id, !order.viewed)}
               />
             </Tooltip>
-            <Popconfirm title="Chắc chắn muốn xóa?" onConfirm={() => handleDeleteQuestion(question.id)}>
+            <Popconfirm title="Chắc chắn muốn xóa?" onConfirm={() => handleDeleteOrder(order.id)}>
               <Button shape="circle" icon={<DeleteOutlined />} type="text" danger />
             </Popconfirm>
           </Space>

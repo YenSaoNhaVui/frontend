@@ -1,10 +1,13 @@
 "use client";
+import FormReactQuill from "@/components/form/form-react-quill";
+import FormUploadImages from "@/components/form/form-upload-images";
 import { useSearchParamsData } from "@/hooks";
 import { type Blog } from "@/interfaces";
 import { createBlog, updateBlog } from "@/service";
+import { preprocessImages, uploadImages } from "@/utils";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 // prettier-ignore
-import { App, Button, Flex, Form, Input, Layout } from "antd";
+import { App, Button, Form, Input, Layout, UploadFile } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const { Content, Header } = Layout;
@@ -15,13 +18,17 @@ export default function Create() {
 
   const initialBlog = useSearchParamsData<Blog>();
   useEffect(() => {
-    form.setFieldsValue(initialBlog);
+    form.setFieldsValue({
+      ...initialBlog,
+      thumbnail: preprocessImages([initialBlog?.thumbnail] as string[]),
+    });
   }, [initialBlog]);
 
   const { message } = App.useApp();
   const onSubmit = async (blog: Blog) => {
     setIsSubmited(true);
-    console.log("hello");
+
+    blog.thumbnail = (await uploadImages(blog.thumbnail as UploadFile[]))[0];
     try {
       if (initialBlog) {
         await updateBlog(initialBlog.id, blog);
@@ -44,49 +51,38 @@ export default function Create() {
       onFinish={onSubmit}
       autoComplete="off"
       form={form}
-      labelCol={{ span: 4 }}
-      wrapperCol={{ span: 10 }}
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 14 }}
     >
       <Layout className="h-full">
         <Header className="bg-transparent">
-          <Button onClick={() => router.back()}>
-            <ArrowLeftOutlined />
-          </Button>
+          <div className="flex h-full items-center w-full justify-between">
+            <Button onClick={() => router.back()} icon={<ArrowLeftOutlined />} shape="circle" />
+            <div className="flex gap-2">
+              {!initialBlog && (
+                <Button className="w-36" onClick={() => form.resetFields()}>
+                  Làm mới
+                </Button>
+              )}
+              <Button className="w-36" type="primary" htmlType="submit" loading={isSubmitted}>
+                OK
+              </Button>
+            </div>
+          </div>
         </Header>
         <Content className="overflow-auto pr-8">
-          <Form.Item<Blog>
-            label="Tiêu đề"
-            name="title"
-            rules={[{ required: true }]}
-          >
+          <Form.Item<Blog> label="Tiêu đề" name="title" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
 
-          <Form.Item<Blog>
-            label="Mô tả"
-            name="description"
-            rules={[{ required: true }]}
-          >
-            <Input />
+          <Form.Item<Blog> label="Mô tả" name="description" rules={[{ required: true }]}>
+            <Input.TextArea rows={5} />
           </Form.Item>
-          <Form.Item<Blog>
-            label="Chi tiết"
-            name="details"
-            rules={[{ required: true }]}
-          >
-            <Input />
+          <FormUploadImages singleOnly label="Ảnh" name="thumbnail" rules={[{ required: true }]} />
+          <Form.Item<Blog> label="Chi tiết" name="details" rules={[{ required: true }]}>
+            <FormReactQuill />
           </Form.Item>
         </Content>
-        <Layout.Footer>
-          <Flex gap="middle" justify="end">
-            {!initialBlog && (
-              <Button onClick={() => form.resetFields()}>Làm mới</Button>
-            )}
-            <Button type="primary" htmlType="submit" loading={isSubmitted}>
-              OK
-            </Button>
-          </Flex>
-        </Layout.Footer>
       </Layout>
     </Form>
   );

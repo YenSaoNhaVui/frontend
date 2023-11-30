@@ -45,6 +45,22 @@ export async function getStaticPaths(): Promise<{
   }
 }
 
+export async function generateStaticParams(): Promise<DocPageProps["params"][]> {
+  try {
+    const response = await getBlogs({ take: 99999999 });
+    const paths = response?.map((blog: Blog) => ({
+      slug: blog?.id?.toString(),
+    }));
+    return paths;
+  } catch (err) {
+    return [
+      {
+        slug: "1",
+      },
+    ];
+  }
+}
+
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   try {
     const response = await axios.get(

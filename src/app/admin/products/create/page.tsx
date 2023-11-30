@@ -2,7 +2,7 @@
 import { FormInputPrice } from "@/components/form/form-input-price";
 import FormUploadImages from "@/components/form/form-upload-images";
 import { useSearchParamsData } from "@/hooks";
-import { type Product } from "@/interfaces";
+import { Category, type Product } from "@/interfaces";
 import { createProduct, updateProduct } from "@/service/products";
 import { preprocessImages, uploadImages } from "@/utils";
 import { ArrowLeftOutlined } from "@ant-design/icons";
@@ -12,6 +12,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const { Content, Header } = Layout;
 import FormCategories from "./form-categories";
+import FormDetails from "./form-details";
+import FormWeights from "./form-weights";
 
 export default function Create() {
   const router = useRouter();
@@ -31,6 +33,7 @@ export default function Create() {
     setIsSubmited(true);
     try {
       product.images = await uploadImages(product.images as UploadFile[]);
+      product.categories = product.categories.map((category) => ({ id: category }) as Category);
       if (initialProduct) {
         await updateProduct(initialProduct.id, product);
       } else {
@@ -52,78 +55,48 @@ export default function Create() {
       onFinish={onSubmit}
       autoComplete="off"
       form={form}
-      labelCol={{ span: 4 }}
-      wrapperCol={{ span: 10 }}
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 14 }}
     >
       <Layout className="h-full">
         <Header className="bg-transparent">
-          <Button onClick={() => router.back()}>
-            <ArrowLeftOutlined />
-          </Button>
+          <div className="flex h-full items-center w-full justify-between">
+            <Button onClick={() => router.back()} icon={<ArrowLeftOutlined />} shape="circle" />
+            <div className="flex gap-2">
+              {!initialProduct && (
+                <Button className="w-36" onClick={() => form.resetFields()}>
+                  Làm mới
+                </Button>
+              )}
+              <Button className="w-36" type="primary" htmlType="submit" loading={isSubmitted}>
+                OK
+              </Button>
+            </div>
+          </div>
         </Header>
         <Content className="overflow-auto pr-8">
           <FormCategories />
-          <Form.Item<Product>
-            label="Tên"
-            name="title"
-            rules={[{ required: true }]}
-          >
+          <Form.Item<Product> label="Tên" name="title" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
 
-          <Form.Item<Product>
-            label="Giá"
-            name="price"
-            rules={[{ required: true }]}
-          >
+          <Form.Item<Product> label="Giá" name="price" rules={[{ required: true }]}>
             <FormInputPrice />
           </Form.Item>
 
-          <Form.Item<Product>
-            label="Giá niêm yết"
-            name="listPrice"
-            rules={[{ required: true }]}
-          >
+          <Form.Item<Product> label="Giá niêm yết" name="listPrice" rules={[{ required: true }]}>
             <FormInputPrice />
           </Form.Item>
 
-          <Form.Item<Product>
-            label="Trọng lượng"
-            name="weights"
-            rules={[{ required: true }]}
-          >
-            <InputNumber suffix="kg" />
+          <Form.Item<Product> label="Trọng lượng" name="weights" rules={[{ required: true }]}>
+            <FormWeights />
           </Form.Item>
-          <Form.Item<Product>
-            label="Mô tả"
-            name="description"
-            rules={[{ required: true }]}
-          >
-            <Input />
+          <Form.Item<Product> label="Mô tả" name="description" rules={[{ required: true }]}>
+            <Input.TextArea rows={5} />
           </Form.Item>
-          <Form.Item<Product>
-            label="Chi tiết"
-            name="details"
-            rules={[{ required: true }]}
-          >
-            <Input />
-          </Form.Item>
-          <FormUploadImages<Product>
-            name="images"
-            label="Chọn ảnh"
-            rules={[{ required: true }]}
-          />
+          <FormDetails />
+          <FormUploadImages<Product> name="images" label="Chọn ảnh" rules={[{ required: true }]} />
         </Content>
-        <Layout.Footer>
-          <Flex gap="middle" justify="end">
-            {!initialProduct && (
-              <Button onClick={() => form.resetFields()}>Làm mới</Button>
-            )}
-            <Button type="primary" htmlType="submit" loading={isSubmitted}>
-              OK
-            </Button>
-          </Flex>
-        </Layout.Footer>
       </Layout>
     </Form>
   );
