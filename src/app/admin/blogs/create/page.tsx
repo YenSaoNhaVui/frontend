@@ -1,5 +1,9 @@
 "use client";
-import FormReactQuill from "@/components/form/form-react-quill";
+
+import dynamic from "next/dynamic";
+const FormReactQuill = dynamic(() => import("@/components/form/form-react-quill"), {
+  ssr: false,
+});
 import FormUploadImages from "@/components/form/form-upload-images";
 import { useSearchParamsData } from "@/hooks";
 import { type Blog } from "@/interfaces";

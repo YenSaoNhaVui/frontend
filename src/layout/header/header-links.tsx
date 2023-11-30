@@ -85,7 +85,7 @@ export const HEADERS: {
   },
   {
     title: "Đối tác - Liên kết",
-    link: "/jj",
+    link: "/parnership-and-collabration",
   },
   {
     title: "Liên hệ",
