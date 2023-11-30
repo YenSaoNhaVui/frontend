@@ -15,9 +15,9 @@ export default function FormCategories({}: Props) {
   return (
     <div className="relative">
       <Form.Item<Product>
-        name="categories"
-        label="Danh mục:"
-        rules={[{ required: true }]}
+      // name="categories"
+      // label="Danh mục:"
+      // rules={[{ required: true }]}
       >
         <Select
           mode="multiple"

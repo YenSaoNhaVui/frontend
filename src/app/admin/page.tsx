@@ -24,16 +24,12 @@ export default function AdminPage() {
   return (
     <main className="flex justify-center items-center h-full w-screen">
       <Card>
-        <Form
-          onFinish={handleSubmit}
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-        >
+        <Form onFinish={handleSubmit} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
           <h4 className="text-center mb-8">Đăng nhập</h4>
-          <Form.Item<FormData> label="Tên tài khoản:" name="userName">
+          <Form.Item<FormData>>
             <Input placeholder="admin" />
           </Form.Item>
-          <Form.Item<FormData> label="Mật khẩu:" name="password">
+          <Form.Item<FormData>>
             <Input.Password placeholder="admin" />
           </Form.Item>
           <Button htmlType="submit" type="primary" className="block ml-auto">
