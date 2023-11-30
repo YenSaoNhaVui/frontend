@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const { Content, Header } = Layout;
 import FormCategories from "./form-categories";
-import FormDetails from "./form-details";
+// import FormDetails from "./form-details";
 import FormWeights from "./form-weights";
 
 export default function Create() {
@@ -33,7 +33,7 @@ export default function Create() {
     setIsSubmited(true);
     try {
       product.images = await uploadImages(product.images as UploadFile[]);
-      product.categories = product.categories.map((category) => ({ id: category }) as Category);
+      product.categories = product.categories.map((category) => ({ id: category } as Category));
       if (initialProduct) {
         await updateProduct(initialProduct.id, product);
       } else {
@@ -94,7 +94,7 @@ export default function Create() {
           <Form.Item<Product> label="Mô tả" name="description" rules={[{ required: true }]}>
             <Input.TextArea rows={5} />
           </Form.Item>
-          <FormDetails />
+          {/* <FormDetails /> */}
           <FormUploadImages<Product> name="images" label="Chọn ảnh" rules={[{ required: true }]} />
         </Content>
       </Layout>
