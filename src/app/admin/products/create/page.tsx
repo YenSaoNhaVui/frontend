@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const { Content, Header } = Layout;
 import FormCategories from "./form-categories";
-// import FormDetails from "./form-details";
+import FormDetails from "./form-details";
 import FormWeights from "./form-weights";
 
 export default function Create() {
@@ -95,7 +95,7 @@ export default function Create() {
             <Input.TextArea rows={5} />
           </Form.Item>
           <FormDetails />
-          <FormUploadImages<Product> name="images" label="Chọn ảnh" rules={[{ required: true }]} />
+          <FormUploadImages<Product> />
         </Content>
       </Layout>
     </Form>
