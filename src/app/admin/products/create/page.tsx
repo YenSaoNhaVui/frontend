@@ -76,25 +76,25 @@ export default function Create() {
         </Header>
         <Content className="overflow-auto pr-8">
           <FormCategories />
-          <Form.Item<Product> label="Tên" name="title" rules={[{ required: true }]}>
+          <Form.Item<Product>>
             <Input />
           </Form.Item>
 
-          <Form.Item<Product> label="Giá" name="price" rules={[{ required: true }]}>
+          <Form.Item<Product>>
             <FormInputPrice />
           </Form.Item>
 
-          <Form.Item<Product> label="Giá niêm yết" name="listPrice" rules={[{ required: true }]}>
+          <Form.Item<Product>>
             <FormInputPrice />
           </Form.Item>
 
-          <Form.Item<Product> label="Trọng lượng" name="weights" rules={[{ required: true }]}>
+          <Form.Item<Product>>
             <FormWeights />
           </Form.Item>
-          <Form.Item<Product> label="Mô tả" name="description" rules={[{ required: true }]}>
+          <Form.Item<Product>>
             <Input.TextArea rows={5} />
           </Form.Item>
-          {/* <FormDetails /> */}
+          <FormDetails />
           <FormUploadImages<Product> name="images" label="Chọn ảnh" rules={[{ required: true }]} />
         </Content>
       </Layout>
