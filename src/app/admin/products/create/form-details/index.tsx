@@ -7,7 +7,7 @@ type Props = {};
 
 export default function FormDetails({}: Props) {
   return (
-    <Form.Item<Product>>
+    <Form.Item<Product> label="Chi tiết" name="details" rules={[{ required: true }]}>
       <Form.List name="details">
         {(fields, { add, remove }) => (
           <>

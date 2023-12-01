@@ -15,6 +15,7 @@ const FormDetails = dynamic(() => import("./form-details"), {
   ssr: false,
 });
 import FormWeights from "./form-weights";
+import FormUploadImages from "@/components/form/form-upload-images";
 const { Content, Header } = Layout;
 
 export default function Create() {
@@ -35,7 +36,7 @@ export default function Create() {
     setIsSubmited(true);
     try {
       product.images = await uploadImages(product.images as UploadFile[]);
-      product.categories = product.categories.map((category: any) => ({ id: category }) as Category);
+      product.categories = product.categories.map((category: any) => ({ id: category } as Category));
       if (initialProduct) {
         await updateProduct(initialProduct.id, product);
       } else {
@@ -78,26 +79,26 @@ export default function Create() {
         </Header>
         <Content className="overflow-auto pr-8">
           <FormCategories />
-          <Form.Item<Product>>
+          <Form.Item<Product> label="Tên" name="title" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
 
-          <Form.Item<Product>>
+          <Form.Item<Product> label="Giá" name="price" rules={[{ required: true }]}>
             <FormInputPrice />
           </Form.Item>
 
-          <Form.Item<Product>>
+          <Form.Item<Product> label="Giá niêm yết" name="listPrice" rules={[{ required: true }]}>
             <FormInputPrice />
           </Form.Item>
 
-          <Form.Item<Product>>
+          <Form.Item<Product> label="Trọng lượng" name="weights" rules={[{ required: true }]}>
             <FormWeights />
           </Form.Item>
-          <Form.Item<Product>>
+          <Form.Item<Product> label="Mô tả" name="description" rules={[{ required: true }]}>
             <Input.TextArea rows={5} />
           </Form.Item>
           <FormDetails />
-          {/* <FormUploadImages<Product> /> */}
+          <FormUploadImages<Product> name="images" label="Chọn ảnh" rules={[{ required: true }]} />
         </Content>
       </Layout>
     </Form>

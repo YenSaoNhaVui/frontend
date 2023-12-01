@@ -75,15 +75,15 @@ export default function Create() {
           </div>
         </Header>
         <Content className="overflow-auto pr-8">
-          <Form.Item<Blog>>
+          <Form.Item<Blog> label="Tiêu đề" name="title" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
 
-          <Form.Item<Blog>>
+          <Form.Item<Blog> label="Mô tả" name="description" rules={[{ required: true }]}>
             <Input.TextArea rows={5} />
           </Form.Item>
           <FormUploadImages singleOnly label="Ảnh" name="thumbnail" rules={[{ required: true }]} />
-          <Form.Item<Blog>>
+          <Form.Item<Blog> label="Chi tiết" name="details" rules={[{ required: true }]}>
             <FormReactQuill />
           </Form.Item>
         </Content>

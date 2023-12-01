@@ -1,4 +1,5 @@
 import { UploadFile } from "antd";
+import { NamePath } from "antd/es/form/interface";
 
 export interface Blog {
   key?: string;
