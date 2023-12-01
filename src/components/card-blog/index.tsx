@@ -11,7 +11,9 @@ export default function CardBlog({ blog }: { blog?: Blog }) {
         <div className="max-w-4xl mx-auto">
           <div className="relative pt-[71%] overflow-hidden">
             <img
-              src={typeof blog?.thumbnail == "string" ? blog?.thumbnail : (blog?.thumbnail[0] as string)}
+              src={
+                typeof blog?.thumbnail == "string" ? blog?.thumbnail : (blog?.thumbnail?.[0] as string)
+              }
               alt={blog?.title}
               className="w-full h-full top-0 left-0 absolute object-cover rounded-lg"
               loading="lazy"
@@ -26,12 +28,15 @@ export default function CardBlog({ blog }: { blog?: Blog }) {
               {blog?.createdAt ? dateformat(blog?.createdAt, "dd/mm/yyyy") : "31/10/2003"}
             </p>
           </div>
-          <p className="mt-1 text-body-xs-normal text-white">
+          <p className="mt-1 text-body-xs-normal text-white line-clamp-4">
             {blog?.description ||
               `This sunny and spacious room is for those traveling light and looking for a comfy and cosy
             place to lay their head for a night or two. This beach house sits in a vibrant neighborhood
             littered with cafes, pubs, restaurants and supermarkets and is close to all the major
             attractions such as Edinburgh Castle and Arthur' Seat.`}
+          </p>
+          <p className="underline text-primary-2-7">
+            Xem thêm <span className="text-2xl no-underline">➜</span>
           </p>
         </div>
       </main>
