@@ -32,7 +32,7 @@ export default function ProductCard({ className, product }: Props) {
         </Link>
         <div className="flex items-center justify-between">
           <p className="text-body-lg-semibold text-primary-2-5 flex-1">
-            {new Intl.NumberFormat("vi-VN").format(product?.price || 0)}
+            {new Intl.NumberFormat("vi-VN").format(product?.prices[0]?.price || 0)}
           </p>
           <Button className="!p-0 !w-8 !h-8 !bg-white hover:!bg-white/90">
             <Icon size="sm" className="[&_path]:!fill-[#3ABF9C]">
