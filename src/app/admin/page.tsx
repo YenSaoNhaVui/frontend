@@ -26,10 +26,10 @@ export default function AdminPage() {
       <Card>
         <Form onFinish={handleSubmit} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
           <h4 className="text-center mb-8">Đăng nhập</h4>
-          <Form.Item<FormData>>
+          <Form.Item<FormData> label="Tên tài khoản:" name="userName">
             <Input placeholder="admin" />
           </Form.Item>
-          <Form.Item<FormData>>
+          <Form.Item<FormData> label="Mật khẩu:" name="password">
             <Input.Password placeholder="admin" />
           </Form.Item>
           <Button htmlType="submit" type="primary" className="block ml-auto">

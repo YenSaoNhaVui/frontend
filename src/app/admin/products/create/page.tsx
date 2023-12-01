@@ -15,6 +15,7 @@ const FormDetails = dynamic(() => import("./form-details"), {
   ssr: false,
 });
 import FormWeights from "./form-weights";
+import FormUploadImages from "@/components/form/form-upload-images";
 const { Content, Header } = Layout;
 
 export default function Create() {
@@ -78,26 +79,18 @@ export default function Create() {
         </Header>
         <Content className="overflow-auto pr-8">
           <FormCategories />
-          <Form.Item<Product>>
+          <Form.Item<Product> label="Tên" name="title" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
 
-          <Form.Item<Product>>
-            <FormInputPrice />
-          </Form.Item>
-
-          <Form.Item<Product>>
-            <FormInputPrice />
-          </Form.Item>
-
-          <Form.Item<Product>>
+          <Form.Item<Product> label="Loại" name="prices" rules={[{ required: true }]}>
             <FormWeights />
           </Form.Item>
-          <Form.Item<Product>>
+          <Form.Item<Product> label="Mô tả" name="description" rules={[{ required: true }]}>
             <Input.TextArea rows={5} />
           </Form.Item>
           <FormDetails />
-          {/* <FormUploadImages<Product> /> */}
+          <FormUploadImages<Product> name="images" label="Chọn ảnh" rules={[{ required: true }]} />
         </Content>
       </Layout>
     </Form>

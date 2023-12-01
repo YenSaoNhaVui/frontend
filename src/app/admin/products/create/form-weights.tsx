@@ -1,17 +1,38 @@
+import { FormInputPrice } from "@/components/form/form-input-price";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Form, InputNumber, Space } from "antd";
 type Props = {};
 
 export default function FormWeights({ ...props }: Props) {
   return (
-    <Form.List {...props} name="weights">
+    <Form.List {...props} name="prices">
       {(fields, { add, remove }) => (
         <>
           {fields.map((field) => (
             <Space key={field.key} align="baseline" className="flex">
-              <Form.Item {...field} rules={[{ required: true }]}>
-                <InputNumber suffix="kg" />
-              </Form.Item>
+              <Space direction="vertical">
+                <Form.Item
+                  label="Trọng lượng"
+                  rules={[{ required: true }]}
+                  name={[field.name, "weight"]}
+                >
+                  <InputNumber suffix="kg" className="!w-full" />
+                </Form.Item>
+
+                <Space>
+                  <Form.Item label="Giá" name={[field.name, "price"]} rules={[{ required: true }]}>
+                    <FormInputPrice />
+                  </Form.Item>
+
+                  <Form.Item
+                    label="Giá niêm yết"
+                    name={[field.name, "listPrice"]}
+                    rules={[{ required: true }]}
+                  >
+                    <FormInputPrice />
+                  </Form.Item>
+                </Space>
+              </Space>
               <MinusCircleOutlined onClick={() => remove(field.name)} />
             </Space>
           ))}
