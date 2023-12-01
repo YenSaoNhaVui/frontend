@@ -8,7 +8,7 @@ export default function ProductDescription({ product }: { product: Product }) {
         detail?.isTable ? (
           <TableDescription key={detail?.title} title={detail?.title} tables={detail?.table} />
         ) : (
-          <NormalDescription detail={detail} />
+          <NormalDescription key={detail?.title} detail={detail} />
         )
       )}
 
