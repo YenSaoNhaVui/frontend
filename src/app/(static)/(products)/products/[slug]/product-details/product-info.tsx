@@ -9,15 +9,15 @@ export default function ProductInfo({ product }: { product: Product }) {
   return (
     <section className="flex-1 w-full text-primary-1-7">
       <h3 className="">{product?.title}</h3>
-      <h4 className="">{new Intl.NumberFormat("vi-VN").format(product.price)} VNĐ</h4>
+      <h4 className="">{new Intl.NumberFormat("vi-VN").format(product?.prices[0]?.price || 0)} VNĐ</h4>
       <div className="mt-4 mb-8">
         <p className="text-body-md-semibold ">Trọng lượng</p>
         <div className="border-t border-solid border-[#204F4F] my-2" />
         <div className="flex items-center gap-1.5">
-          {product?.weights?.map((weight, i) => (
+          {product?.prices?.map((price, i) => (
             <Button
               onClick={() => setVariant(i)}
-              key={weight}
+              key={price?.weight}
               variant="outlined"
               className={
                 variant == i
@@ -25,7 +25,8 @@ export default function ProductInfo({ product }: { product: Product }) {
                   : "!px-2 !py-2.5 !rounded !text-[12px] !leading-[16px] !text-primary-1-5 !font-semibold !border-neutral-4"
               }
             >
-              {weight < 0 ? weight * 100 : weight} {weight < 0 ? "gam" : "kg"}
+              {price?.weight < 0 ? price?.weight * 100 : price?.weight}{" "}
+              {price?.weight < 0 ? "gam" : "kg"}
             </Button>
           ))}
         </div>
