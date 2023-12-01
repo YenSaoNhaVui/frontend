@@ -48,12 +48,16 @@ export default function AdminProductsPage() {
               </Space>
             )}
           />
-          <Column title="Giá" key="price" render={(_, product: Product) => formatPrice(product.price)} />
           <Column
-            title="Giá niêm yết"
-            key="listPrice"
-            render={(_, product: Product) => formatPrice(product.listPrice)}
+            title="Giá"
+            key="price"
+            render={(_, product: Product) => formatPrice(product.prices?.[0]?.price ?? 0)}
           />
+          {/* <Column */}
+          {/*   title="Giá niêm yết" */}
+          {/*   key="listPrice" */}
+          {/*   render={(_, product: Product) => formatPrice(product.listPrice)} */}
+          {/* /> */}
 
           <Column
             key="action"

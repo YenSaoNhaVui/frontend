@@ -36,7 +36,7 @@ export default function Create() {
     setIsSubmited(true);
     try {
       product.images = await uploadImages(product.images as UploadFile[]);
-      product.categories = product.categories.map((category: any) => ({ id: category } as Category));
+      product.categories = product.categories.map((category: any) => ({ id: category }) as Category);
       if (initialProduct) {
         await updateProduct(initialProduct.id, product);
       } else {
@@ -83,15 +83,7 @@ export default function Create() {
             <Input />
           </Form.Item>
 
-          <Form.Item<Product> label="Giá" name="price" rules={[{ required: true }]}>
-            <FormInputPrice />
-          </Form.Item>
-
-          <Form.Item<Product> label="Giá niêm yết" name="listPrice" rules={[{ required: true }]}>
-            <FormInputPrice />
-          </Form.Item>
-
-          <Form.Item<Product> label="Trọng lượng" name="weights" rules={[{ required: true }]}>
+          <Form.Item<Product> label="Loại" name="prices" rules={[{ required: true }]}>
             <FormWeights />
           </Form.Item>
           <Form.Item<Product> label="Mô tả" name="description" rules={[{ required: true }]}>

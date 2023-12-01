@@ -9,10 +9,8 @@ export interface Product {
   description: string;
   images: string[] | UploadFile[];
 
-  weights: number[];
+  prices: { price: number; listPrice: number; weight: number }[];
 
-  price: number;
-  listPrice: number;
   details: [
     {
       isTable: boolean;
@@ -23,7 +21,7 @@ export interface Product {
       }[];
       quill: { title: string; content: string };
       details: string;
-    }
+    },
   ];
 
   categories: Category[] | number[];
