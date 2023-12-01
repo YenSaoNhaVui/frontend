@@ -8,3 +8,8 @@ export async function getProducts(query?: Query): Promise<Product[]> {
   });
   return data?.map((item: Product) => ({ ...item, key: item.id }));
 }
+
+export async function getProductsById(id: string): Promise<Product> {
+  const { data } = await axiosInstance.get(PRODUCT_CONTROLLER + `/${id}`);
+  return data;
+}

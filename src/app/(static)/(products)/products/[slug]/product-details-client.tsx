@@ -7,9 +7,15 @@ import { useState } from "react";
 import ProductDescription from "./product-description";
 import MoreProducts from "./more-products";
 import ProductReview from "./product-review";
+import useAsync from "@/hooks/use-async";
+import { Category, Product } from "@/interfaces";
+import { getProductsById } from "@/service";
 
 export default function ProductDetailsClient({ slug }: { slug: string }) {
   const [keyTab, setKeyTab] = useState<string>("1");
+  const { data, loading } = useAsync<Product>(() => getProductsById(slug));
+  if (loading) return <p>Loading...</p>;
+
   const onChange = (key: string) => {
     setKeyTab(key);
   };
@@ -17,23 +23,23 @@ export default function ProductDetailsClient({ slug }: { slug: string }) {
     {
       key: "1",
       label: "Mô tả chi tiết về sản phẩm",
-      children: <ProductDescription />,
+      children: <ProductDescription product={data} />,
     },
     {
       key: "2",
       label: "Đánh giá và bình luận (2)",
-      children: <ProductReview />,
+      children: <ProductReview product={data} />,
     },
   ];
   return (
     <section className="xl:max-w-[1280px] xl:mx-auto sm:mx-8 mx-4 text-black">
       <BreadCrumbs
         linkBack="/products"
-        titleCurrent="Yến Nhà Vui - 01"
+        titleCurrent={data?.title}
         titlePrev="Sản phẩm"
         className="my-[34px]"
       />
-      <ProductDetails />
+      <ProductDetails product={data} />
       <Tabs
         defaultActiveKey="1"
         items={items}
@@ -42,7 +48,7 @@ export default function ProductDetailsClient({ slug }: { slug: string }) {
         })}
         onChange={onChange}
       />
-      <MoreProducts />
+      <MoreProducts product={data} />
     </section>
   );
 }

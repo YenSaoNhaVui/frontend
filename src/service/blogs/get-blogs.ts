@@ -10,8 +10,6 @@ export async function getBlogs(query?: Query): Promise<Blog[]> {
 }
 
 export async function getBlogsById(id: string): Promise<Blog> {
-  console.log(id);
   const { data } = await axiosInstance.get(BLOGS_CONTROLLER + `/${id}`);
-  console.log(data);
   return data;
 }

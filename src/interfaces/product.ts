@@ -17,11 +17,25 @@ export interface Product {
     {
       isTable: boolean;
       title: string;
+      table: {
+        title: string;
+        content: string;
+      }[];
       quill: { title: string; content: string };
       details: string;
-    },
+    }
   ];
 
   categories: Category[] | number[];
   comments: Comment[];
+}
+
+export interface Comment {
+  id: number;
+  userName: string;
+  userPhone: string;
+  userComment: string;
+  userStar: number;
+  createdAt: string;
+  productId: number;
 }

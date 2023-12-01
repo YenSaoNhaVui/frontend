@@ -2,13 +2,14 @@ import { useState } from "react";
 import ProductRate from "./product-rate";
 import ProductFormReivew from "./product-form-review";
 import Reviews from "./reviews";
+import { Product } from "@/interfaces";
 
-export default function ProductReview() {
+export default function ProductReview({ product }: { product: Product }) {
   const [starts, setStarts] = useState<number>(0);
   return (
     <section className="mt-1.5 text-primary-1-7 mb-[56px]">
       <h3 className="text-primary-1-7 mb-5">
-        Đánh giá sản phẩm <span className="!text-primary-1-5">“Yến Nhà Vui - 01”</span>
+        Đánh giá sản phẩm <span className="!text-primary-1-5">“{product?.title}”</span>
       </h3>
       <p className="text-body-md-medium mb-5">
         Đánh giá của quý khách sẽ giúp cho Yến Nhà Vui cải thiện chất lượng sản phẩm và dịch vụ ngày càng
@@ -22,7 +23,7 @@ export default function ProductReview() {
       <ProductRate setStars={setStarts} />
       <ProductFormReivew />
       <div className="my-5 border-t border-primary-1-5" />
-      <Reviews />
+      <Reviews comments={product?.comments} />
     </section>
   );
 }
