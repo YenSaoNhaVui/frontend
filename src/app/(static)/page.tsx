@@ -179,7 +179,7 @@ export default function HomePage() {
             />
           </div>
           <div className="flex-1">
-            <h5 className="mt-[107px] mb-4">GIỚI THIỆU</h5>
+            <h5 className="mt-[41px] mb-4">GIỚI THIỆU</h5>
             <img
               src="https://ucarecdn.com/37425636-89a6-4570-8303-1f2c1387d5de/-/preview/500x500/-/quality/smart/-/format/auto/"
               className="mb-4"
