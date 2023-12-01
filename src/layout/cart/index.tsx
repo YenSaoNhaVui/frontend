@@ -1,12 +1,15 @@
+"use client";
 import { CartIcon } from "@/components/icons";
 import Icon from "@/components/ui/icon";
 import Badge from "./badge-cart";
 import { usePathname } from "next/navigation";
 import { cn } from "@/utils";
 import Link from "next/link";
+import { useCart } from "@/zustand";
 
 export default function Cart() {
   const url = usePathname();
+  const productCarts = useCart((state) => state.productCarts);
 
   return (
     <div
@@ -15,7 +18,7 @@ export default function Cart() {
       })}
     >
       <Link href="/cart">
-        <Badge content={0}>
+        <Badge content={productCarts.length}>
           <Icon className="lg:!w-[34px] lg:!h-[34px] !h-[18px] !w-[18px]">
             <CartIcon />
           </Icon>
