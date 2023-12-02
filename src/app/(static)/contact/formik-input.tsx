@@ -27,10 +27,14 @@ export default function FormikInput({ label, name, isEditor = false, className, 
       </label>
       {isEditor ? (
         <Editor
-          className={cn("[&>.ql-toolbar.ql-snow]:!px-3 [&_.ql-clean]:!hidden", className, {
-            "[&_.ql-toolbar]:!border-danger-5 [&_.ql-container]:!border-danger-5 [&>.ql-toolbar.ql-snow]:!px-3":
-              error?.error,
-          })}
+          className={cn(
+            "[&>.ql-toolbar.ql-snow]:!px-3 [&_.ql-clean]:!hidden",
+            {
+              "[&_.ql-toolbar]:!border-danger-5 [&_.ql-container]:!border-danger-5 [&>.ql-toolbar.ql-snow]:!px-3":
+                error?.error,
+            },
+            className
+          )}
           value={field?.value}
           onValueChange={onChangeEditor}
         />

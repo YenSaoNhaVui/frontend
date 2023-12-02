@@ -1,4 +1,4 @@
-import { Product } from ".";
+import { Product, Variant } from ".";
 
 export interface Order {
   id: number;
@@ -15,9 +15,10 @@ export interface Order {
 }
 
 export interface OrdersProducts {
+  productId?: number;
   quantity: number;
-  weight: number;
+  variant: Variant;
 
-  product: Product;
-  order: Order;
+  product?: Product;
+  order?: Order;
 }

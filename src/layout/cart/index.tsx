@@ -6,11 +6,14 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/utils";
 import Link from "next/link";
 import { useCart } from "@/zustand";
+import { useClient } from "@/hooks";
 
 export default function Cart() {
   const url = usePathname();
   const productCarts = useCart((state) => state.productCarts);
 
+  const { isClient } = useClient();
+  if (!isClient) return <></>;
   return (
     <div
       className={cn("lg:absolute relative lg:top-2 right-0", {

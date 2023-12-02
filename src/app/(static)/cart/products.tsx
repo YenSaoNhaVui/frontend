@@ -4,10 +4,7 @@ import { cn, formatPrice } from "@/utils";
 import { useCart } from "@/zustand";
 
 export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
-  const productCarts = useCart((state) => state.productCarts);
-  let totalPrice = 0;
-  productCarts.forEach((item) => (totalPrice += (item?.variant?.listPrice ?? 0) * item.quantity));
-  console.log(productCarts);
+  const { productCarts, removeProductCarts, getTotalPrice } = useCart();
   return (
     <div className="mt-7 mb-8 [&_p]:mb-0">
       <div className="grid grid-cols-8 pb-2.5 border-b border-solid border-black">
@@ -35,11 +32,12 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
           <div className="mt-5 col-span-4 flex flex-col justify-between">
             <div>
               <h5 className="text-primary-1-7 mb-0">{productCart?.product.title}</h5>
-              <p className="text-primary-1-7 text-body-lg-normal">50 gram</p>
+              <p className="text-primary-1-7 text-body-lg-normal">{productCart.variant.weight} kg</p>
             </div>
             <Button
               variant="ghost"
               className="!text-primary-1-7/50 hover:!text-primary-1-7 text-body-lg-normal !p-0 !w-[30px] hover:!bg-transparent"
+              onClick={() => removeProductCarts(i)}
             >
               Xóa
             </Button>
@@ -64,7 +62,7 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
         <span className="col-span-4" />
         <p className="text-body-lg-semibold text-primary-1-7 col-span-2">Tổng cộng</p>
         <p className="text-body-lg-semibold text-primary-1-7 flex items-center">
-          {formatPrice(totalPrice, false)}
+          {formatPrice(getTotalPrice(), false)}
         </p>
       </div>
     </div>

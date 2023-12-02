@@ -7,6 +7,7 @@ import { useClient } from "@/hooks";
 import Link from "next/link";
 import { useState } from "react";
 import CartProducts from "./products";
+import FormCheckout from "./form-checkout";
 
 export default function CartPage() {
   const { isClient } = useClient();
@@ -18,21 +19,24 @@ export default function CartPage() {
       <h5 className="mt-3 text-primary-1-7">Giỏ hàng</h5>
       <CartProducts isCheckout={isCheckout} />
       {isCheckout ? (
-        <h4 className="text-primary-1-7 flex items-center justify-center">
-          Chuyển đến{" "}
-          <Link href="zalo://chat?contact={USER_ID}">
-            <Icon className="!w-[96px] !h-[96px] !max-w-[96px] !max-h-[96px]">
-              <ZaloIcon />
-            </Icon>
-          </Link>{" "}
-          hoặc{" "}
-          <Link href="fb-messenger://user-thread/ty.ham.927">
-            <Icon className="!w-[96px] !h-[96px] !max-w-[96px] !max-h-[96px]">
-              <MessengerIcon />
-            </Icon>
-          </Link>{" "}
-          để tiến hành thanh toán.
-        </h4>
+        <>
+          <FormCheckout />
+          <h4 className="text-primary-1-7 flex items-center justify-center">
+            Hoặc chuyển đến{" "}
+            <Link href="zalo://chat?contact={USER_ID}">
+              <Icon className="!w-[96px] !h-[96px] !max-w-[96px] !max-h-[96px]">
+                <ZaloIcon />
+              </Icon>
+            </Link>{" "}
+            hay{" "}
+            <Link href="fb-messenger://user-thread/ty.ham.927">
+              <Icon className="!w-[96px] !h-[96px] !max-w-[96px] !max-h-[96px]">
+                <MessengerIcon />
+              </Icon>
+            </Link>{" "}
+            để tiến hành thanh toán.
+          </h4>
+        </>
       ) : (
         <div className="flex justify-end">
           <Button
