@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import Categories from "../categories";
 
 export const getAnyMore = async () => {
-  return null;
+  return [];
 };
 
 export default function ProductsPage() {

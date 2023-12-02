@@ -37,9 +37,16 @@ export default function ProductCard({ className, product }: Props) {
           <h6 className="text-primary-2-5 mb-[30px]">{product?.title}</h6>
         </Link>
         <div className="flex items-center justify-between">
-          <p className="text-body-lg-semibold text-primary-2-5 flex-1">
-            {formatPrice(product?.prices?.[0]?.price || 0, false)}
-          </p>
+          {product?.prices?.[0]?.price != product?.prices?.[0]?.listPrice ? (
+            <p className="text-body-lg-semibold text-primary-2-5 flex-1">
+              {formatPrice(product.prices?.[0]?.listPrice, false)}
+            </p>
+          ) : (
+            <p className="text-body-lg-semibold text-primary-2-5 flex-1">
+              {formatPrice(product?.prices?.[0]?.price || 0, false)}
+            </p>
+          )}
+
           <Button
             className="!p-0 !w-8 !h-8 !bg-white hover:!bg-white/90"
             onClick={() => addProduct({ product, quantity: 1, variant: product.prices?.[0] })}
