@@ -13,16 +13,12 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Categories from "../categories";
 
-export const getAnyMore = async (): Promise<any> => {
-  return null;
-};
-
 export default function ProductsPage() {
   const [page, setPage] = useState<number>(0);
   const q = useSearchParams()?.get("q");
   const filter = useSearchParams()?.get("filter");
   const params = useSearchParams()?.get("category");
-  const { data, loading, refetch } = useAsync<Product[]>(() => getAnyMore());
+  const { data, loading, refetch } = useAsync<Product[]>(() => getProducts({ take: 10 }));
   const { isLoading, categories } = useCategory();
   const changePage = async (e: number) => {
     setPage(e);
