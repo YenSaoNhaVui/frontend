@@ -13,7 +13,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Categories from "../categories";
 
-export const getAnyMore = async () => {
+export const getAnyMore = async (): Promise<any> => {
   return [];
 };
 
