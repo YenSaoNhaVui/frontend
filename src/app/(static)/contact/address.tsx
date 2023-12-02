@@ -19,11 +19,9 @@ export default function Address() {
         <SkeletonButton className="!w-full !h-full [&_span]:!rounded-none [&_span]:!bg-black/30 absolute top-0 left-0 z-0" />
       </div>
       <div className="flex lg:gap-5 gap-[15px] flex-col flex-1">
-        <img
-          src="https://ucarecdn.com/9adb12be-078a-4ec5-a6d1-ed160ec5b7dc/-/preview/500x500/-/quality/smart/"
-          alt="Liên hệ"
-          className="w-[237px] h-[154px]"
-        />
+        <h1 className="lg:!text-[128px] !text-[85px] leading-normal font-street-sign-sans !font-normal text-[#FAD743] mt-[64px]">
+          LIÊN HỆ
+        </h1>
         <div className="py-2.5 flex flex-col gap-2.5">
           <h4 className="text-secondary-4 lg:text-sm !text-body-lg-semibold">
             CÔNG TY CỔ PHẦN XUẤT NHẬP KHẨU THƯƠNG MẠI DỊCH VỤ YẾN SÀO NHÀ VUI
@@ -38,25 +36,20 @@ export default function Address() {
               <LocationIcon />
             </Icon>
             <h5 className="lg:text-sm !text-body-md-semibold">
-              66/9/27 KP6A, Đường Tân Thới Nhất 06, Phường Tân Thới Nhất, Quận
-              12
+              66/9/27 KP6A, Đường Tân Thới Nhất 06, Phường Tân Thới Nhất, Quận 12
             </h5>
           </div>
           <div className="flex lg:gap-2.5 gap-1.5">
             <Icon size="lg" className="mt-[3px]">
               <PhoneIcon />
             </Icon>
-            <h5 className="lg:text-sm !text-body-md-semibold">
-              0705195195 (Sđt & Zalo)
-            </h5>
+            <h5 className="lg:text-sm !text-body-md-semibold">0705195195 (Sđt & Zalo)</h5>
           </div>
           <div className="flex lg:gap-2.5 gap-1.5">
             <Icon size="lg" className="mt-[3px]">
               <MailIcon />
             </Icon>
-            <h5 className="lg:text-sm !text-body-md-semibold">
-              yensaonhavui@gmail.com
-            </h5>
+            <h5 className="lg:text-sm !text-body-md-semibold">yensaonhavui@gmail.com</h5>
           </div>
         </div>
       </div>

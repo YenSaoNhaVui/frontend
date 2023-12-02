@@ -42,7 +42,12 @@ export default function AdminQuestionsPage() {
         key="name"
         render={(_, { name, identity }) => name + " - " + identity}
       />
-      <Column title="Nhận xét" key="details" dataIndex="details" />
+      <Column
+        title="Nhận xét"
+        key="details"
+        dataIndex="details"
+        render={(detail) => <div dangerouslySetInnerHTML={{ __html: detail }} />}
+      />
       <Column title="Ngày" key="date" dataIndex="createdAt" render={(value) => formatDate(value)} />
       <Column
         key="action"

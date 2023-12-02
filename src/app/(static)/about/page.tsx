@@ -1,7 +1,6 @@
 "use client";
-import classes from "@/components/home-component/produce-process/produce-process.module.css";
 import ImageOptimize from "@/components/image";
-import { cn } from "@/utils";
+import { ImagesYenSao } from "@/layout/home-layout/production-process";
 
 export default function AboutPage() {
   return (
@@ -34,12 +33,12 @@ export default function AboutPage() {
           backgroundImage: `url('https://ucarecdn.com/2116657f-8b57-40b2-a3fb-4f2b500228be/-/preview/-/quality/smart/-/format/auto/')`,
         }}
       >
-        <div className="flex lg:flex-row flex-col lg:gap-[100px] gap-[30px] lg:mb-[200px] mb-[30px] lg:pl-[77px] pl-0 relative">
-          <div className="lg:flex-1 lg:max-w-[625px] lg:px-0 px-6">
-            <h1 className="lg:!text-[236px] !text-[100px] !leading-normal !font-normal align-middle font-street-sign-sans text-primary-2-5 whitespace-nowrap lg:text-start text-center">
+        <div className="flex xl:flex-row flex-col xl:gap-[100px] gap-[30px] xl:mb-[200px] mb-[30px] xl:pl-[77px] pl-0 relative">
+          <div className="xl:flex-1 xl:max-w-[625px] xl:px-0 px-6">
+            <h1 className="xl:!text-[236px] !text-[100px] !leading-normal !font-normal align-middle font-street-sign-sans text-primary-2-5 whitespace-nowrap xl:text-start text-center">
               Giới thiệu
             </h1>
-            <p className="lg:text-body-lg-regular text-body-md-regular">
+            <p className="xl:text-body-lg-regular text-body-md-regular">
               Thương hiệu {`"Yến Sào Nhà Vui"`} đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt
               10 năm qua. Chúng tôi tự hào cung cấp các sản phẩm Yến sào tự nhiên, không qua bất kỳ quá
               trình chế biến hay xử lý hóa học nào, để đảm bảo giữ nguyên toàn bộ giá trị dinh dưỡng và
@@ -47,32 +46,19 @@ export default function AboutPage() {
               {`"Yến Sào Nhà Vui"`} trong lĩnh vực Yến sào:
             </p>
             <br />
-            <p className="lg:text-body-lg-regular text-body-md-regular">
+            <p className="xl:text-body-lg-regular text-body-md-regular">
               Sản phẩm tự nhiên và thuần khiết: Chúng tôi cam kết cung cấp Yến sào tự nhiên, không chứa
               hóa chất hoặc tác nhân bảo quản. Điều này đảm bảo sự thuần khiết và nguyên vẹn của sản
               phẩm, giúp bảo tồn toàn bộ giá trị dinh dưỡng và chất lượng của sản phẩm.
             </p>
             <br />
-            <p className="lg:text-body-lg-regular text-body-md-regular">
+            <p className="xl:text-body-lg-regular text-body-md-regular">
               Nguồn gốc và bảo vệ môi trường: Chúng tôi lựa chọn nguồn cung ứng Yến sào từ những vùng có
               môi trường sạch sẽ và bảo vệ môi trường. Điều này thể hiện cam kết của chúng tôi đối với
               bảo vệ sự cân bằng tự nhiên và nguồn tài nguyên thiên nhiên.
             </p>
           </div>
-          <div className="relative md:absolute top-50 w-full md:w-1/2 md:h-1/2 ms-0 md:ms-12 right-0 grid grid-cols-3 lg:mt-[200px]">
-            <div className="grid grid-rows-2">
-              <div className={classes.imageContainer1}></div>
-              <div className={classes.imageContainer2}></div>
-            </div>
-            <div className="relative col-span-2 h-full flex items-center">
-              <div
-                className={cn(classes.image3, "absolute top-0 w-full h-full lg:-right-[68px] right-0")}
-              >
-                <div className={classes.imageContainer3}></div>
-                <div className={classes.shape}></div>
-              </div>
-            </div>
-          </div>
+          <ImagesYenSao className="xl:mt-[200px]" />
         </div>
 
         <div className="flex lg:flex-row flex-col-reverse items-start lg:gap-[116px] gap-[60px] lg:pr-20 lg:mb-[152px] mb-[59px]">

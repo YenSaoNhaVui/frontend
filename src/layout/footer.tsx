@@ -38,7 +38,7 @@ export default function Footer() {
               <Link
                 href="https://www.facebook.com/YENSAONHAVUI"
                 target="_blank"
-                className="flex items-center gap-2 lg:justify-start justify-end !text-black"
+                className="flex items-center gap-2 lg:justify-start justify-start !text-black"
               >
                 <Icon className="!w-6 !h-[33px]">
                   <FBIcon />
@@ -48,13 +48,11 @@ export default function Footer() {
               <Link
                 href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
                 target="_blank"
-                className="flex items-center gap-2 lg:justify-start justify-end !text-black"
+                className="flex items-center gap-2 lg:justify-start justify-start !text-black"
               >
-                <div className="h-[33px]">
-                  <Icon size="lg">
-                    <InstagramIcon />
-                  </Icon>
-                </div>
+                <Icon className="!w-6 !h-[33px]">
+                  <InstagramIcon />
+                </Icon>
                 <p className="ml-1 !mb-0">Tiktok</p>
               </Link>
             </div>
