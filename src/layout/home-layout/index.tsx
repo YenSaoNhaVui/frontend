@@ -1,3 +1,5 @@
+"use client";
+
 import FeedBack from "./feedback";
 import InterView from "./interview";
 import ProductProcess from "./production-process";
