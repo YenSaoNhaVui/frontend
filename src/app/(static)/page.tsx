@@ -1,18 +1,10 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
-import Icon from "@/components/ui/icon";
-import { ArrowLeftIcon, ArrowRightIcon, ArrowRightStraightIcon } from "@/components/icons";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useRef } from "react";
-import CardFeedBack from "@/components/card-feedback";
-import ProductOutstanding from "@/layout/home-layout/products-outstanding";
-import Reason from "@/layout/home-layout/reason";
+import FeedBack from "@/layout/home-layout/feedback";
 import InterView from "@/layout/home-layout/interview";
 import ProductProcess from "@/layout/home-layout/production-process";
-import FeedBack from "@/layout/home-layout/feedback";
+import ProductOutstanding from "@/layout/home-layout/products-outstanding";
+import Reason from "@/layout/home-layout/reason";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 export default function HomePage() {
   return (
