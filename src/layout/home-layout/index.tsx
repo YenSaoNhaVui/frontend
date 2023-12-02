@@ -8,7 +8,7 @@ import Reason from "./reason";
 
 export default function HomeClient() {
   return (
-    <>
+    <div>
       <section className="lg:-mt-[78px] -mt-[90px] relative">
         <div
           className="lg:h-[1084px] lg:pt-0 pt-[100%] relative bg-cover bg-center bg-no-repeat"
@@ -37,6 +37,6 @@ export default function HomeClient() {
         <ProductProcess />
         <FeedBack />
       </section>
-    </>
+    </div>
   );
 }
