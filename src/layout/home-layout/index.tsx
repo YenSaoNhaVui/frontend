@@ -1,15 +1,13 @@
-"use client";
-
-import FeedBack from "./feedback";
-import InterView from "./interview";
-import ProductProcess from "./production-process";
-import ProductOutstanding from "./products-outstanding";
-import Reason from "./reason";
+// import FeedBack from "./feedback";
+// import InterView from "./interview";
+// import ProductProcess from "./production-process";
+// import ProductOutstanding from "./products-outstanding";
+// import Reason from "./reason";
 
 export default function HomeClient() {
   return (
     <div>
-      <section className="lg:-mt-[78px] -mt-[90px] relative">
+      {/* <section className="lg:-mt-[78px] -mt-[90px] relative">
         <div
           className="lg:h-[1084px] lg:pt-0 pt-[100%] relative bg-cover bg-center bg-no-repeat"
           style={{
@@ -36,7 +34,7 @@ export default function HomeClient() {
         <InterView />
         <ProductProcess />
         <FeedBack />
-      </section>
+      </section> */}
     </div>
   );
 }
