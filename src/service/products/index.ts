@@ -1,4 +1,5 @@
 export * from "./get-products";
+export * from "./update-highlight";
 export * from "./update-product";
 export * from "./create-product";
 
