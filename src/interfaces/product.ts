@@ -1,6 +1,12 @@
 import { UploadFile } from "antd";
 import { Category } from ".";
 
+export interface Variant {
+  price: number;
+  listPrice: number;
+  weight: number;
+}
+
 export interface Product {
   key?: string;
 
@@ -9,7 +15,7 @@ export interface Product {
   description: string;
   images: string[] | UploadFile[];
 
-  prices: { price: number; listPrice: number; weight: number }[];
+  prices: Variant[]; // Đặt tên lỗi xíu  :))
 
   details: [
     {
