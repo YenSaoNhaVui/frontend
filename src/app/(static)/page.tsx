@@ -7,7 +7,8 @@ import Reason from "@/layout/home-layout/reason";
 export default function HomePage() {
   return (
     <>
-      <section className="lg:-mt-[78px] -mt-[90px] relative">
+      <div>123</div>
+      {/* <section className="lg:-mt-[78px] -mt-[90px] relative">
         <div
           className="lg:h-[1084px] lg:pt-0 pt-[100%] relative bg-cover bg-center bg-no-repeat"
           style={{
@@ -34,7 +35,7 @@ export default function HomePage() {
         <InterView />
         <ProductProcess />
         <FeedBack />
-      </section>
+      </section> */}
     </>
   );
 }
