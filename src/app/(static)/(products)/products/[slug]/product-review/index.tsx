@@ -5,7 +5,7 @@ import Reviews from "./reviews";
 import { Product } from "@/interfaces";
 
 export default function ProductReview({ product }: { product: Product }) {
-  const [starts, setStarts] = useState<number>(0);
+  const [star, setStar] = useState<number>(0);
   return (
     <section className="mt-1.5 text-primary-1-7 mb-[56px]">
       <h3 className="text-primary-1-7 mb-5">
@@ -20,8 +20,8 @@ export default function ProductReview({ product }: { product: Product }) {
         Quý khách vui lòng điền đầy đủ thông tin có đánh dấu sao (*) để Yến Nhà Vui có thể hỗ trợ quý
         khách một cách tốt nhất.
       </p>
-      <ProductRate setStars={setStarts} />
-      <ProductFormReivew />
+      <ProductRate setStars={setStar} />
+      <ProductFormReivew star={star} />
       <div className="my-5 border-t border-primary-1-5" />
       <Reviews comments={product?.comments} />
     </section>

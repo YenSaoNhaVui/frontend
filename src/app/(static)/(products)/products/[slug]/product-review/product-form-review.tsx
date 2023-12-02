@@ -1,9 +1,12 @@
 import FormikInput from "@/app/(static)/contact/formik-input";
 import { Button } from "@/components/ui/button";
+import { createComment } from "@/service";
 import { ContactValidate } from "@/validate-yub";
 import { Form, Formik } from "formik";
+import { usePathname } from "next/navigation";
 
-export default function ProductFormReivew() {
+export default function ProductFormReivew({ star }: { star: number }) {
+  const pathname = usePathname();
   return (
     <Formik
       initialValues={{
@@ -20,7 +23,18 @@ export default function ProductFormReivew() {
         },
         actions: any
       ) => {
-        actions.setSubmitting(false);
+        try {
+          await createComment(parseInt(pathname.match(/\d+/)[0], 10), {
+            userName: information.fullName,
+            userStar: star,
+            userPhone: information.emailOrPhone,
+            userComment: information.question,
+          });
+          actions.setSubmitting(false);
+          location.reload();
+        } catch (error) {
+          console.error(error);
+        }
       }}
     >
       <Form>
