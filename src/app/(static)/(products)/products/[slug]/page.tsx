@@ -18,7 +18,7 @@ export async function generateStaticParams(): Promise<DocPageProps["params"][]> 
   try {
     const response = await getProducts({ take: 99999999 });
     const paths = response?.map((product: Product) => ({
-      slug: product?.id?.toString(),
+      slug: (product?.id || 1)?.toString(),
     }));
     return paths;
   } catch (err) {
