@@ -1,11 +1,11 @@
 "use client";
 import useAsync from "@/hooks/use-async";
-import { getProducts } from "@/service";
+import { getProducts, updateHighlight } from "@/service";
 import { Product } from "@/interfaces";
 import { deleteProduct } from "@/service/products/delete-product";
 import { buildQueryString, formatPrice } from "@/utils";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { App, Button, Image, Layout, Space, Table } from "antd";
+import { DeleteOutlined, EditOutlined, HighlightOutlined } from "@ant-design/icons";
+import { App, Button, Image, Layout, Space, Table, Tooltip } from "antd";
 import { useRouter } from "next/navigation";
 
 const { Column } = Table;
@@ -15,6 +15,15 @@ export default function AdminProductsPage() {
   const { data, loading, refetch } = useAsync<Product[]>(() => getProducts());
   const { message } = App.useApp();
   const router = useRouter();
+
+  const handleUpdateHighlight = async (id: number, highlight: boolean) => {
+    try {
+      await updateHighlight(id, highlight);
+      refetch();
+    } catch {
+      message.error("Lỗi xảy ra");
+    }
+  };
 
   const handleDeleteProduct = async (id: number) => {
     try {
@@ -63,6 +72,14 @@ export default function AdminProductsPage() {
             key="action"
             render={(_: any, product: Product) => (
               <Space>
+                <Tooltip title="Đánh dấu là sản phẩm nổi bật">
+                  <Button
+                    shape="circle"
+                    icon={<HighlightOutlined />}
+                    type={product.highlight ? "primary" : "text"}
+                    onClick={() => handleUpdateHighlight(product.id, !product.highlight)}
+                  />
+                </Tooltip>
                 <Button
                   shape="circle"
                   icon={<DeleteOutlined />}

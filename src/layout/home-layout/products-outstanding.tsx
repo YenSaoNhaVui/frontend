@@ -8,11 +8,15 @@ import { useRef } from "react";
 import { ArrowLeftIcon, ArrowRightIcon, ArrowRightStraightIcon } from "@/components/icons";
 import Icon from "@/components/ui/icon";
 import ProductCard from "@/components/product-card";
+import useAsync from "@/hooks/use-async";
+import { getHighlightProducts } from "@/service";
+import { Product } from "@/interfaces";
 
 export default function ProductOutstanding() {
+  const { data: highlightProducts } = useAsync<Product[]>(() => getHighlightProducts());
   const settings = {
     dots: true,
-    infinite: true,
+    // infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 2,
@@ -56,14 +60,9 @@ export default function ProductOutstanding() {
           {...settings}
           className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_button]:!hidden"
         >
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {helper(highlightProducts).map((product, i) => (
+            <ProductCard key={i} product={product} />
+          ))}
         </Slider>
         <div className="absolute -right-14 lg:flex hidden items-center top-0 h-full">
           <Button
@@ -90,4 +89,20 @@ export default function ProductOutstanding() {
       </div>
     </section>
   );
+}
+
+function helper(arr: any[]) {
+  if (!arr) return [];
+  const currentLength = arr.length;
+  const remainder = currentLength % 4;
+
+  if (remainder !== 0) {
+    // Calculate the number of elements to duplicate
+    const elementsToDuplicate = 4 - remainder;
+
+    // Duplicate elements to make the length a multiple of 4
+    arr = arr.concat(arr.slice(0, elementsToDuplicate));
+  }
+
+  return arr;
 }
