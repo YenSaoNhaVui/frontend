@@ -6,13 +6,16 @@ import { useState } from "react";
 import FormikInput from "../contact/formik-input";
 import { createOrder } from "@/service";
 import { useCart } from "@/zustand";
+import { App } from "antd";
 
 type Props = {};
 
 export default function FormCheckout({}: Props) {
-  const { getTotalPrice, productCarts } = useCart((state) => state);
+  const { getTotalPrice, productCarts, setProductCarts } = useCart((state) => state);
   const [openModal, setOpenModal] = useState<boolean>(false);
   useClickOutSide(openModal, setOpenModal, ".modal");
+
+  const { message } = App.useApp();
   return (
     <Formik
       initialValues={{
@@ -28,6 +31,10 @@ export default function FormCheckout({}: Props) {
         actions: any
       ) => {
         actions.setSubmitting(false);
+        if (productCarts.length == 0) {
+          message.info("Chưa chọn sản phẩm nào!");
+          return;
+        }
         try {
           await createOrder({
             name: information.fullName,
@@ -39,6 +46,7 @@ export default function FormCheckout({}: Props) {
               quantity: product.quantity,
             })),
           });
+          setProductCarts([]);
           setOpenModal(true);
         } catch (error) {
           console.error(error);

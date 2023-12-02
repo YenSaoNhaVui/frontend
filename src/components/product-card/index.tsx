@@ -6,6 +6,7 @@ import Icon from "../ui/icon";
 import { cn, formatPrice } from "@/utils";
 import { Product } from "@/interfaces";
 import { useCart } from "@/zustand";
+import { App } from "antd";
 
 interface Props {
   className?: string;
@@ -14,6 +15,7 @@ interface Props {
 
 export default function ProductCard({ className, product }: Props) {
   const addProduct = useCart((state) => state.addProductCarts);
+  const { message } = App.useApp();
 
   return (
     <div className={cn("w-full", className)}>
@@ -46,7 +48,10 @@ export default function ProductCard({ className, product }: Props) {
 
           <Button
             className="!p-0 !w-8 !h-8 !bg-white hover:!bg-white/90"
-            onClick={() => addProduct({ product, quantity: 1, variant: product.prices?.[0] })}
+            onClick={() => {
+              addProduct({ product, quantity: 1, variant: product.prices?.[0] });
+              message.success("Đã thêm vào giỏ hàng!");
+            }}
           >
             <Icon size="sm" className="[&_path]:!fill-[#3ABF9C]">
               <PlusIcon />
