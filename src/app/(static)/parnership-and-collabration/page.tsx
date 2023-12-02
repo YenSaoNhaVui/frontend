@@ -14,13 +14,13 @@ const ITEMS = [
   {
     title: "Sữa chửa nhà yến thất bại",
     description:
-      " Tất cả những nội dung, hình ảnh, văn bản thiết kế đồ họa đăng tải trên Website này đều thuộc quyền sở hữu trí tuệ của Yến Nhà Vui và được bảo hộ theo quy định của Luật sở hữu trí tuệ Việt Nam. Mọi hành vi sao chép, sửa đổi, trích dẫn vì mục đích thương mại mà không có sự cho phép của Bửu Yến thì đều xâm phạm đến các quyền lợi của Yến Nhà Vui. Do đó, Yến Nhà Vui có quyền yêu cầu người sử dụng bồi thường thiệt hại và chấm dứt việc làm đó ngay khi phát hiện. ",
+      "Chào mừng bạn đến với Website Yến Nhà Vui. Chúng tôi nghiêm túc thực hiện trách nhiệm của mình liên quan đến bảo mật thông tin theo các quy định về bảo mật thông tin cá nhân của pháp luật Việt Nam. Và cam kết tôn trọng quyền riêng tư và sự quan tâm của người dùng đối với trang web yennhavui.vn. Các chính sách bảo mật nhằm mục đích giúp bạn hiểu rõ được những thông tin mà chúng tôi thu thập, những lý do mà chúng tôi thu thập và cách bạn có thể cập nhật, xuất và xóa thông tin của mình.",
     link: "/privacy-policy",
   },
   {
     title: "Thiết bị âm thanh nhà yến",
     description:
-      " Tất cả những nội dung, hình ảnh, văn bản thiết kế đồ họa đăng tải trên Website này đều thuộc quyền sở hữu trí tuệ của Yến Nhà Vui và được bảo hộ theo quy định của Luật sở hữu trí tuệ Việt Nam. Mọi hành vi sao chép, sửa đổi, trích dẫn vì mục đích thương mại mà không có sự cho phép của Bửu Yến thì đều xâm phạm đến các quyền lợi của Yến Nhà Vui. Do đó, Yến Nhà Vui có quyền yêu cầu người sử dụng bồi thường thiệt hại và chấm dứt việc làm đó ngay khi phát hiện. ",
+      "Tất cả những nội dung, hình ảnh, văn bản thiết kế đồ họa đăng tải trên Website này đều thuộc quyền sở hữu trí tuệ của Yến Nhà Vui và được bảo hộ theo quy định của Luật sở hữu trí tuệ Việt Nam. Mọi hành vi sao chép, sửa đổi, trích dẫn vì mục đích thương mại mà không có sự cho phép của Bửu Yến thì đều xâm phạm đến các quyền lợi của Yến Nhà Vui. Do đó, Yến Nhà Vui có quyền yêu cầu người sử dụng bồi thường thiệt hại và chấm dứt việc làm đó ngay khi phát hiện. ",
     link: "/terms-conditions",
   },
 ];
