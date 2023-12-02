@@ -11,11 +11,12 @@ import { useClient } from "@/hooks";
 import SpinLoading from "@/components/SpinLoading";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import { getAnymore } from "@/utils/getAnymore";
 
 export default function BlogsPage() {
   const q = useSearchParams()?.get("q");
   const filter = useSearchParams()?.get("filter");
-  const { data, loading, refetch } = useAsync<Blog[]>(() => getBlogs({ take: 6 }));
+  const { data, loading, refetch } = useAsync<Blog[]>(() => getAnymore());
   const { isClient } = useClient();
 
   const fetchProducts = async (e?: number) => {

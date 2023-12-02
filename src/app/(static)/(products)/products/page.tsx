@@ -12,13 +12,14 @@ import { Pagination } from "antd";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Categories from "../categories";
+import { getAnymore } from "@/utils/getAnymore";
 
 export default function ProductsPage() {
   const [page, setPage] = useState<number>(0);
   const q = useSearchParams()?.get("q");
   const filter = useSearchParams()?.get("filter");
   const params = useSearchParams()?.get("category");
-  const { data, loading, refetch } = useAsync<Product[]>(() => getProducts({ take: 10 }));
+  const { data, loading, refetch } = useAsync<Product[]>(() => getAnymore());
   const { isLoading, categories } = useCategory();
   const changePage = async (e: number) => {
     setPage(e);
