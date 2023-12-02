@@ -1,5 +1,5 @@
 import { UploadFile } from "antd";
-import { Category } from ".";
+import { Category, Comment } from ".";
 
 export interface Variant {
   price: number;
@@ -34,14 +34,4 @@ export interface Product {
 
   categories: Category[] | number[];
   comments: Comment[];
-}
-
-export interface Comment {
-  id: number;
-  userName: string;
-  userPhone: string;
-  userComment: string;
-  userStar: number;
-  createdAt: string;
-  productId: number;
 }

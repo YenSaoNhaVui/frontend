@@ -1,4 +1,5 @@
 export * from "./query";
+export * from "./comment";
 export * from "./question";
 export * from "./category";
 export * from "./blog";
