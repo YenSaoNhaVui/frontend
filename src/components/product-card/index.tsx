@@ -17,7 +17,7 @@ export default function ProductCard({ className, product }: Props) {
 
   return (
     <div className={cn("w-full", className)}>
-      <Link href={"/products/" + product.id} className="cursor-pointer">
+      <Link href={"/products/" + (product?.id || "")} className="cursor-pointer">
         <figure className="pt-[100%] relative bg-[#F2D65C] rounded-t-xl">
           <img
             className="w-[calc(100%-24px)] h-[calc(100%-32px)] absolute top-0 left-0 right-0 mx-auto bottom-0 my-auto object-cover rounded-lg"
