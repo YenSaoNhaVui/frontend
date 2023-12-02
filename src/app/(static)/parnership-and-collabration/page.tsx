@@ -15,13 +15,13 @@ const ITEMS = [
     title: "Sữa chửa nhà yến thất bại",
     description:
       " Tất cả những nội dung, hình ảnh, văn bản thiết kế đồ họa đăng tải trên Website này đều thuộc quyền sở hữu trí tuệ của Yến Nhà Vui và được bảo hộ theo quy định của Luật sở hữu trí tuệ Việt Nam. Mọi hành vi sao chép, sửa đổi, trích dẫn vì mục đích thương mại mà không có sự cho phép của Bửu Yến thì đều xâm phạm đến các quyền lợi của Yến Nhà Vui. Do đó, Yến Nhà Vui có quyền yêu cầu người sử dụng bồi thường thiệt hại và chấm dứt việc làm đó ngay khi phát hiện. ",
-    link: "/privacy-policy",
+    link: "/policies",
   },
   {
     title: "Thiết bị âm thanh nhà yến",
     description:
       " Tất cả những nội dung, hình ảnh, văn bản thiết kế đồ họa đăng tải trên Website này đều thuộc quyền sở hữu trí tuệ của Yến Nhà Vui và được bảo hộ theo quy định của Luật sở hữu trí tuệ Việt Nam. Mọi hành vi sao chép, sửa đổi, trích dẫn vì mục đích thương mại mà không có sự cho phép của Bửu Yến thì đều xâm phạm đến các quyền lợi của Yến Nhà Vui. Do đó, Yến Nhà Vui có quyền yêu cầu người sử dụng bồi thường thiệt hại và chấm dứt việc làm đó ngay khi phát hiện. ",
-    link: "/terms-conditions",
+    link: "/policies",
   },
 ];
 

@@ -68,7 +68,7 @@ export default function ProductOutstanding() {
         <Slider
           ref={slider}
           {...settings}
-          className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_button]:!hidden"
+          className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_.slick-arrow]:!hidden"
         >
           {loading
             ? [1, 2, 3, 4, 5, 6, 7, 8]?.map((i) => <ProductCardLoading key={i} />)

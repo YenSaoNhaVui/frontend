@@ -33,7 +33,7 @@ export function ImagesYenSao({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative flex-1 xl:h-[684px] xl:min-h-[0px] lg:min-h-[450px] min-h-[377px]",
+        "relative flex-1 xl:h-[684px] xl:min-h-[0px] xl:max-h-full lg:min-h-[450px] lg:max-h-[450px] min-h-[377px] max-h-[377px]",
         className
       )}
     >
@@ -55,9 +55,9 @@ export function ImagesYenSao({ className }: { className?: string }) {
       />
       <img
         src="https://ucarecdn.com/ac01edbc-77fe-4bb3-9fa5-25f793317d26/-/preview/500x500/-/quality/smart/-/format/auto/"
-        className="absolute xl:bottom-10 bottom-4 xl:right-0 sm:-right-[80px] -right-[200px] z-30 xl:w-auto xl:h-auto w-[343px] h-[259px]"
+        className="absolute xl:bottom-10 bottom-4 xl:-right-6 sm:-right-[80px] -right-[200px] z-30 xl:w-auto xl:h-auto w-[343px] h-[259px]"
       />
-      <div className="bg-[#3ABF9C] xl:w-[499px] xl:h-[422px] w-[291px] h-[100px] rounded-[20px] xl:-right-[128px] sm:-right-20 -right-[180px] xl:bottom-[106px] lg:top-[120px] top-16 absolute" />
+      <div className="bg-[#3ABF9C] xl:w-[499px] xl:h-[422px] w-[291px] h-[100px] rounded-[20px] xl:-right-[200px] sm:-right-20 -right-[180px] xl:bottom-[106px] lg:top-[120px] top-16 absolute" />
       <img
         src="https://ucarecdn.com/66289d3c-524e-405a-9c05-78e202431b5e/-/preview/500x500/-/quality/smart/-/format/auto/"
         className="absolute sm:-bottom-10 -bottom-6 xl:-right-[100px] sm:-right-6 -right-[140px] z-[5] xl:w-[555px] xl:h-[423px] w-[323px] h-[246px]"

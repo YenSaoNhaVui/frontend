@@ -29,9 +29,6 @@ export default function ProductCard({ className, product }: Props) {
       <div className="p-2.5 bg-primary-1-8 rounded-b-lg">
         <div className="flex items-start justify-between">
           <p className="text-body-sm-medium text-secondary-5">Hộp quà</p>
-          {/* <div className="py-[1px] px-[5px] rounded-[3px] bg-success-2"> */}
-          {/*   <p className="text-body-xs-medium text-success-9">SALE</p> */}
-          {/* </div> */}
         </div>
         <Link href={`/products/${product?.id || 123}`}>
           <h6 className="text-primary-2-5 mb-[30px]">{product?.title}</h6>
