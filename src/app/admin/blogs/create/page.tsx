@@ -24,7 +24,9 @@ export default function Create() {
   useEffect(() => {
     form.setFieldsValue({
       ...initialBlog,
-      thumbnail: preprocessImages([initialBlog?.thumbnail] as string[]),
+      thumbnail: preprocessImages(
+        initialBlog?.thumbnail ? ([initialBlog.thumbnail] as string[]) : undefined
+      ),
     });
   }, [initialBlog]);
 

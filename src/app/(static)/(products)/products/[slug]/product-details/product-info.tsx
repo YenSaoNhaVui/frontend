@@ -6,7 +6,6 @@ import { useCart } from "@/zustand";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-// TODO:
 export default function ProductInfo({ product }: { product: Product }) {
   const addProductCarts = useCart((state) => state.addProductCarts);
   const router = useRouter();
