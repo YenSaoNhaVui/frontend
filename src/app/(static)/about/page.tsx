@@ -28,7 +28,7 @@ export default function AboutPage() {
         </div>
       </section>
       <section
-        className="lg:bg-cover bg-contain bg-primary-1-7 bg-no-repeat text-white lg:pt-[60px] -mt-[80px] overflow-hidden relative [&_p]:text-justify"
+        className="lg:bg-cover bg-contain bg-primary-1-7 text-white lg:pt-[60px] -mt-[80px] overflow-hidden relative [&_p]:text-justify"
         style={{
           backgroundImage: `url('https://ucarecdn.com/2116657f-8b57-40b2-a3fb-4f2b500228be/-/preview/-/quality/smart/-/format/auto/')`,
         }}
