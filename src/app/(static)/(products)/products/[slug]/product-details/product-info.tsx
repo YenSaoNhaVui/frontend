@@ -14,7 +14,18 @@ export default function ProductInfo({ product }: { product: Product }) {
   return (
     <section className="flex-1 w-full text-primary-1-7">
       <h3 className="">{product?.title}</h3>
-      <h4 className="">{formatPrice(product.prices?.[variantId]?.price * quantity, false)} VNĐ</h4>
+      <h4>
+        {product.prices?.[variantId]?.listPrice != product.prices?.[variantId]?.price ? (
+          <>
+            {formatPrice(product.prices?.[variantId]?.listPrice, true)}
+            <sup className="ml-1">
+              <s>{formatPrice(product.prices?.[variantId]?.price, true)}</s>
+            </sup>
+          </>
+        ) : (
+          formatPrice(product.prices?.[variantId]?.price, true)
+        )}
+      </h4>
       <div className="mt-4 mb-8">
         <p className="text-body-md-semibold ">Trọng lượng</p>
         <div className="border-t border-solid border-[#204F4F] my-2" />

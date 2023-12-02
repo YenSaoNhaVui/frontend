@@ -1,7 +1,7 @@
 "use client";
 
 import ProductCard from "@/components/product-card";
-import CardLoading from "@/components/product-card/loading";
+import ProductCardLoading from "@/components/product-card/loading";
 import SearchAndFilterPanel from "@/components/search-and-filter-panel";
 import useAsync from "@/hooks/use-async";
 import { Product } from "@/interfaces";
@@ -13,8 +13,8 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Categories from "../categories";
 
-const getAnyMore = async () => {
-  return [];
+export const getAnyMore = async () => {
+  return null;
 };
 
 export default function ProductsPage() {
@@ -32,10 +32,12 @@ export default function ProductsPage() {
   const fetchProducts = async (e?: number) => {
     const categoryId = categories?.filter((data) => configSlugify(data?.title) == params)[0];
     let option: any = { take: 10 };
-    if (!params || !categoryId) option = { ...option, categoryId: categories[0]?.id };
-    else option = { ...option, categoryId: categoryId?.id };
     if (e) option = { ...option, skip: (e - 1) * 10 };
     if (q) option = { ...option, search: q };
+    else {
+      if (!params || !categoryId) option = { ...option, categoryId: categories[0]?.id };
+      else option = { ...option, categoryId: categoryId?.id };
+    }
     if (filter) option = { ...option, filter };
     refetch(() => getProducts(option));
   };
@@ -53,9 +55,15 @@ export default function ProductsPage() {
             <SearchAndFilterPanel queries={["category"]} filterItems={items} />
           </div>
           <div className="lg:mt-[18px] mt-[30px] grid lg:grid-cols-5 grid-cols-2 gap-3">
-            {loading || isLoading || data?.length == 0
-              ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]?.map((key) => <CardLoading key={key} />)
-              : (data || [])?.map((product) => <ProductCard key={product?.id} product={product} />)}
+            {loading || isLoading || data == null ? (
+              [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]?.map((key) => <ProductCardLoading key={key} />)
+            ) : data?.length == 0 ? (
+              <div className="w-full h-[400px] flex items-center justify-center lg:col-span-5 col-span-2">
+                <h1>Không tìm thấy sản phẩm</h1>
+              </div>
+            ) : (
+              (data || [])?.map((product) => <ProductCard key={product?.id} product={product} />)
+            )}
           </div>
           <div className="lg:my-4 my-[38px] flex lg:justify-end justify-center">
             <Pagination

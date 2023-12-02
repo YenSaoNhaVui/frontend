@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 import SkeletonButton from "antd/es/skeleton/Button";
 
-export default function CardLoading({ className }: { className?: string }) {
+export default function ProductProductCardLoading({ className }: { className?: string }) {
   return (
     <div className={cn("w-full", className)}>
       <figure className="pt-[100%] relative bg-[#F2D65C] rounded-t-xl">

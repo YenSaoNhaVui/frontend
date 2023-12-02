@@ -11,21 +11,31 @@ import ProductCard from "@/components/product-card";
 import useAsync from "@/hooks/use-async";
 import { getHighlightProducts } from "@/service";
 import { Product } from "@/interfaces";
+import ProductCardLoading from "@/components/product-card/loading";
 
 export default function ProductOutstanding() {
-  const { data: highlightProducts } = useAsync<Product[]>(() => getHighlightProducts());
+  const { data: highlightProducts, loading } = useAsync<Product[]>(() => getHighlightProducts());
   const settings = {
     dots: true,
     // infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -43,7 +53,7 @@ export default function ProductOutstanding() {
       <h1 className="mt-[98px] lg:mb-[126px] mb-[25px] font-street-sign-sans lg:!text-[128px] !text-[45px] !leading-normal text-center text-[#FAD743] !font-normal">
         SẢN PHẨM NỔI BẬT
       </h1>
-      <div className="lg:mb-[90px] mb-[76px] lg:max-w-[1064px] max-w-[365px] mx-auto relative">
+      <div className="lg:mb-[90px] mb-[76px] lg:max-w-[1064px] sm:max-w-[640px] max-w-[365px] mx-auto relative">
         <div className="absolute -left-24 lg:flex hidden items-center top-0 h-full ">
           <Button
             onClick={() => (slider as any).current.slickPrev()}
@@ -60,9 +70,9 @@ export default function ProductOutstanding() {
           {...settings}
           className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_button]:!hidden"
         >
-          {helper(highlightProducts).map((product, i) => (
-            <ProductCard key={i} product={product} />
-          ))}
+          {loading
+            ? [1, 2, 3, 4, 5, 6, 7, 8]?.map((i) => <ProductCardLoading key={i} />)
+            : helper(highlightProducts).map((product, i) => <ProductCard key={i} product={product} />)}
         </Slider>
         <div className="absolute -right-14 lg:flex hidden items-center top-0 h-full">
           <Button

@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { CalendarIcon } from "../icons";
+import { ArrowRightStraightIcon, CalendarIcon } from "../icons";
 import Icon from "../ui/icon";
 import { Blog } from "@/interfaces";
 import dateformat from "dateformat";
+import { cn } from "@/utils";
 
-export default function CardBlog({ blog }: { blog?: Blog }) {
+export default function CardBlog({ blog, className }: { blog?: Blog; className?: string }) {
   return (
-    <Link href={`/blogs/${blog?.id || 1}`}>
+    <Link href={`/blogs/${blog?.id || 1}`} className={className}>
       <main className="p-2.5 rounded-lg bg-primary-1-7">
         <div className="max-w-4xl mx-auto">
           <div className="relative pt-[71%] overflow-hidden">
@@ -28,16 +29,19 @@ export default function CardBlog({ blog }: { blog?: Blog }) {
               {blog?.createdAt ? dateformat(blog?.createdAt, "dd/mm/yyyy") : "31/10/2003"}
             </p>
           </div>
-          <p className="mt-1 text-body-xs-normal text-white line-clamp-4">
+          <p className="mt-1 text-body-xs-normal text-white line-clamp-4 h-[88px]">
             {blog?.description ||
               `This sunny and spacious room is for those traveling light and looking for a comfy and cosy
             place to lay their head for a night or two. This beach house sits in a vibrant neighborhood
             littered with cafes, pubs, restaurants and supermarkets and is close to all the major
             attractions such as Edinburgh Castle and Arthur' Seat.`}
           </p>
-          <p className="underline text-primary-2-7">
-            Xem thêm <span className="text-2xl no-underline">➜</span>
-          </p>
+          <div className="flex items-center gap-1">
+            <p className="text-[14px] leading-[22px] underline text-[#EED670]">Xem Thêm</p>
+            <Icon size="lg" className="ml-1">
+              <ArrowRightStraightIcon />
+            </Icon>
+          </div>
         </div>
       </main>
     </Link>

@@ -2,11 +2,13 @@
 
 import BreadCrumbs from "@/components/bread-crumbs";
 import CardBlog from "@/components/card-blog";
+import CardBlogLoading from "@/components/card-blog/loading";
 import { CalendarIcon } from "@/components/icons";
 import Icon from "@/components/ui/icon";
 import useAsync from "@/hooks/use-async";
 import { Blog } from "@/interfaces";
 import { getBlogs, getBlogsById } from "@/service";
+import { cn } from "@/utils";
 import axios from "axios";
 import dateformat from "dateformat";
 import { useEffect } from "react";
@@ -66,10 +68,20 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
       </div>
       <div className="mb-[77px]">
         <h3 className="text-center text-primary-1-7 mb-8">BÀI VIẾT LIÊN QUAN</h3>
-        <div className="flex gap-4">
-          {!loadingBlogs &&
-            blogs &&
-            [...blogs, ...blogs, ...blogs]?.map((blog) => <CardBlog key={blog?.id} blog={blog} />)}
+        <div className="flex gap-4 lg:max-w-[1150px] sm:max-w-[640px] max-w-[300px] mx-auto justify-center">
+          {loadingBlogs
+            ? [1, 2, 3]?.map((i) => <CardBlogLoading className="flex-1" key={i} />)
+            : blogs &&
+              blogs?.map((blog, i) => (
+                <CardBlog
+                  className={cn("flex-1", {
+                    "lg:block hidden": i == 2,
+                    "sm:block hidden": i == 1,
+                  })}
+                  key={blog?.id}
+                  blog={blog}
+                />
+              ))}
         </div>
       </div>
     </section>

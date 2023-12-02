@@ -27,7 +27,7 @@ export default function CartPage() {
       {isCheckout ? (
         <>
           <FormCheckout />
-          <h4 className="text-primary-1-7 flex items-center justify-center">
+          {/* <h4 className="text-primary-1-7 flex items-center justify-center">
             Hoặc chuyển đến{" "}
             <Link href="zalo://chat?contact={USER_ID}">
               <Icon className="!w-[96px] !h-[96px] !max-w-[96px] !max-h-[96px]">
@@ -41,7 +41,7 @@ export default function CartPage() {
               </Icon>
             </Link>{" "}
             để tiến hành thanh toán.
-          </h4>
+          </h4> */}
         </>
       ) : (
         <div className="flex justify-end">

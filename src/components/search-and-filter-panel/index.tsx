@@ -35,7 +35,7 @@ export default function SearchAndFilterPanel({ filterItems, queries }: Props) {
   };
 
   const search = (e?: any) => {
-    const url = pathName + `?${getCategory(params, queries)}q=${configSlugify(text)}`;
+    const url = pathName + `?${getCategory(params, queries)}q=${text}`;
     if (e) e.keyCode == 13 && text != "" && (router.push(url), setText(""), setSort(""));
     else router.push(url), setText(""), setSort("");
   };

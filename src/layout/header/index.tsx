@@ -29,21 +29,19 @@ export default function Header() {
           />
         </Link>
         <Link href="/" className="lg:block hidden">
-          {(logoHome.indexOf(url) != -1 || url == "/contact") && (
-            <img
-              src="https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/preview/-/quality/smart/-/format/auto/"
-              className={cn("absolute left-0 top-[13px]", {
-                "w-[17px] h-10 top-[9px]": url == "/contact",
-              })}
-              alt="logo"
-            />
-          )}
+          <img
+            src="https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/preview/-/quality/smart/-/format/auto/"
+            className={cn("absolute left-0 top-[13px]", {
+              "w-[17px] h-10 top-[18px]": logoHome.indexOf(url) == -1,
+            })}
+            alt="logo"
+          />
           {logoHome.indexOf(url) == -1 && (
             <img
               src="https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/preview/-/quality/smart/-/format/auto/"
               alt="logo Yến sào vui"
               className={cn("top-[18px] absolute left-0", {
-                "left-[26px] w-[100px] h-9": url == "/contact",
+                "left-[26px] w-[100px] h-9": logoHome.indexOf(url) == -1,
               })}
             />
           )}

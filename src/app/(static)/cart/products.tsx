@@ -44,15 +44,15 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
           </div>
           <ProductQuantity id={i} quantity={productCart.quantity} isCheckout={isCheckout} />
           <p className="text-body-lg-semibold text-primary-1-7 flex items-center col-span-2 justify-center">
-            {formatPrice(productCart.variant?.listPrice, false) ? (
+            {productCart.variant?.listPrice != productCart.variant?.price ? (
               <>
-                {formatPrice(productCart.variant?.listPrice, false)}
+                {formatPrice(productCart.variant?.listPrice, true)}
                 <sup className="ml-1">
-                  <s>{formatPrice(productCart.variant?.price, false)}</s>
+                  <s>{formatPrice(productCart.variant?.price, true)}</s>
                 </sup>
               </>
             ) : (
-              formatPrice(productCart.variant?.price, false)
+              formatPrice(productCart.variant?.price, true)
             )}
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
         <span className="col-span-4" />
         <p className="text-body-lg-semibold text-primary-1-7">Tổng cộng</p>
         <p className="text-body-lg-semibold text-primary-1-7 flex items-center col-span-2 justify-center">
-          {formatPrice(getTotalPrice(), false)}
+          {formatPrice(getTotalPrice(), true)}
         </p>
       </div>
     </div>

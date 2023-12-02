@@ -1,3 +1,5 @@
+import { ArrowRightStraightIcon } from "@/components/icons";
+import Icon from "@/components/ui/icon";
 import Link from "next/link";
 
 interface Props {
@@ -21,9 +23,12 @@ export default function Card({ title, link, description }: Props) {
           </div>
           <h5 className="mt-2 text-primary-2-5">{title}</h5>
           <p className="mt-1 text-body-xs-normal text-white ellipsis-4">{description}</p>
-          <p className="underline text-primary-2-7">
-            Xem thêm <span className="text-2xl no-underline">➜</span>
-          </p>
+          <div className="flex items-center gap-1">
+            <p className="text-[14px] leading-[22px] underline text-[#EED670]">Xem Thêm</p>
+            <Icon size="lg" className="ml-1">
+              <ArrowRightStraightIcon />
+            </Icon>
+          </div>
         </div>
       </main>
     </Link>
