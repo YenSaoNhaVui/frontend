@@ -1,20 +1,25 @@
 "use client";
 import BreadCrumbs from "@/components/bread-crumbs";
-import ProductDetails from "./product-details";
-import { Tabs, TabsProps } from "antd";
-import { cn } from "@/utils";
-import { useState } from "react";
-import ProductDescription from "./product-description";
-import MoreProducts from "./more-products";
-import ProductReview from "./product-review";
 import useAsync from "@/hooks/use-async";
-import { Category, Product } from "@/interfaces";
+import { Product } from "@/interfaces";
 import { getProductsById } from "@/service";
+import { cn } from "@/utils";
+import { Spin, Tabs, TabsProps } from "antd";
+import { useState } from "react";
+import MoreProducts from "./more-products";
+import ProductDescription from "./product-description";
+import ProductDetails from "./product-details";
+import ProductReview from "./product-review";
 
 export default function ProductDetailsClient({ slug }: { slug: string }) {
   const [keyTab, setKeyTab] = useState<string>("1");
   const { data, loading } = useAsync<Product>(() => getProductsById(slug));
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="w-full h-[800px] flex items-center justify-center">
+        <Spin />
+      </div>
+    );
 
   const onChange = (key: string) => {
     setKeyTab(key);

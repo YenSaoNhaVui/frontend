@@ -11,16 +11,6 @@ export default function ProductDescription({ product }: { product: Product }) {
           <NormalDescription key={detail?.title} detail={detail} />
         )
       )}
-
-      <div>
-        <p className="text-body-md-semibold">Giấy kiểm định chất lượng</p>
-        <div className="border-t border-solid border-[#204F4F] my-2" />
-        <img
-          src="https://a-static.besthdwallpaper.com/spirit-blossom-akali-league-of-legends-lol-wallpaper-2048x1536-103581_26.jpg"
-          alt="bill"
-          className="w-full h-full rounded-xl"
-        />
-      </div>
     </section>
   );
 }
@@ -75,7 +65,7 @@ function NormalDescription({
         dangerouslySetInnerHTML={{
           __html: detail?.quill,
         }}
-        className="[&_p]:text-body-sm-normal"
+        className="[&_p]:text-body-sm-normal [&_img]:w-full [&_img]:h-full [&_img]:rounded-xl"
       />
     </div>
   );

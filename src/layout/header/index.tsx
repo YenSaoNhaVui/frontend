@@ -42,17 +42,13 @@ export default function Header() {
             <img
               src="https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/preview/-/quality/smart/-/format/auto/"
               alt="logo Yến sào vui"
-              className={cn("top-[10.5px] absolute left-0", {
+              className={cn("top-[18px] absolute left-0", {
                 "left-[26px] w-[100px] h-9": url == "/contact",
               })}
             />
           )}
         </Link>
-        <div
-          className={cn("py-2.5 gap-9 w-full lg:flex hidden items-center justify-center", {
-            "py-0 -mt-[1px]": url != "/",
-          })}
-        >
+        <div className="py-2.5 gap-9 w-full lg:flex hidden items-center justify-center">
           <HeaderLinks />
         </div>
         <Cart />

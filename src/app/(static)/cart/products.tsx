@@ -13,7 +13,7 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
             key={i}
             className={cn("text-body-lg-semibold text-primary-1-7", {
               "col-span-4": i == 1,
-              "col-span-2": i == 2,
+              "col-span-2 justify-center flex": i == 3,
             })}
           >
             {title}
@@ -43,11 +43,11 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
             </Button>
           </div>
           <ProductQuantity id={i} quantity={productCart.quantity} isCheckout={isCheckout} />
-          <p className="text-body-lg-semibold text-primary-1-7 flex items-center">
+          <p className="text-body-lg-semibold text-primary-1-7 flex items-center col-span-2 justify-center">
             {formatPrice(productCart.variant?.listPrice, false) ? (
               <>
                 {formatPrice(productCart.variant?.listPrice, false)}
-                <sup>
+                <sup className="ml-1">
                   <s>{formatPrice(productCart.variant?.price, false)}</s>
                 </sup>
               </>
@@ -60,8 +60,8 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
       <div className="grid grid-cols-8 py-12 border-b border-solid border-black">
         <span />
         <span className="col-span-4" />
-        <p className="text-body-lg-semibold text-primary-1-7 col-span-2">Tổng cộng</p>
-        <p className="text-body-lg-semibold text-primary-1-7 flex items-center">
+        <p className="text-body-lg-semibold text-primary-1-7">Tổng cộng</p>
+        <p className="text-body-lg-semibold text-primary-1-7 flex items-center col-span-2 justify-center">
           {formatPrice(getTotalPrice(), false)}
         </p>
       </div>

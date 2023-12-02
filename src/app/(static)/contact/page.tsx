@@ -10,7 +10,7 @@ export default function ContactPage() {
         backgroundImage: `url('https://ucarecdn.com/2116657f-8b57-40b2-a3fb-4f2b500228be/-/preview/-/quality/smart/-/format/auto/')`,
       }}
     >
-      <div className="xl:max-w-[1280px] xl:mx-auto sm:mx-8 mx-4">
+      <div className="xl:max-w-[1280px] xl:mx-auto sm:mx-8 mx-6">
         <Address />
         <FormContact />
       </div>

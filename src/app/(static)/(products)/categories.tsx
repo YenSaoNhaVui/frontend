@@ -1,35 +1,45 @@
 import { FilterIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import useAsync from "@/hooks/use-async";
 import { useClickOutSide } from "@/hooks/use-click-outside";
-import { cn } from "@/utils";
-import { Menu, MenuProps } from "antd";
+import { Category } from "@/interfaces";
+import { getCategorys } from "@/service";
+import { cn, configSlugify } from "@/utils";
+import { Menu, MenuProps, Spin } from "antd";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 type MenuItem = Required<MenuProps>["items"][number];
 
-export default function Categories() {
+interface Props {
+  data: Category[];
+  loading: boolean;
+}
+
+export default function Categories({ data, loading }: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const params = useSearchParams()?.get("category");
   const router = useRouter();
   const onClick = (e: any) => {
     router.push(`/products?category=${e?.key}`);
   };
+  useClickOutSide(isOpen, setIsOpen, ".categories");
+  if (loading || !data)
+    return (
+      <div className="w-[200px] h-[269px] flex items-center justify-center">
+        <Spin />
+      </div>
+    );
   const items: MenuProps["items"] = [
     getItem(
       "Categories",
       "cate",
       null,
-      [
-        getItem("Yến tinh chế", "yen-tinh-che"),
-        getItem("Yến rút lông", "yen-rut-long"),
-        getItem("Tổ yến cao cấp", "to-yen-cao-cap"),
-        getItem("Quà tặng cao cấp", "qua-tang-cao-cap"),
-      ],
+      data?.map((data) => getItem(data?.title, configSlugify(data?.title))),
       "group"
     ),
   ];
-  useClickOutSide(isOpen, setIsOpen, ".categories");
+  const arrItems = data?.map((d) => configSlugify(d?.title));
   return (
     <>
       <Button
@@ -46,9 +56,9 @@ export default function Categories() {
       {isOpen && <div className="bg-black/40 fixed top-0 left-0 w-full h-full z-[3000]" />}
       <div
         className={cn(
-          "lg:mt-[66px] w-[200px] lg:relative fixed lg:z-0 z-[5000] top-0 left-0 h-full [&>ul]:lg:rounded-none [&>ul]:rounded-r-lg categories",
+          "lg:mt-[66px] w-[200px] lg:relative [&>ul]:lg:block [&>ul]:hidden fixed lg:block hidden lg:z-0 z-[5000] top-0 left-0 h-full [&>ul]:lg:rounded-none [&>ul]:rounded-r-lg categories",
           {
-            "[&>ul]:lg:!block [&>ul]:!block": isOpen,
+            "[&>ul]:lg:!block [&>ul]:!block !block": isOpen,
           }
         )}
       >
@@ -58,10 +68,10 @@ export default function Categories() {
           style={{ width: 200 }}
           defaultSelectedKeys={
             !params
-              ? ["yen-tinh-che"]
+              ? [configSlugify(data[0]?.title)]
               : arrItems.indexOf(params) != -1
               ? [arrItems[arrItems.indexOf(params)]]
-              : ["yen-tinh-che"]
+              : [configSlugify(data[0]?.title)]
           }
           defaultOpenKeys={["sub1"]}
           mode="inline"
@@ -86,5 +96,4 @@ function getItem(
     type,
   } as MenuItem;
 }
-const arrItems = ["yen-tinh-che", "yen-rut-long", "to-yen-cao-cap", "qua-tang-cao-cap"];
-const className = `lg:block hidden [&>li>div]:!px-0 [&>li>div]:!text-body-lg-semibold [&>li>div]:!text-primary-1-7 [&>li>div]:!py-2.5 px-5 py-1.5 [&>li>div]:border-b [&>li>div]:border-solid [&>li>div]:border-primary-1-7 [&>li>div]:mb-1.5 !border-0 !h-full [&_.ant-menu-item]:!px-[5px] [&_.ant-menu-item]:!py-1.5 [&_.ant-menu-item]:!m-0  [&_.ant-menu-item]:!mb-2.5 [&_.ant-menu-item]:!text-body-md-normal [&_.ant-menu-item]:text-primary-1-7 [&_.ant-menu-item-selected]:!bg-transparent [&_.ant-menu-item-selected]:!text-primary-1-4`;
+const className = `[&>li>div]:!px-0 [&>li>div]:!text-body-lg-semibold [&>li>div]:!text-primary-1-7 [&>li>div]:!py-2.5 px-5 py-1.5 [&>li>div]:border-b [&>li>div]:border-solid [&>li>div]:border-primary-1-7 [&>li>div]:mb-1.5 !border-0 !h-full [&_.ant-menu-item]:!px-[5px] [&_.ant-menu-item]:!py-1.5 [&_.ant-menu-item]:!m-0  [&_.ant-menu-item]:!mb-2.5 [&_.ant-menu-item]:!text-body-md-normal [&_.ant-menu-item]:text-primary-1-7 [&_.ant-menu-item-selected]:!bg-transparent [&_.ant-menu-item-selected]:!text-primary-1-4`;

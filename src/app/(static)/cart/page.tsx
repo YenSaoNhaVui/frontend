@@ -8,11 +8,17 @@ import Link from "next/link";
 import { useState } from "react";
 import CartProducts from "./products";
 import FormCheckout from "./form-checkout";
+import { Spin } from "antd";
 
 export default function CartPage() {
   const { isClient } = useClient();
   const [isCheckout, setIsCheckout] = useState<boolean>(false);
-  if (!isClient) return <div>123</div>;
+  if (!isClient)
+    return (
+      <div className="w-full h-[700px] flex items-center justify-center">
+        <Spin />
+      </div>
+    );
   return (
     <section className="mt-8 xl:max-w-[1280px] xl:mx-auto sm:mx-8 mx-4 mb-[70px]">
       <BreadCrumbs linkBack="/products" titleCurrent="Giỏ hàng" titlePrev="Sản phẩm" />

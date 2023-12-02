@@ -38,9 +38,9 @@ const useAsync = <T>(fn: () => Promise<T>) => {
     asyncFunc();
   }, []);
 
-  const refetch = async () => {
+  const refetch = async (fnRefetch?: () => Promise<T>) => {
     dispatch({ type: "start" });
-    const value = await fn();
+    const value = fnRefetch ? await fnRefetch() : await fn();
     dispatch({ type: "finish", value });
   };
 

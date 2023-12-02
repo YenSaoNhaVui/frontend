@@ -43,12 +43,14 @@ export default function SearchAndFilterPanel({ filterItems, queries }: Props) {
   useEffect(() => {
     if (params?.get("filter") == "moi-nhat") setSort("Mới nhất");
     else if (params?.get("filter") == "cu-nhat") setSort("Củ nhất");
+    else if (params?.get("filter") == "gia-cao-thap") setSort("Giá cao - thấp");
+    else if (params?.get("filter") == "gia-thap-cao") setSort("Giá thấp - cao");
   }, [params]);
 
   return (
     <div className="flex items-center gap-2.5">
       <Input
-        className="!max-w-[295px] !min-w-[295px] !px-3 [&>.ant-input-prefix]:!mr-3 [&>input]:placeholder:!text-primary-1-5 !border-primary-1-5 !border-[1.3px]"
+        className="lg:!max-w-[295px] lg:!min-w-[295px] !max-w-[200px] !min-w-[200px] !px-3 [&>.ant-input-prefix]:!mr-3 [&>input]:placeholder:!text-primary-1-5 !border-primary-1-5 !border-[1.3px]"
         size="large"
         placeholder="Search..."
         onChange={(e) => setText(e?.target?.value)}
@@ -68,10 +70,7 @@ export default function SearchAndFilterPanel({ filterItems, queries }: Props) {
         trigger={["click"]}
         rootClassName="overflow-hidden border border-solid border-neutral-4 rounded-md [&>ul]:!p-0 [&>ul]:!rounded-none [&_li]:!p-2.5 [&_li]:!rounded-none [&_li]:border-b [&_li]:border-solid [&_li]:border-neutral-4 [&_li:last-child]:!border-0 [&_li]:!text-primary-1-7 [&_li]:!text-body-xs-normal"
       >
-        <Button
-          rounded="md"
-          className="max-w-[109px] !py-2 !gap-1 !text-[14px] !leading-[22px] !font-normal"
-        >
+        <Button rounded="md" className="!py-2 !gap-1 !text-[14px] !leading-[22px] !font-normal">
           <p className="whitespace-nowrap !m-0">{sort == "" ? "Sort by" : sort}</p>
           <Icon size="lg">
             <ArrowDownIcon />

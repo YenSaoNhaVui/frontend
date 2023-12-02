@@ -13,7 +13,7 @@ interface Props {
 export default function ProductQuantity({ id, isCheckout, quantity, onChange }: Props) {
   const updateQuantity = useCart((state) => state.updateQuantity);
   return (
-    <div className="flex items-center col-span-2 gap-4 [&_path]:!stroke-primary-1-5">
+    <div className="flex items-center gap-4 [&_path]:!stroke-primary-1-5">
       {!isCheckout && (
         <Button
           variant="ghost"
