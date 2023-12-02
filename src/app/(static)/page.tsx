@@ -3,8 +3,6 @@ import InterView from "@/layout/home-layout/interview";
 import ProductProcess from "@/layout/home-layout/production-process";
 import ProductOutstanding from "@/layout/home-layout/products-outstanding";
 import Reason from "@/layout/home-layout/reason";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
 
 export default function HomePage() {
   return (

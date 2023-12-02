@@ -1,4 +1,5 @@
-"use-client";
+"use client";
+
 import CardFeedBack from "@/components/card-feedback";
 import { ArrowLeftIcon, ArrowRightIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
