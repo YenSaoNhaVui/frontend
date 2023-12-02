@@ -19,7 +19,7 @@ export default function FormTable({ name }: { name: NamePath }) {
               <MinusCircleOutlined onClick={() => remove(name)} />
             </Space>
           ))}
-          <Button type="dashed" onClick={() => add()} icon={<PlusOutlined />} className="!w-32">
+          <Button type="dashed" onClick={() => add()} icon={<PlusOutlined />}>
             Thêm 1 dòng
           </Button>
         </>

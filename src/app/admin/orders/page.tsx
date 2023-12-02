@@ -37,7 +37,7 @@ export default function AdminOrdersPage() {
       pagination={false}
       className="w-full h-full overflow-auto "
       expandable={{
-        expandedRowRender: (record) => <RowDetails ordersProducts={record.products} />,
+        expandedRowRender: (order) => <RowDetails order={order} />,
       }}
     >
       <Column title="STT" key="id" render={(_, __, i) => i + 1} align="center" />

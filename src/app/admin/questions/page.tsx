@@ -1,4 +1,5 @@
 "use client";
+import Editor from "@/components/editor";
 import useAsync from "@/hooks/use-async";
 import { Question } from "@/interfaces";
 import { deleteQuestion, getQuestions, viewedQuestion } from "@/service/questions";
@@ -31,6 +32,9 @@ export default function AdminQuestionsPage() {
   return (
     <Table<Question>
       rowClassName={({ viewed }) => (viewed ? "bg-gray-200" : "")}
+      expandable={{
+        expandedRowRender: (record) => <Editor value={record.details} isReadOnly />,
+      }}
       dataSource={data?.sort((a, b) => (a.viewed === b.viewed ? 0 : a.viewed ? 1 : -1)) ?? []}
       loading={loading}
       pagination={false}
@@ -42,12 +46,12 @@ export default function AdminQuestionsPage() {
         key="name"
         render={(_, { name, identity }) => name + " - " + identity}
       />
-      <Column
-        title="Nhận xét"
-        key="details"
-        dataIndex="details"
-        render={(detail) => <div dangerouslySetInnerHTML={{ __html: detail }} />}
-      />
+      {/* <Column */}
+      {/*   title="Nhận xét" */}
+      {/*   key="details" */}
+      {/*   dataIndex="details" */}
+      {/*   render={(value) => <Editor value={value} isReadOnly />} */}
+      {/* /> */}
       <Column title="Ngày" key="date" dataIndex="createdAt" render={(value) => formatDate(value)} />
       <Column
         key="action"
