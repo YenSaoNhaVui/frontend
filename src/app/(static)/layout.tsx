@@ -10,14 +10,14 @@ export const metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["Next.js", "React", "Tailwind CSS", "Server Components", "Radix UI"],
+  keywords: ["Yến Sào", "Yến Sào Nhà Vui", "Yến Sào Ngon quá", "Yến Sào Bổ", "Yến Sào Ngon Bổ Rẻ"],
   authors: [
     {
-      name: "shadcn",
-      url: "https://shadcn.com",
+      name: "Yến Sào",
+      url: "https://yensaonhavui.vn",
     },
   ],
-  creator: "shadcn",
+  creator: "Yến Sào",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -27,7 +27,7 @@ export const metadata = {
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
+  manifest: `${siteConfig.url}/`,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

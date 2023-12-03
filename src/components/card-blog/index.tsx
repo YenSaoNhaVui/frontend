@@ -20,7 +20,9 @@ export default function CardBlog({ blog, className }: { blog?: Blog; className?:
               loading="lazy"
             />
           </div>
-          <h5 className="mt-2 text-primary-2-5">{blog?.title || "Cách chưng hấp tổ yến"}</h5>
+          <h5 className="mt-2 text-primary-2-5 line-clamp-1">
+            {blog?.title || "Cách chưng hấp tổ yến"}
+          </h5>
           <div className="flex items-center mt-1 gap-1">
             <Icon size="md" className="[&_path]:!fill-secondary-5">
               <CalendarIcon />

@@ -62,7 +62,7 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
           </div>
         </figure>
         <div
-          className="[&_p]:font-normal [&_p]:text-[20px] [&_p]:leading-[30px] [&_p]:mb-4"
+          className="[&_p]:font-normal [&_p]:text-[20px] [&_p]:leading-[30px] [&_p]:mb-4 [&_img]:w-full [&_img]:h-full [&_img]:rounded-xl"
           dangerouslySetInnerHTML={{ __html: data?.details as string }}
         ></div>
       </div>

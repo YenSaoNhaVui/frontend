@@ -27,11 +27,19 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex items-start gap-[90px] flex-wrap">
-            <div className="flex flex-col gap-4 text-body-lg-normal">
-              <p>Giới thiệu</p>
-              <p>Sản phẩm</p>
-              <p>Dịch vụ</p>
-              <p>Liên hệ</p>
+            <div className="flex flex-col gap-4 text-body-lg-normal [&_*]:!mb-0 [&_*]:!text-black">
+              <Link href="/about">
+                <p>Giới thiệu</p>
+              </Link>
+              <Link href="/products">
+                <p>Sản phẩm</p>
+              </Link>
+              <Link href="/blogs">
+                <p>Dịch vụ</p>
+              </Link>
+              <Link href="/contact">
+                <p>Liên hệ</p>
+              </Link>
             </div>
             <div className="flex flex-col gap-4 text-body-lg-normal">
               <p>Theo dõi chúng tôi</p>

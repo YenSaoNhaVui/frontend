@@ -37,10 +37,11 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
     return {
       title: blogs.title,
-      description: blogs.description,
+      description: `${blogs.description}`,
+      keywords: `${blogs.details}`,
       openGraph: {
         title: blogs.title,
-        description: blogs.description,
+        description: `${blogs.description}`,
         type: "article",
         url: `${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}/blogs/${params?.slug}`,
         images: [
