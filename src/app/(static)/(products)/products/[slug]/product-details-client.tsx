@@ -32,7 +32,7 @@ export default function ProductDetailsClient({ slug }: { slug: string }) {
     },
     {
       key: "2",
-      label: "Đánh giá và bình luận (2)",
+      label: `Đánh giá và bình luận (${data?.comments?.length})`,
       children: <ProductReview product={data} />,
     },
   ];

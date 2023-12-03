@@ -1,6 +1,7 @@
 import { ArrowRightStraightIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import Link from "next/link";
 
 export default function Reason() {
   return (
@@ -14,12 +15,14 @@ export default function Reason() {
           />
         </div>
         <div className="flex items-center justify-end mt-[18px]">
-          <Button variant="ghost" className="!text-[#EED670] !underline hover:bg-transparent !p-0">
-            Xem thêm
-            <Icon size="lg" className="ml-1">
-              <ArrowRightStraightIcon />
-            </Icon>
-          </Button>
+          <Link href="/products">
+            <Button variant="ghost" className="!text-[#EED670] !underline hover:bg-transparent !p-0">
+              Xem thêm
+              <Icon size="lg" className="ml-1">
+                <ArrowRightStraightIcon />
+              </Icon>
+            </Button>
+          </Link>
         </div>
       </div>
       <div>

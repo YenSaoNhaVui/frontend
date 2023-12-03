@@ -19,7 +19,7 @@ export default function Address() {
         <SkeletonButton className="!w-full !h-full [&_span]:!rounded-none [&_span]:!bg-black/30 absolute top-0 left-0 z-0" />
       </div>
       <div className="flex lg:gap-5 gap-[15px] flex-col flex-1">
-        <h1 className="lg:!text-[128px] !text-[85px] leading-normal font-street-sign-sans !font-normal text-[#FAD743] mt-[64px]">
+        <h1 className="lg:!text-[128px] !text-[85px] leading-normal font-street-sign-sans !font-normal text-[#FAD743] mt-[32px]">
           LIÊN HỆ
         </h1>
         <div className="py-2.5 flex flex-col gap-2.5">

@@ -41,7 +41,7 @@ export default function ProductInfo({ product }: { product: Product }) {
                   : "!px-2 !py-2.5 !rounded !text-[12px] !leading-[16px] !text-primary-1-5 !font-semibold !border-neutral-4"
               }
             >
-              {variant1.weight + " kg"}
+              {variant1.weight}
             </Button>
           ))}
         </div>

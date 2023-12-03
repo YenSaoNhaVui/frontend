@@ -2,11 +2,13 @@ import FormikInput from "@/app/(static)/contact/formik-input";
 import { Button } from "@/components/ui/button";
 import { createComment } from "@/service";
 import { ContactValidate } from "@/validate-yub";
+import { App } from "antd";
 import { Form, Formik } from "formik";
 import { usePathname } from "next/navigation";
 
 export default function ProductFormReivew({ star }: { star: number }) {
   const pathname = usePathname();
+  const { message } = App.useApp();
   return (
     <Formik
       initialValues={{
@@ -23,6 +25,10 @@ export default function ProductFormReivew({ star }: { star: number }) {
         },
         actions: any
       ) => {
+        if (star == 0) {
+          message.error("Vui lòng đánh giá trước khi bình luận");
+          return;
+        }
         try {
           await createComment(parseInt(pathname.match(/\d+/)[0], 10), {
             userName: information.fullName,
@@ -56,7 +62,7 @@ export default function ProductFormReivew({ star }: { star: number }) {
           <FormikInput
             key={"question"}
             label="Nhận xét của quý khách"
-            className="[&_.ql-toolbar]:!border-primary-1-5 [&_.ql-container]:!border-primary-1-5 [&>.ql-toolbar.ql-snow]:!px-3"
+            className="[&_.ql-toolbar]:!border-primary-1-5 [&_.ql-container]:!border-primary-1-5 [&>.ql-toolbar.ql-snow]:!px-3 [&_.ql-snow_.ql-stroke]:!stroke-[#454545] [&_.ql-snow_.ql-stroke-miter]:!fill-[#454545] [&_.ql-snow_.ql-fill]:!fill-[#454545] [&_.ql-snow_.ql-stroke.ql-fill]:!fill-[#454545] [&_.ql-snow_.ql-picker]:!text-[#454545]"
             isEditor
             name="question"
           />

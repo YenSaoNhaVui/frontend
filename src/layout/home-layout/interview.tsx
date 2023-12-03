@@ -1,6 +1,7 @@
 import { ArrowRightStraightIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import Link from "next/link";
 
 export default function InterView() {
   return (
@@ -33,12 +34,14 @@ export default function InterView() {
           chế biến hay xử lý hóa học nào, để đảm bảo giữ nguyên toàn bộ giá trị dinh dưỡng và hương vị
           đặc biệt của loại thực phẩm này.
         </p>
-        <Button variant="ghost" className="!text-[#EED670] !underline hover:bg-transparent !p-0">
-          Xem thêm
-          <Icon size="lg" className="ml-1">
-            <ArrowRightStraightIcon />
-          </Icon>
-        </Button>
+        <Link href="/about">
+          <Button variant="ghost" className="!text-[#EED670] !underline hover:bg-transparent !p-0">
+            Xem thêm
+            <Icon size="lg" className="ml-1">
+              <ArrowRightStraightIcon />
+            </Icon>
+          </Button>
+        </Link>
       </div>
     </div>
   );

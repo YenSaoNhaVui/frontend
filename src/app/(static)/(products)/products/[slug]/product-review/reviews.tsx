@@ -1,6 +1,5 @@
-import { Rate } from "antd";
 import { Comment } from "@/interfaces";
-import Editor from "@/components/editor";
+import { Rate } from "antd";
 
 export default function Reviews({ comments }: { comments: Comment[] }) {
   return (
@@ -13,8 +12,10 @@ export default function Reviews({ comments }: { comments: Comment[] }) {
             <Rate defaultValue={item?.userStar} disabled allowHalf />
           </div>
           <p className="text-body-xs-normal">20:23 - 31/10/2023</p>
-          <Editor value={item?.userComment} isReadOnly />
-          {/* <p className="text-body-lg-normal">{item?.userComment}</p> */}
+          <div
+            dangerouslySetInnerHTML={{ __html: item?.userComment }}
+            className="mt-1 [&_p]:text-body-lg-normal"
+          />
         </div>
       ))}
     </div>
