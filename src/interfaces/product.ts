@@ -4,7 +4,7 @@ import { Category, Comment } from ".";
 export interface Variant {
   price: number;
   listPrice: number;
-  weight: number;
+  weight: string;
 }
 
 export interface Product {

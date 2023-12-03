@@ -1,6 +1,6 @@
 import { FormInputPrice } from "@/components/form/form-input-price";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
-import { Button, Form, InputNumber, Space } from "antd";
+import { Button, Form, Input, Space } from "antd";
 type Props = {};
 
 export default function FormWeights({ ...props }: Props) {
@@ -16,7 +16,7 @@ export default function FormWeights({ ...props }: Props) {
                   rules={[{ required: true }]}
                   name={[field.name, "weight"]}
                 >
-                  <InputNumber suffix="kg" className="!w-full" />
+                  <Input className="!w-full" />
                 </Form.Item>
 
                 <Space>

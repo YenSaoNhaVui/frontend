@@ -1,4 +1,4 @@
-import { Category, Product, Variant } from "@/interfaces";
+import { Category } from "@/interfaces";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
