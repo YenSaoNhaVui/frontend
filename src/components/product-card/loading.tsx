@@ -9,11 +9,11 @@ export default function ProductProductCardLoading({ className }: { className?: s
       </figure>
       <div className="p-2.5 bg-primary-1-8 rounded-b-lg">
         <div className="flex items-start justify-between mb-1">
-          <SkeletonButton className="!w-[120px] !h-[22px] [&_span]:!bg-black/30" />
+          <SkeletonButton className="!w-[80px] !h-[22px] [&_span]:!bg-black/30" />
         </div>
-        <SkeletonButton className="!w-[180px] !h-[26px] mb-[30px] [&_span]:!bg-black/30" />
+        <SkeletonButton className="!w-full !h-[26px] mb-[30px] [&_span]:!bg-black/30" />
         <div className="flex items-center justify-between">
-          <SkeletonButton className="!w-[120px] !h-[30px] [&_span]:!bg-black/30" />
+          <SkeletonButton className="lg:!w-[120px] !w-[100px] !h-[30px] [&_span]:!bg-black/30" />
           <SkeletonButton className="[&_span]:!min-w-[32px] [&_span]:!w-[32px] [&_span]:!h-[32px] [&_span]:!rounded-full [&_span]:!bg-black/30" />
         </div>
       </div>

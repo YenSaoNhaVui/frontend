@@ -1,6 +1,6 @@
 export default function CardFeedBack() {
   return (
-    <div className="lg:w-[370px] sm:w-full w-full h-[476px] relative">
+    <div className="xl:w-[370px] lg:w-[330px] sm:w-full w-full h-[476px] relative">
       <img
         src="https://ucarecdn.com/48c3ed75-89ea-4578-9e26-6e3798aa90e2/-/preview/500x500/-/quality/smart/-/format/auto/"
         className="w-full h-full rounded-[18px] absolute top-0 left-0"

@@ -51,7 +51,7 @@ export default function ProductsPage() {
             <h5 className="text-primary-1-7 lg:block hidden">Sản phẩm</h5>
             <SearchAndFilterPanel queries={["category"]} filterItems={items} />
           </div>
-          <div className="lg:mt-[18px] mt-[30px] grid lg:grid-cols-5 grid-cols-2 gap-3">
+          <div className="lg:mt-[18px] mt-[30px] grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3">
             {loading || isLoading || data == null ? (
               [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]?.map((key) => <ProductCardLoading key={key} />)
             ) : data?.length == 0 ? (

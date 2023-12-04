@@ -232,7 +232,7 @@ export function ArrowCircleRightIcon() {
 }
 export function ZaloIcon() {
   return (
-    <svg width="97" height="96" viewBox="0 0 97 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="47" height="46" viewBox="0 0 97 96" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M30.5 72V13.654L28.078 12.032C17.78 16.166 10.5 26.224 10.5 38V58C10.5 73.464 23.036 86 38.5 86H58.5C67.944 86 76.266 81.304 81.334 74.138V72H30.5Z"
         fill="#2962FF"

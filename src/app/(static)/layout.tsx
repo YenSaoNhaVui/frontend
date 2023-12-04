@@ -2,6 +2,9 @@ import Layout from "@/layout";
 import "styles/globals.css";
 import "styles/quill.snow.css";
 import { siteConfig } from "@/config/site";
+import { Button } from "@/components/ui/button";
+import { ZaloIcon } from "@/components/icons";
+import Link from "next/link";
 
 // mỗi page là có một file page và một file layout (file layout dùng để seo và file page là file cho phần client)
 export const metadata = {
@@ -49,6 +52,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body className="h-full w-full bg-neutral-2">
         <Layout>{children}</Layout>
+        <div className="fixed z-[1000] bottom-10 right-10">
+          <Link href="https://zalo.me/0908337315" target="_blank">
+            <Button variant="ghost" className="!p-0 hover:!bg-transparent">
+              <ZaloIcon />
+            </Button>
+          </Link>
+        </div>
       </body>
     </html>
   );

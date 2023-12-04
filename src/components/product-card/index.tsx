@@ -33,11 +33,13 @@ export default function ProductCard({ className, product }: Props) {
           <p className="text-body-sm-medium text-secondary-5">Hộp quà</p>
         </div>
         <Link href={`/products/${product?.id || 123}`}>
-          <h6 className="text-primary-2-5 mb-[30px] line-clamp-1">{product?.title}</h6>
+          <h6 className="text-primary-2-5 mb-[30px] lg:text-xl !text-body-sm-semibold lg:line-clamp-2 line-clamp-3 lg:h-[44px] h-[66px]">
+            {product?.title}
+          </h6>
         </Link>
         <div className="flex items-center justify-between">
           {product?.prices?.[0]?.price != product?.prices?.[0]?.listPrice ? (
-            <p className="text-body-lg-semibold text-primary-2-5 flex-1">
+            <p className="lg:text-body-lg-semibold text-body-md-semibold text-primary-2-5 flex-1">
               {formatPrice(product.prices?.[0]?.listPrice, false)}
             </p>
           ) : (

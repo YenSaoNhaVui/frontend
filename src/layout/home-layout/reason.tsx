@@ -14,7 +14,7 @@ export default function Reason() {
             className="mb-2"
           />
         </div>
-        <div className="flex items-center justify-end mt-[18px]">
+        <div className="flex items-center lg:justify-end justify-center mt-[18px]">
           <Link href="/products">
             <Button variant="ghost" className="!text-[#EED670] !underline hover:bg-transparent !p-0">
               Xem thêm
@@ -33,14 +33,14 @@ export default function Reason() {
         </p>
       </div>
       <div>
-        <h5 className="mb-[14px] lg:text-start !text-center">CHẤT LƯỢNG</h5>
+        <h5 className="mb-[14px] lg:text-start !text-center">CAO CẤP</h5>
         <p className="text-body-md-normal opacity-80 lg:text-start !text-center">
           Yến nhà vui tự tin với gu thẩm mỹ tinh tế cùng một sản phẩm được nâng niu bởi những ng thợ lành
           nghề sẽ truyền tải được thông điệp của sự trân trọng, tình thân.
         </p>
       </div>
       <div>
-        <h5 className="mb-[14px] lg:text-start !text-center">CHẤT LƯỢNG</h5>
+        <h5 className="mb-[14px] lg:text-start !text-center">UY TÍN</h5>
         <p className="text-body-md-normal opacity-80 lg:text-start !text-center">
           Hơn 10 năm hoạt động trong nghề, chữ TÂM và TÍN luôn đồng hành cùng Yến Nhà Vui để mang đến
           những sản phẩm tốt nhất, sang trọng nhất với chất lượng thượng hạng.

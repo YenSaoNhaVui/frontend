@@ -26,15 +26,15 @@ export default function Footer() {
               </p>
             </div>
           </div>
-          <div className="flex items-start gap-[90px] flex-wrap">
-            <div className="flex flex-col gap-4 text-body-lg-normal [&_*]:!mb-0 [&_*]:!text-black">
+          <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
+            <div className="flex flex-col gap-4 text-body-lg-normal">
               <Link href="/about">
                 <p>Giới thiệu</p>
               </Link>
               <Link href="/products">
                 <p>Sản phẩm</p>
               </Link>
-              <Link href="/blogs">
+              <Link href="https://www.facebook.com/YENSAONHAVUI">
                 <p>Dịch vụ</p>
               </Link>
               <Link href="/contact">
@@ -42,7 +42,9 @@ export default function Footer() {
               </Link>
             </div>
             <div className="flex flex-col gap-4 text-body-lg-normal">
-              <p>Theo dõi chúng tôi</p>
+              <Link href="https://www.facebook.com/YENSAONHAVUI">
+                <p>Theo dõi chúng tôi</p>
+              </Link>
               <Link
                 href="https://www.facebook.com/YENSAONHAVUI"
                 target="_blank"
