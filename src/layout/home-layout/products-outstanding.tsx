@@ -12,6 +12,7 @@ import useAsync from "@/hooks/use-async";
 import { getHighlightProducts } from "@/service";
 import { Product } from "@/interfaces";
 import ProductCardLoading from "@/components/product-card/loading";
+import Link from "next/link";
 
 export default function ProductOutstanding() {
   const { data: highlightProducts, loading } = useAsync<Product[]>(() => getHighlightProducts());
@@ -87,15 +88,17 @@ export default function ProductOutstanding() {
         </div>
       </div>
       <div className="flex justify-center lg:mb-[107px] mb-7">
-        <Button
-          variant="ghost"
-          className="items-center border border-solid border-[#FAD743] hover:!bg-transparent !text-[#FAD743]"
-        >
-          Xem thêm
-          <Icon className="!w-[25px] !h-[25px] ml-1">
-            <ArrowRightStraightIcon />
-          </Icon>
-        </Button>
+        <Link href="/products">
+          <Button
+            variant="ghost"
+            className="items-center border border-solid border-[#FAD743] hover:!bg-transparent !text-[#FAD743]"
+          >
+            Xem thêm
+            <Icon className="!w-[25px] !h-[25px] ml-1">
+              <ArrowRightStraightIcon />
+            </Icon>
+          </Button>
+        </Link>
       </div>
     </section>
   );
