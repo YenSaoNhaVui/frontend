@@ -29,7 +29,7 @@ export default function ParnerShipAndCollabration({}: Props) {
   return (
     <div className="lg:max-w-[1267px] lg:mx-auto lg:mt-[23px] mb-20 mx-6 mt-5">
       <BreadCrumbs linkBack="/" titleCurrent="Đối tác - Liên kết" titlePrev="Trang chủ" />
-      <h3 className="mb-5 mt-6 lg:text-sm !text-[30px] !leading-[50px]">Đối tác - Liên kết</h3>
+      <h3 className="mb-5 mt-6 lg:text-sm !text-[30px] !leading-[50px] ">Đối tác - Liên kết</h3>
       <div className="grid lg:grid-cols-3 gap-5">
         {ITEMS.map((item) => (
           <Card key={item?.title} title={item.title} description={item.description} link={item.link} />
