@@ -25,8 +25,8 @@ export default function InterView() {
       <div className="flex-1 lg:mx-0 mx-6">
         <h5 className="mt-[41px] mb-4">GIỚI THIỆU</h5>
         <img
-          src="https://ucarecdn.com/37425636-89a6-4570-8303-1f2c1387d5de/-/preview/500x500/-/quality/smart/-/format/auto/"
-          className="mb-4"
+          src="https://ucarecdn.com/f45772e8-ef59-4712-8be9-e4428169344a/"
+          className="mb-4 w-[246px] h-[88px]"
         />
         <p className="text-body-md-medium text-[#9EFEE0] mb-4">
           Thương hiệu {`"Yến Sào Nhà Vui"`} đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt 10

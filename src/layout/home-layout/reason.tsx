@@ -10,8 +10,8 @@ export default function Reason() {
         <h5 className="mb-2 lg:text-start !text-center">LÝ DO CHỌN</h5>
         <div className="lg:blocl flex justify-center">
           <img
-            src="https://ucarecdn.com/37425636-89a6-4570-8303-1f2c1387d5de/-/preview/500x500/-/quality/smart/-/format/auto/"
-            className="mb-2"
+            src="https://ucarecdn.com/f45772e8-ef59-4712-8be9-e4428169344a/"
+            className="mb-2 w-full h-full"
           />
         </div>
         <div className="flex items-center lg:justify-end justify-center mt-[18px]">
