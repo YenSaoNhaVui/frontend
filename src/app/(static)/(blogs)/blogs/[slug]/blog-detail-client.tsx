@@ -9,6 +9,7 @@ import useAsync from "@/hooks/use-async";
 import { Blog } from "@/interfaces";
 import { getBlogs, getBlogsById } from "@/service";
 import { cn } from "@/utils";
+import { Spin } from "antd";
 import axios from "axios";
 import dateformat from "dateformat";
 import { useEffect } from "react";
@@ -23,8 +24,8 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
 
   if (loading)
     return (
-      <div className="h-[300px]">
-        <h1 className="text-center">Loading...</h1>
+      <div className="w-full h-[800px] flex items-center justify-center">
+        <Spin />
       </div>
     );
   if (!data && !loading)
