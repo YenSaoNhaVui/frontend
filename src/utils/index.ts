@@ -5,3 +5,4 @@ export * from "./config-slugify";
 export * from "./format-price";
 export * from "./build-query-string";
 export * from "./format-date";
+export * from "./unit-data";

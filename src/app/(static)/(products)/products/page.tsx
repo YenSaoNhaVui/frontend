@@ -6,7 +6,7 @@ import SearchAndFilterPanel from "@/components/search-and-filter-panel";
 import useAsync from "@/hooks/use-async";
 import { Product } from "@/interfaces";
 import { getProducts } from "@/service";
-import { configSlugify } from "@/utils";
+import { configSlugify, unitData } from "@/utils";
 import { useCategory } from "@/zustand";
 import { Pagination } from "antd";
 import { useSearchParams } from "next/navigation";
@@ -15,21 +15,21 @@ import Categories from "../categories";
 import { getAnymore } from "@/utils/getAnymore";
 
 export default function ProductsPage() {
-  const [page, setPage] = useState<number>(0);
+  const [products, setProducts] = useState<Product[] | null>(null);
+  const [isFecthMore, setIsFetchMore] = useState<boolean>(true);
   const q = useSearchParams()?.get("q");
   const filter = useSearchParams()?.get("filter");
   const params = useSearchParams()?.get("category");
   const { data, loading, refetch } = useAsync<Product[]>(() => getAnymore());
   const { isLoading, categories } = useCategory();
   const changePage = async (e: number) => {
-    setPage(e);
-    if (e == page) return;
-    fetchProducts(e);
+    if (!isFecthMore) return;
+    if (products?.length - e * 10 <= 20) fetchProducts(products?.length);
   };
   const fetchProducts = async (e?: number) => {
     const categoryId = categories?.filter((data) => configSlugify(data?.title) == params)[0];
-    let option: any = { take: 10 };
-    if (e) option = { ...option, skip: (e - 1) * 10 };
+    let option: any = { take: 50 };
+    if (e) option = { ...option, skip: e };
     if (q) option = { ...option, search: q };
     else {
       if (!params || !categoryId) option = { ...option, categoryId: categories[0]?.id };
@@ -39,9 +39,16 @@ export default function ProductsPage() {
     refetch(() => getProducts(option));
   };
   useEffect(() => {
+    setProducts(null);
     if (isLoading) return;
     fetchProducts();
   }, [params, isLoading, q, filter]);
+  useEffect(() => {
+    if (isLoading) return;
+    if (!data) return;
+    if (data?.length < 50) setIsFetchMore(false);
+    setProducts((prev) => unitData([...(prev || []), ...data], "id") as any);
+  }, [data, isLoading]);
   return (
     <section className="bg-cover bg-no-repeat lg:mt-8 mt-2.5 lg:pb-10 text-black">
       <div className="xl:max-w-[1280px] xl:mx-auto sm:mx-8 mx-6 flex lg:flex-row flex-col lg:gap-[30px]">
@@ -52,20 +59,19 @@ export default function ProductsPage() {
             <SearchAndFilterPanel queries={["category"]} filterItems={items} />
           </div>
           <div className="lg:mt-[18px] mt-[30px] grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3">
-            {loading || isLoading || data == null ? (
-              [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]?.map((key) => <ProductCardLoading key={key} />)
-            ) : data?.length == 0 ? (
-              <div className="w-full h-[400px] flex items-center justify-center lg:col-span-5 col-span-2">
-                <h1>Không tìm thấy sản phẩm</h1>
-              </div>
-            ) : (
-              (data || [])?.map((product) => <ProductCard key={product?.id} product={product} />)
-            )}
+            {(loading || isLoading) && products == null
+              ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]?.map((key) => <ProductCardLoading key={key} />)
+              : products?.length == 0 && (
+                  <div className="w-full h-[400px] flex items-center justify-center lg:col-span-5 col-span-2">
+                    <h1>Không tìm thấy sản phẩm</h1>
+                  </div>
+                )}
+            {products && products?.map((product) => <ProductCard key={product?.id} product={product} />)}
           </div>
           <div className="lg:my-4 my-[38px] flex lg:justify-end justify-center">
             <Pagination
               defaultCurrent={1}
-              total={data ? data?.length + 1 : 1}
+              total={products?.length}
               pageSize={10}
               onChange={(e) => changePage(e)}
             />
