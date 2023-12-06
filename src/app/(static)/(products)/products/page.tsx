@@ -14,6 +14,13 @@ import { useEffect, useState } from "react";
 import Categories from "../categories";
 import { getAnymore } from "@/utils/getAnymore";
 
+const sort = {
+  "ban-chay": "SELLING",
+  "gia-cao-thap": "PRICE_DESC",
+  "gia-thap-cao": "PRICE_ASC",
+  "hang-moi": "RECENT_CREATED",
+};
+
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[] | null>(null);
   const [isFecthMore, setIsFetchMore] = useState<boolean>(true);
@@ -34,8 +41,9 @@ export default function ProductsPage() {
     else {
       if (!params || !categoryId) option = { ...option, categoryId: categories[0]?.id };
       else option = { ...option, categoryId: categoryId?.id };
+      if (filter) option = { ...option, order: sort[filter] || "SELLING" };
+      else option = { ...option, order: "SELLING" };
     }
-    if (filter) option = { ...option, filter };
     refetch(() => getProducts(option));
   };
   useEffect(() => {

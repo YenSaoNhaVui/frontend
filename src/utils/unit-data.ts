@@ -1,11 +1,13 @@
 export const unitData = (arrays: any, key: string) => {
   const uniqueObjectMap = {};
+  const arraysTmp = [];
 
-  arrays.forEach((item: any) => {
-    uniqueObjectMap[item[key]] = item;
+  arrays?.map((array: any) => {
+    if (!uniqueObjectMap[array[key]]) {
+      arraysTmp.push(array);
+      uniqueObjectMap[array[key]] = true;
+    }
   });
 
-  const uniqueObjectArray = Object.values(uniqueObjectMap);
-
-  return uniqueObjectArray;
+  return arraysTmp;
 };

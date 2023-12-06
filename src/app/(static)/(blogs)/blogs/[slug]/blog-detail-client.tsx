@@ -10,9 +10,7 @@ import { Blog } from "@/interfaces";
 import { getBlogs, getBlogsById } from "@/service";
 import { cn } from "@/utils";
 import { Spin } from "antd";
-import axios from "axios";
 import dateformat from "dateformat";
-import { useEffect } from "react";
 
 export default function BlogDetailsClient({ slug }: { slug: string }) {
   const { data, loading } = useAsync<Blog>(() => getBlogsById(slug));

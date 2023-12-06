@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body className="h-full w-full bg-neutral-2">
         <Layout>{children}</Layout>
-        <div className="fixed z-[1000] bottom-10 right-10">
+        <div className="fixed z-[1000] lg:bottom-10 lg:right-10 right-4 bottom-4">
           <Link href="https://zalo.me/0908337315" target="_blank">
             <Button variant="ghost" className="!p-0 hover:!bg-transparent">
               <ZaloIcon />
