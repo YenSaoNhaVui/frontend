@@ -5,3 +5,4 @@ export * from "./questions";
 export * from "./auth";
 export * from "./orders";
 export * from "./comment";
+export * from "./static";

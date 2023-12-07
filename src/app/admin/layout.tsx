@@ -3,6 +3,7 @@ import { useClient } from "@/hooks";
 import { isLoggedIn, logOut } from "@/service";
 import {
   FileTextOutlined,
+  HomeOutlined,
   LogoutOutlined,
   ShoppingCartOutlined,
   UserOutlined,
@@ -48,6 +49,12 @@ export default function AdminLayout({ children }: Props) {
       key: "/admin/questions",
       icon: <UserOutlined />,
       label: "Câu hỏi của khách hàng",
+      onClick: (e) => router.push(e.key),
+    },
+    {
+      key: "/admin/static",
+      icon: <HomeOutlined />,
+      label: "Điều chỉnh landing-page",
       onClick: (e) => router.push(e.key),
     },
   ];
