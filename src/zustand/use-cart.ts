@@ -2,7 +2,7 @@ import { Product, Variant } from "@/interfaces";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-interface ProductCart {
+export interface ProductCart {
   product: Product;
   variant: Variant;
   quantity: number;

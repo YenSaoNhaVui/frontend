@@ -41,8 +41,8 @@ export default function MoreProducts({ product }: { product: Product }) {
     <div className="mb-[56px]">
       <h3 className="text-center text-primary-1-7 lg:block hidden">SẢN PHẨM TƯƠNG TỰ</h3>
       <h5 className="text-center text-primary-1-7 lg:hidden block">SẢN PHẨM TƯƠNG TỰ</h5>
-      <div className="my-[22px] lg:flex items-center justify-center gap-6 lg:max-w-full max-w-[450px] lg:mx-0 mx-auto">
-        <div className="lg:block flex items-center justify-center gap-4 lg:mb-0 mb-[30px]">
+      <div className="my-[22px] lg:flex items-center justify-center gap-6 lg:max-w-full max-w-[450px] lg:mx-0 mx-auto relative">
+        <div className="lg:hidden flex items-center justify-center gap-4 lg:mb-0 mb-[30px]">
           <div className="lg:absolute -left-[100px] flex items-center top-0 h-full">
             <Button
               onClick={() => (slider as any).current.slickPrev()}
@@ -66,6 +66,11 @@ export default function MoreProducts({ product }: { product: Product }) {
             </Button>
           </div>
         </div>
+        <Button variant="ghost" className="shadow-[0px_3px_4px_0px_rgba(0,0,0,0.15)] lg:!flex !hidden">
+          <Icon size="lg">
+            <ArrowLeftIcon />
+          </Icon>
+        </Button>
         <Slider
           ref={slider}
           {...settings}
@@ -79,6 +84,11 @@ export default function MoreProducts({ product }: { product: Product }) {
             />
           ))}
         </Slider>
+        <Button variant="ghost" className="shadow-[0px_3px_4px_0px_rgba(0,0,0,0.15)] lg:!flex !hidden">
+          <Icon>
+            <ArrowRightIcon />
+          </Icon>
+        </Button>
       </div>
     </div>
   );

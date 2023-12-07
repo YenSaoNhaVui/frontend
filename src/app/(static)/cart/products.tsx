@@ -1,13 +1,12 @@
-import ProductQuantity from "@/components/product-quantity";
-import { Button } from "@/components/ui/button";
 import { cn, formatPrice } from "@/utils";
 import { useCart } from "@/zustand";
+import { ProductDesktop, ProductMobile } from "./product-card";
 
 export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
-  const { productCarts, removeProductCarts, getTotalPrice } = useCart();
+  const { productCarts, getTotalPrice } = useCart();
   return (
     <div className="mt-7 mb-8 [&_p]:mb-0">
-      <div className="grid grid-cols-8 pb-2.5 border-b border-solid border-black">
+      <div className="lg:grid hidden grid-cols-8 pb-2.5 border-b border-solid border-black">
         {["", "Sản phẩm", "Số lượng", "Giá tiền"]?.map((title, i) => (
           <p
             key={i}
@@ -20,49 +19,22 @@ export default function CartProducts({ isCheckout }: { isCheckout: boolean }) {
           </p>
         ))}
       </div>
+      <div className="border-b border-black lg:hidden block" />
       {productCarts?.map((productCart, i) => (
-        <div key={i} className="grid grid-cols-8 py-2.5 border-b border-solid border-black">
-          <figure className="relative min-w-[120px] max-w-[120px] min-h-[120px] max-h-[120px] rounded-lg overflow-hidden m-0">
-            <img
-              src={productCart?.product.images?.[0] as string}
-              alt={productCart?.product.title}
-              className="absolute top-0 left-0 w-full h-full object-cover"
-            />
-          </figure>
-          <div className="mt-5 col-span-4 flex flex-col justify-between">
-            <div>
-              <h5 className="text-primary-1-7 mb-0">{productCart?.product.title}</h5>
-              <p className="text-primary-1-7 text-body-lg-normal">{productCart.variant.weight} kg</p>
-            </div>
-            <Button
-              variant="ghost"
-              className="!text-primary-1-7/50 hover:!text-primary-1-7 text-body-lg-normal !p-0 !w-[30px] hover:!bg-transparent"
-              onClick={() => removeProductCarts(i)}
-            >
-              Xóa
-            </Button>
-          </div>
-          <ProductQuantity id={i} quantity={productCart.quantity} isCheckout={isCheckout} />
-          <p className="text-body-lg-semibold text-primary-1-7 flex items-center col-span-2 justify-center">
-            {productCart.variant?.listPrice != productCart.variant?.price ? (
-              <>
-                {formatPrice(productCart.variant?.listPrice, true)}
-                <sup className="ml-1">
-                  <s>{formatPrice(productCart.variant?.price, true)}</s>
-                </sup>
-              </>
-            ) : (
-              formatPrice(productCart.variant?.price, true)
-            )}
-          </p>
+        <div key={`${productCart?.product?.id} ${i}`}>
+          <ProductDesktop productCart={productCart} i={i} isCheckout={isCheckout} />
+          <ProductMobile i={i} isCheckout={isCheckout} productCart={productCart} />
         </div>
       ))}
-      <div className="grid grid-cols-8 py-12 border-b border-solid border-black">
+      <div className="lg:grid lg:gap-0 gap-[26px] flex justify-end grid-cols-8 py-12 border-b border-solid border-black">
         <span />
-        <span className="col-span-4" />
-        <p className="text-body-lg-semibold text-primary-1-7">Tổng cộng</p>
-        <p className="text-body-lg-semibold text-primary-1-7 flex items-center col-span-2 justify-center">
+        <span className="lg:col-span-4" />
+        <p className="text-body-lg-semibold text-primary-1-7 whitespace-nowrap">Tổng cộng:</p>
+        <p className="text-body-lg-semibold text-primary-1-7 lg:col-span-2 lg:block hidden whitespace-nowrap">
           {formatPrice(getTotalPrice(), true)}
+        </p>
+        <p className="text-body-lg-semibold text-primary-1-7 lg:col-span-2 lg:hidden block whitespace-nowrap">
+          {formatPrice(getTotalPrice(), false)}
         </p>
       </div>
     </div>
