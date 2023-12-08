@@ -29,11 +29,11 @@ export const useCart = create<Cart>()(
               item.product.id == productCart.product.id &&
               JSON.stringify(item.variant) == JSON.stringify(productCart.variant)
           );
+          console.log(product);
           if (product) {
-            if (product.quantity) product.quantity = 0;
+            if (typeof product.quantity != "number") product.quantity = 0;
             product.quantity += productCart.quantity;
           } else productCarts.push(productCart);
-          console.log(productCarts);
           return { productCarts: [...productCarts] };
         }),
 
