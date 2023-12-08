@@ -25,7 +25,7 @@ export function ProductDesktop({
       <div className="mt-5 col-span-4 flex flex-col justify-between">
         <div>
           <h5 className="text-primary-1-7 mb-0">{productCart?.product.title}</h5>
-          <p className="text-primary-1-7 text-body-lg-normal">{productCart.variant.weight} kg</p>
+          <p className="text-primary-1-7 text-body-lg-normal">{productCart.variant.weight}</p>
         </div>
         <Button
           variant="ghost"
@@ -75,9 +75,7 @@ export function ProductMobile({
         <h5 className="text-primary-1-7 mb-0 lg:text-sm !text-body-lg-semibold line-clamp-1">
           {productCart?.product.title}
         </h5>
-        <p className="text-primary-1-7 text-body-lg-normal !mb-[13px]">
-          {productCart.variant.weight} kg
-        </p>
+        <p className="text-primary-1-7 text-body-lg-normal !mb-[13px]">{productCart.variant.weight}</p>
         <ProductQuantity id={i} quantity={productCart.quantity} isCheckout={isCheckout} />
         <p className="text-body-lg-semibold text-primary-1-7 flex !my-[14px]">
           {formatPrice(productCart.variant?.price, false)}

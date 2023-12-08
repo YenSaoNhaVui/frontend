@@ -56,11 +56,14 @@ export default function FormCheckout({}: Props) {
       <Form>
         {openModal && (
           <div className="fixed top-0 left-0 w-full h-full z-[5000] bg-black/50 flex items-center justify-center">
-            <div className="modal flex items-center justify-center rounded-2xl bg-primary-1-7 lg:max-w-[724px] lg:max-h-[208px]  max-h-[288px] max-w-[368px] w-full h-full">
-              <h4 className="text-primary-2-1 text-center">
-                Yến Nhà Vui đã nhận được đơn hàng. Chúng tôi sẽ phản hồi lại trong 24 giờ.
-              </h4>
-            </div>
+            <img
+              src="https://ucarecdn.com/27fe6ae4-b288-48a3-92cd-d24500c35985/"
+              className="lg:hidden block w-[350px] h-[350px]"
+            />
+            <img
+              src="https://ucarecdn.com/fbd94ed1-763c-4640-96ce-d18ed6969887/"
+              className="lg:block hidden w-[1024px]"
+            />
           </div>
         )}
 
