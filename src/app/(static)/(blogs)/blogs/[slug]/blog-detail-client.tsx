@@ -71,7 +71,7 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
           {loadingBlogs
             ? [1, 2, 3]?.map((i) => <CardBlogLoading className="flex-1" key={i} />)
             : blogs &&
-              blogs?.map((blog, i) => (
+              blogs.slice(0, 3)?.map((blog, i) => (
                 <CardBlog
                   className={cn("flex-1", {
                     "lg:block hidden": i == 2,
