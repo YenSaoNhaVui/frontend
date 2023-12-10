@@ -84,7 +84,12 @@ export default function AdminLayout({ children }: Props) {
                 </Layout.Header>
                 <Layout>
                   <Sider width={250}>
-                    <Menu mode="inline" defaultSelectedKeys={["1"]} className="h-full" items={ITEMS} />
+                    <Menu
+                      mode="inline"
+                      defaultSelectedKeys={["/admin/products"]}
+                      className="h-full"
+                      items={ITEMS}
+                    />
                   </Sider>
                   {children}
                 </Layout>

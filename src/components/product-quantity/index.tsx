@@ -2,18 +2,20 @@ import { useCart } from "@/zustand";
 import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from "../icons";
 import { Button } from "../ui/button";
 import Icon from "../ui/icon";
+import { cn } from "@/utils";
 
 interface Props {
   id?: number;
   isCheckout?: boolean;
   quantity?: number;
   onChange?: (e: number) => void;
+  className?: string;
 }
 
-export default function ProductQuantity({ id, isCheckout, quantity, onChange }: Props) {
+export default function ProductQuantity({ id, isCheckout, quantity, onChange, className }: Props) {
   const updateQuantity = useCart((state) => state.updateQuantity);
   return (
-    <div className="flex items-center lg:gap-4 gap-0 [&_path]:!stroke-primary-1-5">
+    <div className={cn("flex items-center lg:gap-4 gap-0 [&_path]:!stroke-primary-1-5", className)}>
       {!isCheckout && (
         <Button
           variant="ghost"
