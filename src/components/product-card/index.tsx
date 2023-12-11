@@ -4,19 +4,20 @@ import { PlusIcon } from "../icons";
 import { Button } from "../ui/button";
 import Icon from "../ui/icon";
 import { cn, formatPrice } from "@/utils";
-import { Product } from "@/interfaces";
+import { Category, Product } from "@/interfaces";
 import { useCart } from "@/zustand";
 import { App } from "antd";
 
 interface Props {
   className?: string;
   product?: Product;
+  category?: string;
 }
 
-export default function ProductCard({ className, product }: Props) {
+export default function ProductCard({ className, product, category }: Props) {
   const addProduct = useCart((state) => state.addProductCarts);
   const { message } = App.useApp();
-
+  console.log(product);
   return (
     <div className={cn("w-full", className)}>
       <Link href={"/products/" + (product?.id || "")} className="cursor-pointer">
@@ -30,7 +31,9 @@ export default function ProductCard({ className, product }: Props) {
       </Link>
       <div className="p-2.5 bg-primary-1-8 rounded-b-lg">
         <div className="flex items-start justify-between">
-          <p className="text-body-sm-medium text-secondary-5">Hộp quà</p>
+          <p className="text-body-sm-medium text-secondary-5">
+            {category || (product?.categories?.[0] as Category)?.title || ""}
+          </p>
         </div>
         <Link href={`/products/${product?.id || 123}`}>
           <h6 className="text-primary-2-5 mb-[30px] lg:text-xl !text-body-sm-semibold lg:line-clamp-2 line-clamp-3 lg:h-[44px] h-[66px]">
@@ -39,11 +42,11 @@ export default function ProductCard({ className, product }: Props) {
         </Link>
         <div className="flex items-center justify-between">
           {product?.prices?.[0]?.price != product?.prices?.[0]?.listPrice ? (
-            <p className="lg:text-body-lg-semibold text-body-md-semibold text-primary-2-5 flex-1">
+            <p className="lg:text-body-lg-semibold text-body-md-semibold text-primary-2-5 flex-1 !max-w-[50px]">
               {formatPrice(product.prices?.[0]?.listPrice, false)}
             </p>
           ) : (
-            <p className="text-body-lg-semibold text-primary-2-5 flex-1">
+            <p className="text-body-lg-semibold text-primary-2-5 flex-1 !max-w-[50px]">
               {formatPrice(product?.prices?.[0]?.price || 0, false)}
             </p>
           )}

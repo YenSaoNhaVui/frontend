@@ -15,6 +15,7 @@ import { getAnymore } from "@/utils/getAnymore";
 import { unitData } from "@/utils";
 
 export default function BlogsPage() {
+  const [page, setPage] = useState<number>(1);
   const [blogs, setBlogs] = useState<Blog[] | null>(null);
   const [isFecthMore, setIsFetchMore] = useState<boolean>(true);
   const q = useSearchParams()?.get("q");
@@ -23,6 +24,7 @@ export default function BlogsPage() {
   const { isClient } = useClient();
 
   const changePage = async (e: number) => {
+    setPage(e);
     if (!isFecthMore) return;
     if (blogs?.length - e * 6 <= 12) fetchProducts(blogs?.length);
   };
@@ -58,16 +60,21 @@ export default function BlogsPage() {
                   <h1>Không tìm thấy bài viết nào</h1>
                 </div>
               )}
-          {blogs && blogs?.map((blog) => <CardBlog key={blog?.id} blog={blog} />)}
+          {blogs &&
+            blogs
+              ?.slice((page - 1) * 6, page * 6)
+              ?.map((blog) => <CardBlog key={blog?.id} blog={blog} />)}
         </div>
-        <div className="my-4 flex justify-end">
-          <Pagination
-            defaultCurrent={1}
-            total={blogs?.length}
-            pageSize={6}
-            onChange={(e) => changePage(e)}
-          />
-        </div>
+        {blogs?.length != 0 && (
+          <div className="my-4 flex justify-end">
+            <Pagination
+              defaultCurrent={1}
+              total={blogs?.length}
+              pageSize={6}
+              onChange={(e) => changePage(e)}
+            />
+          </div>
+        )}
       </div>
     </section>
   );

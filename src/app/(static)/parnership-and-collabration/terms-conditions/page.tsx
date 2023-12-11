@@ -14,7 +14,7 @@ const PartnerShipAndCollabrationPage = () => {
       {ITEMS.map((item) => (
         <>
           <h4 className="mb-5">{item.h3}</h4>
-          <p className="mb-10 text-xl">{item.h4}</p>
+          <p className="mb-10 text-body-md-medium">{item.h4}</p>
         </>
       ))}
     </div>

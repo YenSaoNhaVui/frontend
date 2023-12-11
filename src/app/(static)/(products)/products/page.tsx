@@ -22,6 +22,7 @@ const sort = {
 };
 
 export default function ProductsPage() {
+  const [page, setPage] = useState<number>(1);
   const [products, setProducts] = useState<Product[] | null>(null);
   const [isFecthMore, setIsFetchMore] = useState<boolean>(true);
   const q = useSearchParams()?.get("q");
@@ -30,6 +31,7 @@ export default function ProductsPage() {
   const { data, loading, refetch } = useAsync<Product[]>(() => getAnymore());
   const { isLoading, categories } = useCategory();
   const changePage = async (e: number) => {
+    setPage(e);
     if (!isFecthMore) return;
     if (products?.length - e * 10 <= 20) fetchProducts(products?.length);
   };
@@ -47,6 +49,7 @@ export default function ProductsPage() {
     refetch(() => getProducts(option));
   };
   useEffect(() => {
+    setPage(1);
     setProducts(null);
     if (isLoading) return;
     fetchProducts();
@@ -74,16 +77,21 @@ export default function ProductsPage() {
                     <h1>Không tìm thấy sản phẩm</h1>
                   </div>
                 )}
-            {products && products?.map((product) => <ProductCard key={product?.id} product={product} />)}
+            {products &&
+              products
+                ?.slice((page - 1) * 10, page * 10)
+                ?.map((product) => <ProductCard key={product?.id} product={product} />)}
           </div>
-          <div className="lg:my-4 my-[38px] flex lg:justify-end justify-center">
-            <Pagination
-              defaultCurrent={1}
-              total={products?.length}
-              pageSize={10}
-              onChange={(e) => changePage(e)}
-            />
-          </div>
+          {products?.length != 0 && products && (
+            <div className="lg:my-4 my-[38px] flex lg:justify-end justify-center">
+              <Pagination
+                defaultCurrent={1}
+                total={products?.length}
+                pageSize={10}
+                onChange={(e) => changePage(e)}
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -51,7 +51,7 @@ const PartnerShipAndCollabrationPage = () => {
   return (
     <div className="lg:px-[180px] lg:py-[90px] px-6 py-10">
       <h3 className="mb-5">Chính sách</h3>
-      <p className="mb-10 text-xl">
+      <p className="mb-10 text-body-md-medium">
         Yến Nhà Vui mở rộng mô hình kinh doanh, hoạt động trên thị trường. Chúng tôi cần những con người
         có đam mê kinh doanh để cùng tham gia vào đội ngũ nhân viên. Yến Nhà Vui có nhiều chính sách đãi
         ngộ, tạo ra cơ hội giúp các bạn khẳng định bản thân. Chỉ cần tâm huyết và ham học hỏi các bạn sẽ
@@ -71,7 +71,7 @@ const PartnerShipAndCollabrationPage = () => {
       {ITEMS.map((item) => (
         <>
           <h4 className="mb-5">{item.h3}</h4>
-          <p className="mb-10 text-xl">{item.h4}</p>
+          <p className="mb-10 text-body-md-medium">{item.h4}</p>
         </>
       ))}
     </div>

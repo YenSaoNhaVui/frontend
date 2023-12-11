@@ -18,7 +18,7 @@ export default function ProductInfo({ product }: { product: Product }) {
         {product.prices?.[variantId]?.listPrice != product.prices?.[variantId]?.price ? (
           <>
             {formatPrice(product.prices?.[variantId]?.listPrice, true)}
-            <sup className="ml-1">
+            <sup className="ml-2`">
               <s>{formatPrice(product.prices?.[variantId]?.price, true)}</s>
             </sup>
           </>

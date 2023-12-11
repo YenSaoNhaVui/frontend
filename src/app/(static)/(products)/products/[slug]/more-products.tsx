@@ -67,17 +67,22 @@ export default function MoreProducts({ product }: { product: Product }) {
           </div>
         </div>
         {(product?.categories[0] as Category)?.products?.length >= 4 ? (
-          <Slider ref={slider} {...settings} className="[&_.slick-slide]:px-3 [&_button]:!hidden">
-            {(product?.categories[0] as Category)?.products.slice(0, 5)?.map((product) => (
-              <ProductCard key={product?.id} product={product} />
+          <Slider ref={slider} {...settings} className="[&_.slick-slide]:px-3">
+            {(product?.categories[0] as Category)?.products.slice(0, 5)?.map((_product) => (
+              <ProductCard
+                key={_product?.id}
+                product={_product}
+                category={(product?.categories?.[0] as Category)?.title}
+              />
             ))}
           </Slider>
         ) : (
           <div className="flex items-center lg:gap-6 gap-4">
-            {(product?.categories[0] as Category)?.products?.map((product) => (
+            {(product?.categories[0] as Category)?.products?.map((_product) => (
               <ProductCard
-                key={product?.id}
-                product={product}
+                key={_product?.id}
+                product={_product}
+                category={(product?.categories?.[0] as Category)?.title}
                 className="lg:min-w-[198px] lg:max-w-[198px] lg:w-auto w-full"
               />
             ))}
