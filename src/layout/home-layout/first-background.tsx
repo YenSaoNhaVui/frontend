@@ -22,7 +22,7 @@ export default function FirstBackground() {
         />
       </div>
       <div
-        className="lg:h-[750px] sm:h-[540px] h-[300px] hidden lg:relative bg-cover bg-center bg-no-repeat"
+        className="lg:h-[750px] sm:h-[540px] h-[300px] hidden lg:block relative bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url("${homeBackground}-/preview/-/quality/smart_retina/-/format/auto/")`,
         }}
