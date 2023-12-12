@@ -17,6 +17,9 @@ export default function StaticAdminPage({}: Props) {
     data.homeBackground = data.homeBackground
       ? preprocessImages([data?.homeBackground as string])
       : undefined;
+    data.homeBackgroundMobile = data.homeBackgroundMobile
+      ? preprocessImages([data?.homeBackgroundMobile as string])
+      : undefined;
     return data;
   });
   const [submitLoading, setSubmitLoading] = useState<boolean>(false);
@@ -24,6 +27,7 @@ export default function StaticAdminPage({}: Props) {
     setSubmitLoading(true);
     try {
       values.homeBackground = (await uploadImages(values.homeBackground as UploadFile[]))[0];
+      values.homeBackgroundMobile = (await uploadImages(values.homeBackgroundMobile as UploadFile[]))[0];
       await setStatic(values);
       message.success("Lưu thành công");
     } catch (error) {
@@ -47,6 +51,7 @@ export default function StaticAdminPage({}: Props) {
       <Layout className="h-full">
         <Layout.Content>
           <FormUploadImages name="homeBackground" label="Ảnh trang home:" singleOnly />
+          <FormUploadImages name="homeBackgroundMobile" label="Ảnh trang home trên mobile:" singleOnly />
         </Layout.Content>
         <Layout.Footer className="bg-transparent flex justify-end">
           <Button className="w-40 mr-3" onClick={() => window.location.reload()}>
