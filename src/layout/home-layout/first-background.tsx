@@ -9,7 +9,7 @@ export default function FirstBackground() {
   return (
     <Link href="https://yensaonhavui.vn/collections/" target="_blank">
       <div
-        className="lg:h-[750px] sm:h-[540px] h-[315px] lg:hidden relative bg-cover bg-center bg-no-repeat"
+        className="lg:h-[750px] sm:h-[540px] h-[315px] lg:hidden block relative bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url("${homeBackgroundMobile}-/preview/-/quality/smart_retina/-/format/auto/")`,
         }}
