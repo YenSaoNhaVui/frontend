@@ -18,11 +18,10 @@ interface Props {
 export default function ProductCard({ className, product, category, isHover }: Props) {
   const addProduct = useCart((state) => state.addProductCarts);
   const { message } = App.useApp();
-  console.log(product);
   return (
     <div
       className={cn("w-full", className, {
-        "hover:scale-[1.1] duration-200": isHover,
+        "lg:hover:scale-[1.18] hover:scale-[1.1] duration-200": isHover,
       })}
     >
       <Link href={"/products/" + (product?.id || "")} className="cursor-pointer">

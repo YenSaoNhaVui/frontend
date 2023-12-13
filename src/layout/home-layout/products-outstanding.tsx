@@ -24,7 +24,7 @@ export default function ProductOutstanding() {
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -51,10 +51,10 @@ export default function ProductOutstanding() {
         backgroundImage: `url('https://ucarecdn.com/5e16ca16-31a2-4300-86e3-23faad4838a1/-/quality/smart/-/format/auto/')`,
       }}
     >
-      <h1 className="mt-[98px] lg:mb-[126px] mb-[25px] font-street-sign-sans lg:!text-[128px] !text-[45px] !leading-normal text-center text-[#FAD743] !font-normal">
+      <h1 className="mt-[98px] lg:mb-[48px] font-street-sign-sans lg:!text-[128px] !text-[45px] !leading-normal text-center text-[#FAD743] !font-normal">
         SẢN PHẨM NỔI BẬT
       </h1>
-      <div className="lg:mb-[60px] mb-4 lg:max-w-[1064px] sm:max-w-[640px] max-w-[365px] mx-auto relative">
+      <div className="lg:mb-[100px] mb-4 xl:max-w-[1200px] lg:max-w-[800px] sm:max-w-[640px] max-w-[365px] mx-auto relative">
         <div className="absolute -left-24 lg:flex hidden items-center top-0 h-full ">
           <Button
             onClick={() => (slider as any).current.slickPrev()}
@@ -69,7 +69,7 @@ export default function ProductOutstanding() {
         <Slider
           ref={slider}
           {...settings}
-          className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_.slick-arrow]:!hidden [&_.slick-list]:h-[450px] [&_.slick-list]:pt-14"
+          className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_.slick-arrow]:!hidden [&_.slick-list]:h-[500px] [&_.slick-list]:xl:pt-14 [&_.slick-list]:pt-[100px]"
         >
           {loading
             ? [1, 2, 3, 4, 5, 6, 7, 8]?.map((i) => <ProductCardLoading key={i} />)
