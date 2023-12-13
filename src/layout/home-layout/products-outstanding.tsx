@@ -54,7 +54,7 @@ export default function ProductOutstanding() {
       <h1 className="mt-[98px] lg:mb-[126px] mb-[25px] font-street-sign-sans lg:!text-[128px] !text-[45px] !leading-normal text-center text-[#FAD743] !font-normal">
         SẢN PHẨM NỔI BẬT
       </h1>
-      <div className="lg:mb-[90px] mb-[76px] lg:max-w-[1064px] sm:max-w-[640px] max-w-[365px] mx-auto relative">
+      <div className="lg:mb-[60px] mb-4 lg:max-w-[1064px] sm:max-w-[640px] max-w-[365px] mx-auto relative">
         <div className="absolute -left-24 lg:flex hidden items-center top-0 h-full ">
           <Button
             onClick={() => (slider as any).current.slickPrev()}
