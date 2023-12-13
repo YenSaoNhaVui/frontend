@@ -11,11 +11,13 @@ export default function FirstBackground() {
       <div
         className="lg:h-[750px] sm:h-[540px] h-[315px] lg:hidden block relative bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url("${homeBackgroundMobile}-/preview/-/quality/smart_retina/-/format/auto/")`,
+          backgroundImage: `url("${
+            homeBackgroundMobile || homeBackground
+          }-/preview/-/quality/smart_retina/-/format/auto/")`,
         }}
       >
         <div
-          className="absolute top-1 left-0 w-full h-[calc(100%-80px)] z-[20]"
+          className="absolute top-1 left-0 w-full h-full z-[20]"
           style={{
             background: "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 73.44%, #000 100%)",
           }}
@@ -28,7 +30,7 @@ export default function FirstBackground() {
         }}
       >
         <div
-          className="absolute top-1 left-0 w-full h-[calc(100%-80px)] z-[20]"
+          className="absolute top-1 left-0 w-full h-full z-[20]"
           style={{
             background: "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 73.44%, #000 100%)",
           }}
