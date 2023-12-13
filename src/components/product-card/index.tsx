@@ -12,14 +12,19 @@ interface Props {
   className?: string;
   product?: Product;
   category?: string;
+  isHover?: boolean;
 }
 
-export default function ProductCard({ className, product, category }: Props) {
+export default function ProductCard({ className, product, category, isHover }: Props) {
   const addProduct = useCart((state) => state.addProductCarts);
   const { message } = App.useApp();
   console.log(product);
   return (
-    <div className={cn("w-full", className)}>
+    <div
+      className={cn("w-full", className, {
+        "hover:scale-[1.1] duration-200": isHover,
+      })}
+    >
       <Link href={"/products/" + (product?.id || "")} className="cursor-pointer">
         <figure className="pt-[100%] relative bg-[#F2D65C] rounded-t-xl">
           <img

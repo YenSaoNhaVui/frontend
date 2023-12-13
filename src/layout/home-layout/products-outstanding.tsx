@@ -69,11 +69,13 @@ export default function ProductOutstanding() {
         <Slider
           ref={slider}
           {...settings}
-          className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_.slick-arrow]:!hidden"
+          className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_.slick-arrow]:!hidden [&_.slick-list]:h-[450px] [&_.slick-list]:pt-14"
         >
           {loading
             ? [1, 2, 3, 4, 5, 6, 7, 8]?.map((i) => <ProductCardLoading key={i} />)
-            : helper(highlightProducts).map((product, i) => <ProductCard key={i} product={product} />)}
+            : helper(highlightProducts).map((product, i) => (
+                <ProductCard isHover={true} key={i} product={product} />
+              ))}
         </Slider>
         <div className="absolute -right-14 lg:flex hidden items-center top-0 h-full">
           <Button

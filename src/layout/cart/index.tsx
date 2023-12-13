@@ -16,8 +16,8 @@ export default function Cart() {
   if (!isClient) return <></>;
   return (
     <div
-      className={cn("lg:absolute relative lg:top-[22px] right-0", {
-        "lg:top-[22px]": url != "/",
+      className={cn("lg:absolute relative lg:top-3 right-0", {
+        "lg:top-3": url != "/",
       })}
     >
       <Link href="/cart">

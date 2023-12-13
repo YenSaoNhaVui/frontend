@@ -13,9 +13,9 @@ export default function HomeClient() {
       </section>
       <ProductOutstanding />
       <section
-        className="lg:bg-cover bg-contain bg-primary-1-7 text-white lg:pt-[190px] pt-[50px] overflow-hidden relative [&_p]:text-justify"
+        className="bg-contain bg-primary-1-7 text-white lg:pt-[190px] pt-[50px] overflow-hidden relative [&_p]:text-justify"
         style={{
-          backgroundImage: `url('https://ucarecdn.com/613cb866-ff09-476f-98a2-2cf5f125f946/-/preview/-/quality/smart/-/format/auto/')`,
+          backgroundImage: `url('https://ucarecdn.com/4ff394c7-8391-4d09-abef-2cd5855bdb4f/-/preview/-/quality/smart/-/format/auto/')`,
         }}
       >
         <Reason />
