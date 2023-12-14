@@ -21,12 +21,14 @@ export default function FormCheckout({}: Props) {
       initialValues={{
         fullName: "",
         emailOrPhone: "",
+        address: "",
       }}
       validationSchema={CheckoutValidate}
       onSubmit={async (
         information: {
           fullName: string;
           emailOrPhone: string;
+          address: string;
         },
         actions: any
       ) => {
@@ -37,7 +39,7 @@ export default function FormCheckout({}: Props) {
         }
         try {
           await createOrder({
-            name: information.fullName,
+            name: information.fullName + " - " + information?.address,
             identity: information.emailOrPhone,
             totalPrice: getTotalPrice(),
             products: productCarts.map((product) => ({
@@ -74,6 +76,7 @@ export default function FormCheckout({}: Props) {
           </div>
           <div className="gap-6 flex flex-col">
             <FormikInput key={"fullName"} label="Họ và tên" name="fullName" className="border-black" />
+            <FormikInput key={"address"} label="Địa chỉ" name="address" className="border-black" />
             <FormikInput
               key={"emailOrPhone"}
               label="Email hoặc số điện thoại"

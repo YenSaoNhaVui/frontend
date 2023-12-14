@@ -54,7 +54,7 @@ export default function ProductOutstanding() {
       <h1 className="mt-[98px] lg:mb-[48px] font-street-sign-sans lg:!text-[128px] !text-[45px] !leading-normal text-center text-[#FAD743] !font-normal">
         SẢN PHẨM NỔI BẬT
       </h1>
-      <div className="lg:mb-[100px] mb-4 xl:max-w-[1200px] lg:max-w-[800px] sm:max-w-[640px] max-w-[365px] mx-auto relative">
+      <div className="lg:mb-[100px] mb-0 xl:max-w-[1280px] lg:max-w-[800px] sm:max-w-[640px] max-w-[365px] mx-auto relative">
         <div className="absolute -left-24 lg:flex hidden items-center top-0 h-full ">
           <Button
             onClick={() => (slider as any).current.slickPrev()}
@@ -69,7 +69,7 @@ export default function ProductOutstanding() {
         <Slider
           ref={slider}
           {...settings}
-          className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_.slick-arrow]:!hidden [&_.slick-list]:h-[500px] [&_.slick-list]:xl:pt-14 [&_.slick-list]:pt-[100px]"
+          className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_.slick-arrow]:!hidden [&_.slick-list]:lg:h-[500px] [&_.slick-list]:sm:h-[450px] [&_.slick-list]:h-[400px] [&_.slick-list]:xl:pt-14 [&_.slick-list]:lg:pt-[100px] [&_.slick-list]:pt-[50px]"
         >
           {loading
             ? [1, 2, 3, 4, 5, 6, 7, 8]?.map((i) => <ProductCardLoading key={i} />)
