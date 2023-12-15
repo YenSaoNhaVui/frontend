@@ -130,3 +130,19 @@ h6 {
   text-overflow: ellipsis;
   -webkit-line-clamp: 4; /* Number of lines to show */
 }
+
+.animation-logo {
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

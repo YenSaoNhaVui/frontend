@@ -56,6 +56,7 @@ export default function Header() {
             }
             className={cn("absolute left-0 top-[11px]", {
               "w-[17px] h-10 top-[9px]": logoHome.indexOf(url) == -1,
+              "animation-logo": logoHome.indexOf(url) != -1 && !isScroll,
             })}
             alt="logo"
           />
