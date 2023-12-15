@@ -12,7 +12,7 @@ export default function Header() {
 
   const handleScroll = useCallback(() => {
     const scrollTop = window.scrollY;
-    if (scrollTop > 100) setIsScroll(true);
+    if (scrollTop > 300) setIsScroll(true);
     else setIsScroll(false);
   }, []);
 
@@ -50,7 +50,9 @@ export default function Header() {
             src={
               logoHome.indexOf(url) == -1
                 ? "https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/preview/-/quality/smart/-/format/auto/"
-                : "https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/preview/-/quality/smart/-/format/auto/"
+                : isScroll
+                ? "https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/preview/-/quality/smart/-/format/auto/"
+                : "https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/preview/-/quality/smart/-/format/auto/"
             }
             className={cn("absolute left-0 top-[11px]", {
               "w-[17px] h-10 top-[9px]": logoHome.indexOf(url) == -1,
