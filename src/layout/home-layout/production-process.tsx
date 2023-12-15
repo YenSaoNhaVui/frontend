@@ -36,11 +36,11 @@ export function ImagesYenSao({ className }: { className?: string }) {
   return (
     <div className="flex-1 lg:justify-end justify-center flex">
       <img
-        src="https://ucarecdn.com/dd2c495e-3914-46b6-b689-ac450f9f137a/-/preview/-/quality/smart/-/format/auto/"
-        className="lg:block hidden"
+        src="https://ucarecdn.com/dd2c495e-3914-46b6-b689-ac450f9f137a/"
+        className="lg:block hidden w-[710px] h-[648px] max-h-[648px]"
       />
       <img
-        src="https://ucarecdn.com/bfe70498-ddbf-483a-b298-58a10168cb54/-/preview/-/quality/smart/-/format/auto/"
+        src="https://ucarecdn.com/bfe70498-ddbf-483a-b298-58a10168cb54/"
         className="lg:hidden block"
       />
     </div>
