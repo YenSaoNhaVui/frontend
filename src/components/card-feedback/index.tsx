@@ -2,8 +2,9 @@ export default function CardFeedBack() {
   return (
     <div className="xl:w-[370px] lg:w-[330px] sm:w-full w-full h-[476px] relative">
       <img
-        src="https://ucarecdn.com/48c3ed75-89ea-4578-9e26-6e3798aa90e2/-/preview/500x500/-/quality/smart/-/format/auto/"
+        src="https://ucarecdn.com/48c3ed75-89ea-4578-9e26-6e3798aa90e2/"
         className="w-full h-full rounded-[18px] absolute top-0 left-0"
+        alt="Feed back"
       />
       <div className="absolute top-0 left-0 w-full h-full flex items-end p-4">
         <div className="bg-white w-full rounded-[18px]">
@@ -12,6 +13,7 @@ export default function CardFeedBack() {
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9s5_XJL7tcJ-0WT-gI4fYIOV66rAZSKZr0A&usqp=CAU"
                 className="w-[50px] h-[50px] rounded-full object-cover"
+                alt="Avatar của người feedback"
               />
             </div>
           </div>

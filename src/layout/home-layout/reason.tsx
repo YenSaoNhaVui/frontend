@@ -11,6 +11,7 @@ export default function Reason() {
         <div className="lg:blocl flex justify-center">
           <img
             src="https://ucarecdn.com/f45772e8-ef59-4712-8be9-e4428169344a/"
+            alt="Lý do chọn"
             className="mb-2 w-full h-full"
           />
         </div>

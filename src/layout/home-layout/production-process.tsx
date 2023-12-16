@@ -42,6 +42,7 @@ export function ImagesYenSao({ className }: { className?: string }) {
       <img
         src="https://ucarecdn.com/bfe70498-ddbf-483a-b298-58a10168cb54/"
         className="lg:hidden block"
+        alt="Giới thiệu"
       />
     </div>
     // <div

@@ -12,14 +12,17 @@ export default function InterView() {
         <img
           src="https://ucarecdn.com/645914bd-09e6-4aa2-af41-570895cbc3b2/"
           className="relative z-30 lg:w-auto w-full"
+          alt="Yến nhà vui"
         />
         <img
           src="https://ucarecdn.com/4469cadf-ecd2-4173-8465-956e2f9de08d/"
           className="absolute z-30 top-0 left-0 bottom-0 right-0 mx-auto my-auto lg:w-[127px] lg:h-[302px] w-[89px] h-[212px]"
+          alt="Yến nhà vui"
         />
         <img
           src="https://ucarecdn.com/8f062bb3-e77c-48c1-89f2-4d60f7d129df/"
           className="absolute z-[10] left-0 lg:-bottom-8 -bottom-10 lg:w-auto w-full"
+          alt="Yến nhà vui"
         />
       </div>
       <div className="flex-1 lg:mx-0 mx-6">
