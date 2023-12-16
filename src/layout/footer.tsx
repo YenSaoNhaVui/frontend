@@ -9,13 +9,13 @@ export default function Footer() {
         <div className="flex lg:my-12 my-[30px] lg:mx-0 mx-6 items-center justify-between lg:flex-row flex-col lg:gap-y-0 gap-y-12">
           <div className="flex items-center gap-[30px]">
             <img
-              src="https://ucarecdn.com/cba0f7da-0c7b-4649-9d07-8a753f180f80/-/preview/-/quality/smart/-/format/auto/"
+              src="https://ucarecdn.com/cba0f7da-0c7b-4649-9d07-8a753f180f80/"
               alt="Logo màu đen"
               className="w-[68px] h-[163px]"
             />
             <div>
               <img
-                src="https://ucarecdn.com/d3107bc0-6c5a-4e1b-9d2d-2a2331b36e6c/-/preview/-/quality/smart/-/format/auto/"
+                src="https://ucarecdn.com/d3107bc0-6c5a-4e1b-9d2d-2a2331b36e6c/"
                 alt="Yến nhà vui"
                 className="w-[98px] h-9"
               />

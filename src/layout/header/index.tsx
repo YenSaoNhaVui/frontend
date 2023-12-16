@@ -35,12 +35,12 @@ export default function Header() {
         <DropDownMenu />
         <Link href="/" className="lg:hidden flex gap-1.5 items-center">
           <img
-            src="https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/preview/-/quality/smart/-/format/auto/"
+            src="https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/"
             className="w-2.5 h-[25px] object-contain"
             alt="logo"
           />
           <img
-            src="https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/preview/-/quality/smart/-/format/auto/"
+            src="https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/"
             alt="logo Yến sào vui"
             className="w-[65px] h-6 object-contain"
           />
@@ -49,10 +49,10 @@ export default function Header() {
           <img
             src={
               logoHome.indexOf(url) == -1
-                ? "https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/preview/-/quality/smart/-/format/auto/"
+                ? "https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/"
                 : isScroll
-                ? "https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/preview/-/quality/smart/-/format/auto/"
-                : "https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/preview/-/quality/smart/-/format/auto/"
+                ? "https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/"
+                : "https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/"
             }
             className={cn("absolute left-0 top-[11px]", {
               "w-[17px] h-10 top-[9px]": logoHome.indexOf(url) == -1,
@@ -62,7 +62,7 @@ export default function Header() {
           />
           {logoHome.indexOf(url) == -1 && (
             <img
-              src="https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/preview/-/quality/smart/-/format/auto/"
+              src="https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/"
               alt="logo Yến sào vui"
               className={cn("top-[11px] absolute left-0", {
                 "left-[26px] w-[100px] h-9": logoHome.indexOf(url) == -1,
