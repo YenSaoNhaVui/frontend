@@ -56,7 +56,7 @@ export default function ProductOutstanding() {
         className="absolute left-0 top-2.5 animation-logo right-0 mx-auto h-[75px] w-[30px] sm:hidden block z-[1000]"
         alt="logo"
       />
-      <h1 className="lg:mt-[98px] mt-[140px] lg:mb-[48px] font-street-sign-sans lg:!text-[128px] !text-[45px] !leading-normal text-center text-[#FAD743] !font-normal">
+      <h1 className="mt-[98px] lg:mb-[48px] font-street-sign-sans lg:!text-[128px] !text-[45px] !leading-normal text-center text-[#FAD743] !font-normal">
         SẢN PHẨM NỔI BẬT
       </h1>
       <div className="lg:mb-[100px] mb-0 xl:max-w-[1280px] lg:max-w-[800px] sm:max-w-[640px] max-w-[365px] mx-auto relative">
