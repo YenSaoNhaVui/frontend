@@ -46,12 +46,17 @@ export default function ProductOutstanding() {
   const slider = useRef(null);
   return (
     <section
-      className="lg:bg-cover bg-contain bg-black bg-no-repeat text-white lg:pt-[60px] overflow-hidden relative [&_p]:text-justify"
+      className="lg:bg-cover bg-contain bg-black bg-no-repeat text-white lg:pt-[60px] overflow-hidden relative [&_p]:text-justify z-[1000]"
       style={{
         backgroundImage: `url('https://ucarecdn.com/5e16ca16-31a2-4300-86e3-23faad4838a1/-/quality/smart/-/format/auto/')`,
       }}
     >
-      <h1 className="mt-[98px] lg:mb-[48px] font-street-sign-sans lg:!text-[128px] !text-[45px] !leading-normal text-center text-[#FAD743] !font-normal">
+      <img
+        src="https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/preview/-/quality/smart/-/format/auto/"
+        className="absolute left-0 top-2.5 animation-logo right-0 mx-auto h-[75px] w-[30px] sm:hidden block z-[1000]"
+        alt="logo"
+      />
+      <h1 className="lg:mt-[98px] mt-[140px] lg:mb-[48px] font-street-sign-sans lg:!text-[128px] !text-[45px] !leading-normal text-center text-[#FAD743] !font-normal">
         SẢN PHẨM NỔI BẬT
       </h1>
       <div className="lg:mb-[100px] mb-0 xl:max-w-[1280px] lg:max-w-[800px] sm:max-w-[640px] max-w-[365px] mx-auto relative">
