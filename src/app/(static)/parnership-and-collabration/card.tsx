@@ -24,7 +24,12 @@ export default function Card({ title, link, description }: Props) {
           </div>
           <h5 className="mt-2 text-primary-2-5">{title}</h5>
           <p className="mt-1 text-body-xs-normal text-white ellipsis-4">{description}</p>
-          <Button variant="ghost" className="!text-[#EED670] !underline hover:bg-transparent !p-0 mt-3">
+          <Button
+            aria-label="See more/xem thêm button"
+            title="See more/xem thêm"
+            variant="ghost"
+            className="!text-[#EED670] !underline hover:bg-transparent !p-0 mt-3"
+          >
             Xem thêm
             <Icon size="lg" className="ml-1">
               <ArrowRightStraightIcon />

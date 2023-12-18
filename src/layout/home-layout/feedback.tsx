@@ -45,6 +45,8 @@ export default function FeedBack() {
         <div className="lg:block flex items-center justify-center gap-4 lg:mb-0 mb-[30px]">
           <div className="lg:absolute -left-[100px] flex items-center top-0 h-full">
             <Button
+              aria-label="prev/lùi button"
+              title="prev/lùi"
               onClick={() => (sliderFeedback as any).current.slickPrev()}
               variant="ghost"
               className="shadow-[0px_3px_4px_0px_rgba(0,0,0,0.15)] !bg-white lg:rounded-[36px] rounded-lg lg:p-0 !p-[11px]"
@@ -56,6 +58,8 @@ export default function FeedBack() {
           </div>
           <div className="lg:absolute -right-[92px] flex items-center top-0 h-full">
             <Button
+              aria-label="Next/Tiếp theo button"
+              title="Next/Tiếp theo"
               onClick={() => (sliderFeedback as any).current.slickNext()}
               variant="ghost"
               className="shadow-[0px_3px_4px_0px_rgba(0,0,0,0.15)] !bg-white lg:rounded-[36px] rounded-lg lg:p-0 !p-[11px]"

@@ -84,6 +84,8 @@ export default function FormCheckout({}: Props) {
               className="border-black"
             />
             <Button
+              aria-label="Comfirm/Xác nhận mua button"
+              title="Comfirm/Xác nhận mua"
               rounded="md"
               className="!bg-primary-2-1 hover:!bg-primary-2-1/70 !text-primary-1-7"
               type="submit"

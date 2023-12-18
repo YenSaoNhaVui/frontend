@@ -78,7 +78,13 @@ export default function AdminLayout({ children }: Props) {
                     <YuqueFilled className="text-xl" />
                     <h5 className="h-6">Admin Yến Sào Nhà Vui</h5>
                   </div>
-                  <Button type="text" onClick={() => logOut()} icon={<LogoutOutlined />}>
+                  <Button
+                    aria-label="logout/Đăng xuất button"
+                    title="logout/Đăng xuất"
+                    type="text"
+                    onClick={() => logOut()}
+                    icon={<LogoutOutlined />}
+                  >
                     Đăng xuất
                   </Button>
                 </Layout.Header>

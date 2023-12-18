@@ -28,6 +28,8 @@ export function ProductDesktop({
           <p className="text-primary-1-7 text-body-lg-normal">{productCart.variant.weight}</p>
         </div>
         <Button
+          aria-label="Delete/xóa button"
+          title="Delete/xóa"
           variant="ghost"
           className="!text-primary-1-7/50 hover:!text-primary-1-7 text-body-lg-normal !p-0 !w-[30px] hover:!bg-transparent"
           onClick={() => removeProductCarts(i)}
@@ -81,6 +83,8 @@ export function ProductMobile({
           {formatPrice(productCart.variant?.price, false)}
         </p>
         <Button
+          aria-label="Delete/xóa button"
+          title="Delete/xóa"
           variant="ghost"
           className="!text-primary-1-7/50 hover:!text-primary-1-7 lg:text-body-lg-normal text-body-sm-normal !p-0 !w-[30px] hover:!bg-transparent"
           onClick={() => removeProductCarts(i)}

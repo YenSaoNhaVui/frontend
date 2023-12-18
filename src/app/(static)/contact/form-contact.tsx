@@ -62,7 +62,12 @@ export default function FormContact() {
             <FormikInput key={"fullName"} label="Họ và tên" name="fullName" />
             <FormikInput key={"emailOrPhone"} label="Email hoặc số điện thoại" name="emailOrPhone" />
             <FormikInput key={"question"} label="Câu hỏi của quý khách" isEditor name="question" />
-            <Button rounded="md" className="!bg-primary-2-1 hover:!bg-primary-2-1/70 !text-primary-1-7">
+            <Button
+              aria-label="Send/Gửi button"
+              title="Send/Gửi"
+              rounded="md"
+              className="!bg-primary-2-1 hover:!bg-primary-2-1/70 !text-primary-1-7"
+            >
               Gửi câu hỏi
             </Button>
           </div>

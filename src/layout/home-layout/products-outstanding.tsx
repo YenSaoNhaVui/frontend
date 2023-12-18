@@ -62,6 +62,8 @@ export default function ProductOutstanding() {
       <div className="lg:mb-[100px] mb-0 xl:max-w-[1280px] lg:max-w-[800px] sm:max-w-[640px] max-w-[365px] mx-auto relative">
         <div className="absolute -left-24 lg:flex hidden items-center top-0 h-full ">
           <Button
+            aria-label="Prev button"
+            title="Prev"
             onClick={() => (slider as any).current.slickPrev()}
             variant="ghost"
             className="shadow-[0px_3px_4px_0px_rgba(0,0,0,0.15)] !bg-white"
@@ -84,6 +86,8 @@ export default function ProductOutstanding() {
         </Slider>
         <div className="absolute -right-14 lg:flex hidden items-center top-0 h-full">
           <Button
+            aria-label="Next button"
+            title="Next"
             onClick={() => (slider as any).current.slickNext()}
             variant="ghost"
             className="shadow-[0px_3px_4px_0px_rgba(0,0,0,0.15)] !bg-white"

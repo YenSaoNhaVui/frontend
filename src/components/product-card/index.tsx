@@ -56,6 +56,8 @@ export default function ProductCard({ className, product, category, isHover }: P
           )}
 
           <Button
+            aria-label="Add product/thêm sản phẩm button"
+            title="Add product/thêm sản phẩm"
             className="!p-0 !w-8 !h-8 !bg-white hover:!bg-white/90"
             onClick={() => {
               addProduct({ product, quantity: 1, variant: product.prices?.[0] });

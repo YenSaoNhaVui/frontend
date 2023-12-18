@@ -16,7 +16,13 @@ export default function BreadCrumbs({ linkBack, titlePrev, titleCurrent, classNa
   return (
     <div className={cn("flex items-center", className)} {...props}>
       <Link href={linkBack}>
-        <Button variant="ghost" className="w-auto !p-1" rounded="md">
+        <Button
+          aria-label="Bread button"
+          title="Bread"
+          variant="ghost"
+          className="w-auto !p-1"
+          rounded="md"
+        >
           <Icon size="lg">
             <SideBarIcon />
           </Icon>

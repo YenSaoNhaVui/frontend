@@ -19,7 +19,12 @@ export default function ProductProcess() {
           đặc biệt của loại thực phẩm này.
         </p>
         <Link href="/about">
-          <Button variant="ghost" className="!text-[#EED670] !underline hover:bg-transparent !p-0">
+          <Button
+            aria-label="See more/xem thêm button"
+            title="See more/xem thêm"
+            variant="ghost"
+            className="!text-[#EED670] !underline hover:bg-transparent !p-0"
+          >
             Xem thêm
             <Icon size="lg" className="ml-1">
               <ArrowRightStraightIcon />

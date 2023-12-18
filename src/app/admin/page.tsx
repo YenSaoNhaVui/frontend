@@ -32,7 +32,13 @@ export default function AdminPage() {
           <Form.Item<FormData> label="Mật khẩu:" name="password">
             <Input.Password placeholder="admin" />
           </Form.Item>
-          <Button htmlType="submit" type="primary" className="block ml-auto">
+          <Button
+            aria-label="login/Đăng nhập button"
+            title="login/Đăng nhập"
+            htmlType="submit"
+            type="primary"
+            className="block ml-auto"
+          >
             Đăng nhập
           </Button>
         </Form>

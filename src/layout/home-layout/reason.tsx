@@ -17,7 +17,12 @@ export default function Reason() {
         </div>
         <div className="flex items-center lg:justify-end justify-center mt-[18px]">
           <Link href="/products">
-            <Button variant="ghost" className="!text-[#EED670] !underline hover:bg-transparent !p-0">
+            <Button
+              aria-label="See more/xem thêm button"
+              title="See more/xem thêm"
+              variant="ghost"
+              className="!text-[#EED670] !underline hover:bg-transparent !p-0"
+            >
               Xem thêm
               <Icon size="lg" className="ml-1">
                 <ArrowRightStraightIcon />

@@ -71,7 +71,12 @@ export default function SearchAndFilterPanel({ filterItems, queries }: Props) {
         trigger={["click"]}
         rootClassName="overflow-hidden border border-solid border-neutral-4 rounded-md [&>ul]:!p-0 [&>ul]:!rounded-none [&_li]:!p-2.5 [&_li]:!rounded-none [&_li]:border-b [&_li]:border-solid [&_li]:border-neutral-4 [&_li:last-child]:!border-0 [&_li]:!text-primary-1-7 [&_li]:!text-body-xs-normal"
       >
-        <Button rounded="md" className="!py-2 !gap-1 !text-[14px] !leading-[22px] !font-normal">
+        <Button
+          aria-label="Dropdown button"
+          title="Dropdown"
+          rounded="md"
+          className="!py-2 !gap-1 !text-[14px] !leading-[22px] !font-normal"
+        >
           <p className="whitespace-nowrap !m-0">{sort == "" ? "Sort by" : sort}</p>
           <Icon size="lg">
             <ArrowDownIcon />

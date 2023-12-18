@@ -1,10 +1,8 @@
 import { FilterIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
-import useAsync from "@/hooks/use-async";
 import { useClickOutSide } from "@/hooks/use-click-outside";
 import { Category } from "@/interfaces";
-import { getCategorys } from "@/service";
 import { cn, configSlugify } from "@/utils";
 import { Menu, MenuProps, Spin } from "antd";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -43,6 +41,8 @@ export default function Categories({ data, loading }: Props) {
   return (
     <>
       <Button
+        aria-label="Filter/Lọc Button"
+        title="Filter/Lọc"
         variant="ghost"
         size="0"
         onClick={() => setIsOpen(true)}

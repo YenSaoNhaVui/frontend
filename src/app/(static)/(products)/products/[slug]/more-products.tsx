@@ -45,6 +45,8 @@ export default function MoreProducts({ product }: { product: Product }) {
         <div className="flex items-center justify-center gap-4 lg:mb-0 mb-[30px]">
           <div className="lg:absolute -left-[80px] flex items-center top-0 h-full">
             <Button
+              aria-label="Prev/Lùi button"
+              title="Prev/Lùi"
               onClick={() => (slider as any).current.slickPrev()}
               variant="ghost"
               className="shadow-[0px_3px_4px_0px_rgba(0,0,0,0.15)] !bg-white"
@@ -56,6 +58,8 @@ export default function MoreProducts({ product }: { product: Product }) {
           </div>
           <div className="lg:absolute -right-[70px] flex items-center top-0 h-full">
             <Button
+              aria-label="Next/Tiếp button"
+              title="Next/Tiếp"
               onClick={() => (slider as any).current.slickNext()}
               variant="ghost"
               className="shadow-[0px_3px_4px_0px_rgba(0,0,0,0.15)] !bg-white"

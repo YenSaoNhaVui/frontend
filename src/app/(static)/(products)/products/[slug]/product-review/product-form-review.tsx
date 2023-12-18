@@ -67,7 +67,12 @@ export default function ProductFormReivew({ star }: { star: number }) {
             name="question"
           />
           <div className="flex justify-end">
-            <Button className=" text-primary-2-5 !bg-primary-1-7 hover:!bg-primary-1-8" rounded="md">
+            <Button
+              aria-label="Preview/Đánh giá button"
+              title="Preview/Đánh giá"
+              className=" text-primary-2-5 !bg-primary-1-7 hover:!bg-primary-1-8"
+              rounded="md"
+            >
               Gửi đánh giá
             </Button>
           </div>

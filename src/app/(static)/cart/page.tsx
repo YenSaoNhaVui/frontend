@@ -29,6 +29,8 @@ export default function CartPage() {
       ) : (
         <div className="flex justify-end">
           <Button
+            aria-label="Payment/Thanh toán button"
+            title="Payment/Thanh toán"
             className="!w-[440px] text-primary-2-5 !bg-primary-1-7 hover:!bg-primary-1-8"
             rounded="md"
             onClick={() => setIsCheckout(true)}

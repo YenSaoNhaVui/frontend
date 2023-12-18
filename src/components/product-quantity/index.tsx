@@ -18,6 +18,8 @@ export default function ProductQuantity({ id, isCheckout, quantity, onChange, cl
     <div className={cn("flex items-center lg:gap-4 gap-0 [&_path]:!stroke-primary-1-5", className)}>
       {!isCheckout && (
         <Button
+          aria-label="Giảm sản phẩm button"
+          title="Giảm sản phẩm"
           variant="ghost"
           className="!p-0 !w-6"
           onClick={() => {
@@ -35,6 +37,8 @@ export default function ProductQuantity({ id, isCheckout, quantity, onChange, cl
       </p>
       {!isCheckout && (
         <Button
+          aria-label="Tăng sản phẩm button"
+          title="Tăng sản phẩm"
           variant="ghost"
           className="!p-0 !w-6"
           onClick={() => {
