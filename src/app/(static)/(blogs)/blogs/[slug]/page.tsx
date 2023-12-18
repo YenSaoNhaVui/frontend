@@ -38,11 +38,15 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     return {
       title: blogs.title,
       description: `${blogs.description}`,
-      keywords: `${blogs.details}`,
+      viewport: "width=device-width, initial-scale=1",
+      robots: "index, follow",
+      keywords: "Yến Sào, Yến Sào Nhà Vui, Yến Sào Ngon quám, Yến Sào Bổ, Yến Sào Ngon Bổ Rẻ",
+      publisher: "Vercel",
       openGraph: {
+        locale: "vi_VN",
         title: blogs.title,
         description: `${blogs.description}`,
-        type: "article",
+        type: "website",
         url: `${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}/blogs/${params?.slug}`,
         images: [
           {

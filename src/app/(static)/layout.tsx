@@ -1,30 +1,54 @@
 import Layout from "@/layout";
 import "styles/globals.css";
 import "styles/quill.snow.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/button";
 import { ZaloIcon } from "@/components/icons";
 import Link from "next/link";
+import { Metadata } from "next";
 
 // mỗi page là có một file page và một file layout (file layout dùng để seo và file page là file cho phần client)
-export const metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
-  },
+export const metadata: Metadata = {
+  title: siteConfig.name,
   description: siteConfig.description,
-  keywords: ["Yến Sào", "Yến Sào Nhà Vui", "Yến Sào Ngon quá", "Yến Sào Bổ", "Yến Sào Ngon Bổ Rẻ"],
+  viewport: "width=device-width, initial-scale=1",
+  robots: "index, follow",
+  keywords: "Yến Sào, Yến Sào Nhà Vui, Yến Sào Ngon quám, Yến Sào Bổ, Yến Sào Ngon Bổ Rẻ",
+  publisher: "Vercel",
+  other: {
+    name: siteConfig.name,
+    image: siteConfig?.ogImage,
+  },
   authors: [
     {
-      name: "Yến Sào",
+      name: "Yến sào nhà vui",
       url: "https://yensaonhavui.vn",
     },
   ],
-  creator: "Yến Sào",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
+  openGraph: {
+    locale: "vi_VN",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    type: "website",
+    url: "https://yensaonhavui.vn",
+    images: [
+      {
+        url: siteConfig?.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig?.ogImage],
+  },
+  creator: "Yến sào nhà vui",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
@@ -35,20 +59,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          charSet="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        />
-      </head>
+    <html lang="vi">
       <head />
       <body className="h-full w-full bg-neutral-2">
         <Layout>{children}</Layout>

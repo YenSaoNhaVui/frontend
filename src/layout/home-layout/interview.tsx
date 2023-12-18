@@ -30,6 +30,7 @@ export default function InterView() {
         <img
           src="https://ucarecdn.com/f45772e8-ef59-4712-8be9-e4428169344a/-/format/webp/-/progressive/yes/"
           className="mb-4 w-[246px] h-[88px]"
+          alt="Yến nhà vui"
         />
         <p className="text-body-md-medium text-[#9EFEE0] mb-4">
           Thương hiệu {`"Yến Sào Nhà Vui"`} đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt 10
