@@ -13,7 +13,9 @@ export default function CardBlog({ blog, className }: { blog?: Blog; className?:
           <div className="relative pt-[71%] overflow-hidden">
             <img
               src={
-                typeof blog?.thumbnail == "string" ? blog?.thumbnail : (blog?.thumbnail?.[0] as string)
+                typeof blog?.thumbnail == "string"
+                  ? blog?.thumbnail + "-/format/webp/-/progressive/yes/"
+                  : (blog?.thumbnail?.[0] as string) + "-/format/webp/-/progressive/yes/"
               }
               alt={blog?.title}
               className="w-full h-full top-0 left-0 absolute object-cover rounded-lg"

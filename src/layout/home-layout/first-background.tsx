@@ -15,7 +15,9 @@ export default function FirstBackground() {
       <div
         className="lg:h-[750px] sm:h-[540px] h-[315px] lg:hidden block relative bg-cover bg-center bg-no-repeat bg-black"
         style={{
-          backgroundImage: `url("${homeBackgroundMobile || homeBackground}")`,
+          backgroundImage: `url("${
+            homeBackgroundMobile || homeBackground
+          }/-/format/webp/-/progressive/yes/")`,
         }}
       >
         <div
@@ -28,7 +30,7 @@ export default function FirstBackground() {
       <div
         className="lg:h-[750px] sm:h-[540px] h-[315px] hidden lg:block relative bg-cover bg-center bg-no-repeat bg-black"
         style={{
-          backgroundImage: `url("${homeBackground}")`,
+          backgroundImage: `url("${homeBackground}/-/format/webp/-/progressive/yes/")`,
         }}
       >
         <div

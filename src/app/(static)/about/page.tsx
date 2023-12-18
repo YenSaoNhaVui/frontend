@@ -10,7 +10,7 @@ export default function AboutPage() {
           className="lg:h-[1084px] lg:pt-0 pt-[100%] relative bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              'url("https://ucarecdn.com/b3788d6b-1576-43a5-a3ac-d77a1879489e/-/preview/-/quality/smart_retina/-/format/auto/")',
+              'url("https://ucarecdn.com/b3788d6b-1576-43a5-a3ac-d77a1879489e/-/format/webp/-/progressive/yes/")',
           }}
         >
           <div
@@ -21,7 +21,7 @@ export default function AboutPage() {
           />
           <figure className="lg:w-[180px] lg:h-[428px] w-[30px] h-[72px] absolute lg:top-[90px] top-[80px] mx-auto left-0 right-0">
             <ImageOptimize
-              src="https://ucarecdn.com/4469cadf-ecd2-4173-8465-956e2f9de08d/-/preview/500x500/-/quality/smart/-/format/auto/"
+              src="https://ucarecdn.com/4469cadf-ecd2-4173-8465-956e2f9de08d/-/format/webp/-/progressive/yes/"
               alt="main yen sao vui"
             />
           </figure>
@@ -30,7 +30,7 @@ export default function AboutPage() {
       <section
         className="lg:bg-cover bg-contain bg-primary-1-7 text-white xl:pt-[60px] lg:pt-[100px] -mt-[80px] overflow-hidden relative [&_p]:text-justify"
         style={{
-          backgroundImage: `url('https://ucarecdn.com/2116657f-8b57-40b2-a3fb-4f2b500228be/-/preview/-/quality/smart/-/format/auto/')`,
+          backgroundImage: `url('https://ucarecdn.com/2116657f-8b57-40b2-a3fb-4f2b500228be/-/format/webp/-/progressive/yes/')`,
         }}
       >
         <div className="flex lg:flex-row flex-col xl:gap-[100px] gap-[30px] lg:mb-[200px] mb-[30px] lg:pl-[77px] pl-0 relative">
@@ -67,7 +67,7 @@ export default function AboutPage() {
             <div className="absolute top-[50px] -right-[44px] w-[461px] h-[301px] bg-[#3ABF9C] rounded-r-[20px] z-0 lg:block hidden" />
             <img
               className="absolute top-0 left-0 w-full h-full rounded-[20px] z-10"
-              src="https://ucarecdn.com/198a4ea0-6165-4c7a-8b19-3841b1040960/-/preview/-/quality/smart/-/format/auto/"
+              src="https://ucarecdn.com/198a4ea0-6165-4c7a-8b19-3841b1040960/-/format/webp/-/progressive/yes/"
               alt="Yến chung đường phèn"
             />
           </figure>
@@ -103,7 +103,7 @@ export default function AboutPage() {
             <h5 className="mb-2 lg:text-start text-center">LÝ DO CHỌN</h5>
             <figure className="pt-[88px] pl-[245px] relative">
               <img
-                src="https://ucarecdn.com/6e0e54cf-9ce1-4cab-b5b2-89c13b7f18ad/-/preview/-/quality/smart/-/format/auto/"
+                src="https://ucarecdn.com/6e0e54cf-9ce1-4cab-b5b2-89c13b7f18ad/-/format/webp/-/progressive/yes/"
                 className="absolute top-0 left-0 w-full h-full"
               />
             </figure>

@@ -28,7 +28,7 @@ export default function ProductCard({ className, product, category, isHover }: P
         <figure className="pt-[100%] relative bg-[#F2D65C] rounded-t-xl">
           <img
             className="w-[calc(100%-24px)] h-[calc(100%-32px)] absolute top-0 left-0 right-0 mx-auto bottom-0 my-auto object-cover rounded-lg"
-            src={product?.images[0] as string}
+            src={product?.images[0] + "-/format/webp/-/progressive/yes/"}
             alt={product?.title}
           />
         </figure>

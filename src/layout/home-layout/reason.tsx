@@ -10,7 +10,7 @@ export default function Reason() {
         <h5 className="mb-2 lg:text-start !text-center">LÝ DO CHỌN</h5>
         <div className="lg:blocl flex justify-center">
           <img
-            src="https://ucarecdn.com/f45772e8-ef59-4712-8be9-e4428169344a/"
+            src="https://ucarecdn.com/f45772e8-ef59-4712-8be9-e4428169344a/-/format/webp/-/progressive/yes/"
             alt="Lý do chọn"
             className="mb-2 w-full h-full"
           />

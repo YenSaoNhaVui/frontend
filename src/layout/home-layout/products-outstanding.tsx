@@ -48,7 +48,7 @@ export default function ProductOutstanding() {
     <section
       className="lg:bg-cover bg-contain bg-black bg-no-repeat text-white lg:pt-[60px] overflow-hidden relative [&_p]:text-justify z-[1]"
       style={{
-        backgroundImage: `url('https://ucarecdn.com/5e16ca16-31a2-4300-86e3-23faad4838a1/')`,
+        backgroundImage: `url('https://ucarecdn.com/5e16ca16-31a2-4300-86e3-23faad4838a1/-/format/webp/-/progressive/yes/')`,
       }}
     >
       <img
