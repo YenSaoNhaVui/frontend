@@ -39,7 +39,7 @@ export default function ProductProcess() {
   );
 }
 
-export function ImagesYenSao() {
+export function ImagesYenSao({ className }: { className?: string }) {
   const { videoIntroduce } = useStatic((s) => s.staticData);
 
   return (

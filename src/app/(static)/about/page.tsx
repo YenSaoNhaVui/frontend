@@ -33,8 +33,8 @@ export default function AboutPage() {
           backgroundImage: `url('https://ucarecdn.com/2116657f-8b57-40b2-a3fb-4f2b500228be/-/format/webp/-/progressive/yes/')`,
         }}
       >
-        <div className="flex lg:flex-row flex-col xl:gap-[100px] gap-[30px] lg:mb-[200px] mb-[30px] lg:pl-[77px] pl-0 relative">
-          <div className="lg:flex-1 xl:max-w-[625px] lg:max-w-[457px] lg:px-0 px-6">
+        <div className="grid lg:grid-cols-2 xl:gap-[100px] gap-[30px] lg:mb-[200px] mb-[30px] lg:pl-[77px] pl-0 relative">
+          <div className="xl:max-w-[625px] lg:max-w-[457px] lg:px-0 px-6">
             <h1 className="xl:!text-[236px] lg:!text-[128px] !text-[100px] !leading-normal !font-normal align-middle font-street-sign-sans text-primary-2-5 whitespace-nowrap lg:text-start text-center">
               Giới thiệu
             </h1>
@@ -58,7 +58,9 @@ export default function AboutPage() {
               bảo vệ sự cân bằng tự nhiên và nguồn tài nguyên thiên nhiên.
             </p>
           </div>
-          <ImagesYenSao className="xl:mt-[200px] lg:mt-[300px]" />
+          <div className="flex flex-col justify-center">
+            <ImagesYenSao className="xl:mt-[200px] lg:mt-[300px]" />
+          </div>
         </div>
 
         <div className="flex lg:flex-row flex-col-reverse items-start lg:gap-[116px] gap-[60px] lg:pr-20 lg:mb-[152px] mb-[59px]">
