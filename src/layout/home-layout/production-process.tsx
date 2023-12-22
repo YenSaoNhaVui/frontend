@@ -51,7 +51,7 @@ export function ImagesYenSao({ className }: { className?: string }) {
             src={(videoIntroduce as any)?.url}
             muted
             autoPlay
-            controls={false}
+            controls
             loop
             className="absolute top-0 left-0 w-full h-full object-contain rounded-xl"
           />
