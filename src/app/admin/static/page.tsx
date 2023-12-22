@@ -58,6 +58,9 @@ export default function StaticAdminPage({}: Props) {
       values.homeBackground = (values?.homeBackground[0] as any)?.originFileObj
         ? (await uploadImages(values.homeBackground as UploadFile[]))[0]
         : (values?.homeBackground[0] as any)?.url;
+      values.homeAbout = (values?.homeAbout[0] as any)?.originFileObj
+        ? (await uploadImages(values.homeAbout as UploadFile[]))[0]
+        : (values?.homeAbout[0] as any)?.url;
       values.homeBackgroundMobile = (values?.homeBackgroundMobile[0] as any)?.originFileObj
         ? (await uploadImages(values.homeBackgroundMobile as UploadFile[]))[0]
         : (values?.homeBackgroundMobile[0] as any)?.url;
@@ -113,6 +116,7 @@ export default function StaticAdminPage({}: Props) {
         <Layout.Content>
           <FormUploadImages name="homeBackground" label="Ảnh trang home:" singleOnly />
           <FormUploadImages name="homeBackgroundMobile" label="Ảnh trang home trên mobile:" singleOnly />
+          <FormUploadImages name="homeAbout" label="Ảnh trang about:" singleOnly />
           <FormUpload
             name="videoIntroduce"
             label="Video hoặc ảnh phần giới thiệu:"

@@ -3,14 +3,15 @@
 import { ArrowRightStraightIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import { cn } from "@/utils";
 import { useStatic } from "@/zustand";
 import Link from "next/link";
 
 export default function ProductProcess() {
   return (
-    <div className="lg:mt-[214px] mt-[50px] grid lg:grid-cols-2 gap-[30px] lg:ml-[80px]">
+    <div className="lg:mt-[214px] mt-[50px] grid lg:grid-cols-2 gap-[30px] lg:ml-[80px] items-center">
       <div className="lg:mx-0 mx-6">
-        <h5 className="xl:mt-[111px] lg:mt-[80px] mt-[30px] mb-4">QUY TRÌNH SẢN XUẤT</h5>
+        <h5 className="lg:mt-[0px] mt-[30px] mb-4">QUY TRÌNH SẢN XUẤT</h5>
         <h3 className="mb-4 text-[#FAD743] lg:text-body-lg-semibold !text-[30px] !leading-[40px]">
           NGHIÊM NGẶT, ĐẢM BẢO AN TOÀN VỆ SINH THỰC PHẨM
         </h3>
@@ -43,20 +44,25 @@ export function ImagesYenSao({ className }: { className?: string }) {
   const { videoIntroduce } = useStatic((s) => s.staticData);
 
   return (
-    <div className="lg:justify-end justify-center flex relative pt-[56.25%]">
+    <div className="justify-center flex flex-1 relative">
       {(videoIntroduce as any)?.type == "video" ? (
-        <video
-          src={(videoIntroduce as any)?.url}
-          muted
-          autoPlay
-          controls
-          className="absolute top-0 left-0 w-full h-full object-contain lg:rounded-l-xl"
-        />
+        <div className={cn("lg:w-[370px] lg:h-[658px] w-[327px] h-[581px] relative", className)}>
+          <video
+            src={(videoIntroduce as any)?.url}
+            muted
+            autoPlay
+            controls={false}
+            loop
+            className="absolute top-0 left-0 w-full h-full object-contain rounded-xl"
+          />
+        </div>
       ) : (
-        <img
-          src={(videoIntroduce as any)?.url + "-/format/webp/"}
-          className="absolute top-0 left-0 w-full h-full object-cover lg:rounded-l-xl"
-        />
+        <div className="w-[315px] h-[560px] relative">
+          <img
+            src={(videoIntroduce as any)?.url + "-/format/webp/"}
+            className="absolute top-0 left-0 w-full h-full object-cover lg:rounded-xl"
+          />
+        </div>
       )}
     </div>
   );

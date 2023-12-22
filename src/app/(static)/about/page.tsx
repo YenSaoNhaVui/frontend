@@ -1,8 +1,11 @@
 "use client";
 import ImageOptimize from "@/components/image";
 import { ImagesYenSao } from "@/layout/home-layout/production-process";
+import { useStatic } from "@/zustand";
 
 export default function AboutPage() {
+  const { homeAbout } = useStatic((s) => s.staticData);
+
   return (
     <>
       <section className="lg:-mt-[78px] -mt-[90px] relative">
@@ -33,8 +36,8 @@ export default function AboutPage() {
           backgroundImage: `url('https://ucarecdn.com/2116657f-8b57-40b2-a3fb-4f2b500228be/-/format/webp/-/progressive/yes/')`,
         }}
       >
-        <div className="grid lg:grid-cols-2 xl:gap-[100px] gap-[30px] lg:mb-[200px] mb-[30px] lg:pl-[77px] pl-0 relative">
-          <div className="xl:max-w-[625px] lg:max-w-[457px] lg:px-0 px-6">
+        <div className="lg:flex xl:gap-[100px] gap-[30px] lg:mb-[200px] mb-[30px] lg:pl-[77px] pl-0 relative items-center">
+          <div className="xl:max-w-[700px] lg:max-w-[457px] lg:px-0 px-6">
             <h1 className="xl:!text-[236px] lg:!text-[128px] !text-[100px] !leading-normal !font-normal align-middle font-street-sign-sans text-primary-2-5 whitespace-nowrap lg:text-start text-center">
               Giới thiệu
             </h1>
@@ -58,9 +61,7 @@ export default function AboutPage() {
               bảo vệ sự cân bằng tự nhiên và nguồn tài nguyên thiên nhiên.
             </p>
           </div>
-          <div className="flex flex-col justify-center">
-            <ImagesYenSao className="xl:mt-[200px] lg:mt-[300px]" />
-          </div>
+          <ImagesYenSao className="lg:!w-[425px] lg:!h-[756px] mt-[30px]" />
         </div>
 
         <div className="flex lg:flex-row flex-col-reverse items-start lg:gap-[116px] gap-[60px] lg:pr-20 lg:mb-[152px] mb-[59px]">
@@ -69,7 +70,7 @@ export default function AboutPage() {
             <div className="absolute top-[50px] -right-[44px] w-[461px] h-[301px] bg-[#3ABF9C] rounded-r-[20px] z-0 lg:block hidden" />
             <img
               className="absolute top-0 left-0 w-full h-full rounded-[20px] z-10"
-              src="https://ucarecdn.com/198a4ea0-6165-4c7a-8b19-3841b1040960/-/format/webp/-/progressive/yes/"
+              src={homeAbout + "-/format/webp/-/progressive/yes/"}
               alt="Yến chung đường phèn"
             />
           </figure>
