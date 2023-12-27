@@ -69,7 +69,7 @@ export default async function AboutPage() {
             <div className="absolute lg:-top-[88px] -top-[34px] left-0 lg:w-[430px] lg:h-[200px] w-[294px] h-[274px] bg-[#3ABF9C] rounded-r-[20px] z-0" />
             <div className="absolute top-[50px] -right-[44px] w-[461px] h-[301px] bg-[#3ABF9C] rounded-r-[20px] z-0 lg:block hidden" />
             <img
-              className="absolute top-0 left-0 w-full h-full rounded-[20px] z-10"
+              className="absolute top-0 left-0 w-full h-full rounded-[20px] z-10 object-cover"
               src={data?.homeAbout + "-/format/webp/-/progressive/yes/"}
               alt="Yến chung đường phèn"
             />
