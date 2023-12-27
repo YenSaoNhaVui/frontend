@@ -17,6 +17,7 @@ export default function StaticAdminPage({}: Props) {
   const { message } = App.useApp();
   const { data, loading } = useAsync<StaticData>(async () => {
     const data = await getStatic();
+    data.homeAbout = data.homeAbout ? preprocessImages([data?.homeAbout as string]) : undefined;
     data.homeBackground = data.homeBackground
       ? preprocessImages([data?.homeBackground as string])
       : undefined;
@@ -113,7 +114,7 @@ export default function StaticAdminPage({}: Props) {
       form={form}
     >
       <Layout className="h-full">
-        <Layout.Content>
+        <Layout.Content className="max-h-full overflow-scroll">
           <FormUploadImages name="homeBackground" label="Ảnh trang home:" singleOnly />
           <FormUploadImages name="homeBackgroundMobile" label="Ảnh trang home trên mobile:" singleOnly />
           <FormUploadImages name="homeAbout" label="Ảnh trang about:" singleOnly />

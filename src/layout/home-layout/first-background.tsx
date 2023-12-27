@@ -1,11 +1,15 @@
 "use client";
 
+import { StaticData } from "@/interfaces";
 import { useStatic } from "@/zustand";
 import Link from "next/link";
 import React from "react";
 
-export default function FirstBackground() {
+export default function FirstBackground({ data }: { data: StaticData }) {
   const { homeBackground, homeBackgroundMobile } = useStatic((s) => s.staticData);
+  const bgMobile =
+    data?.homeBackgroundMobile || homeBackgroundMobile || data?.homeBackground || homeBackground;
+  const bgPc = data?.homeBackground || homeBackground;
   return (
     <Link
       href="https://yensaonhavui.vn/collections/"
@@ -15,9 +19,7 @@ export default function FirstBackground() {
       <div
         className="lg:h-[750px] sm:h-[540px] h-[315px] lg:hidden block relative bg-cover bg-center bg-no-repeat bg-black"
         style={{
-          backgroundImage: `url("${
-            homeBackgroundMobile || homeBackground
-          }/-/format/webp/-/progressive/yes/")`,
+          backgroundImage: `url("${bgMobile}/-/format/webp/-/progressive/yes/")`,
         }}
       >
         <div
@@ -30,7 +32,7 @@ export default function FirstBackground() {
       <div
         className="lg:h-[750px] sm:h-[540px] h-[315px] hidden lg:block relative bg-cover bg-center bg-no-repeat bg-black"
         style={{
-          backgroundImage: `url("${homeBackground}/-/format/webp/-/progressive/yes/")`,
+          backgroundImage: `url("${bgPc}/-/format/webp/-/progressive/yes/")`,
         }}
       >
         <div

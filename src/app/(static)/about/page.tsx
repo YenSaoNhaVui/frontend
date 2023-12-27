@@ -1,16 +1,16 @@
-"use client";
 import ImageOptimize from "@/components/image";
+import { StaticData } from "@/interfaces";
 import { ImagesYenSao } from "@/layout/home-layout/production-process";
-import { useStatic } from "@/zustand";
 
-export default function AboutPage() {
-  const { homeAbout } = useStatic((s) => s.staticData);
+export const revalidate = 1800; // revalidate the data at most every hour
 
+export default async function AboutPage() {
+  const data = await getData();
   return (
     <>
       <section className="lg:-mt-[78px] -mt-[90px] relative">
         <div
-          className="lg:h-[1084px] lg:pt-0 pt-[100%] relative bg-cover bg-center bg-no-repeat"
+          className="lg:h-[1084px] lg:pt-0 pt-[100%] relative bg-cover bg-center bg-no-repeat bg-black"
           style={{
             backgroundImage:
               'url("https://ucarecdn.com/b3788d6b-1576-43a5-a3ac-d77a1879489e/-/format/webp/-/progressive/yes/")',
@@ -61,16 +61,16 @@ export default function AboutPage() {
               bảo vệ sự cân bằng tự nhiên và nguồn tài nguyên thiên nhiên.
             </p>
           </div>
-          <ImagesYenSao className="lg:!w-[425px] lg:!h-[756px] mt-[30px]" />
+          <ImagesYenSao data={data} className="lg:!w-[425px] lg:!h-[756px] mt-[30px]" />
         </div>
 
         <div className="flex lg:flex-row flex-col-reverse items-start lg:gap-[116px] gap-[60px] lg:pr-20 lg:mb-[152px] mb-[59px]">
-          <figure className="lg:max-w-[585px] w-full lg:max-h-[1022px] lg:min-h-[1022px] max-h-[729px] min-h-[729px] relative lg:rounded-[20px] rounded-[14px] flex-1">
+          <figure className="lg:max-w-[585px] w-full max-h-[800px] min-h-[800px] relative lg:rounded-[20px] rounded-[14px] flex-1">
             <div className="absolute lg:-top-[88px] -top-[34px] left-0 lg:w-[430px] lg:h-[200px] w-[294px] h-[274px] bg-[#3ABF9C] rounded-r-[20px] z-0" />
             <div className="absolute top-[50px] -right-[44px] w-[461px] h-[301px] bg-[#3ABF9C] rounded-r-[20px] z-0 lg:block hidden" />
             <img
               className="absolute top-0 left-0 w-full h-full rounded-[20px] z-10"
-              src={homeAbout + "-/format/webp/-/progressive/yes/"}
+              src={data?.homeAbout + "-/format/webp/-/progressive/yes/"}
               alt="Yến chung đường phèn"
             />
           </figure>
@@ -140,3 +140,14 @@ const REASON = [
       "Hơn 10 năm hoạt động trong nghề, chữ TÂM và TÍN luôn đồng hành cùng Yến Nhà Vui để mang đến những sản phẩm tốt nhất, sang trọng nhất với chất lượng thượng hạng.",
   },
 ];
+
+async function getData() {
+  const res = await fetch("https://be-yensao.onrender.com/static", { cache: "force-cache" });
+  const data: StaticData = await res.json();
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return data;
+}

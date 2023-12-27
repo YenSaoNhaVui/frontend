@@ -3,11 +3,12 @@
 import { ArrowRightStraightIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import { StaticData } from "@/interfaces";
 import { cn } from "@/utils";
 import { useStatic } from "@/zustand";
 import Link from "next/link";
 
-export default function ProductProcess() {
+export default function ProductProcess({ data }: { data: StaticData }) {
   return (
     <div className="lg:mt-[214px] mt-[50px] grid lg:grid-cols-2 gap-[30px] lg:ml-[80px] items-center">
       <div className="lg:mx-0 mx-6">
@@ -35,20 +36,20 @@ export default function ProductProcess() {
           </Button>
         </Link>
       </div>
-      <ImagesYenSao />
+      <ImagesYenSao data={data} />
     </div>
   );
 }
 
-export function ImagesYenSao({ className }: { className?: string }) {
+export function ImagesYenSao({ className, data }: { className?: string; data?: StaticData }) {
   const { videoIntroduce } = useStatic((s) => s.staticData);
-
+  const videoIntro = data?.videoIntroduce || videoIntroduce;
   return (
     <div className="justify-center flex flex-1 relative">
-      {(videoIntroduce as any)?.type == "video" ? (
+      {(videoIntro as any)?.type == "video" ? (
         <div className={cn("lg:w-[370px] lg:h-[658px] w-[327px] h-[581px] relative", className)}>
           <video
-            src={(videoIntroduce as any)?.url}
+            src={(videoIntro as any)?.url}
             muted
             autoPlay
             controls
@@ -59,7 +60,7 @@ export function ImagesYenSao({ className }: { className?: string }) {
       ) : (
         <div className="w-[315px] h-[560px] relative">
           <img
-            src={(videoIntroduce as any)?.url + "-/format/webp/"}
+            src={(videoIntro as any)?.url + "-/format/webp/"}
             className="absolute top-0 left-0 w-full h-full object-cover lg:rounded-xl"
           />
         </div>
