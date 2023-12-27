@@ -12,8 +12,6 @@ export default function Cart() {
   const url = usePathname();
   const productCarts = useCart((state) => state.productCarts);
 
-  const { isClient } = useClient();
-  if (!isClient) return <></>;
   return (
     <div
       className={cn("lg:absolute relative lg:top-3 right-0", {
@@ -21,7 +19,7 @@ export default function Cart() {
       })}
     >
       <Link href="/cart">
-        <Badge content={productCarts.length}>
+        <Badge content={productCarts.length || 0}>
           <Icon className="lg:!w-[34px] lg:!h-[34px] !h-[18px] !w-[18px]">
             <CartIcon />
           </Icon>
