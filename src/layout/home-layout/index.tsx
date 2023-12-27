@@ -1,4 +1,4 @@
-import { StaticData } from "@/interfaces";
+import { Product, StaticData } from "@/interfaces";
 import FeedBack from "./feedback";
 import FirstBackground from "./first-background";
 import InterView from "./interview";
@@ -6,13 +6,13 @@ import ProductProcess from "./production-process";
 import ProductOutstanding from "./products-outstanding";
 import Reason from "./reason";
 
-export default function HomeClient({ data }: { data: StaticData }) {
+export default function HomeClient({ data, products }: { data: StaticData; products: Product[] }) {
   return (
     <div>
       <section className="lg:-mt-[78px] -mt-[90px] relative">
         <FirstBackground data={data} />
       </section>
-      <ProductOutstanding />
+      <ProductOutstanding products={products} />
       <section
         className="bg-contain bg-primary-1-7 text-white lg:pt-[190px] pt-[50px] overflow-hidden relative [&_p]:text-justify"
         style={{

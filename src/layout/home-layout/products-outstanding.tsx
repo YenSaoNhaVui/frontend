@@ -12,7 +12,7 @@ import { Product } from "@/interfaces";
 import ProductCardLoading from "@/components/product-card/loading";
 import Link from "next/link";
 
-export default function ProductOutstanding() {
+export default function ProductOutstanding({ products }: { products: Product[] }) {
   const { data: highlightProducts, loading } = useAsync<Product[]>(() => getHighlightProducts());
   const settings = {
     dots: true,
@@ -58,7 +58,7 @@ export default function ProductOutstanding() {
         SẢN PHẨM NỔI BẬT
       </h1>
       <div className="lg:mb-[100px] mb-0 xl:max-w-[1280px] lg:max-w-[800px] sm:max-w-[640px] max-w-[365px] mx-auto relative">
-        <div className="absolute -left-24 lg:flex hidden items-center top-0 h-full ">
+        <div className="absolute -left-16 lg:flex hidden items-center top-0 h-full ">
           <Button
             aria-label="Prev button"
             title="Prev"
@@ -76,9 +76,9 @@ export default function ProductOutstanding() {
           {...settings}
           className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_.slick-arrow]:!hidden [&_.slick-list]:lg:h-[500px] [&_.slick-list]:sm:h-[450px] [&_.slick-list]:h-[400px] [&_.slick-list]:xl:pt-14 [&_.slick-list]:lg:pt-[100px] [&_.slick-list]:pt-[50px]"
         >
-          {loading
+          {loading && products?.length == 0
             ? [1, 2, 3, 4, 5, 6, 7, 8]?.map((i) => <ProductCardLoading key={i} />)
-            : helper(highlightProducts).map((product, i) => (
+            : helper(products?.length != 0 ? products : highlightProducts).map((product, i) => (
                 <ProductCard isHover={true} key={i} product={product} />
               ))}
         </Slider>
