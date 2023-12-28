@@ -16,12 +16,12 @@ export default function FirstBackground({ data }: { data: StaticData }) {
       target="_blank"
       className="overflow-hidden max-w-[100vw] block"
     >
-      <div
-        className="lg:h-[750px] sm:h-[540px] h-[315px] lg:hidden block relative bg-cover bg-center bg-no-repeat bg-black"
-        style={{
-          backgroundImage: `url("${bgMobile}/-/format/webp/-/progressive/yes/")`,
-        }}
-      >
+      <div className="lg:h-[750px] sm:h-[540px] h-[315px] lg:hidden block relative">
+        <img
+          loading="eager"
+          src={`${bgMobile}/-/quality/lighter/-/format/webp/-/progressive/yes/`}
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        />
         <div
           className="absolute top-1 left-0 w-full h-full z-[20]"
           style={{
@@ -29,12 +29,12 @@ export default function FirstBackground({ data }: { data: StaticData }) {
           }}
         />
       </div>
-      <div
-        className="lg:h-[750px] sm:h-[540px] h-[315px] hidden lg:block relative bg-cover bg-center bg-no-repeat bg-black"
-        style={{
-          backgroundImage: `url("${bgPc}/-/format/webp/-/progressive/yes/")`,
-        }}
-      >
+      <div className="lg:h-[750px] sm:h-[540px] h-[315px] hidden lg:block relative">
+        <img
+          loading="eager"
+          src={`${bgPc}/-/quality/lighter/-/format/webp/-/progressive/yes/`}
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        />
         <div
           className="absolute top-1 left-0 w-full h-full z-[20]"
           style={{

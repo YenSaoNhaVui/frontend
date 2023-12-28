@@ -14,8 +14,9 @@ export default function CardBlog({ blog, className }: { blog?: Blog; className?:
             <img
               src={
                 typeof blog?.thumbnail == "string"
-                  ? blog?.thumbnail + "-/format/webp/-/progressive/yes/"
-                  : (blog?.thumbnail?.[0] as string) + "-/format/webp/-/progressive/yes/"
+                  ? blog?.thumbnail + "-/quality/lighter/-/format/webp/-/progressive/yes/"
+                  : (blog?.thumbnail?.[0] as string) +
+                    "-/quality/lighter/-/format/webp/-/progressive/yes/"
               }
               alt={blog?.title}
               className="w-full h-full top-0 left-0 absolute object-cover rounded-lg"

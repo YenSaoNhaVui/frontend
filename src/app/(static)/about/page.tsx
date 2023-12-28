@@ -2,20 +2,17 @@ import ImageOptimize from "@/components/image";
 import { StaticData } from "@/interfaces";
 import { ImagesYenSao } from "@/layout/home-layout/production-process";
 
-export const revalidate = 1800; // revalidate the data at most every hour
-
 export default async function AboutPage() {
   const data = await getData();
   return (
     <>
       <section className="lg:-mt-[78px] -mt-[90px] relative">
-        <div
-          className="lg:h-[1084px] lg:pt-0 pt-[100%] relative bg-cover bg-center bg-no-repeat bg-black"
-          style={{
-            backgroundImage:
-              'url("https://ucarecdn.com/b3788d6b-1576-43a5-a3ac-d77a1879489e/-/format/webp/-/progressive/yes/")',
-          }}
-        >
+        <div className="lg:h-[1084px] lg:pt-0 pt-[100%] relative">
+          <img
+            loading="eager"
+            src="https://ucarecdn.com/b3788d6b-1576-43a5-a3ac-d77a1879489e/-/preview/-/quality/lighter/-/format/webp/-/progressive/yes/"
+            className="absolute top-0 left-0 w-full h-full object-cover"
+          />
           <div
             className="absolute top-1 left-0 w-full lg:h-full h-[calc(100%-80px)] z-[20]"
             style={{
@@ -24,7 +21,7 @@ export default async function AboutPage() {
           />
           <figure className="lg:w-[180px] lg:h-[428px] w-[30px] h-[72px] absolute lg:top-[90px] top-[80px] mx-auto left-0 right-0">
             <ImageOptimize
-              src="https://ucarecdn.com/4469cadf-ecd2-4173-8465-956e2f9de08d/-/format/webp/-/progressive/yes/"
+              src="https://ucarecdn.com/4469cadf-ecd2-4173-8465-956e2f9de08d/-/quality/lighter/-/format/webp/-/progressive/yes/"
               alt="main yen sao vui"
             />
           </figure>
@@ -33,7 +30,7 @@ export default async function AboutPage() {
       <section
         className="lg:bg-cover bg-contain bg-primary-1-7 text-white xl:pt-[60px] lg:pt-[100px] -mt-[80px] overflow-hidden relative [&_p]:text-justify"
         style={{
-          backgroundImage: `url('https://ucarecdn.com/2116657f-8b57-40b2-a3fb-4f2b500228be/-/format/webp/-/progressive/yes/')`,
+          backgroundImage: `url('https://ucarecdn.com/2116657f-8b57-40b2-a3fb-4f2b500228be/-/quality/lighter/-/format/webp/-/progressive/yes/')`,
         }}
       >
         <div className="lg:flex xl:gap-[100px] gap-[30px] lg:mb-[200px] mb-[30px] lg:pl-[77px] pl-0 relative items-center">
@@ -70,7 +67,7 @@ export default async function AboutPage() {
             <div className="absolute top-[50px] -right-[44px] w-[461px] h-[301px] bg-[#3ABF9C] rounded-r-[20px] z-0 lg:block hidden" />
             <img
               className="absolute top-0 left-0 w-full h-full rounded-[20px] z-10 object-cover"
-              src={data?.homeAbout + "-/format/webp/-/progressive/yes/"}
+              src={data?.homeAbout + "-/quality/lighter/-/format/webp/-/progressive/yes/"}
               alt="Yến chung đường phèn"
             />
           </figure>
@@ -106,7 +103,7 @@ export default async function AboutPage() {
             <h5 className="mb-2 lg:text-start text-center">LÝ DO CHỌN</h5>
             <figure className="pt-[88px] pl-[245px] relative">
               <img
-                src="https://ucarecdn.com/6e0e54cf-9ce1-4cab-b5b2-89c13b7f18ad/-/format/webp/-/progressive/yes/"
+                src="https://ucarecdn.com/6e0e54cf-9ce1-4cab-b5b2-89c13b7f18ad/-/quality/lighter/-/format/webp/-/progressive/yes/"
                 className="absolute top-0 left-0 w-full h-full"
               />
             </figure>
@@ -142,7 +139,10 @@ const REASON = [
 ];
 
 async function getData() {
-  const res = await fetch("https://be-yensao.onrender.com/static", { cache: "force-cache" });
+  const res = await fetch("https://be-yensao.onrender.com/static", {
+    cache: "force-cache",
+    next: { revalidate: 300 },
+  });
   const data: StaticData = await res.json();
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

@@ -16,7 +16,7 @@ export default function HomeClient({ data, products }: { data: StaticData; produ
       <section
         className="bg-contain bg-primary-1-7 text-white lg:pt-[190px] pt-[50px] overflow-hidden relative [&_p]:text-justify"
         style={{
-          backgroundImage: `url('https://ucarecdn.com/4ff394c7-8391-4d09-abef-2cd5855bdb4f/-/format/webp/-/progressive/yes/')`,
+          backgroundImage: `url('https://ucarecdn.com/4ff394c7-8391-4d09-abef-2cd5855bdb4f/-/quality/lighter/-/format/webp/-/progressive/yes/')`,
         }}
       >
         <Reason />

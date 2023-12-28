@@ -38,11 +38,11 @@ export default function FormContact() {
         {openModal && (
           <div className="fixed top-0 left-0 w-full h-full z-[5000] bg-black/50 flex items-center justify-center">
             <img
-              src="https://ucarecdn.com/3fcc8fe9-8822-4722-be3e-4278b46e8be2/-/format/webp/-/progressive/yes/"
+              src="https://ucarecdn.com/3fcc8fe9-8822-4722-be3e-4278b46e8be2/-/quality/lighter/-/format/webp/-/progressive/yes/"
               className="lg:hidden block w-[350px]"
             />
             <img
-              src="https://ucarecdn.com/4db9f173-5d92-40f5-a081-606b5b63d994/-/format/webp/-/progressive/yes/"
+              src="https://ucarecdn.com/4db9f173-5d92-40f5-a081-606b5b63d994/-/quality/lighter/-/format/webp/-/progressive/yes/"
               className="lg:block hidden w-[741px]"
             />
           </div>

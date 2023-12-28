@@ -35,12 +35,12 @@ export default function Header() {
         <DropDownMenu />
         <Link href="/" className="lg:hidden flex gap-1.5 items-center">
           <img
-            src="https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/format/webp/-/progressive/yes/"
+            src="https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/quality/lighter/-/format/webp/-/progressive/yes/"
             className="w-2.5 h-[25px] object-contain"
             alt="logo"
           />
           <img
-            src="https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/format/webp/-/progressive/yes/"
+            src="https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/quality/lighter/-/format/webp/-/progressive/yes/"
             alt="logo Yến sào vui"
             className="w-[65px] h-6 object-contain"
           />
@@ -49,10 +49,10 @@ export default function Header() {
           <img
             src={
               logoHome.indexOf(url) == -1
-                ? "https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/format/webp/-/progressive/yes/"
+                ? "https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/quality/lighter/-/format/webp/-/progressive/yes/"
                 : isScroll
-                ? "https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/format/webp/-/progressive/yes/"
-                : "https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/format/webp/-/progressive/yes/"
+                ? "https://ucarecdn.com/d3ab7569-1dc3-4478-8861-eb6a6d78375e/-/quality/lighter/-/format/webp/-/progressive/yes/"
+                : "https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/-/quality/lighter/-/format/webp/-/progressive/yes/"
             }
             className={cn("absolute left-0 top-[11px]", {
               "w-[17px] h-10 top-[9px]": logoHome.indexOf(url) == -1,
