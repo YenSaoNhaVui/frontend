@@ -1,7 +1,8 @@
 import axios from "axios";
 
+export const baseURL = "https://be-yensao.onrender.com/";
 const axiosInstance = axios.create({
-  baseURL: "https://be-yensao.onrender.com/", //process.env.NEXT_PUBLIC_BASE_BACKEND_URL,
+  baseURL, //process.env.NEXT_PUBLIC_BASE_BACKEND_URL,
 });
 
 axiosInstance.interceptors.request.use(

@@ -3,6 +3,7 @@ import { getBlogs } from "@/service";
 import axios from "axios";
 import { Metadata } from "next";
 import BlogDetailsClient from "./blog-detail-client";
+import { baseURL } from "@/service/axios-instance";
 
 interface DocPageProps {
   params: {
@@ -32,9 +33,8 @@ export async function generateStaticParams(): Promise<DocPageProps["params"][]> 
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}blogs/${params?.slug}`);
+    const response = await axios.get(`${baseURL}blogs/${params?.slug}`);
     const blogs: Blog = response?.data;
-
     return {
       title: blogs.title,
       description: `${blogs.description}`,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
         title: blogs.title,
         description: `${blogs.description}`,
         type: "website",
-        url: `${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}/blogs/${params?.slug}`,
+        url: `${baseURL}/blogs/${params?.slug}`,
         images: [
           {
             url:

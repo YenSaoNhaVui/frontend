@@ -3,6 +3,7 @@ import { getProducts } from "@/service";
 import axios from "axios";
 import { Metadata } from "next";
 import ProductDetailsClient from "./product-details-client";
+import { baseURL } from "@/service/axios-instance";
 
 interface DocPageProps {
   params: {
@@ -32,9 +33,7 @@ export async function generateStaticParams(): Promise<DocPageProps["params"][]> 
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   try {
-    const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}products/${params?.slug}`
-    );
+    const response = await axios.get(`${baseURL}products/${params?.slug}`);
     const product: Product = response?.data;
 
     return {
