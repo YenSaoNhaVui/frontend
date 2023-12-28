@@ -1,9 +1,10 @@
 "use client";
-import { ReactNode, useEffect } from "react";
-import Header from "./header";
-import Footer from "./footer";
-import { App } from "antd";
+import { useClient } from "@/hooks";
 import { useStatic } from "@/zustand";
+import { App, Spin } from "antd";
+import { ReactNode, useEffect } from "react";
+import Footer from "./footer";
+import Header from "./header";
 // import TopNavigation from "./top-navigation";
 // import { SidebarProvider } from "@/context/SidebarContext";
 // import SideBar from "./side-bar";
@@ -11,9 +12,16 @@ import { useStatic } from "@/zustand";
 
 export default function Layout({ children }: { children: ReactNode }) {
   const init = useStatic((s) => s.initStaticData);
+  const { isClient } = useClient();
   useEffect(() => {
     init();
   }, []);
+  if (!isClient)
+    return (
+      <div className="flex items-center justify-center w-full h-full">
+        <Spin size="large" />
+      </div>
+    );
   return (
     <App>
       <Header />

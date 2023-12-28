@@ -21,6 +21,7 @@ export default function FirstBackground({ data }: { data: StaticData }) {
           loading="eager"
           src={`${bgMobile}/-/quality/lighter/-/format/webp/-/progressive/yes/`}
           className="absolute top-0 left-0 w-full h-full object-cover"
+          alt="Yến Sào Nhà Vui - Yến Chất Lượng và Giải Pháp Trang Thiết Bị Nhà Yến Tối Ưu"
         />
         <div
           className="absolute top-1 left-0 w-full h-full z-[20]"
@@ -34,6 +35,7 @@ export default function FirstBackground({ data }: { data: StaticData }) {
           loading="eager"
           src={`${bgPc}/-/quality/lighter/-/format/webp/-/progressive/yes/`}
           className="absolute top-0 left-0 w-full h-full object-cover"
+          alt="Yến Sào Nhà Vui - Yến Chất Lượng và Giải Pháp Trang Thiết Bị Nhà Yến Tối Ưu"
         />
         <div
           className="absolute top-1 left-0 w-full h-full z-[20]"

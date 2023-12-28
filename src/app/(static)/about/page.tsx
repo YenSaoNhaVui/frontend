@@ -12,6 +12,7 @@ export default async function AboutPage() {
             loading="eager"
             src="https://ucarecdn.com/b3788d6b-1576-43a5-a3ac-d77a1879489e/-/preview/-/quality/lighter/-/format/webp/-/progressive/yes/"
             className="absolute top-0 left-0 w-full h-full object-cover"
+            alt="Giới thiệu về yến sào nhà vui"
           />
           <div
             className="absolute top-1 left-0 w-full lg:h-full h-[calc(100%-80px)] z-[20]"
