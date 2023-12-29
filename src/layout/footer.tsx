@@ -72,11 +72,11 @@ export default function Footer() {
           <p>Copyright © 2023</p>
           <div className="flex items-center">
             <Link href="/parnership-and-collabration/terms-conditions" className="!text-black">
-              <p className="lg:mr-8">Terms & Conditions</p>
+              <p className="lg:mr-8 !mb-0">Terms & Conditions</p>
             </Link>
             <p className="mx-1 lg:hidden block">|</p>
             <Link href="/parnership-and-collabration/privacy-policy" className="!text-black">
-              <p>Privacy Policy</p>
+              <p className="!mb-0">Privacy Policy</p>
             </Link>
           </div>
         </div>
