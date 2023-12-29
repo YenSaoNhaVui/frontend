@@ -33,14 +33,14 @@ function ItemLink({
       key={header?.title}
       className="flex items-center gap-2 px-4 py-2 hover:text-secondary-6 [&_path]:hover:!fill-secondary-6 relative cursor-pointer"
     >
-      <p className="text-body-sm-medium font-medium !m-0">{header?.title}</p>
+      <p className="text-body-md-medium font-medium !m-0">{header?.title}</p>
       {header?.title == "Sản phẩm" && (
         <>
           <Icon size="md">
             <ArrowDownIcon />
           </Icon>
           {openProduct && (
-            <DropDown className="dropdown absolute bg-white top-[52px] left-20  [&_ul]:mx-0 [&_ul]:px-0 rounded-md border border-solid border-neutral-4 [&_li]:p-2.5 [&_ul]:!list-none [&_ul]:!m-0">
+            <DropDown className="dropdown absolute bg-white top-[52px] left-4  [&_ul]:mx-0 [&_ul]:px-0 rounded-md border border-solid border-neutral-4 [&_li]:p-2.5 [&_ul]:!list-none [&_ul]:!m-0">
               {!data || loading
                 ? [1]?.map((i) => (
                     <div key={i} className="w-[150px] h-[170px] flex items-center justify-center">
@@ -90,11 +90,11 @@ export const HEADERS: {
     link: "/",
   },
   {
-    title: "Giới thiệu",
-    link: "/about",
+    title: "Sản phẩm",
   },
   {
-    title: "Sản phẩm",
+    title: "Giới thiệu",
+    link: "/about",
   },
   {
     title: "Blog",

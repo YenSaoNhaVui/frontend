@@ -31,7 +31,7 @@ export default function Header() {
         "bg-[rgb(1,37,38)]": isScroll && (url == "/" || url == "/about"),
       })}
     >
-      <div className="w-full flex items-center lg:justify-center justify-between relative lg:py-0 p-7 mx-auto max-w-[1280px]">
+      <div className="w-full flex items-center lg:justify-center justify-between relative lg:py-0 p-7 mx-auto lg:max-w-[1024px] xl:max-w-[1280px]">
         <DropDownMenu />
         <Link href="/" className="lg:hidden flex gap-1.5 items-center">
           <img
@@ -70,7 +70,7 @@ export default function Header() {
             />
           )}
         </Link>
-        <div className="py-2.5 gap-9 w-full lg:flex hidden items-center justify-center">
+        <div className="py-4 gap-9 w-full lg:flex hidden items-center justify-center">
           <HeaderLinks />
         </div>
         <Cart />

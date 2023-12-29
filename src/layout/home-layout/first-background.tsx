@@ -11,12 +11,8 @@ export default function FirstBackground({ data }: { data: StaticData }) {
     data?.homeBackgroundMobile || homeBackgroundMobile || data?.homeBackground || homeBackground;
   const bgPc = data?.homeBackground || homeBackground;
   return (
-    <Link
-      href="https://yensaonhavui.vn/collections/"
-      target="_blank"
-      className="overflow-hidden max-w-[100vw] block"
-    >
-      <div className="lg:h-[750px] sm:h-[540px] h-[315px] lg:hidden block relative">
+    <div className="overflow-hidden max-w-[100vw] block">
+      <div className="lg:h-[750px] sm:h-[540px] h-[315px] lg:hidden block relative ">
         <img
           loading="eager"
           src={`${bgMobile}/-/quality/lighter/-/format/webp/-/progressive/yes/`}
@@ -44,6 +40,6 @@ export default function FirstBackground({ data }: { data: StaticData }) {
           }}
         />
       </div>
-    </Link>
+    </div>
   );
 }

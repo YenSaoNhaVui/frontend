@@ -1,14 +1,11 @@
 "use client";
 import BreadCrumbs from "@/components/bread-crumbs";
-import { MessengerIcon, ZaloIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import Icon from "@/components/ui/icon";
 import { useClient } from "@/hooks";
-import Link from "next/link";
-import { useState } from "react";
-import CartProducts from "./products";
-import FormCheckout from "./form-checkout";
 import { Spin } from "antd";
+import { useState } from "react";
+import FormCheckout from "./form-checkout";
+import CartProducts from "./products";
 
 export default function CartPage() {
   const { isClient } = useClient();
