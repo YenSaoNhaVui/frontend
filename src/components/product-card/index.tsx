@@ -6,7 +6,7 @@ import Icon from "../ui/icon";
 import { cn, formatPrice } from "@/utils";
 import { Category, Product } from "@/interfaces";
 import { useCart } from "@/zustand";
-import { App } from "antd";
+import { App, Tag } from "antd";
 
 interface Props {
   className?: string;
@@ -18,6 +18,9 @@ interface Props {
 export default function ProductCard({ className, product, category, isHover }: Props) {
   const addProduct = useCart((state) => state.addProductCarts);
   const { message } = App.useApp();
+  const newDate = new Date()?.getTime() / 1000;
+  const dateCreated = new Date((product as any)?.createdAt)?.getTime() / 1000;
+  const timeSub = newDate - dateCreated;
   return (
     <div
       className={cn("w-full bg-primary-1-8 !rounded-lg", className, {
@@ -26,6 +29,15 @@ export default function ProductCard({ className, product, category, isHover }: P
     >
       <Link href={"/products/" + (product?.id || "")} className="cursor-pointer">
         <figure className="pt-[100%] relative rounded-t-xl">
+          {product?.highlight ? (
+            <Tag className="absolute top-6 right-3 z-30" color="#f50">
+              Best Seller
+            </Tag>
+          ) : timeSub < 15778476 ? (
+            <Tag className="absolute top-6 right-3 z-30" color="#108ee9">
+              New
+            </Tag>
+          ) : null}
           <img
             className="w-[calc(100%-16px)] h-[calc(100%-24px)] absolute top-0 left-0 right-0 mx-auto bottom-0 my-auto object-cover rounded-lg"
             src={product?.images[0] + "-/quality/lighter/-/format/webp/-/progressive/yes/"}
