@@ -33,7 +33,7 @@ export default function ProductCard({ className, product, category, isHover }: P
             <Tag className="absolute top-6 right-3 z-30" color="#f50">
               Best Seller
             </Tag>
-          ) : timeSub < 15778476 ? (
+          ) : timeSub < 3888000 ? (
             <Tag className="absolute top-6 right-3 z-30" color="#108ee9">
               New
             </Tag>
