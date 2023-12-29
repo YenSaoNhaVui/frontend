@@ -13,7 +13,7 @@ export default function ProductProcess({ data }: { data: StaticData }) {
     <div className="lg:mt-[214px] mt-[50px] grid lg:grid-cols-2 gap-[30px] lg:ml-[80px] items-center">
       <div className="lg:mx-0 mx-6">
         <h5 className="lg:mt-[0px] mt-[30px] mb-4">QUY TRÌNH SẢN XUẤT</h5>
-        <h3 className="mb-4 text-[#FAD743] lg:text-body-lg-semibold !text-[30px] !leading-[40px]">
+        <h3 className="mb-4 text-[#FAD743] lg:!text-[60px] !text-[30px] !font-normal !leading-normal font-street-sign-sans">
           NGHIÊM NGẶT, ĐẢM BẢO AN TOÀN VỆ SINH THỰC PHẨM
         </h3>
         <p className="text-body-md-medium text-[#9EFEE0] mb-4">

@@ -40,7 +40,9 @@ export default function FeedBack() {
   return (
     <div className="lg:mt-[175px] mt-[50px]">
       <h5 className="text-center mb-4">TRẢI NGHIỆM SẢN PHẨM</h5>
-      <h3 className="text-center text-[#FAD743] mb-[53px]">TRẢI NGHIỆM SẢN PHẨM</h3>
+      <h3 className="text-center text-[#FAD743] mb-[53px] lg:!text-[60px] !text-[30px] !font-normal !leading-normal font-street-sign-sans">
+        NHẬN XÉT TỪ KHÁCH HÀNG
+      </h3>
       <div className="max-w-[1136px] mx-auto mb-[80px] relative">
         <div className="lg:block flex items-center justify-center gap-4 lg:mb-0 mb-[30px]">
           <div className="lg:absolute -left-[100px] flex items-center top-0 h-full">
