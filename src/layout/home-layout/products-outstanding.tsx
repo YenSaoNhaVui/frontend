@@ -17,7 +17,7 @@ import { Spin } from "antd";
 export default function ProductOutstanding({ products }: { products: Product[] }) {
   const { data: highlightProducts, loading } = useAsync<Product[]>(() => getHighlightProducts());
   const settings = {
-    dots: true,
+    dots: false,
     // infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -49,12 +49,12 @@ export default function ProductOutstanding({ products }: { products: Product[] }
     <section
       className="bg-cover bg-black bg-no-repeat text-white lg:pt-[60px] overflow-hidden relative [&_p]:text-justify z-[1]"
       style={{
-        backgroundImage: `url('https://ucarecdn.com/f1b3cc54-4c36-4bd8-8211-55c72576f934/-/format/webp/')`,
+        backgroundImage: `url('https://ucarecdn.com/153a2759-a4ac-47a4-935e-edf7de950044/-/format/webp/')`,
       }}
     >
       <img
         src="https://ucarecdn.com/40cc2fc4-c681-4efe-906f-c07fca244415/"
-        className="absolute left-0 top-2.5 animation-logo right-0 mx-auto h-[75px] w-[30px] sm:hidden block z-[20]"
+        className="absolute left-0 top-5 animation-logo right-0 mx-auto h-[75px] w-[30px] sm:hidden block z-[20]"
         alt="logo"
       />
       <h1 className="lg:mt-[98px] mt-[140px] lg:mb-[48px] font-street-sign-sans lg:!text-[128px] !text-[45px] !leading-normal text-center text-[#FAD743] !font-normal">
@@ -105,7 +105,7 @@ export default function ProductOutstanding({ products }: { products: Product[] }
           </Button>
         </div>
       </div>
-      <div className="flex justify-center lg:mb-[107px] mb-7">
+      <div className="flex justify-center lg:mb-[107px] mb-7 lg:mt-0 mt-4">
         <Link href="/products">
           <Button
             variant="ghost"
