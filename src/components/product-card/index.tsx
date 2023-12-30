@@ -52,7 +52,7 @@ export default function ProductCard({ className, product, category, isHover }: P
           </p>
         </div>
         <Link href={`/products/${product?.id || 123}`}>
-          <h6 className="text-primary-2-5 mb-[30px] lg:text-xl !text-body-sm-semibold lg:line-clamp-2 line-clamp-3 lg:h-[44px] h-[66px]">
+          <h6 className="text-primary-2-5 mb-[30px] lg:text-xl !text-body-sm-semibold lg:!font-semibold !font-medium lg:line-clamp-2 line-clamp-3 lg:h-[44px] h-[66px]">
             {product?.title}
           </h6>
         </Link>
@@ -62,7 +62,7 @@ export default function ProductCard({ className, product, category, isHover }: P
               {formatPrice(product.prices?.[0]?.listPrice, false)}
             </p>
           ) : (
-            <p className="text-body-lg-semibold text-primary-2-5 flex-1 !max-w-[50px]">
+            <p className="lg:text-body-lg-semibold text-body-md-semibold text-primary-2-5 flex-1 !max-w-[50px]">
               {formatPrice(product?.prices?.[0]?.price || 0, false)}
             </p>
           )}

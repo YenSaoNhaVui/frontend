@@ -10,5 +10,9 @@ type CategoryZustand = {
 export const useCategory = create<CategoryZustand>((set) => ({
   categories: [],
   isLoading: true,
-  setProductCarts: (categories: Category[]) => set(() => ({ categories, isLoading: false })),
+  setProductCarts: (categories: Category[]) =>
+    set(() => ({
+      categories: [{ id: -1, title: "Tất cả sản phẩm", products: [] }, ...categories],
+      isLoading: false,
+    })),
 }));

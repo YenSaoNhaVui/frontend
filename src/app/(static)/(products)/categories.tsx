@@ -4,7 +4,8 @@ import Icon from "@/components/ui/icon";
 import { useClickOutSide } from "@/hooks/use-click-outside";
 import { Category } from "@/interfaces";
 import { cn, configSlugify } from "@/utils";
-import { Menu, MenuProps, Spin } from "antd";
+import { Dropdown, Menu, MenuProps, Spin } from "antd";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 type MenuItem = Required<MenuProps>["items"][number];
@@ -38,30 +39,28 @@ export default function Categories({ data, loading }: Props) {
     ),
   ];
   const arrItems = data?.map((d) => configSlugify(d?.title));
+  const itemsCategories = data?.map((_data, i) => ({
+    label: <Link href={`?category=${configSlugify(_data?.title)}`}>{_data?.title}</Link>,
+    key: i,
+  }));
   return (
     <>
-      <Button
-        aria-label="Filter/Lọc Button"
-        title="Filter/Lọc"
-        variant="ghost"
-        size="0"
-        onClick={() => setIsOpen(true)}
-        className="lg:hidden flex items-center justify-center gap-2.5 mb-5 hover:!bg-transparent"
-      >
-        <Icon size="xl" className="[&_path]:!stroke-primary-1-5">
-          <FilterIcon />
-        </Icon>
-        <p className="text-body-sm-semibold !leading-[20px] text-primary-1-5">LỌC</p>
-      </Button>
-      {isOpen && <div className="bg-black/40 fixed top-0 left-0 w-full h-full z-[3000]" />}
-      <div
-        className={cn(
-          "lg:mt-[66px] w-[200px] lg:relative [&>ul]:lg:block [&>ul]:hidden fixed lg:block hidden lg:z-0 z-[5000] top-0 left-0 h-full [&>ul]:lg:rounded-none [&>ul]:rounded-r-lg categories",
-          {
-            "[&>ul]:lg:!block [&>ul]:!block !block": isOpen,
-          }
-        )}
-      >
+      <Dropdown menu={{ items: itemsCategories }} className="!px-4" trigger={["click"]}>
+        <Button
+          aria-label="Filter/Lọc Button"
+          title="Filter/Lọc"
+          variant="ghost"
+          size="0"
+          onClick={() => setIsOpen(true)}
+          className="lg:hidden flex items-center justify-center gap-2.5 mb-5 hover:!bg-transparent"
+        >
+          <Icon size="xl" className="[&_path]:!stroke-primary-1-5">
+            <FilterIcon />
+          </Icon>
+          <p className="text-body-sm-semibold !leading-[20px] text-primary-1-5">LỌC</p>
+        </Button>
+      </Dropdown>
+      <div className="lg:mt-[66px] w-[200px] lg:relative [&>ul]:lg:block [&>ul]:hidden fixed lg:block hidden lg:z-0 z-[5000] top-0 left-0 h-full [&>ul]:lg:rounded-none [&>ul]:rounded-r-lg categories">
         <Menu
           className={className}
           onClick={onClick}

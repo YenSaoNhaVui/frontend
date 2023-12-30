@@ -41,7 +41,7 @@ export default function ProductsPage() {
     if (e) option = { ...option, skip: e };
     if (q) option = { ...option, search: q };
     else {
-      if (!params || !categoryId) option = { ...option, categoryId: categories[0]?.id };
+      if (!params || !categoryId || categoryId.id == -1) option = { ...option };
       else option = { ...option, categoryId: categoryId?.id };
       if (filter) option = { ...option, order: sort[filter] || "SELLING" };
       else option = { ...option, order: "SELLING" };

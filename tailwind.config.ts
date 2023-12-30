@@ -22,6 +22,9 @@ const config: Config = {
         "home-section-3":
           "url('https://ucarecdn.com/2d50294e-63d6-423e-b6c0-7809f7ac6937/-/preview/500x500/-/quality/smart/-/format/auto/')",
       },
+      screens: {
+        small: "425px",
+      },
     },
   },
   plugins: [],
