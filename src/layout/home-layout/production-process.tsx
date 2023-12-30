@@ -3,6 +3,7 @@
 import { ArrowRightStraightIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import useWindowDimensions from "@/hooks/use-size";
 import { StaticData } from "@/interfaces";
 import { cn } from "@/utils";
 import { useStatic } from "@/zustand";
@@ -43,6 +44,7 @@ export default function ProductProcess({ data }: { data: StaticData }) {
 
 export function ImagesYenSao({ className, data }: { className?: string; data?: StaticData }) {
   const { videoIntroduce } = useStatic((s) => s.staticData);
+  const { height, width } = useWindowDimensions();
   const videoIntro = data?.videoIntroduce || videoIntroduce;
   return (
     <div className="justify-center flex flex-1 relative">
@@ -51,7 +53,7 @@ export function ImagesYenSao({ className, data }: { className?: string; data?: S
           <video
             src={(videoIntro as any)?.url}
             muted
-            autoPlay
+            autoPlay={width < 1024 ? false : true}
             controls
             loop
             className="absolute top-0 left-0 w-full h-full object-contain rounded-xl"
