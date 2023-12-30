@@ -12,7 +12,7 @@ export const useCategory = create<CategoryZustand>((set) => ({
   isLoading: true,
   setProductCarts: (categories: Category[]) =>
     set(() => ({
-      categories: [{ id: -1, title: "Tất cả sản phẩm", products: [] }, ...categories],
+      categories: [{ id: -1, title: "Tất cả", products: [] }, ...categories],
       isLoading: false,
     })),
 }));

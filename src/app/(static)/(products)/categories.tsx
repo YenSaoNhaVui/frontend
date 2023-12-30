@@ -38,6 +38,7 @@ export default function Categories({ data, loading }: Props) {
       "group"
     ),
   ];
+  console.log(items);
   const arrItems = data?.map((d) => configSlugify(d?.title));
   const itemsCategories = data?.map((_data, i) => ({
     label: <Link href={`?category=${configSlugify(_data?.title)}`}>{_data?.title}</Link>,
@@ -47,7 +48,12 @@ export default function Categories({ data, loading }: Props) {
   data?.map((_data) => (keys[configSlugify(_data?.title)] = _data.title));
   return (
     <>
-      <Dropdown menu={{ items: itemsCategories }} className="!px-4" trigger={["click"]}>
+      <Dropdown
+        menu={{ items: itemsCategories }}
+        className="!px-4"
+        rootClassName="overflow-hidden border border-solid border-neutral-4 rounded-md [&>ul]:!p-0 [&>ul]:!rounded-none [&_li]:!p-2.5 [&_li]:!rounded-none [&_li]:border-b [&_li]:border-solid [&_li]:border-neutral-4 [&_li:last-child]:!border-0 [&_li]:!text-primary-1-7 [&_li]:!text-body-xs-normal"
+        trigger={["click"]}
+      >
         <Button
           aria-label="Filter/Lọc Button"
           title="Filter/Lọc"
