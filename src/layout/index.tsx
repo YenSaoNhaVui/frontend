@@ -12,16 +12,9 @@ import Header from "./header";
 
 export default function Layout({ children }: { children: ReactNode }) {
   const init = useStatic((s) => s.initStaticData);
-  const { isClient } = useClient();
   useEffect(() => {
     init();
   }, []);
-  if (!isClient)
-    return (
-      <div className="flex items-center justify-center w-full h-full">
-        <Spin size="large" />
-      </div>
-    );
   return (
     <App>
       <Header />

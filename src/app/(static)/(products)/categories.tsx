@@ -43,21 +43,24 @@ export default function Categories({ data, loading }: Props) {
     label: <Link href={`?category=${configSlugify(_data?.title)}`}>{_data?.title}</Link>,
     key: i,
   }));
+  let keys = {};
+  data?.map((_data) => (keys[configSlugify(_data?.title)] = _data.title));
   return (
     <>
       <Dropdown menu={{ items: itemsCategories }} className="!px-4" trigger={["click"]}>
         <Button
           aria-label="Filter/Lọc Button"
           title="Filter/Lọc"
-          variant="ghost"
-          size="0"
           onClick={() => setIsOpen(true)}
-          className="lg:hidden flex items-center justify-center gap-2.5 mb-5 hover:!bg-transparent"
+          rounded="md"
+          className="lg:!hidden !flex items-center justify-center mb-5 max-w-[200px] mx-auto !py-2 !gap-3 !text-[14px] !leading-[22px] !font-normal"
         >
-          <Icon size="xl" className="[&_path]:!stroke-primary-1-5">
+          <Icon size="xl" className="[&_path]:!stroke-white">
             <FilterIcon />
           </Icon>
-          <p className="text-body-sm-semibold !leading-[20px] text-primary-1-5">LỌC</p>
+          <p className="whitespace-nowrap !m-0 !text-[14px] !leading-[22px]">
+            {keys?.[params] || "Tất cả sản phẩm"}
+          </p>
         </Button>
       </Dropdown>
       <div className="lg:mt-[66px] w-[200px] lg:relative [&>ul]:lg:block [&>ul]:hidden fixed lg:block hidden lg:z-0 z-[5000] top-0 left-0 h-full [&>ul]:lg:rounded-none [&>ul]:rounded-r-lg categories">

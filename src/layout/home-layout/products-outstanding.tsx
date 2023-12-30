@@ -11,6 +11,8 @@ import { getHighlightProducts } from "@/service";
 import { Product } from "@/interfaces";
 import ProductCardLoading from "@/components/product-card/loading";
 import Link from "next/link";
+import { useClient } from "@/hooks";
+import { Spin } from "antd";
 
 export default function ProductOutstanding({ products }: { products: Product[] }) {
   const { data: highlightProducts, loading } = useAsync<Product[]>(() => getHighlightProducts());
@@ -42,6 +44,7 @@ export default function ProductOutstanding({ products }: { products: Product[] }
     ],
   };
   const slider = useRef(null);
+  const { isClient } = useClient();
   return (
     <section
       className="bg-cover bg-black bg-no-repeat text-white lg:pt-[60px] overflow-hidden relative [&_p]:text-justify z-[1]"
@@ -71,17 +74,23 @@ export default function ProductOutstanding({ products }: { products: Product[] }
             </Icon>
           </Button>
         </div>
-        <Slider
-          ref={slider}
-          {...settings}
-          className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_.slick-arrow]:!hidden [&_.slick-list]:lg:h-[500px] [&_.slick-list]:sm:h-[450px] [&_.slick-list]:h-[400px] [&_.slick-list]:xl:pt-14 [&_.slick-list]:lg:pt-[100px] [&_.slick-list]:pt-[50px]"
-        >
-          {loading && products?.length == 0
-            ? [1, 2, 3, 4, 5, 6, 7, 8]?.map((i) => <ProductCardLoading key={i} />)
-            : helper(products?.length != 0 ? products : highlightProducts).map((product, i) => (
-                <ProductCard isHover={true} key={i} product={product} />
-              ))}
-        </Slider>
+        {!isClient ? (
+          <div className="h-[150px] flex items-center justify-center">
+            <Spin size="large" />
+          </div>
+        ) : (
+          <Slider
+            ref={slider}
+            {...settings}
+            className="[&_.slick-slide]:lg:px-5 [&_.slick-slide]:px-[14px] [&_.slick-arrow]:!hidden [&_.slick-list]:lg:h-[500px] [&_.slick-list]:sm:h-[450px] [&_.slick-list]:h-[400px] [&_.slick-list]:xl:pt-14 [&_.slick-list]:lg:pt-[100px] [&_.slick-list]:pt-[50px]"
+          >
+            {loading && products?.length == 0
+              ? [1, 2, 3, 4, 5, 6, 7, 8]?.map((i) => <ProductCardLoading key={i} />)
+              : helper(products?.length != 0 ? products : highlightProducts).map((product, i) => (
+                  <ProductCard isHover={true} key={i} product={product} />
+                ))}
+          </Slider>
+        )}
         <div className="absolute -right-14 lg:flex hidden items-center top-0 h-full">
           <Button
             aria-label="Next button"

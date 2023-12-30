@@ -4,9 +4,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { ArrowDownIcon, MenuIcon } from "@/components/icons";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { cn, configSlugify } from "@/utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useClickOutSide } from "@/hooks/use-click-outside";
 import { useCategory } from "@/zustand";
 
@@ -14,6 +14,7 @@ export default function DropDownMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { categories } = useCategory();
   const url = usePathname();
+  const params = useSearchParams()?.get("category");
   const itemsCategories = categories?.map((_data, i) => ({
     label: <Link href={`/products?category=${configSlugify(_data?.title)}`}>{_data?.title}</Link>,
     key: i,
@@ -26,7 +27,7 @@ export default function DropDownMenu() {
           menu={{ items: itemsCategories }}
           placement="bottom"
           trigger={["click"]}
-          rootClassName="!left-[205px]"
+          rootClassName="!left-[205px] menu"
         >
           <div
             className={
@@ -55,6 +56,9 @@ export default function DropDownMenu() {
       ),
   }));
   useClickOutSide(isOpen, setIsOpen, ".menu");
+  useEffect(() => {
+    setIsOpen(false);
+  }, [url, params]);
   return (
     <>
       <Button
