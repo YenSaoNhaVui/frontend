@@ -195,10 +195,26 @@ export default function StaticAdminPage({}: Props) {
           <FormUploadImages name="homeBackground3" label="Ảnh trang home: 3" singleOnly />
           <FormUploadImages name="homeBackground4" label="Ảnh trang home: 4" singleOnly />
           <FormUploadImages name="homeBackgroundMobile" label="Ảnh trang home trên mobile:" singleOnly />
-          <FormUploadImages name="homeBackgroundMobile1" label="Ảnh trang home: 1" singleOnly />
-          <FormUploadImages name="homeBackgroundMobile2" label="Ảnh trang home: 2" singleOnly />
-          <FormUploadImages name="homeBackgroundMobile3" label="Ảnh trang home: 3" singleOnly />
-          <FormUploadImages name="homeBackgroundMobile4" label="Ảnh trang home: 4" singleOnly />
+          <FormUploadImages
+            name="homeBackgroundMobile1"
+            label="Ảnh trang home trên mobile: 1"
+            singleOnly
+          />
+          <FormUploadImages
+            name="homeBackgroundMobile2"
+            label="Ảnh trang home trên mobile: 2"
+            singleOnly
+          />
+          <FormUploadImages
+            name="homeBackgroundMobile3"
+            label="Ảnh trang home trên mobile: 3"
+            singleOnly
+          />
+          <FormUploadImages
+            name="homeBackgroundMobile4"
+            label="Ảnh trang home trên mobile: 4"
+            singleOnly
+          />
           <FormUploadImages name="homeAbout" label="Ảnh trang about:" singleOnly />
           <FormUpload
             name="videoIntroduce"
