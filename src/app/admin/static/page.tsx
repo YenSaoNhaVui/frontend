@@ -21,8 +21,37 @@ export default function StaticAdminPage({}: Props) {
     data.homeBackground = data.homeBackground
       ? preprocessImages([data?.homeBackground as string])
       : undefined;
+    //
+    data.homeBackground1 = data.homeBackground1
+      ? preprocessImages([data?.homeBackground1 as string])
+      : undefined;
+    //
+    data.homeBackground2 = data.homeBackground2
+      ? preprocessImages([data?.homeBackground2 as string])
+      : undefined;
+    //
+    data.homeBackground3 = data.homeBackground3
+      ? preprocessImages([data?.homeBackground3 as string])
+      : undefined;
+    //
+    data.homeBackground4 = data.homeBackground4
+      ? preprocessImages([data?.homeBackground4 as string])
+      : undefined;
+    //
     data.homeBackgroundMobile = data.homeBackgroundMobile
       ? preprocessImages([data?.homeBackgroundMobile as string])
+      : undefined;
+    data.homeBackgroundMobile1 = data.homeBackgroundMobile1
+      ? preprocessImages([data?.homeBackgroundMobile1 as string])
+      : undefined;
+    data.homeBackgroundMobile2 = data.homeBackgroundMobile2
+      ? preprocessImages([data?.homeBackgroundMobile2 as string])
+      : undefined;
+    data.homeBackgroundMobile3 = data.homeBackgroundMobile3
+      ? preprocessImages([data?.homeBackgroundMobile3 as string])
+      : undefined;
+    data.homeBackgroundMobile4 = data.homeBackgroundMobile4
+      ? preprocessImages([data?.homeBackgroundMobile4 as string])
       : undefined;
     data.videoIntroduce = data?.videoIntroduce
       ? preprocessImages(
@@ -55,16 +84,61 @@ export default function StaticAdminPage({}: Props) {
   };
   async function handleSubmit(values: StaticData): Promise<void> {
     setSubmitLoading(true);
+    console.log(values);
     try {
-      values.homeBackground = (values?.homeBackground[0] as any)?.originFileObj
-        ? (await uploadImages(values.homeBackground as UploadFile[]))[0]
-        : (values?.homeBackground[0] as any)?.url;
+      if (values.homeBackground)
+        values.homeBackground = (values?.homeBackground[0] as any)?.originFileObj
+          ? (await uploadImages(values.homeBackground as UploadFile[]))[0]
+          : (values?.homeBackground[0] as any)?.url;
+      //
+      if (values.homeBackground1)
+        values.homeBackground1 = (values?.homeBackground1[0] as any)?.originFileObj
+          ? (await uploadImages(values.homeBackground1 as UploadFile[]))[0]
+          : (values?.homeBackground1[0] as any)?.url;
+      //
+      if (values.homeBackground2)
+        values.homeBackground2 = (values?.homeBackground2[0] as any)?.originFileObj
+          ? (await uploadImages(values.homeBackground2 as UploadFile[]))[0]
+          : (values?.homeBackground2[0] as any)?.url;
+      //
+      if (values.homeBackground3)
+        values.homeBackground3 = (values?.homeBackground3[0] as any)?.originFileObj
+          ? (await uploadImages(values.homeBackground3 as UploadFile[]))[0]
+          : (values?.homeBackground3[0] as any)?.url;
+      //
+      if (values.homeBackground4)
+        values.homeBackground4 = (values?.homeBackground4[0] as any)?.originFileObj
+          ? (await uploadImages(values.homeBackground4 as UploadFile[]))[0]
+          : (values?.homeBackground4[0] as any)?.url;
+      //
+      if (values.homeBackgroundMobile)
+        values.homeBackgroundMobile = (values?.homeBackgroundMobile[0] as any)?.originFileObj
+          ? (await uploadImages(values.homeBackgroundMobile as UploadFile[]))[0]
+          : (values?.homeBackgroundMobile[0] as any)?.url;
+      //
+      if (values.homeBackgroundMobile1)
+        values.homeBackgroundMobile1 = (values?.homeBackgroundMobile1[0] as any)?.originFileObj
+          ? (await uploadImages(values.homeBackgroundMobile1 as UploadFile[]))[0]
+          : (values?.homeBackgroundMobile1[0] as any)?.url;
+      //
+      if (values.homeBackgroundMobile2)
+        values.homeBackgroundMobile2 = (values?.homeBackgroundMobile2[0] as any)?.originFileObj
+          ? (await uploadImages(values.homeBackgroundMobile2 as UploadFile[]))[0]
+          : (values?.homeBackgroundMobile2[0] as any)?.url;
+      //
+      if (values.homeBackgroundMobile3)
+        values.homeBackgroundMobile3 = (values?.homeBackgroundMobile3[0] as any)?.originFileObj
+          ? (await uploadImages(values.homeBackgroundMobile3 as UploadFile[]))[0]
+          : (values?.homeBackgroundMobile3[0] as any)?.url;
+      //
+      if (values.homeBackgroundMobile4)
+        values.homeBackgroundMobile4 = (values?.homeBackgroundMobile4[0] as any)?.originFileObj
+          ? (await uploadImages(values.homeBackgroundMobile4 as UploadFile[]))[0]
+          : (values?.homeBackgroundMobile4[0] as any)?.url;
+      //
       values.homeAbout = (values?.homeAbout[0] as any)?.originFileObj
         ? (await uploadImages(values.homeAbout as UploadFile[]))[0]
         : (values?.homeAbout[0] as any)?.url;
-      values.homeBackgroundMobile = (values?.homeBackgroundMobile[0] as any)?.originFileObj
-        ? (await uploadImages(values.homeBackgroundMobile as UploadFile[]))[0]
-        : (values?.homeBackgroundMobile[0] as any)?.url;
       if ((values.videoIntroduce[0] as any).originFileObj) {
         const type = (values.videoIntroduce[0] as any).originFileObj.type.startsWith("video")
           ? "video"
@@ -116,7 +190,15 @@ export default function StaticAdminPage({}: Props) {
       <Layout className="h-full">
         <Layout.Content className="max-h-full overflow-scroll">
           <FormUploadImages name="homeBackground" label="Ảnh trang home:" singleOnly />
+          <FormUploadImages name="homeBackground1" label="Ảnh trang home: 1" singleOnly />
+          <FormUploadImages name="homeBackground2" label="Ảnh trang home: 2" singleOnly />
+          <FormUploadImages name="homeBackground3" label="Ảnh trang home: 3" singleOnly />
+          <FormUploadImages name="homeBackground4" label="Ảnh trang home: 4" singleOnly />
           <FormUploadImages name="homeBackgroundMobile" label="Ảnh trang home trên mobile:" singleOnly />
+          <FormUploadImages name="homeBackgroundMobile1" label="Ảnh trang home: 1" singleOnly />
+          <FormUploadImages name="homeBackgroundMobile2" label="Ảnh trang home: 2" singleOnly />
+          <FormUploadImages name="homeBackgroundMobile3" label="Ảnh trang home: 3" singleOnly />
+          <FormUploadImages name="homeBackgroundMobile4" label="Ảnh trang home: 4" singleOnly />
           <FormUploadImages name="homeAbout" label="Ảnh trang about:" singleOnly />
           <FormUpload
             name="videoIntroduce"

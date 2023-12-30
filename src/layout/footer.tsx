@@ -4,7 +4,7 @@ import Link from "antd/es/typography/Link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#EED670] w-full py-5">
+    <footer className="bg-[#FAD743] w-full py-5">
       <div className="max-w-[1080px] mx-auto w-full">
         <div className="flex lg:my-12 my-[30px] lg:mx-0 mx-6 items-center justify-between lg:flex-row flex-col lg:gap-y-0 gap-y-12">
           <div className="flex items-center gap-[30px]">
