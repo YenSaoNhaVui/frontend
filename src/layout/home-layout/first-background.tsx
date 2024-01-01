@@ -25,7 +25,7 @@ export default function FirstBackground({ data }: { data: StaticData }) {
     <div className="overflow-hidden max-w-[100vw] block">
       <Carousel autoplay={true} className="lg:!hidden !block ">
         {backgroundsMobile?.map((url) => (
-          <Link key={url} href="https://collections.yensaonhavui.vn">
+          <Link key={url} href="https://collections.yensaonhavui.vn" target="_blank" className="!block">
             <div className="lg:h-[750px] sm:h-[540px] small:h-[315px] h-[250px] relative ">
               <img
                 loading="eager"
@@ -45,7 +45,7 @@ export default function FirstBackground({ data }: { data: StaticData }) {
       </Carousel>
       <Carousel autoplay={true} className="!hidden lg:!block">
         {backgroundsPC?.map((url) => (
-          <Link key={url} href="https://collections.yensaonhavui.vn">
+          <Link key={url} href="https://collections.yensaonhavui.vn" target="_blank" className="!block">
             <div className="lg:h-[750px] sm:h-[540px] small:h-[315px] h-[250px] relative">
               <img
                 loading="eager"
