@@ -9,7 +9,6 @@ export default async function Home() {
 
 async function getData() {
   const res = await fetch("https://be-yensao.onrender.com/static", {
-    cache: "force-cache",
     next: { revalidate: 300 },
   });
   const data: StaticData = await res.json();
@@ -23,7 +22,6 @@ async function getData() {
 
 async function getProductsTop() {
   const res = await fetch("https://be-yensao.onrender.com/products/highlights", {
-    cache: "force-cache",
     next: { revalidate: 300 },
   });
   const data: Product[] = await res.json();

@@ -1,20 +1,20 @@
-import { Dropdown, Menu, MenuProps } from "antd";
-import { HEADERS } from "./header-links";
-import Link from "next/link";
+import { ArrowDownIcon, MenuIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
-import { ArrowDownIcon, MenuIcon } from "@/components/icons";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { cn, configSlugify } from "@/utils";
-import { useEffect, useState } from "react";
 import { useClickOutSide } from "@/hooks/use-click-outside";
+import { cn, configSlugify } from "@/utils";
 import { useCategory } from "@/zustand";
+import { Dropdown, Menu, MenuProps } from "antd";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { HEADERS } from "./header-links";
 
 export default function DropDownMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { categories } = useCategory();
   const url = usePathname();
-  const params = useSearchParams()?.get("category");
+  // const params = useSearchParams()?.get("category");
   const itemsCategories = categories?.map((_data, i) => ({
     label: <Link href={`/products?category=${configSlugify(_data?.title)}`}>{_data?.title}</Link>,
     key: i,
@@ -65,7 +65,7 @@ export default function DropDownMenu() {
   useClickOutSide(isOpen, setIsOpen, ".menu");
   useEffect(() => {
     setIsOpen(false);
-  }, [url, params]);
+  }, [url]);
   const keys = {
     "": "0",
     products: "1",

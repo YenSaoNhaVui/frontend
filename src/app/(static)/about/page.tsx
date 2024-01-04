@@ -141,7 +141,6 @@ const REASON = [
 
 async function getData() {
   const res = await fetch("https://be-yensao.onrender.com/static", {
-    cache: "force-cache",
     next: { revalidate: 300 },
   });
   const data: StaticData = await res.json();

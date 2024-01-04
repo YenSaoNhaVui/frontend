@@ -13,7 +13,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
-  viewport: "width=device-width, initial-scale=1",
+
   robots: "index, follow",
   keywords: "Yến Sào, Yến Sào Nhà Vui, Yến Sào Ngon quám, Yến Sào Bổ, Yến Sào Ngon Bổ Rẻ",
   publisher: "Vercel",
