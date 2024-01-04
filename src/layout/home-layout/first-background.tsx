@@ -3,7 +3,7 @@
 import { StaticData } from "@/interfaces";
 import { Carousel } from "antd";
 import Link from "next/link";
-
+import Image from "next/image";
 export default function FirstBackground({ data }: { data: StaticData }) {
   const backgroundsPC = [];
   ["homeBackground", "homeBackground1", "homeBackground2", "homeBackground3", "homeBackground4"].map(
@@ -21,15 +21,20 @@ export default function FirstBackground({ data }: { data: StaticData }) {
   ].map((keys) => {
     if (data[keys]) backgroundsMobile.push(data[keys]);
   });
+  const imageLoader = ({ src, width, quality }) => {
+    return `${src}/-/quality/better/-/format/webp/-/progressive/yes/`;
+  };
   return (
     <div className="overflow-hidden max-w-[100vw] block">
       <Carousel autoplay={true} className="lg:!hidden !block ">
         {backgroundsMobile?.map((url) => (
           <Link key={url} href="https://collection.yensaonhavui.vn" target="_blank" className="!block">
             <div className="lg:h-[750px] sm:h-[540px] small:h-[315px] h-[250px] relative ">
-              <img
-                loading="eager"
-                src={`${url}/-/quality/lighter/-/format/webp/-/progressive/yes/`}
+              <Image
+                width={1024}
+                height={500}
+                loader={imageLoader}
+                src={`${url}/-/quality/better/-/format/webp/-/progressive/yes/`}
                 className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
                 alt="Yến Sào Nhà Vui - Yến Chất Lượng và Giải Pháp Trang Thiết Bị Nhà Yến Tối Ưu"
               />
@@ -47,9 +52,11 @@ export default function FirstBackground({ data }: { data: StaticData }) {
         {backgroundsPC?.map((url) => (
           <Link key={url} href="https://collection.yensaonhavui.vn" target="_blank" className="!block">
             <div className="lg:h-[750px] sm:h-[540px] small:h-[315px] h-[250px] relative">
-              <img
-                loading="eager"
-                src={`${url}/-/quality/lighter/-/format/webp/-/progressive/yes/`}
+              <Image
+                width={1920}
+                height={1080}
+                loader={imageLoader}
+                src={`${url}/-/quality/better/-/format/webp/-/progressive/yes/`}
                 className="absolute top-0 left-0 w-full h-full object-cover"
                 alt="Yến Sào Nhà Vui - Yến Chất Lượng và Giải Pháp Trang Thiết Bị Nhà Yến Tối Ưu"
               />

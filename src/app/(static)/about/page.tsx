@@ -4,12 +4,14 @@ import { ImagesYenSao } from "@/layout/home-layout/production-process";
 
 export default async function AboutPage() {
   const data = await getData();
+  const imageLoader = ({ src, width, quality }) => {
+    return `${src}/-/quality/better/-/format/webp/-/progressive/yes/`;
+  };
   return (
     <>
       <section className="lg:-mt-[78px] -mt-[90px] relative">
         <div className="lg:h-[1084px] lg:pt-0 pt-[100%] relative">
-          <img
-            loading="eager"
+          <ImageOptimize
             src="https://ucarecdn.com/b3788d6b-1576-43a5-a3ac-d77a1879489e/-/preview/-/quality/lighter/-/format/webp/-/progressive/yes/"
             className="absolute top-0 left-0 w-full h-full object-cover"
             alt="Giới thiệu về yến sào nhà vui"
@@ -22,8 +24,9 @@ export default async function AboutPage() {
           />
           <figure className="lg:w-[180px] lg:h-[428px] w-[30px] h-[72px] absolute lg:top-[90px] top-[80px] mx-auto left-0 right-0">
             <ImageOptimize
-              src="https://ucarecdn.com/4469cadf-ecd2-4173-8465-956e2f9de08d/-/quality/lighter/-/format/webp/-/progressive/yes/"
+              src="https://ucarecdn.com/4469cadf-ecd2-4173-8465-956e2f9de08d/-/quality/better/-/format/webp/-/progressive/yes/"
               alt="main yen sao vui"
+              className="absolute top-0 left-0 w-full h-full"
             />
           </figure>
         </div>

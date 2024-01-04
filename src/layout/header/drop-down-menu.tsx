@@ -9,14 +9,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HEADERS } from "./header-links";
+import { useRouter } from "next/navigation";
 
 export default function DropDownMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { categories } = useCategory();
   const url = usePathname();
-  // const params = useSearchParams()?.get("category");
+  const router = useRouter();
   const itemsCategories = categories?.map((_data, i) => ({
-    label: <Link href={`/products?category=${configSlugify(_data?.title)}`}>{_data?.title}</Link>,
+    label: (
+      <div
+        onClick={() => {
+          router.push(`/products?category=${configSlugify(_data?.title)}`);
+          setIsOpen(false);
+        }}
+      >
+        {_data?.title}
+      </div>
+    ),
     key: i,
   }));
   const items: MenuProps["items"] = [
