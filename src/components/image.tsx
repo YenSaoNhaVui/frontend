@@ -14,6 +14,14 @@ export default function ImageOptimize({ className, src, alt }: Props) {
     return src;
   };
   return (
-    <Image width={1920} height={1024} loader={imageLoader} src={src} className={className} alt={alt} />
+    <Image
+      fill
+      width={1920}
+      height={1024}
+      loader={imageLoader}
+      src={src}
+      className={className}
+      alt={alt}
+    />
   );
 }

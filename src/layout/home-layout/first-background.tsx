@@ -31,6 +31,7 @@ export default function FirstBackground({ data }: { data: StaticData }) {
           <Link key={url} href="https://collection.yensaonhavui.vn" target="_blank" className="!block">
             <div className="lg:h-[750px] sm:h-[540px] small:h-[315px] h-[250px] relative ">
               <Image
+                fill
                 width={1024}
                 height={500}
                 loader={imageLoader}
@@ -53,6 +54,7 @@ export default function FirstBackground({ data }: { data: StaticData }) {
           <Link key={url} href="https://collection.yensaonhavui.vn" target="_blank" className="!block">
             <div className="lg:h-[750px] sm:h-[540px] small:h-[315px] h-[250px] relative">
               <Image
+                fill
                 width={1920}
                 height={1080}
                 loader={imageLoader}
