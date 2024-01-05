@@ -1,12 +1,13 @@
+import { ArrowRightIcon } from "@/components/icons";
 import ImageOptimize from "@/components/image";
+import { Button } from "@/components/ui/button";
+import Icon from "@/components/ui/icon";
 import { StaticData } from "@/interfaces";
 import { ImagesYenSao } from "@/layout/home-layout/production-process";
 
 export default async function AboutPage() {
   const data = await getData();
-  const imageLoader = ({ src, width, quality }) => {
-    return `${src}/-/quality/better/-/format/webp/-/progressive/yes/`;
-  };
+
   return (
     <>
       <section className="lg:-mt-[78px] -mt-[90px] relative">
@@ -38,22 +39,15 @@ export default async function AboutPage() {
         }}
       >
         <div className="lg:flex xl:gap-[100px] gap-[30px] lg:mb-[200px] mb-[30px] lg:pl-[77px] pl-0 relative items-center">
-          <div className="xl:max-w-[700px] lg:max-w-[457px] lg:px-0 px-6">
-            <h1 className="xl:!text-[236px] lg:!text-[128px] !text-[100px] !leading-normal !font-normal align-middle font-street-sign-sans text-primary-2-5 whitespace-nowrap lg:text-start text-center">
+          <div className="xl:max-w-[800px] lg:max-w-[457px] lg:px-0 px-6">
+            <h1 className="xl:!text-[180px] lg:!text-[128px] !text-[100px] !leading-normal !font-normal align-middle font-street-sign-sans text-primary-2-5 whitespace-nowrap lg:text-start text-center">
               Giới thiệu
             </h1>
             <p className="lg:text-body-lg-regular text-body-md-regular">
-              Thương hiệu {`"Yến Sào Nhà Vui"`} đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt
+              Thương hiệu {'"Yến Sào Nhà Vui"'} đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt
               10 năm qua. Chúng tôi tự hào cung cấp các sản phẩm Yến sào tự nhiên, không qua bất kỳ quá
               trình chế biến hay xử lý hóa học nào, để đảm bảo giữ nguyên toàn bộ giá trị dinh dưỡng và
-              hương vị đặc biệt của loại thực phẩm này. Dưới đây là một số điểm nổi bật về thương hiệu
-              {`"Yến Sào Nhà Vui"`} trong lĩnh vực Yến sào:
-            </p>
-            <br />
-            <p className="lg:text-body-lg-regular text-body-md-regular">
-              Sản phẩm tự nhiên và thuần khiết: Chúng tôi cam kết cung cấp Yến sào tự nhiên, không chứa
-              hóa chất hoặc tác nhân bảo quản. Điều này đảm bảo sự thuần khiết và nguyên vẹn của sản
-              phẩm, giúp bảo tồn toàn bộ giá trị dinh dưỡng và chất lượng của sản phẩm.
+              hương vị đặc biệt của loại thực phẩm này. 
             </p>
             <br />
             <p className="lg:text-body-lg-regular text-body-md-regular">
@@ -65,44 +59,99 @@ export default async function AboutPage() {
           <ImagesYenSao data={data} className="lg:!w-[425px] lg:!h-[756px] mt-[30px]" />
         </div>
 
-        <div className="flex lg:flex-row flex-col-reverse items-start lg:gap-[116px] gap-[60px] lg:pr-20 lg:mb-[152px] mb-[59px]">
+        <div className="flex lg:flex-row flex-col-reverse items-center lg:gap-[180px] gap-[60px] lg:pr-20">
           <figure className="lg:max-w-[585px] w-full max-h-[800px] min-h-[800px] relative lg:rounded-[20px] rounded-[14px] flex-1">
             <div className="absolute lg:-top-[88px] -top-[34px] left-0 lg:w-[430px] lg:h-[200px] w-[294px] h-[274px] bg-[#3ABF9C] rounded-r-[20px] z-0" />
             <div className="absolute top-[50px] -right-[44px] w-[461px] h-[301px] bg-[#3ABF9C] rounded-r-[20px] z-0 lg:block hidden" />
-            <img
+            <ImageOptimize
               className="absolute top-0 left-0 w-full h-full rounded-[20px] z-10 object-cover"
-              src={data?.homeAbout + "-/quality/lighter/-/format/webp/-/progressive/yes/"}
-              alt="Yến chung đường phèn"
+              src="https://ucarecdn.com/6637b0b3-fea6-4f7d-9ee7-d0c2fce606dc/-/quality/better/-/format/webp/-/progressive/yes/"
+              alt="Giấy chứng nhận"
             />
           </figure>
           <div className="flex-1 lg:px-0 px-6">
+            <h1 className="text-[60px] lg:!leading-[60px] !leading-normal !font-normal align-middle font-street-sign-sans text-primary-2-5 whitespace-nowrap lg:text-start text-center lg:mb-3">
+              GIẤY CHỨNG NHẬN
+            </h1>
             <p className="lg:text-body-lg-regular text-body-md-regular">
-              Đa dạng sản phẩm: {`"Yến Sào Nhà Vui"`} cung cấp nhiều loại sản phẩm Yến sào thô, bao gồm
-              các loại Yến sào nguyên chất, Yến sào khô, Yến sào bã trứng, và nhiều sản phẩm khác, để
-              phục vụ đa dạng nhu cầu của khách hàng.
+              Yến Nhà Vui là một thương hiệu uy tín, chuyên cung cấp các sản phẩm yến sào chất lượng cao,
+              an toàn và bổ dưỡng.
             </p>
             <br />
             <p className="lg:text-body-lg-regular text-body-md-regular">
-              Chất lượng đỉnh cao: Với phương pháp thẩm thấu ngược, và làm sạch hoàn toàn bằng thủ công,
-              Nàng Yến cam đoan giữ được độ dai dòn của sợi yến, và tính nguyên chất của tổ yến. Chúng
-              tôi tuân thủ các tiêu chuẩn nghiêm ngặt về chất lượng và an toàn thực phẩm, đảm bảo rằng
-              sản phẩm của chúng tôi luôn đạt chất lượng đỉnh cao.
+              Để khẳng định uy tín và chất lượng của mình, Yến Nhà Vui đã đạt được giấy chứng nhận ISO
+              22000:2018, một tiêu chuẩn quốc tế về hệ thống quản lý an toàn thực phẩm. Giấy chứng nhận
+              này được cấp bởi VINACOMIN QUALITY CERTIFICATION JOINT STOCK COMPANY, một tổ chức chứng
+              nhận uy tín và có thẩm quyền
             </p>
             <br />
             <p className="lg:text-body-lg-regular text-body-md-regular">
-              Tư vấn và hỗ trợ khách hàng: Đội ngũ chăm sóc khách hàng của chúng tôi luôn sẵn sàng hỗ trợ
-              và tư vấn cho khách hàng về cách lựa chọn và sử dụng sản phẩm Yến sào thô.
-            </p>
-            <p className="lg:text-body-lg-regular text-body-md-regular">
-              Chúng tôi hiểu rằng Yến sào thô là một nguồn thực phẩm quý báu với nhiều giá trị dinh dưỡng
-              và sức khỏe. {`"Yến Sào Nhà Vui"`} cam kết đem đến cho khách hàng sự tin tưởng và hài lòng
-              bằng việc cung cấp các sản phẩm Yến sào thô chất lượng và an toàn, giữ nguyên nguồn gốc tự
-              nhiên của sản phẩm.
+              Nhờ có giấy chứng nhận này, Yến Nhà Vui đã chứng minh được rằng công ty tuân thủ các yêu
+              cầu nghiêm ngặt về chất lượng, an toàn và quy trình sản xuất của yến sào. Đây là một lợi
+              thế cạnh tranh của Yến Nhà Vui trên thị trường, cũng như là một lời cam kết với khách hàng
+              về sự tận tâm và chuyên nghiệp của công ty.
             </p>
           </div>
         </div>
+        <div className="mt-[50px] flex lg:flex-row flex-col lg:gap-[106px] gap-6 items-center xl:max-w-[1276px] lg:max-w-[1024] lg:mx-auto mx-6 lg:text-start text-center">
+          <div className="flex-1">
+            <h1 className="text-[60px] lg:!leading-[60px] !leading-normal !font-normal align-middle font-street-sign-sans text-primary-2-5 whitespace-nowrap lg:text-start text-center lg:mb-7">
+              TỔ YẾN CAO CẤP
+            </h1>
+            <p className="text-body-md-regular !mb-7">
+              Sản phẩm tự nhiên và thuần khiết: Chúng tôi cam kết cung cấp Yến sào tự nhiên, không chứa
+              hóa chất hoặc tác nhân bảo quản. Điều này đảm bảo sự thuần khiết và nguyên vẹn của sản
+              phẩm, giúp bảo tồn toàn bộ giá trị dinh dưỡng và chất lượng của sản phẩm.
+            </p>
+            <Button
+              variant="outlined"
+              className="!p-0 !w-[179px] !h-12 !gap-1 items-center border-[#FAD743] !text-[#FAD743]  hover:!bg-transparent [&_path]:!stroke-[#FAD743]"
+            >
+              <p>Xem thêm</p>
+              <Icon>
+                <ArrowRightIcon />
+              </Icon>
+            </Button>
+          </div>
+          <figure className="lg:!min-w-[660px] min-w-[100vw] sm:!min-h-[440px] !min-h-[292px] lg:rounded-[18px] rounded-none relative overflow-hidden flex-1">
+            <ImageOptimize
+              src="https://ucarecdn.com/20a7ad1d-3873-49b6-b2a8-28eaa0bf837a/-/quality/better/-/format/webp/-/progressive/yes/"
+              className="absolute top-0 left-0 w-full h-full object-cover"
+              alt="Giới thiệu về yến sào nhà vui"
+            />
+          </figure>
+        </div>
 
-        <div className="lg:px-20 px-[68px] flex lg:flex-row flex-col lg:gap-[60px] gap-[30px] mb-[90px]">
+        <div className="mt-[50px] flex lg:flex-row flex-col-reverse lg:gap-[106px] gap-6 items-center xl:max-w-[1276px] lg:max-w-[1024] lg:mx-auto mx-6 lg:text-start text-center">
+          <figure className="lg:!min-w-[660px] min-w-[100vw] sm:!min-h-[440px] !min-h-[292px] lg:rounded-[18px] rounded-none relative overflow-hidden flex-1">
+            <ImageOptimize
+              src="https://ucarecdn.com/a301d6fb-fbb1-4f5f-85ab-5f365c8ac830/-/quality/better/-/format/webp/-/progressive/yes/"
+              className="absolute top-0 left-0 w-full h-full object-cover"
+              alt="Giới thiệu về yến sào nhà vui"
+            />
+          </figure>
+          <div className="flex-1">
+            <h1 className="text-[60px] lg:!leading-[60px] !leading-normal !font-normal align-middle font-street-sign-sans text-primary-2-5 whitespace-nowrap lg:text-start text-center lg:mb-7">
+              YẾN CHƯNG TƯƠI
+            </h1>
+            <p className="text-body-md-regular !mb-7">
+              Yến Chưng Tươi với nhiều hương vị và nguyên liệu được tinh chọn và chế biến theo công thức
+              riêng biệt. Với phương pháp thẩm thấu ngược, và làm sạch hoàn toàn bằng thủ công, chúng tôi
+              cam đoan giữ được độ dai dòn của sợi yến, và tính nguyên chất của tổ yến.
+            </p>
+            <Button
+              variant="outlined"
+              className="!p-0 !w-[179px] !h-12 !gap-1 items-center border-[#FAD743] !text-[#FAD743]  hover:!bg-transparent [&_path]:!stroke-[#FAD743]"
+            >
+              <p>Xem thêm</p>
+              <Icon>
+                <ArrowRightIcon />
+              </Icon>
+            </Button>
+          </div>
+        </div>
+
+        <div className="lg:px-20 px-[68px] flex lg:flex-row flex-col lg:gap-[60px] gap-[30px] mb-[90px] mt-[100px]">
           <div className="lg:mb-0 mb-[30px]">
             <h5 className="mb-2 lg:text-start text-center">LÝ DO CHỌN</h5>
             <figure className="pt-[88px] pl-[245px] relative">

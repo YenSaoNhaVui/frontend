@@ -5,9 +5,9 @@ import Link from "antd/es/typography/Link";
 export default function Footer() {
   return (
     <footer className="bg-[#FAD743] w-full py-5">
-      <div className="max-w-[1080px] mx-auto w-full">
-        <div className="flex lg:my-12 my-[30px] lg:mx-0 mx-6 items-center justify-between lg:flex-row flex-col lg:gap-y-0 gap-y-12">
-          <div className="flex items-center gap-[30px]">
+      <div className="xl:max-w-[1151px] lg:max-w-[1000px] mx-auto w-full">
+        <div className="flex lg:my-12 lg:mx-0 mx-6 items-center xl:gap-[111px] lg:gap-10 lg:flex-row flex-col">
+          <div className="flex items-center gap-[30px] lg:border-b-0 border-b border-black lg:pb-0 pb-[22px]">
             <Logo />
             <div>
               <LogoYenNhaVui />
@@ -18,49 +18,10 @@ export default function Footer() {
               </p>
             </div>
           </div>
-          <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
-            <div className="flex flex-col gap-4 text-body-lg-normal">
-              <Link href="/about">
-                <p>Giới thiệu</p>
-              </Link>
-              <Link href="/products">
-                <p>Sản phẩm</p>
-              </Link>
-              <Link href="https://www.facebook.com/YENSAONHAVUI">
-                <p>Dịch vụ</p>
-              </Link>
-              <Link href="/contact">
-                <p>Liên hệ</p>
-              </Link>
-            </div>
-            <div className="flex flex-col gap-4 text-body-lg-normal">
-              <Link href="https://www.facebook.com/YENSAONHAVUI">
-                <p>Theo dõi chúng tôi</p>
-              </Link>
-              <Link
-                href="https://www.facebook.com/YENSAONHAVUI"
-                target="_blank"
-                className="flex items-center gap-2 lg:justify-start justify-start !text-black"
-              >
-                <Icon className="!w-6 !h-[33px]">
-                  <FBIcon />
-                </Icon>
-                <p className="!mb-0">Facebook</p>
-              </Link>
-              <Link
-                href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
-                target="_blank"
-                className="flex items-center gap-2 lg:justify-start justify-start !text-black"
-              >
-                <Icon className="!w-6 !h-[33px]">
-                  <InstagramIcon />
-                </Icon>
-                <p className="ml-1 !mb-0">Tiktok</p>
-              </Link>
-            </div>
-          </div>
+          <Desktop />
+          <Mobile />
         </div>
-        <div className="flex items-center lg:justify-between justify-center mt-[56px] text-body-lg-normal flex-wrap lg:pt-0 lg:mx-0 mx-6 pt-6 lg:border-t-0 border-t border-solid border-black">
+        <div className="flex lg:flex-row flex-col items-center lg:justify-between justify-center lg:mt-[56px] mt-[14px] text-body-lg-normal flex-wrap lg:pt-0 lg:mx-0">
           <p>Copyright © 2023</p>
           <div className="flex items-center">
             <Link href="/parnership-and-collabration/terms-conditions" className="!text-black">
@@ -74,6 +35,161 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function Desktop() {
+  return (
+    <div className="lg:flex hidden items-start gap-10">
+      <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
+        <div className="flex flex-col gap-4 text-body-lg-normal">
+          <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold">Sản phẩm</p>
+          <Link
+            href="https://www.facebook.com/YENSAONHAVUI"
+            target="_blank"
+            className="flex items-center gap-2 lg:justify-start justify-start !text-black"
+          >
+            <p className="!mb-0">Tất cả sản phẩm</p>
+          </Link>
+          <Link
+            href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
+            target="_blank"
+            className="flex items-center gap-2 lg:justify-start justify-start !text-black"
+          >
+            <p className="!mb-0">Tổ yến cao cấp</p>
+          </Link>
+          <Link
+            href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
+            target="_blank"
+            className="flex items-center gap-2 lg:justify-start justify-start !text-black"
+          >
+            <p className="!mb-0 font-semibold font-poppins-semibold">Đối tác - Liên kết</p>
+          </Link>
+        </div>
+      </div>
+      <div className="flex items-start gap-[90px] flex-wrap [&_*]:!text-black">
+        <div className="flex flex-col gap-1.5 text-body-lg-normal">
+          <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold !mb-2.5">
+            Thông tin liên hệ
+          </p>
+          <p className="!mb-0 max-w-[235px]">
+            <span className="font-semibold font-poppins-semibold">Địa chỉ:</span> 66/9/27 KP6A, Đường Tân
+            Thới Nhất 06, Phường Tân Thới Nhất, Quận 12
+          </p>
+          <p className="!mb-0 max-w-[235px]">
+            <span className="font-semibold font-poppins-semibold">Điện thoại:</span> 0705195195
+          </p>
+          <p className="!mb-0 max-w-[235px]">
+            <span className="font-semibold font-poppins-semibold">Emai:</span> yensaonhavui@gmail.com
+          </p>
+        </div>
+      </div>
+      <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
+        <div className="flex flex-col gap-4 text-body-lg-normal">
+          <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold">
+            Theo dõi chúng tôi
+          </p>
+          <Link
+            href="https://www.facebook.com/YENSAONHAVUI"
+            target="_blank"
+            className="flex items-center gap-2 lg:justify-start justify-start !text-black"
+          >
+            <Icon className="!w-6 !h-[33px]">
+              <FBIcon />
+            </Icon>
+            <p className="!mb-0">Facebook</p>
+          </Link>
+          <Link
+            href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
+            target="_blank"
+            className="flex items-center gap-2 lg:justify-start justify-start !text-black"
+          >
+            <Icon className="!w-6 !h-[33px]">
+              <InstagramIcon />
+            </Icon>
+            <p className="ml-1 !mb-0">Tiktok</p>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+function Mobile() {
+  return (
+    <div className="lg:hidden block items-start gap-10">
+      <div className="flex items-start gap-[90px] flex-wrap [&_*]:!text-black border-b border-black py-[22px]">
+        <div className="flex flex-col gap-1.5 text-body-lg-normal">
+          <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold !mb-2.5">
+            Thông tin liên hệ
+          </p>
+          <p className="!mb-0">
+            <span className="font-semibold font-poppins-semibold">Địa chỉ:</span> 66/9/27 KP6A, Đường Tân
+            Thới Nhất 06, Phường Tân Thới Nhất, Quận 12
+          </p>
+          <p className="!mb-0 max-w-[235px]">
+            <span className="font-semibold font-poppins-semibold">Điện thoại:</span> 0705195195
+          </p>
+          <p className="!mb-0 max-w-[235px]">
+            <span className="font-semibold font-poppins-semibold">Emai:</span> yensaonhavui@gmail.com
+          </p>
+        </div>
+      </div>
+      <div className="flex items-start justify-between py-[22px] border-b border-black">
+        <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
+          <div className="flex flex-col gap-4 text-body-lg-normal">
+            <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold">Sản phẩm</p>
+            <Link
+              href="https://www.facebook.com/YENSAONHAVUI"
+              target="_blank"
+              className="flex items-center gap-2 lg:justify-start justify-start !text-black"
+            >
+              <p className="!mb-0">Tất cả sản phẩm</p>
+            </Link>
+            <Link
+              href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
+              target="_blank"
+              className="flex items-center gap-2 lg:justify-start justify-start !text-black"
+            >
+              <p className="!mb-0">Tổ yến cao cấp</p>
+            </Link>
+            <Link
+              href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
+              target="_blank"
+              className="flex items-center gap-2 lg:justify-start justify-start !text-black"
+            >
+              <p className="!mb-0 font-semibold font-poppins-semibold">Đối tác - Liên kết</p>
+            </Link>
+          </div>
+        </div>
+        <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
+          <div className="flex flex-col gap-4 text-body-lg-normal">
+            <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold">
+              Theo dõi chúng tôi
+            </p>
+            <Link
+              href="https://www.facebook.com/YENSAONHAVUI"
+              target="_blank"
+              className="flex items-center gap-2 lg:justify-start justify-start !text-black"
+            >
+              <Icon className="!w-6 !h-[33px]">
+                <FBIcon />
+              </Icon>
+              <p className="!mb-0">Facebook</p>
+            </Link>
+            <Link
+              href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
+              target="_blank"
+              className="flex items-center gap-2 lg:justify-start justify-start !text-black"
+            >
+              <Icon className="!w-6 !h-[33px]">
+                <InstagramIcon />
+              </Icon>
+              <p className="ml-1 !mb-0">Tiktok</p>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

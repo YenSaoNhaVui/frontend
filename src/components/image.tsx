@@ -13,15 +13,5 @@ export default function ImageOptimize({ className, src, alt }: Props) {
   const imageLoader = ({ src, width, quality }) => {
     return src;
   };
-  return (
-    <Image
-      fill
-      width={1920}
-      height={1024}
-      loader={imageLoader}
-      src={src}
-      className={className}
-      alt={alt}
-    />
-  );
+  return <Image fill loader={imageLoader} src={src} className={className} alt={alt} loading="lazy" />;
 }

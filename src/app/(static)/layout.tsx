@@ -36,8 +36,14 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteConfig?.ogImage,
-        width: 1200,
-        height: 630,
+        width: 1920,
+        height: 1024,
+        alt: siteConfig.name,
+      },
+      {
+        url: siteConfig?.ogImage,
+        width: 1024,
+        height: 400,
         alt: siteConfig.name,
       },
     ],
@@ -46,7 +52,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [siteConfig?.ogImage],
+    creator: "yen sao",
+    images: [
+      {
+        url: siteConfig?.ogImage,
+        alt: siteConfig.name,
+        type: "website",
+      },
+    ],
   },
   creator: "Yến sào nhà vui",
   icons: {

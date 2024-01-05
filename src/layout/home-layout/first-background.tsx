@@ -32,10 +32,9 @@ export default function FirstBackground({ data }: { data: StaticData }) {
             <div className="lg:h-[750px] sm:h-[540px] small:h-[315px] h-[250px] relative ">
               <Image
                 fill
-                width={1024}
-                height={500}
                 loader={imageLoader}
-                src={`${url}/-/quality/better/-/format/webp/-/progressive/yes/`}
+                src={url}
+                loading="lazy"
                 className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
                 alt="Yến Sào Nhà Vui - Yến Chất Lượng và Giải Pháp Trang Thiết Bị Nhà Yến Tối Ưu"
               />
@@ -55,10 +54,9 @@ export default function FirstBackground({ data }: { data: StaticData }) {
             <div className="lg:h-[750px] sm:h-[540px] small:h-[315px] h-[250px] relative">
               <Image
                 fill
-                width={1920}
-                height={1080}
                 loader={imageLoader}
-                src={`${url}/-/quality/better/-/format/webp/-/progressive/yes/`}
+                loading="lazy"
+                src={url}
                 className="absolute top-0 left-0 w-full h-full object-cover"
                 alt="Yến Sào Nhà Vui - Yến Chất Lượng và Giải Pháp Trang Thiết Bị Nhà Yến Tối Ưu"
               />
