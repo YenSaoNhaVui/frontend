@@ -43,52 +43,45 @@ function Desktop() {
     <div className="lg:flex hidden items-start gap-10">
       <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
         <div className="flex flex-col gap-4 text-body-lg-normal">
-          <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold">Sản phẩm</p>
+          <p className="text-[18px] leading-[24px] font-semibold">Sản phẩm</p>
           <Link
-            href="https://www.facebook.com/YENSAONHAVUI"
-            target="_blank"
+            href="/products?category=tat-ca"
             className="flex items-center gap-2 lg:justify-start justify-start !text-black"
           >
             <p className="!mb-0">Tất cả sản phẩm</p>
           </Link>
           <Link
-            href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
-            target="_blank"
+            href="/products?category=to-yen-cao-cap"
             className="flex items-center gap-2 lg:justify-start justify-start !text-black"
           >
             <p className="!mb-0">Tổ yến cao cấp</p>
           </Link>
           <Link
-            href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
-            target="_blank"
+            href="/parnership-and-collabration"
             className="flex items-center gap-2 lg:justify-start justify-start !text-black"
           >
-            <p className="!mb-0 font-semibold font-poppins-semibold">Đối tác - Liên kết</p>
+            <p className="!mb-0 font-semibold">Đối tác - Liên kết</p>
           </Link>
         </div>
       </div>
       <div className="flex items-start gap-[90px] flex-wrap [&_*]:!text-black">
         <div className="flex flex-col gap-1.5 text-body-lg-normal">
-          <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold !mb-2.5">
-            Thông tin liên hệ
+          <p className="text-[18px] leading-[24px] font-semibold !mb-2.5">Thông tin liên hệ</p>
+          <p className="!mb-0 max-w-[235px]">
+            <span className="font-semibold">Địa chỉ:</span> 66/9/27 KP6A, Đường Tân Thới Nhất 06, Phường
+            Tân Thới Nhất, Quận 12
           </p>
           <p className="!mb-0 max-w-[235px]">
-            <span className="font-semibold font-poppins-semibold">Địa chỉ:</span> 66/9/27 KP6A, Đường Tân
-            Thới Nhất 06, Phường Tân Thới Nhất, Quận 12
+            <span className="font-semibold">Điện thoại:</span> 0705195195
           </p>
           <p className="!mb-0 max-w-[235px]">
-            <span className="font-semibold font-poppins-semibold">Điện thoại:</span> 0705195195
-          </p>
-          <p className="!mb-0 max-w-[235px]">
-            <span className="font-semibold font-poppins-semibold">Emai:</span> yensaonhavui@gmail.com
+            <span className="font-semibold">Emai:</span> yensaonhavui@gmail.com
           </p>
         </div>
       </div>
       <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
         <div className="flex flex-col gap-4 text-body-lg-normal">
-          <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold">
-            Theo dõi chúng tôi
-          </p>
+          <p className="text-[18px] leading-[24px] font-semibold">Theo dõi chúng tôi</p>
           <Link
             href="https://www.facebook.com/YENSAONHAVUI"
             target="_blank"
@@ -119,53 +112,46 @@ function Mobile() {
     <div className="lg:hidden block items-start gap-10">
       <div className="flex items-start gap-[90px] flex-wrap [&_*]:!text-black border-b border-black py-[22px]">
         <div className="flex flex-col gap-1.5 text-body-lg-normal">
-          <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold !mb-2.5">
-            Thông tin liên hệ
-          </p>
+          <p className="text-[18px] leading-[24px] font-semibold !mb-2.5">Thông tin liên hệ</p>
           <p className="!mb-0">
-            <span className="font-semibold font-poppins-semibold">Địa chỉ:</span> 66/9/27 KP6A, Đường Tân
-            Thới Nhất 06, Phường Tân Thới Nhất, Quận 12
+            <span className="font-semibold">Địa chỉ:</span> 66/9/27 KP6A, Đường Tân Thới Nhất 06, Phường
+            Tân Thới Nhất, Quận 12
           </p>
           <p className="!mb-0 max-w-[235px]">
-            <span className="font-semibold font-poppins-semibold">Điện thoại:</span> 0705195195
+            <span className="font-semibold">Điện thoại:</span> 0705195195
           </p>
           <p className="!mb-0 max-w-[235px]">
-            <span className="font-semibold font-poppins-semibold">Emai:</span> yensaonhavui@gmail.com
+            <span className="font-semibold">Emai:</span> yensaonhavui@gmail.com
           </p>
         </div>
       </div>
       <div className="flex items-start justify-between py-[22px] border-b border-black">
         <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
           <div className="flex flex-col gap-4 text-body-lg-normal">
-            <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold">Sản phẩm</p>
+            <p className="text-[18px] leading-[24px] font-semibold">Sản phẩm</p>
             <Link
-              href="https://www.facebook.com/YENSAONHAVUI"
-              target="_blank"
+              href="/products?category=tat-ca"
               className="flex items-center gap-2 lg:justify-start justify-start !text-black"
             >
               <p className="!mb-0">Tất cả sản phẩm</p>
             </Link>
             <Link
-              href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
-              target="_blank"
+              href="/products?category=to-yen-cao-cap"
               className="flex items-center gap-2 lg:justify-start justify-start !text-black"
             >
               <p className="!mb-0">Tổ yến cao cấp</p>
             </Link>
             <Link
-              href="https://www.tiktok.com/@yennhavuioffical?_t=8hPpiYJYjOU&_r=1"
-              target="_blank"
+              href="/parnership-and-collabration"
               className="flex items-center gap-2 lg:justify-start justify-start !text-black"
             >
-              <p className="!mb-0 font-semibold font-poppins-semibold">Đối tác - Liên kết</p>
+              <p className="!mb-0 font-semibold">Đối tác - Liên kết</p>
             </Link>
           </div>
         </div>
         <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
           <div className="flex flex-col gap-4 text-body-lg-normal">
-            <p className="text-[18px] leading-[24px] font-semibold font-poppins-semibold">
-              Theo dõi chúng tôi
-            </p>
+            <p className="text-[18px] leading-[24px] font-semibold">Theo dõi chúng tôi</p>
             <Link
               href="https://www.facebook.com/YENSAONHAVUI"
               target="_blank"
