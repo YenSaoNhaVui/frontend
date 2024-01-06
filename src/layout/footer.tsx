@@ -43,7 +43,9 @@ function Desktop() {
     <div className="lg:flex hidden items-start gap-10">
       <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
         <div className="flex flex-col gap-4 text-body-lg-normal">
-          <p className="text-[18px] leading-[24px] font-semibold">Sản phẩm</p>
+          <Link href="/products?category=tat-ca">
+            <p className="text-[18px] leading-[24px] font-semibold">Sản phẩm</p>
+          </Link>
           <Link
             href="/products?category=tat-ca"
             className="flex items-center gap-2 lg:justify-start justify-start !text-black"
@@ -128,7 +130,9 @@ function Mobile() {
       <div className="flex items-start justify-between py-[22px] border-b border-black">
         <div className="flex items-start gap-[90px] flex-wrap [&_*]:!mb-0 [&_*]:!text-black">
           <div className="flex flex-col gap-4 text-body-lg-normal">
-            <p className="text-[18px] leading-[24px] font-semibold">Sản phẩm</p>
+            <Link href="/products?category=tat-ca">
+              <p className="text-[18px] leading-[24px] font-semibold">Sản phẩm</p>
+            </Link>
             <Link
               href="/products?category=tat-ca"
               className="flex items-center gap-2 lg:justify-start justify-start !text-black"
