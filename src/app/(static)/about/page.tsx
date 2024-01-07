@@ -59,12 +59,12 @@ export default async function AboutPage() {
           <ImagesYenSao data={data} className="lg:!w-[425px] lg:!h-[756px] mt-[30px]" />
         </div>
 
-        <div className="flex lg:flex-row flex-col-reverse items-center lg:gap-[180px] gap-[60px] lg:pr-20">
-          <figure className="lg:max-w-[585px] w-full max-h-[800px] min-h-[800px] relative lg:rounded-[20px] rounded-[14px] flex-1">
-            <div className="absolute lg:-top-[88px] -top-[34px] left-0 lg:w-[430px] lg:h-[200px] w-[294px] h-[274px] bg-[#3ABF9C] rounded-r-[20px] z-0" />
+        <div className="flex lg:flex-row flex-col-reverse items-center xl:gap-[180px] lg:gap-[100px] gap-[60px] xl:pr-20 lg:pr-10">
+          <figure className="lg:max-w-[585px] lg:min-w-[500px] w-full lg:max-h-[800px] lg:min-h-[800px] sm:min-h-[800px] sm:max-h-[800px] min-h-[500px] max-h-[500px] relative lg:rounded-[20px] rounded-[14px] flex-1">
+            <div className="absolute lg:-top-[88px] -top-[34px] left-0 lg:w-[430px] lg:h-[200px] w-[294px] h-[274px] bg-[#3ABF9C] rounded-r-[20px] z-0 lg:block hidden" />
             <div className="absolute top-[50px] -right-[44px] w-[461px] h-[301px] bg-[#3ABF9C] rounded-r-[20px] z-0 lg:block hidden" />
             <ImageOptimize
-              className="absolute top-0 left-0 w-full h-full rounded-[20px] z-10 object-cover"
+              className="absolute top-0 left-0 w-full h-full rounded-[20px] z-10 lg:object-cover object-contain"
               src="https://ucarecdn.com/6637b0b3-fea6-4f7d-9ee7-d0c2fce606dc/-/quality/better/-/format/webp/-/progressive/yes/"
               alt="Giấy chứng nhận"
             />
