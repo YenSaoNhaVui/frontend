@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Product } from "@/interfaces";
 import { formatPrice } from "@/utils";
 import { useCart } from "@/zustand";
+import { message } from "antd";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -65,7 +66,10 @@ export default function ProductInfo({ product }: { product: Product }) {
           variant="outlined"
           rounded="md"
           className="!px-2 !py-2.5 !text-[16px] !leading-[24px] !text-primary-1-5 !font-semibold !bg-white flex-1"
-          onClick={() => addProductCarts({ product, quantity, variant: product.prices[variantId] })}
+          onClick={() => {
+            addProductCarts({ product, quantity, variant: product.prices[variantId] });
+            message.success("Đã thêm vào giỏ hàng!");
+          }}
         >
           Thêm giỏ hàng
         </Button>

@@ -5,10 +5,12 @@ import { ContactValidate } from "@/validate-yub";
 import { App } from "antd";
 import { Form, Formik } from "formik";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function ProductFormReivew({ star }: { star: number }) {
   const pathname = usePathname();
   const { message } = App.useApp();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   return (
     <Formik
       initialValues={{
@@ -29,6 +31,7 @@ export default function ProductFormReivew({ star }: { star: number }) {
           message.error("Vui lòng đánh giá trước khi bình luận");
           return;
         }
+        setIsLoading(true);
         try {
           await createComment(parseInt(pathname.match(/\d+/)[0], 10), {
             userName: information.fullName,
@@ -41,6 +44,7 @@ export default function ProductFormReivew({ star }: { star: number }) {
         } catch (error) {
           console.error(error);
         }
+        setIsLoading(false);
       }}
     >
       <Form>
@@ -73,7 +77,7 @@ export default function ProductFormReivew({ star }: { star: number }) {
               className=" text-primary-2-5 !bg-primary-1-7 hover:!bg-primary-1-8"
               rounded="md"
             >
-              Gửi đánh giá
+              {isLoading ? "Đang gửi đánh giá..." : "Gửi đánh giá"}
             </Button>
           </div>
         </div>
