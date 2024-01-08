@@ -71,7 +71,7 @@ export default function MoreProducts({ product }: { product: Product }) {
           </div>
         </div>
         {(product?.categories[0] as Category)?.products?.length >= 4 ? (
-          <Slider ref={slider} {...settings} className="[&_.slick-slide]:px-3">
+          <Slider ref={slider} {...settings} className="[&_.slick-slide]:px-3 [&_.slick-arrow]:!hidden">
             {(product?.categories[0] as Category)?.products.slice(0, 5)?.map((_product) => (
               <ProductCard
                 key={_product?.id}
