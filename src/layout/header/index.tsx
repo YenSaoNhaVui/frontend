@@ -49,10 +49,10 @@ export default function Header() {
         </Link>
         <Link href="/" className="lg:block hidden">
           <Icon
-            className={cn("absolute left-0 top-[11px]", {
+            className={cn("absolute xl:left-0 left-4 top-[11px]", {
               "w-[17px] h-10 top-[9px]": logoHome.indexOf(url) == -1,
               "animation-logo !w-[61px] !h-[146px]": logoHome.indexOf(url) != -1 && !isScroll,
-              "!w-[100px] !h-9": isScroll,
+              "!w-[100px] !h-9": isScroll && logoHome.indexOf(url) != -1,
             })}
           >
             {logoHome.indexOf(url) == -1 || !isScroll ? <LogoYen /> : <LogoYenNhaVui />}
@@ -67,7 +67,7 @@ export default function Header() {
             </Icon>
           )}
         </Link>
-        <div className="py-4 gap-9 w-full lg:flex hidden items-center justify-center">
+        <div className="py-4 xl:gap-9 lg:gap-4 w-full lg:flex hidden items-center justify-center">
           <HeaderLinks />
         </div>
         <Cart />

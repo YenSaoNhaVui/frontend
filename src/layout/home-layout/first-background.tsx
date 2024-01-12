@@ -29,7 +29,7 @@ export default function FirstBackground({ data }: { data: StaticData }) {
       <Carousel autoplay={true} className="lg:!hidden !block ">
         {backgroundsMobile?.map((url) => (
           <Link key={url} href="https://collection.yensaonhavui.vn" target="_blank" className="!block">
-            <div className="lg:h-[750px] sm:h-[540px] small:h-[315px] h-[250px] relative ">
+            <div className="lg:h-[750px] sm:h-[540px] h-[500px] relative ">
               <Image
                 fill
                 loader={imageLoader}

@@ -14,7 +14,7 @@ export default function Cart() {
 
   return (
     <div
-      className={cn("lg:absolute relative lg:top-3 right-0", {
+      className={cn("lg:absolute relative lg:top-3 xl:right-0 right-4", {
         "lg:top-3": url != "/",
       })}
     >
