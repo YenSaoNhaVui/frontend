@@ -1,4 +1,66 @@
+import { siteConfig } from "@/config/site";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Thiết bị âm thanh nhà yến",
+  description: siteConfig.description,
+
+  robots: "index, follow",
+  keywords: "Yến Sào, Yến Sào Nhà Vui, Yến Sào Ngon quám, Yến Sào Bổ, Yến Sào Ngon Bổ Rẻ",
+  publisher: "Vercel",
+  other: {
+    name: "Thiết bị âm thanh nhà yến",
+    image: siteConfig?.ogImage,
+  },
+  authors: [
+    {
+      name: "Yến sào nhà vui",
+      url: "https://yensaonhavui.vn",
+    },
+  ],
+  openGraph: {
+    locale: "vi_VN",
+    title: "Thiết bị âm thanh nhà yến",
+    description: siteConfig.description,
+    type: "website",
+    url: "https://yensaonhavui.vn",
+    images: [
+      {
+        url: siteConfig?.ogImage,
+        width: 1920,
+        height: 1024,
+        alt: "Thiết bị âm thanh nhà yến",
+      },
+      {
+        url: siteConfig?.ogImage,
+        width: 1024,
+        height: 400,
+        alt: "Thiết bị âm thanh nhà yến",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Thiết bị âm thanh nhà yến",
+    description: siteConfig.description,
+    creator: "yen sao",
+    images: [
+      {
+        url: siteConfig?.ogImage,
+        alt: "Thiết bị âm thanh nhà yến",
+        type: "website",
+      },
+    ],
+  },
+  creator: "Yến sào nhà vui",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: `${siteConfig.url}/`,
+};
 
 //prettier-ignore
 const ITEMS = [
@@ -7,6 +69,7 @@ const ITEMS = [
   { h3: "Trách nhiệm của người sử dụng", h4: " Yến Nhà Vui cho phép người dùng xem các thông tin trên Website và chia sẻ cho người khác cùng biết thông tin với mục đích cá nhân, phi thương mại.  Không can thiệp vào việc sử dụng Website của người khác cũng như hoạt động quản lý Website của Yến Nhà Vui. ", },
   { h3: "Điều khoản chung", h4: " Được điều chỉnh và sử dụng theo hệ thống pháp luật Việt Nam. Bất kỳ sự thay đổi nào khi tòa án vô hiệu hóa một vài điều khoản trong bộ luật cũng sẽ không ảnh hưởng đến tính hiệu lực của các điều khoản còn lại. Nếu có bất cứ thông tin gì cho thấy Yến Nhà Vui vi phạm bản quyền của bên thứ 3, hãy liên hệ ngay với Yến Nhà Vui để được giải quyết. ", },
 ];
+
 const PartnerShipAndCollabrationPage = () => {
   return (
     <div className="lg:px-[180px] lg:py-[90px] px-6 py-10">

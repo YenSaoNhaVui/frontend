@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "https://be-yensao.onrender.com/";
+export const baseURL = "https://api.yensaonhavui.vn/";
 const axiosInstance = axios.create({
   baseURL, //process.env.NEXT_PUBLIC_BASE_BACKEND_URL,
 });

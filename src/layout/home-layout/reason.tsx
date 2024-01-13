@@ -12,7 +12,7 @@ export default function Reason() {
           <YenNhaVui />
         </div>
         <div className="flex items-center lg:justify-end justify-center mt-[18px]">
-          <Link href="/products">
+          <Link href="/about">
             <Button
               aria-label="See more/xem thêm button"
               title="See more/xem thêm"

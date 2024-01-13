@@ -1,4 +1,66 @@
+import { siteConfig } from "@/config/site";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Chính sách đại lý",
+  description: siteConfig.description,
+
+  robots: "index, follow",
+  keywords: "Yến Sào, Yến Sào Nhà Vui, Yến Sào Ngon quám, Yến Sào Bổ, Yến Sào Ngon Bổ Rẻ",
+  publisher: "Vercel",
+  other: {
+    name: "Chính sách đại lý",
+    image: siteConfig?.ogImage,
+  },
+  authors: [
+    {
+      name: "Yến sào nhà vui",
+      url: "https://yensaonhavui.vn",
+    },
+  ],
+  openGraph: {
+    locale: "vi_VN",
+    title: "Chính sách đại lý",
+    description: siteConfig.description,
+    type: "website",
+    url: "https://yensaonhavui.vn",
+    images: [
+      {
+        url: siteConfig?.ogImage,
+        width: 1920,
+        height: 1024,
+        alt: "Chính sách đại lý",
+      },
+      {
+        url: siteConfig?.ogImage,
+        width: 1024,
+        height: 400,
+        alt: "Chính sách đại lý",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chính sách đại lý",
+    description: siteConfig.description,
+    creator: "yen sao",
+    images: [
+      {
+        url: siteConfig?.ogImage,
+        alt: "Chính sách đại lý",
+        type: "website",
+      },
+    ],
+  },
+  creator: "Yến sào nhà vui",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: `${siteConfig.url}/`,
+};
 
 const ITEMS = [
   {
