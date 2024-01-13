@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { StaticData } from "@/interfaces";
 import { ImagesYenSao } from "@/layout/home-layout/production-process";
+import { YenNhaVui } from "@/layout/home-layout/reason";
 
 export default async function AboutPage() {
   const data = await getData();
@@ -115,7 +116,7 @@ export default async function AboutPage() {
           </div>
           <figure className="lg:!min-w-[660px] min-w-[100vw] sm:!min-h-[440px] !min-h-[292px] lg:rounded-[18px] rounded-none relative overflow-hidden flex-1">
             <ImageOptimize
-              src="https://ucarecdn.com/20a7ad1d-3873-49b6-b2a8-28eaa0bf837a/-/quality/better/-/format/webp/-/progressive/yes/"
+              src="https://ucarecdn.com/5862ad5c-e140-460d-9c60-16e4c0b6bf6d/-/quality/better/-/format/webp/-/progressive/yes/"
               className="absolute top-0 left-0 w-full h-full object-cover"
               alt="Giới thiệu về yến sào nhà vui"
             />
@@ -125,7 +126,7 @@ export default async function AboutPage() {
         <div className="mt-[50px] flex lg:flex-row flex-col-reverse lg:gap-[106px] gap-6 items-center xl:max-w-[1276px] lg:max-w-[1024] lg:mx-auto mx-6 lg:text-start text-center">
           <figure className="lg:!min-w-[660px] min-w-[100vw] sm:!min-h-[440px] !min-h-[292px] lg:rounded-[18px] rounded-none relative overflow-hidden flex-1">
             <ImageOptimize
-              src="https://ucarecdn.com/a301d6fb-fbb1-4f5f-85ab-5f365c8ac830/-/quality/better/-/format/webp/-/progressive/yes/"
+              src="https://ucarecdn.com/14708c66-d684-4127-8b38-a2fdd57db472/-/quality/better/-/format/webp/-/progressive/yes/"
               className="absolute top-0 left-0 w-full h-full object-cover"
               alt="Giới thiệu về yến sào nhà vui"
             />
@@ -154,12 +155,9 @@ export default async function AboutPage() {
         <div className="lg:px-20 px-[68px] flex lg:flex-row flex-col lg:gap-[60px] gap-[30px] mb-[90px] mt-[100px]">
           <div className="lg:mb-0 mb-[30px]">
             <h5 className="mb-2 lg:text-start text-center">LÝ DO CHỌN</h5>
-            <figure className="pt-[88px] pl-[245px] relative">
-              <img
-                src="https://ucarecdn.com/6e0e54cf-9ce1-4cab-b5b2-89c13b7f18ad/-/quality/lighter/-/format/webp/-/progressive/yes/"
-                className="absolute top-0 left-0 w-full h-full"
-              />
-            </figure>
+            <div className="flex items-center justify-center">
+              <YenNhaVui />
+            </div>
           </div>
           {REASON?.map((reason) => (
             <div key={reason?.title}>

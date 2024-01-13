@@ -287,13 +287,13 @@ export function MessengerIcon() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(22.674 85.956) scale(95.224)"
         >
-          <stop stop-color="#1292FF" />
-          <stop offset="0.079" stop-color="#2982FF" />
-          <stop offset="0.23" stop-color="#4E69FF" />
-          <stop offset="0.351" stop-color="#6559FF" />
-          <stop offset="0.428" stop-color="#6D53FF" />
-          <stop offset="0.754" stop-color="#DF47AA" />
-          <stop offset="0.946" stop-color="#FF6257" />
+          <stop stopColor="#1292FF" />
+          <stop offset="0.079" stopColor="#2982FF" />
+          <stop offset="0.23" stopColor="#4E69FF" />
+          <stop offset="0.351" stopColor="#6559FF" />
+          <stop offset="0.428" stopColor="#6D53FF" />
+          <stop offset="0.754" stopColor="#DF47AA" />
+          <stop offset="0.946" stopColor="#FF6257" />
         </radialGradient>
       </defs>
     </svg>

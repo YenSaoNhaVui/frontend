@@ -2,6 +2,7 @@ import { ArrowRightStraightIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import Link from "next/link";
+import { YenNhaVui } from "./reason";
 
 export default function InterView() {
   return (
@@ -27,12 +28,8 @@ export default function InterView() {
       </div>
       <div className="flex-1 lg:mx-0 mx-6">
         <h5 className="mt-[41px] mb-4">GIỚI THIỆU</h5>
-        <img
-          src="https://ucarecdn.com/f45772e8-ef59-4712-8be9-e4428169344a/-/quality/lighter/-/format/webp/-/progressive/yes/"
-          className="mb-4 w-[246px] h-[88px]"
-          alt="Yến nhà vui"
-        />
-        <p className="text-body-md-medium text-[#9EFEE0] mb-4">
+        <YenNhaVui />
+        <p className="text-body-md-medium text-[#9EFEE0] my-4">
           Thương hiệu {`"Yến Sào Nhà Vui"`} đã ghi dấu ấn mạnh mẽ trong lĩnh vực Yến sào trong suốt 10
           năm qua. Chúng tôi tự hào cung cấp các sản phẩm Yến sào tự nhiên, không qua bất kỳ quá trình
           chế biến hay xử lý hóa học nào, để đảm bảo giữ nguyên toàn bộ giá trị dinh dưỡng và hương vị
