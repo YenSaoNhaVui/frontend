@@ -51,7 +51,7 @@ export default function FirstBackground({ data }: { data: StaticData }) {
       <Carousel autoplay={false} className="!hidden lg:!block">
         {backgroundsPC?.map((url) => (
           <Link key={url} href="https://collection.yensaonhavui.vn" target="_blank" className="!block">
-            <div className="pt-[40%] relative">
+            <div className="pt-[48%] relative">
               <Image
                 fill
                 loader={imageLoader}
