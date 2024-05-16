@@ -74,7 +74,7 @@ function Desktop() {
             Tân Thới Nhất, Quận 12
           </p>
           <p className="!mb-0 max-w-[235px]">
-            <span className="font-semibold">Điện thoại:</span> 0705195195
+            <span className="font-semibold">Điện thoại:</span> 0908337315
           </p>
           <p className="!mb-0 max-w-[235px]">
             <span className="font-semibold">Emai:</span> yensaonhavui@gmail.com
@@ -120,7 +120,7 @@ function Mobile() {
             Tân Thới Nhất, Quận 12
           </p>
           <p className="!mb-0 max-w-[235px]">
-            <span className="font-semibold">Điện thoại:</span> 0705195195
+            <span className="font-semibold">Điện thoại:</span> 0908337315
           </p>
           <p className="!mb-0 max-w-[235px]">
             <span className="font-semibold">Emai:</span> yensaonhavui@gmail.com

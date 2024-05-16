@@ -43,7 +43,7 @@ export default function Address() {
             <Icon size="lg" className="mt-[3px]">
               <PhoneIcon />
             </Icon>
-            <h5 className="lg:text-sm !text-body-md-semibold">0705195195 (Sđt & Zalo)</h5>
+            <h5 className="lg:text-sm !text-body-md-semibold">0908337315 (Sđt & Zalo)</h5>
           </div>
           <div className="flex lg:gap-2.5 gap-1.5">
             <Icon size="lg" className="mt-[3px]">

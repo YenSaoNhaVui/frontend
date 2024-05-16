@@ -101,11 +101,11 @@ const ITEMS = [
   },
   {
     h3: "Chỉnh sửa dữ liệu cá nhân của mình",
-    h4: "Mọi yêu cầu về chỉnh sửa thông tin, Quý khách hàng vui lòng gọi Hotline: 0705195195 để yêu cầu chỉnh sửa thông tin dữ liệu cá nhân được nhanh chóng và chính xác.",
+    h4: "Mọi yêu cầu về chỉnh sửa thông tin, Quý khách hàng vui lòng gọi Hotline: 0908337315 để yêu cầu chỉnh sửa thông tin dữ liệu cá nhân được nhanh chóng và chính xác.",
   },
   {
     h3: "Khiếu nại về thông tin cá nhân",
-    h4: "Mọi yêu cầu về khiếu nại thông tin cá nhân, Quý khách hàng vui lòng gọi Hotline: 0705195195 để được giải quyết.",
+    h4: "Mọi yêu cầu về khiếu nại thông tin cá nhân, Quý khách hàng vui lòng gọi Hotline: 0908337315 để được giải quyết.",
   },
   {
     h3: "Cam kết bảo mật thông tin",
