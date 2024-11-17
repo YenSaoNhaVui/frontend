@@ -138,7 +138,7 @@ const PrivacyPolicyPage = () => {
           {item.items?.map((i) => (
             <div key={i} className="flex">
               <p className="text-body-md-medium mb-0 mx-1">•</p>
-              <p className="text-body-md-medium mb-0">{i}</p>
+              <p className="text-body-md-medium mb-0 ">{i}</p>
             </div>
           ))}
         </div>
