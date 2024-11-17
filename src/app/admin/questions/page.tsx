@@ -37,7 +37,7 @@ export default function AdminQuestionsPage() {
       }}
       dataSource={data?.sort((a, b) => (a.viewed === b.viewed ? 0 : a.viewed ? 1 : -1)) ?? []}
       loading={loading}
-      pagination={false}
+      pagination={{ position: ["none", "bottomRight"], pageSize: 12 }}
       className="w-full h-full overflow-auto "
     >
       <Column title="STT" key="id" render={(_, __, i) => i + 1} align="center" />

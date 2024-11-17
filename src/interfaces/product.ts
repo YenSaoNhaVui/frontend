@@ -18,7 +18,7 @@ export interface Product {
   highlight: boolean;
 
   prices: Variant[]; // Đặt tên lỗi xíu  :))
-
+  isDisplay: boolean;
   details: [
     {
       isTable: boolean;
@@ -29,7 +29,7 @@ export interface Product {
       }[];
       quill: { title: string; content: string };
       details: string;
-    },
+    }
   ];
 
   categories: Category[] | number[];

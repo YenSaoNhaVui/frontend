@@ -34,7 +34,7 @@ export default function AdminOrdersPage() {
       rowClassName={({ viewed }) => (viewed ? "bg-gray-200" : "")}
       dataSource={data?.sort((a, b) => (a.viewed === b.viewed ? 0 : a.viewed ? 1 : -1)) ?? []}
       loading={loading}
-      pagination={false}
+      pagination={{ position: ["none", "bottomRight"], pageSize: 12 }}
       className="w-full h-full overflow-auto "
       expandable={{
         expandedRowRender: (order) => <RowDetails order={order} />,

@@ -32,7 +32,11 @@ export default function AdminblogsPage() {
         </Button>
       </Header>
       <Content>
-        <Table dataSource={data ?? []} loading={loading} pagination={false}>
+        <Table
+          dataSource={data ?? []}
+          loading={loading}
+          pagination={{ position: ["none", "bottomRight"], pageSize: 12 }}
+        >
           <Column title="STT" key="id" render={(_, __, i) => i + 1} />
           <Column<Blog>
             title="Tiêu đề"
