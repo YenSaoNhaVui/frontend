@@ -190,7 +190,7 @@ const REASON = [
 ];
 
 async function getData() {
-  const res = await fetch("https://api.yensaonhavui.vn/static", {
+  const res = await fetch("https://new-be-m9jj.onrender.com/static", {
     next: { revalidate: 300 },
   });
   const data: StaticData = await res.json();

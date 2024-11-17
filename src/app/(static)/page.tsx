@@ -8,7 +8,7 @@ export default async function Home() {
 }
 
 async function getData() {
-  const res = await fetch("https://api.yensaonhavui.vn/static", {
+  const res = await fetch("https://new-be-m9jj.onrender.com/static", {
     next: { revalidate: 300 },
   });
   const data: StaticData = await res.json();
@@ -21,7 +21,7 @@ async function getData() {
 }
 
 async function getProductsTop() {
-  const res = await fetch("https://api.yensaonhavui.vn/products/highlights", {
+  const res = await fetch("https://new-be-m9jj.onrender.com/products/highlights", {
     next: { revalidate: 300 },
   });
   const data: Product[] = await res.json();
