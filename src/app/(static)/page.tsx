@@ -8,7 +8,7 @@ export default async function Home() {
 }
 
 async function getData() {
-  const res = await fetch("https://new-be-m9jj.onrender.com/static", {
+  const res = await fetch("https://new-be-1.onrender.com/static", {
     next: { revalidate: 300 },
   });
   const data: StaticData = await res.json();
@@ -21,7 +21,7 @@ async function getData() {
 }
 
 async function getProductsTop() {
-  const res = await fetch("https://new-be-m9jj.onrender.com/products/highlights", {
+  const res = await fetch("https://new-be-1.onrender.com/products/highlights", {
     next: { revalidate: 300 },
   });
   const data: Product[] = await res.json();

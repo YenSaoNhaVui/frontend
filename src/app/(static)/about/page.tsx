@@ -190,7 +190,7 @@ const REASON = [
 ];
 
 async function getData() {
-  const res = await fetch("https://new-be-m9jj.onrender.com/static", {
+  const res = await fetch("https://new-be-1.onrender.com/static", {
     next: { revalidate: 300 },
   });
   const data: StaticData = await res.json();

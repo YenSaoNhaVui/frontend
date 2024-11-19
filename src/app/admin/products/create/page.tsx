@@ -24,10 +24,11 @@ export default function Create() {
 
   const initialProduct = useSearchParamsData<Product>();
   useEffect(() => {
+    console.log(initialProduct);
     form.setFieldsValue({
       ...initialProduct,
       images: preprocessImages(initialProduct?.images),
-      categories: initialProduct?.categories.map((item: any) => item.id),
+      categories: initialProduct?.categories?.map((item: any) => item.id),
     });
   }, [initialProduct]);
 
@@ -36,7 +37,7 @@ export default function Create() {
     setIsSubmited(true);
     try {
       product.images = await uploadImages(product.images as UploadFile[]);
-      product.categories = product.categories.map((category: any) => ({ id: category }) as Category);
+      product.categories = product.categories.map((category: any) => ({ id: category } as Category));
       if (initialProduct) {
         await updateProduct(initialProduct.id, product);
       } else {
