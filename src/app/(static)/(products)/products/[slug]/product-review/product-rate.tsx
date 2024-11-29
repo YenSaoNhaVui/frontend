@@ -3,7 +3,13 @@ import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
 import { Dispatch, SetStateAction } from "react";
 
-export default function ProductRate({ setStars }: { setStars: Dispatch<SetStateAction<number>> }) {
+export default function ProductRate({
+  setStars,
+  star,
+}: {
+  setStars: Dispatch<SetStateAction<number>>;
+  star: number;
+}) {
   const renderStar = (index: number, { value }: { value: number }) => {
     const ceilValue = Math.ceil(value);
     const isHalf = value !== ceilValue && index === ceilValue - 1;
@@ -37,6 +43,7 @@ export default function ProductRate({ setStars }: { setStars: Dispatch<SetStateA
       </p>
       <Rate
         onChange={(e) => setStars(e)}
+        value={star}
         allowHalf
         character={({ index, value }) => renderStar(index || 0, { value: value || 0 })}
       />

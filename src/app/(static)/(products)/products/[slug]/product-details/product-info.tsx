@@ -17,12 +17,12 @@ export default function ProductInfo({ product }: { product: Product }) {
       <h3 className="">{product?.title}</h3>
       <h4>
         {product.prices?.[variantId]?.listPrice != product.prices?.[variantId]?.price ? (
-          <>
-            {formatPrice(product.prices?.[variantId]?.listPrice, true)}
-            <sup className="ml-2`">
+          <div className="flex items-start gap-2 flex-wrap">
+            <p className="!text-body-lg-semibold">
               <s>{formatPrice(product.prices?.[variantId]?.price, true)}</s>
-            </sup>
-          </>
+            </p>
+            {formatPrice(product.prices?.[variantId]?.listPrice, true)}
+          </div>
         ) : (
           formatPrice(product.prices?.[variantId]?.price, true)
         )}

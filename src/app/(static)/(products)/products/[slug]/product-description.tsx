@@ -1,7 +1,6 @@
 import { Product } from "@/interfaces";
 
 export default function ProductDescription({ product }: { product: Product }) {
-  console.log(product);
   return (
     <section className="lg:max-w-[920px] mx-auto mt-[34px] text-primary-1-7 mb-[56px]">
       {product?.details?.map((detail) =>
@@ -25,7 +24,6 @@ function TableDescription({
   }[];
   title: string;
 }) {
-  console.log(tables);
   return (
     <div className="border-t border-l border-r border-primary-1-7 mb-[56px]">
       <div className="py-[17px] border-b border-primary-1-7">

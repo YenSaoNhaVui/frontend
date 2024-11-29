@@ -7,7 +7,7 @@ export default function Address() {
     <div className="flex lg:flex-row flex-col-reverse lg:gap-9 gap-[30px] lg:mb-12 mb-7">
       <div className="overflow-hidden rounded-2xl lg:max-w-[510px] lg:h-[510px] lg:pt-0 pt-[100%] flex-1 relative">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d346.36665532245246!2d106.6157667076169!3d10.83491383033049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bcd0a8eab7b%3A0x66b92925c3ba7f96!2zMDYgxJAuIFTDom4gVGjhu5tpIE5o4bqldCAxLCBUw6JuIFRo4bubaSBOaOG6pXQsIFF14bqtbiAxMiwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1699028785430!5m2!1svi!2s"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15674.744372654304!2d106.6114358!3d10.8353171!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bba9699c001%3A0x2aeab725bd6a4773!2zWeG6v24gU8OgbyBOaMOgIFZ1aQ!5e0!3m2!1svi!2s!4v1732897544799!5m2!1svi!2s"
           width="100%"
           height="100%"
           className="lg:relative absolute top-0 left-0 w-full h-full z-10"

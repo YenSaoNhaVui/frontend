@@ -7,7 +7,15 @@ import { Form, Formik } from "formik";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-export default function ProductFormReivew({ star }: { star: number }) {
+export default function ProductFormReivew({
+  star,
+  setComments,
+  setStar,
+}: {
+  star: number;
+  setComments: any;
+  setStar: any;
+}) {
   const pathname = usePathname();
   const { message } = App.useApp();
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -33,14 +41,16 @@ export default function ProductFormReivew({ star }: { star: number }) {
         }
         setIsLoading(true);
         try {
-          await createComment(parseInt(pathname.match(/\d+/)[0], 10), {
+          const { data } = await createComment(parseInt(pathname.match(/\d+/)[0], 10), {
             userName: information.fullName,
             userStar: star,
             userPhone: information.emailOrPhone,
             userComment: information.question,
           });
+          setComments((prev: any) => [data, ...prev]);
+          setStar(0);
           actions.setSubmitting(false);
-          location.reload();
+          actions.resetForm();
         } catch (error) {
           console.error(error);
         }

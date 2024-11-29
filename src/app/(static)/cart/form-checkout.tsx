@@ -13,6 +13,7 @@ type Props = {};
 export default function FormCheckout({}: Props) {
   const { getTotalPrice, productCarts, setProductCarts } = useCart((state) => state);
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   useClickOutSide(openModal, setOpenModal, ".modal");
 
   const { message } = App.useApp();
@@ -33,10 +34,12 @@ export default function FormCheckout({}: Props) {
         actions: any
       ) => {
         actions.setSubmitting(false);
+        if (isLoading) return;
         if (productCarts.length == 0) {
           message.info("Chưa chọn sản phẩm nào!");
           return;
         }
+        setIsLoading(true);
         try {
           await createOrder({
             name: information.fullName + " - " + information?.address,
@@ -53,6 +56,7 @@ export default function FormCheckout({}: Props) {
         } catch (error) {
           console.error(error);
         }
+        setIsLoading(false);
       }}
     >
       <Form>
@@ -90,7 +94,7 @@ export default function FormCheckout({}: Props) {
               className="!bg-primary-2-1 hover:!bg-primary-2-1/70 !text-primary-1-7"
               type="submit"
             >
-              Xác nhận mua
+              {isLoading ? "Đang xác nhận..." : "Xác nhận mua"}
             </Button>
           </div>
         </div>

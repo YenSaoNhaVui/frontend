@@ -6,6 +6,7 @@ import { Product } from "@/interfaces";
 
 export default function ProductReview({ product }: { product: Product }) {
   const [star, setStar] = useState<number>(0);
+  const [comments, setComments] = useState<any>(product?.comments?.sort((a, b) => b.id - a.id));
   return (
     <section className="mt-1.5 text-primary-1-7 mb-[56px]">
       <h3 className="text-primary-1-7 mb-5">
@@ -20,10 +21,10 @@ export default function ProductReview({ product }: { product: Product }) {
         Quý khách vui lòng điền đầy đủ thông tin có đánh dấu sao (*) để Yến Nhà Vui có thể hỗ trợ quý
         khách một cách tốt nhất.
       </p>
-      <ProductRate setStars={setStar} />
-      <ProductFormReivew star={star} />
+      <ProductRate setStars={setStar} star={star} />
+      <ProductFormReivew star={star} setComments={setComments} setStar={setStar} />
       <div className="my-5 border-t border-primary-1-5" />
-      <Reviews comments={product?.comments} />
+      <Reviews comments={comments} />
     </section>
   );
 }
