@@ -9,7 +9,7 @@ import { App, Button, Popconfirm, Space, Table, Tooltip } from "antd";
 import Column from "antd/es/table/Column";
 
 export default function AdminQuestionsPage() {
-  const { data, loading, refetch } = useAsync<Question[]>(() => getQuestions());
+  const { data, loading, refetch } = useAsync<Question[]>(() => getQuestions({ take: 99999 }));
   const { message } = App.useApp();
   const handleDeleteQuestion = async (id: number) => {
     try {

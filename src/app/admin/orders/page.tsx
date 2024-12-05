@@ -9,7 +9,7 @@ import Column from "antd/es/table/Column";
 import RowDetails from "./row-details";
 
 export default function AdminOrdersPage() {
-  const { data, loading, refetch } = useAsync<Order[]>(() => getOrders());
+  const { data, loading, refetch } = useAsync<Order[]>(() => getOrders({ take: 99999 }));
   const { message } = App.useApp();
   const handleDeleteOrder = async (id: number) => {
     try {

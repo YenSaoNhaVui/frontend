@@ -15,7 +15,7 @@ const { Content, Header } = Layout;
 export default function AdminProductsPage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [products, setProducts] = useState<Product[]>([]);
-  const { data, loading, refetch } = useAsync<Product[]>(() => getProductsAll());
+  const { data, loading, refetch } = useAsync<Product[]>(() => getProductsAll({ take: 999999 }));
   const { message } = App.useApp();
   const router = useRouter();
 

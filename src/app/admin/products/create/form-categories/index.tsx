@@ -9,7 +9,7 @@ import Categories from "./categories";
 type Props = {};
 
 export default function FormCategories({}: Props) {
-  const { data, loading, refetch } = useAsync<Category[]>(() => getCategorys());
+  const { data, loading, refetch } = useAsync<Category[]>(() => getCategorys({ take: 999999 }));
   const [open, setOpen] = useState(false);
 
   return (
@@ -35,7 +35,8 @@ export default function FormCategories({}: Props) {
         title="Chỉnh sửa danh mục"
         open={open}
         onCancel={() => setOpen(false)}
-        width={250}
+        width={400}
+        centered
         footer={[
           <Button key="submit" type="primary" onClick={() => setOpen(false)}>
             OK
