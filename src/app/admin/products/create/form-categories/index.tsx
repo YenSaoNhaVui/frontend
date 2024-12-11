@@ -3,15 +3,20 @@ import { Category, Product } from "@/interfaces";
 import { getCategorys } from "@/service/categories";
 import { EditOutlined } from "@ant-design/icons";
 import { Button, Form, Modal, Select } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Categories from "./categories";
 
 type Props = {};
 
 export default function FormCategories({}: Props) {
-  const { data, loading, refetch } = useAsync<Category[]>(() => getCategorys({ take: 999999 }));
+  const [categories, setCategories] = useState<Category[]>([]);
   const [open, setOpen] = useState(false);
+  const { data, loading, refetch } = useAsync<Category[]>(() => getCategorys({ take: 999999 }));
 
+  useEffect(() => {
+    if (loading) return;
+    setCategories(data);
+  }, [loading]);
   return (
     <div className="relative">
       <Form.Item<Product> name="categories" label="Danh mục:" rules={[{ required: true }]}>
@@ -43,7 +48,7 @@ export default function FormCategories({}: Props) {
           </Button>,
         ]}
       >
-        <Categories categories={data ?? []} refetch={refetch} />
+        <Categories categories={categories} setCategories={setCategories} refetch={refetch} />
       </Modal>
     </div>
   );
