@@ -27,7 +27,7 @@ export default function ProductCard({ className, product, category, isHover }: P
         "lg:hover:scale-[1.18] hover:scale-[1.1] duration-200": isHover,
       })}
     >
-      <Link href={"/products/" + (product?.id || "")} className="cursor-pointer">
+      <Link href={"/products/" + (product?.slug || "")} className="cursor-pointer">
         <figure className="pt-[100%] relative rounded-t-xl">
           {product?.highlight ? (
             <Tag className="absolute top-6 right-3 z-30" color="#f50">
@@ -51,7 +51,7 @@ export default function ProductCard({ className, product, category, isHover }: P
             {category || (product?.categories?.[0] as Category)?.title || ""}
           </p>
         </div>
-        <Link href={`/products/${product?.id || 123}`}>
+        <Link href={`/products/${product?.slug || 123}`}>
           <h6 className="text-primary-2-5 mb-[30px] lg:text-xl !text-body-sm-semibold lg:!font-semibold !font-medium lg:line-clamp-2 line-clamp-3 lg:h-[44px] h-[66px]">
             {product?.title}
           </h6>

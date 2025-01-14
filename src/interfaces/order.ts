@@ -18,7 +18,7 @@ export interface OrdersProducts {
   productId?: number;
   quantity: number;
   variant: Variant;
-
+  slug: string;
   product?: Product;
   order?: Order;
 }

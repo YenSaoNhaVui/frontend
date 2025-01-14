@@ -8,6 +8,7 @@ import { DeleteOutlined, EditOutlined, EyeOutlined, HighlightOutlined } from "@a
 import { App, Button, Image, Layout, Space, Table, Tooltip } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const { Column } = Table;
 const { Content, Header } = Layout;
@@ -92,7 +93,9 @@ export default function AdminProductsPage() {
             render={(_: any, product: Product) => (
               <Space>
                 <Image width={40} src={product.images?.[0] as string} />
-                {product.title}
+                <Link href={"/products/" + product?.slug} className="!text-black" target="_blank">
+                  {product.title}
+                </Link>
               </Space>
             )}
           />

@@ -14,7 +14,7 @@ export interface Product {
   title: string;
   description: string;
   images: string[] | UploadFile[];
-
+  slug: string;
   highlight: boolean;
 
   prices: Variant[]; // Đặt tên lỗi xíu  :))

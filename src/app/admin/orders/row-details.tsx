@@ -24,7 +24,10 @@ export default function RowDetails({ order }: Props) {
       </div>
       {order.products?.map((productCart, i) => (
         <div key={i} className="grid grid-cols-8 py-2.5 border-b border-solid border-black">
-          <Link href={"/products/" + productCart.productId}>
+          <Link
+            href={"/products/" + productCart.slug}
+            className="min-w-[80px] max-w-[80px] min-h-[80px] max-h-[80px]"
+          >
             <figure className="relative min-w-[80px] max-w-[80px] min-h-[80px] max-h-[80px] rounded-lg overflow-hidden m-0">
               <img
                 src={productCart?.product.images?.[0] as string}
