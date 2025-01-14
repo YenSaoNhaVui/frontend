@@ -67,7 +67,12 @@ export default function ProductInfo({ product }: { product: Product }) {
           rounded="md"
           className="!px-2 !py-2.5 !text-[16px] !leading-[24px] !text-primary-1-5 !font-semibold !bg-white flex-1"
           onClick={() => {
-            addProductCarts({ product, quantity, variant: product.prices[variantId] });
+            addProductCarts({
+              product,
+              quantity,
+              variant: product.prices[variantId],
+              slug: product?.slug,
+            });
             message.success("Đã thêm vào giỏ hàng!");
           }}
         >
@@ -79,7 +84,12 @@ export default function ProductInfo({ product }: { product: Product }) {
           className="flex-1 w-full text-primary-2-5 !bg-primary-1-7 hover:!bg-primary-1-8"
           rounded="md"
           onClick={() => {
-            addProductCarts({ product, quantity, variant: product.prices[variantId] });
+            addProductCarts({
+              product,
+              quantity,
+              variant: product.prices[variantId],
+              slug: product?.slug,
+            });
             router.push("/cart");
           }}
         >

@@ -72,7 +72,7 @@ export default function ProductCard({ className, product, category, isHover }: P
             title="Add product/thêm sản phẩm"
             className="!p-0 !w-8 !h-8 !bg-white hover:!bg-white/90"
             onClick={() => {
-              addProduct({ product, quantity: 1, variant: product.prices?.[0] });
+              addProduct({ product, quantity: 1, variant: product.prices?.[0], slug: product.slug });
               message.success("Đã thêm vào giỏ hàng!");
             }}
           >

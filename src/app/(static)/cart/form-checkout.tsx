@@ -48,6 +48,7 @@ export default function FormCheckout({}: Props) {
             products: productCarts.map((product) => ({
               productId: product.product.id,
               variant: product.variant,
+              slug: product?.slug,
               quantity: product.quantity,
             })),
           });

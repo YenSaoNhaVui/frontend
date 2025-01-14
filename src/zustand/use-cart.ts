@@ -5,6 +5,7 @@ import { persist } from "zustand/middleware";
 export interface ProductCart {
   product: Product;
   variant: Variant;
+  slug: string;
   quantity: number;
 }
 
