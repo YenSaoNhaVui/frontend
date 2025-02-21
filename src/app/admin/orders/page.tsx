@@ -7,10 +7,13 @@ import { DeleteOutlined, EyeOutlined, EyeInvisibleOutlined } from "@ant-design/i
 import { App, Button, Popconfirm, Space, Table, Tooltip } from "antd";
 import Column from "antd/es/table/Column";
 import RowDetails from "./row-details";
+import { useStore } from "zustand";
+import { useUser } from "@/zustand";
 
 export default function AdminOrdersPage() {
   const { data, loading, refetch } = useAsync<Order[]>(() => getOrders({ take: 99999 }));
   const { message } = App.useApp();
+  const { user } = useStore(useUser);
   const handleDeleteOrder = async (id: number) => {
     try {
       await deleteOrder(id);
@@ -60,9 +63,11 @@ export default function AdminOrdersPage() {
                 onClick={() => handleViewed(order.id, !order.viewed)}
               />
             </Tooltip>
-            <Popconfirm title="Chắc chắn muốn xóa?" onConfirm={() => handleDeleteOrder(order.id)}>
-              <Button shape="circle" icon={<DeleteOutlined />} type="text" danger />
-            </Popconfirm>
+            {user.role == "Owner" && (
+              <Popconfirm title="Chắc chắn muốn xóa?" onConfirm={() => handleDeleteOrder(order.id)}>
+                <Button shape="circle" icon={<DeleteOutlined />} type="text" danger />
+              </Popconfirm>
+            )}
           </Space>
         )}
         onFilter={(value, { viewed }) => value == viewed}

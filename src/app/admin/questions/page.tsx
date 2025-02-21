@@ -4,13 +4,16 @@ import useAsync from "@/hooks/use-async";
 import { Question } from "@/interfaces";
 import { deleteQuestion, getQuestions, viewedQuestion } from "@/service/questions";
 import { formatDate } from "@/utils";
+import { useUser } from "@/zustand";
 import { DeleteOutlined, EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 import { App, Button, Popconfirm, Space, Table, Tooltip } from "antd";
 import Column from "antd/es/table/Column";
+import { useStore } from "zustand";
 
 export default function AdminQuestionsPage() {
   const { data, loading, refetch } = useAsync<Question[]>(() => getQuestions({ take: 99999 }));
   const { message } = App.useApp();
+  const { user } = useStore(useUser);
   const handleDeleteQuestion = async (id: number) => {
     try {
       await deleteQuestion(id);
@@ -65,9 +68,14 @@ export default function AdminQuestionsPage() {
                 onClick={() => handleViewed(question.id, !question.viewed)}
               />
             </Tooltip>
-            <Popconfirm title="Chắc chắn muốn xóa?" onConfirm={() => handleDeleteQuestion(question.id)}>
-              <Button shape="circle" icon={<DeleteOutlined />} type="text" danger />
-            </Popconfirm>
+            {user.role == "Owner" && (
+              <Popconfirm
+                title="Chắc chắn muốn xóa?"
+                onConfirm={() => handleDeleteQuestion(question.id)}
+              >
+                <Button shape="circle" icon={<DeleteOutlined />} type="text" danger />
+              </Popconfirm>
+            )}
           </Space>
         )}
         onFilter={(value, { viewed }) => value == viewed}
