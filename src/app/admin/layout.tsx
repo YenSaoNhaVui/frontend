@@ -1,6 +1,7 @@
 "use client";
 import { useClient } from "@/hooks";
-import { isLoggedIn, logOut } from "@/service";
+import { getMe, isLoggedIn, logOut } from "@/service";
+import { useUser } from "@/zustand";
 import {
   FileTextOutlined,
   HomeOutlined,
@@ -13,9 +14,10 @@ import {
 import type { MenuProps } from "antd";
 import { App, Button, Layout, Menu } from "antd";
 import { redirect, usePathname, useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import "styles/globals.css";
 import "styles/quill.snow.css";
+import { useStore } from "zustand";
 
 const { Sider } = Layout;
 
@@ -23,8 +25,9 @@ type Props = {
   children: React.ReactNode;
 };
 export default function AdminLayout({ children }: Props) {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const router = useRouter();
-
+  const { user, setUser } = useStore(useUser);
   const ITEMS: MenuProps["items"] = [
     {
       key: "/admin/orders",
@@ -58,8 +61,22 @@ export default function AdminLayout({ children }: Props) {
       onClick: (e) => router.push(e.key),
     },
   ];
+  const getAuth = async () => {
+    const data = await getMe();
+    if (!data) {
+      router.push("/admin");
+    } else {
+      setUser(data.user);
+    }
+    setIsLoading(false);
+  };
   const pathname = usePathname();
   const { isClient } = useClient(() => {
+    if (isLoggedIn()) {
+      getAuth();
+    } else {
+      setIsLoading(false);
+    }
     if (!isLoggedIn() && pathname != "/admin") redirect("/admin");
     else if (pathname == "/admin" && isLoggedIn()) redirect("/admin/products");
   });
@@ -67,7 +84,7 @@ export default function AdminLayout({ children }: Props) {
     <html lang="en">
       <head />
       <body className="h-full w-full">
-        {isClient ? (
+        {isClient && !isLoading ? (
           <App className="h-full w-full">
             {!isLoggedIn() ? (
               children
@@ -92,9 +109,21 @@ export default function AdminLayout({ children }: Props) {
                   <Sider width={250}>
                     <Menu
                       mode="inline"
-                      defaultSelectedKeys={["/admin/products"]}
+                      defaultSelectedKeys={[pathname]}
                       className="h-full"
-                      items={ITEMS}
+                      items={
+                        user?.role?.toLocaleLowerCase() == "owner"
+                          ? [
+                              ...ITEMS,
+                              {
+                                key: "/admin/user",
+                                icon: <UserOutlined />,
+                                label: "Quản lý nhân viên",
+                                onClick: (e) => router.push(e.key),
+                              },
+                            ]
+                          : ITEMS
+                      }
                     />
                   </Sider>
                   {children}

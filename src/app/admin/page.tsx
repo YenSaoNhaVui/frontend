@@ -1,9 +1,11 @@
 "use client";
 
 import { logIn } from "@/service";
+import { useUser } from "@/zustand";
 import { App, Button, Card, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useStore } from "zustand";
 
 type FormData = {
   userName: string;
@@ -13,15 +15,16 @@ type FormData = {
 export default function AdminPage() {
   const { message } = App.useApp();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { setUser } = useStore(useUser);
   const router = useRouter();
   async function handleSubmit(e: FormData) {
     setIsLoading(true);
     try {
-      await logIn(e.userName, e.password);
+      const data = await logIn(e.userName, e.password);
+      setUser(data.user);
       router.replace("/admin/products");
     } catch (error) {
       message.error("Tài khoản không đúng!");
-      console.error(error);
     }
     setIsLoading(false);
   }

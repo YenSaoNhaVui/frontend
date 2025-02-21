@@ -6,6 +6,8 @@ import { buildQueryString, formatDate, formatPrice } from "@/utils";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { App, Button, Image, Layout, Space, Table } from "antd";
 import { useRouter } from "next/navigation";
+import { useStore } from "zustand";
+import { useUser } from "@/zustand";
 
 const { Column } = Table;
 const { Content, Header } = Layout;
@@ -14,7 +16,7 @@ export default function AdminblogsPage() {
   const { data, loading, refetch } = useAsync<Blog[]>(() => getBlogs());
   const { message } = App.useApp();
   const router = useRouter();
-
+  const { user } = useStore(useUser);
   const handleDeleteblog = async (id: number) => {
     try {
       await deleteBlog(id);
@@ -61,16 +63,18 @@ export default function AdminblogsPage() {
               <Space>
                 <Button
                   shape="circle"
-                  icon={<DeleteOutlined />}
-                  type="text"
-                  danger
-                  onClick={() => handleDeleteblog(blog.id)}
-                />
-                <Button
-                  shape="circle"
                   icon={<EditOutlined />}
                   onClick={() => router.push(buildQueryString("/admin/blogs/create", blog))}
                 ></Button>
+                {user.role == "Owner" && (
+                  <Button
+                    shape="circle"
+                    icon={<DeleteOutlined />}
+                    type="text"
+                    danger
+                    onClick={() => handleDeleteblog(blog.id)}
+                  />
+                )}
               </Space>
             )}
           />

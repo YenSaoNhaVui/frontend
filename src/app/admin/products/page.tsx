@@ -9,6 +9,8 @@ import { App, Button, Image, Layout, Space, Table, Tooltip } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useStore } from "zustand";
+import { useUser } from "@/zustand";
 
 const { Column } = Table;
 const { Content, Header } = Layout;
@@ -18,6 +20,7 @@ export default function AdminProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const { data, loading, refetch } = useAsync<Product[]>(() => getProductsAll({ take: 999999 }));
   const { message } = App.useApp();
+  const { user } = useStore(useUser);
   const router = useRouter();
 
   const handleUpdateHighlight = async (id: number, highlight: boolean) => {
@@ -141,16 +144,18 @@ export default function AdminProductsPage() {
                 </Tooltip>
                 <Button
                   shape="circle"
-                  icon={<DeleteOutlined />}
-                  type="text"
-                  danger
-                  onClick={() => handleDeleteProduct(product.id)}
-                />
-                <Button
-                  shape="circle"
                   icon={<EditOutlined />}
                   onClick={() => router.push(buildQueryString("/admin/products/create", product))}
                 ></Button>
+                {user.role == "Owner" && (
+                  <Button
+                    shape="circle"
+                    icon={<DeleteOutlined />}
+                    type="text"
+                    danger
+                    onClick={() => handleDeleteProduct(product.id)}
+                  />
+                )}
               </Space>
             )}
           />
