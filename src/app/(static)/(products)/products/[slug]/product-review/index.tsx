@@ -22,7 +22,12 @@ export default function ProductReview({ product }: { product: Product }) {
         khách một cách tốt nhất.
       </p>
       <ProductRate setStars={setStar} star={star} />
-      <ProductFormReivew star={star} setComments={setComments} setStar={setStar} />
+      <ProductFormReivew
+        star={star}
+        setComments={setComments}
+        setStar={setStar}
+        productId={product?.id}
+      />
       <div className="my-5 border-t border-primary-1-5" />
       <Reviews comments={comments} />
     </section>

@@ -11,12 +11,13 @@ export default function ProductFormReivew({
   star,
   setComments,
   setStar,
+  productId,
 }: {
   star: number;
   setComments: any;
   setStar: any;
+  productId: number;
 }) {
-  const pathname = usePathname();
   const { message } = App.useApp();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   return (
@@ -41,7 +42,7 @@ export default function ProductFormReivew({
         }
         setIsLoading(true);
         try {
-          const { data } = await createComment(parseInt(pathname.match(/\d+/)[0], 10), {
+          const { data } = await createComment(productId, {
             userName: information.fullName,
             userStar: star,
             userPhone: information.emailOrPhone,
@@ -54,7 +55,7 @@ export default function ProductFormReivew({
         } catch (error) {
           console.error(error);
         }
-        setIsLoading(false);  
+        setIsLoading(false);
       }}
     >
       <Form>

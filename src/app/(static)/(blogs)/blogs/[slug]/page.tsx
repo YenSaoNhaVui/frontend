@@ -33,7 +33,7 @@ export async function generateStaticParams(): Promise<DocPageProps["params"][]> 
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   try {
-    const response = await axios.get(`${baseURL}blogs/${params?.slug}`);
+    const response = await axios.get(`${baseURL}/blogs/${params?.slug}`);
     const blogs: Blog = response?.data;
     return {
       title: blogs.title,

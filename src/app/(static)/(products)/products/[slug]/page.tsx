@@ -1,9 +1,9 @@
-import { Blog, Product } from "@/interfaces";
+import { Product } from "@/interfaces";
 import { getProducts } from "@/service";
+import { baseURL } from "@/service/axios-instance";
 import axios from "axios";
 import { Metadata } from "next";
 import ProductDetailsClient from "./product-details-client";
-import { baseURL } from "@/service/axios-instance";
 
 interface DocPageProps {
   params: {
@@ -18,6 +18,7 @@ export default async function BlogDetailsPage({ params }: DocPageProps) {
 export async function generateStaticParams(): Promise<DocPageProps["params"][]> {
   try {
     const response = await getProducts({ take: 99999999 });
+    console.log(response);
     const paths = response?.map((product: Product) => ({
       slug: (product?.slug || 1)?.toString(),
     }));
@@ -33,9 +34,8 @@ export async function generateStaticParams(): Promise<DocPageProps["params"][]> 
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   try {
-    const response = await axios.get(`${baseURL}products/${params?.slug}`);
+    const response = await axios.get(`${baseURL}/products/${params?.slug}`);
     const product: Product = response?.data;
-
     return {
       title: product.title,
       description: product.description,
